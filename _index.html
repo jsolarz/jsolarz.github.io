@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- <link async href="http://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css"/> -->
+	<link async href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+	<style>
+		/* http://meyerweb.com/eric/tools/css/reset/ 
+		   v2.0 | 20110126
+		   License: none (public domain)
+		*/
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section,div {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+
+
+		html,body{
+			width: 100%;
+			height: 100%;
+			position: relative; 
+		}
+
+		html {
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		    background-repeat:no-repeat;
+
+		    /*background: rgb(96,108,136);		    
+		    background: -webkit-linear-gradient( to left top, #606c88, #3f4c6b);
+		    background: -moz-linear-gradient( to left top, #606c88, #3f4c6b);
+		    background: -ms-linear-gradient( to left top, #606c88, #3f4c6b);
+		    background: -o-linear-gradient( to left top, #606c88, #3f4c6b);
+		    background: linear-gradient( to left top, #606c88, #3f4c6b);*/
+
+		    
+
+		}
+		
+		body {
+			margin: 0;		
+			color: #fff;
+			overflow: hidden;
+
+			/*background-position: center center;*/
+			/*background-repeat: no-repeat;			*/
+
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#606c88+0,3f4c6b+100;Grey+3D+%232 */
+			/*background: rgb(96,108,136); /* Old browsers */*/
+			/*background: -moz-linear-gradient(top, rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%); /* FF3.6+ */*/
+			/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1))); /* Chrome,Safari4+ */*/
+			/*background: -webkit-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* Chrome10+,Safari5.1+ */*/
+			/*background: -o-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* Opera 11.10+ */*/
+			/*background: -ms-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* IE10+ */*/
+			/*background: linear-gradient(to bottom, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* W3C */*/
+			/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */*/
+		}
+
+		a,
+		a:visited {
+		  color: #fff;
+		  text-decoration: none;
+		}
+
+		a:hover {
+		  color: #c00;
+		}
+
+		.white-border{
+			border:10px solid #fff;
+			/*-webkit-box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);
+			-moz-box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);
+			box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);*/
+		}
+
+		.circle{
+			border-radius: 100%;
+		}
+
+		.large{
+			width:300px;
+			height:300px;
+			font: normal 50px/300px "open Sans", sans-serif;
+			text-align: center;
+		}
+
+
+		.medium{
+			width:200px;
+			height:200px;
+			font: normal 36px/200px "open Sans", sans-serif;
+			text-align: center;
+		}
+
+		.small{
+			width:100px;
+			height:100px;
+			font: normal 14px/100px "open Sans", sans-serif;	
+			text-align: center;
+		}
+
+		.projects{			
+			background: #96C0CE;
+			position:absolute;
+			transition: 0.5s ease;
+			top:100px;
+			left:50px;
+		}		
+
+		.projects:hover{
+			background: #53a7ea;
+		}
+
+		.about{
+			background:#C25B56;
+			position:absolute;
+			border:3px solid #fff;
+			transition: 0.5s ease;
+			top:300px;
+			left:250px;
+		}
+
+		.about:hover{
+			background:#53a7ea;
+		}
+
+		.contact{
+			background:#BEB9B5;
+			position:absolute;
+			border:3px solid #fff;
+			transition: 0.5s ease;
+			top:150px;
+			left:350px;
+		}
+
+		.contact:hover{
+			background:#53a7ea;
+		}		
+
+		.carbon{
+			background:
+				linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+				linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+				linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+				linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+				linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+				linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+			background-color: #131313;
+			background-size: 20px 20px;
+		}
+
+		.eight-bit{			
+			display: inline-block;
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+			padding: 10px;
+			overflow: hidden;
+			border: none;			
+			color: rgba(255,255,0,1);
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
+		}
+
+		.shadow{
+			text-shadow:
+				1px 1px 0 #CCC,
+				2px 2px 0 #CCC, /* end of 2 level deep grey shadow */
+				3px 3px 0 #444,
+				4px 4px 0 #444,
+				5px 5px 0 #444,
+				6px 6px 0 #444; /* end of 4 level deep dark shadow */
+		}		
+
+
+.panel {
+    width: 100%;
+    height: 500px;
+    overflow:hidden;
+    -webkit-transform: translateZ( 0 );
+    transform: translateZ( 0 );
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.panel h1 {
+    font-family: sans-serif;
+    font-size: 64px;
+    font-size: 4rem;
+    color: #fff;
+    position:relative;
+    line-height: 200px;
+    top: 33%;
+    text-align: center;
+    margin: 0;
+}
+
+/*
+ *Scrolling
+ */
+
+.nav {
+    width:100%;
+    height: 770px;
+}
+
+a[ id= "home" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( 0px);
+    transform: translateY( 0px );
+}
+
+a[ id= "about" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -770px);
+    transform: translateY( -770px );
+}
+
+a[ id= "projects" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -1270px );
+    transform: translateY( -1270px );
+}
+a[ id= "contact" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -1820px );
+    transform: translateY( -1820px );
+}
+
+.container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+
+
+
+	</style>
+</head>
+<body class="carbon">
+	<div class="container">
+		<!-- <a id="projects"></a>
+		<a id="about"></a>
+		<a id="contact"></a>
+
+		<div class="nav">
+			<div class="circle large white-border projects"><a href="#projects"><span class="shadow">test 1</span></a></div>
+			<div class="circle medium white-border about"><a href="#about"><span class="shadow">test 2</span></a></div>
+			<div class="circle small white-border contact"><a href="#contact"><span class="shadow">test 3</span></a></div> 
+		</div>	
+
+		<section id="main">
+
+		    <article class="panel" id="projects" style="border: 1px solid red">
+		        <h1>Test 1</h1>
+		        <a href="#about"><span class="shadow">test 2</span></a>
+		    </article>
+
+		    <article class="panel" id="about" style="border: 1px solid yellow">
+		        <h1>Test 2</h1>
+		        <a href="#about"><span class="shadow">test 3</span></a>
+		    </article>
+
+		    <article class="panel" id="contact" style="border: 1px solid green">
+		        <h1>Test 3</h1>
+		        <a href="#about"><span class="shadow">home</span></a>
+		    </article>
+		</section>	-->
+	
+
+	<a id="home"></a>
+	<a id="projects"></a>
+	<a id="about"></a>
+	<a id="contact"></a>
+
+	<section id="main">
+		<article class="nav panel" id="home">		
+			<div class="circle large white-border projects"><a href="#projects"><span class="shadow">Projects</span></a></div>
+			<div class="circle medium white-border about"><a href="#about"><span class="shadow">About me</span></a></div>
+			<div class="circle small white-border contact"><a href="#contact"><span class="shadow">Contact me</span></a></div> 
+			<!-- <h1><a href="#about">1</a></h1> -->
+		</article>		
+		<article class="panel" id="about">
+			<hr/>
+			<h1><a href="#projects">2</a></h1>
+		</article>
+		<article class="panel" id="projects">
+			<hr/>
+			<h1><a href="#contact">3</a></h1>
+		</article>
+		<article class="panel" id="contact">
+			<hr/>
+			<h1><a href="#home">4</a></h1>
+		</article>
+	</section>
+</div> 
+</body>
+</html>
