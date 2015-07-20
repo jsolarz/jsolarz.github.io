@@ -59,15 +59,15 @@
 		html,body{
 			width: 100%;
 			height: 100%;
-			position: relative; 
+			position: absolute;
 		}
 
 		html {
-		    -webkit-background-size: cover;
+		    /*-webkit-background-size: cover;
 		    -moz-background-size: cover;
 		    -o-background-size: cover;
 		    background-size: cover;
-		    background-repeat:no-repeat;
+		    background-repeat:no-repeat;*/
 
 		    /*background: rgb(96,108,136);		    
 		    background: -webkit-linear-gradient( to left top, #606c88, #3f4c6b);
@@ -81,9 +81,8 @@
 		}
 		
 		body {
-			margin: 0;		
 			color: #fff;
-			overflow: hidden;
+			
 
 			/*background-position: center center;*/
 			/*background-repeat: no-repeat;			*/
@@ -105,49 +104,49 @@
 		  text-decoration: none;
 		}
 
-		a:hover {
+		/*a:hover {
 		  color: #c00;
-		}
+		}*/
 
 		.white-border{
 			border:10px solid #fff;
 			/*-webkit-box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);
 			-moz-box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);
 			box-shadow: 10px 10px 5px 0px rgba(133,133,133,1);*/
+			/*border:groove 15px #000000;*/
 		}
 
 		.circle{
-			border-radius: 100%;
+			border-radius: 100%;			
 		}
 
 		.large{
-			width:300px;
-			height:300px;
-			font: normal 50px/300px "open Sans", sans-serif;
-			text-align: center;
+			width:450px;
+			height:450px;
+			
+			/*text-align: center;*/
 		}
 
-
 		.medium{
-			width:200px;
-			height:200px;
-			font: normal 36px/200px "open Sans", sans-serif;
-			text-align: center;
+			width:350px;
+			height:350px;
+			/*font: normal 36px/350px "open Sans", sans-serif;
+			text-align: center;*/
 		}
 
 		.small{
 			width:100px;
 			height:100px;
-			font: normal 14px/100px "open Sans", sans-serif;	
-			text-align: center;
+			/*font: normal 14px/100px "open Sans", sans-serif;	
+			text-align: center;*/
 		}
 
 		.projects{			
 			background: #96C0CE;
 			position:absolute;
 			transition: 0.5s ease;
-			top:100px;
-			left:50px;
+			top: 0px;
+  			left: 120px;
 		}		
 
 		.projects:hover{
@@ -157,10 +156,9 @@
 		.about{
 			background:#C25B56;
 			position:absolute;
-			border:3px solid #fff;
 			transition: 0.5s ease;
-			top:300px;
-			left:250px;
+			bottom:10px;
+			left:450px;
 		}
 
 		.about:hover{
@@ -170,7 +168,6 @@
 		.contact{
 			background:#BEB9B5;
 			position:absolute;
-			border:3px solid #fff;
 			transition: 0.5s ease;
 			top:150px;
 			left:350px;
@@ -192,7 +189,7 @@
 			background-size: 20px 20px;
 		}
 
-		.eight-bit{			
+		/*.eight-bit{			
 			display: inline-block;
 			-webkit-box-sizing: content-box;
 			-moz-box-sizing: content-box;
@@ -204,7 +201,7 @@
 			-o-text-overflow: ellipsis;
 			text-overflow: ellipsis;
 			text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
-		}
+		}*/
 
 		.shadow{
 			text-shadow:
@@ -270,15 +267,37 @@ a[ id= "contact" ]:target ~ #main article.panel {
 }
 
 .container {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+	margin:auto;
+	width:960px;
+	border:1px solid #fff;
 }
 
+.circle p{
+	line-height: 1.4em;
+	text-align: center;
+	word-break: break-word;	
+}
 
+.circle .content{
+	width: 90%;
+	margin: -50 0 0 -50;
+	left: 50%;
+	top: 50%;
+	border: 1px solid #fff;
+}
 
+.circle h2{
+	font: normal 30px/1.4em "open Sans", sans-serif;
+	text-align: center;
+}	
+
+.font-16{
+	font: normal 16px/1.4em "open Sans", sans-serif;
+}
+
+strong{
+	font-weight: bold;
+}
 
 	</style>
 </head>
@@ -318,26 +337,77 @@ a[ id= "contact" ]:target ~ #main article.panel {
 	<a id="about"></a>
 	<a id="contact"></a>
 
-	<section id="main">
-		<article class="nav panel" id="home">		
-			<div class="circle large white-border projects"><a href="#projects"><span class="shadow">Projects</span></a></div>
-			<div class="circle medium white-border about"><a href="#about"><span class="shadow">About me</span></a></div>
-			<div class="circle small white-border contact"><a href="#contact"><span class="shadow">Contact me</span></a></div> 
-			<!-- <h1><a href="#about">1</a></h1> -->
-		</article>		
-		<article class="panel" id="about">
+	<div id="main">
+		<article class="nav panel home">
+			<div class="circle medium white-border projects">
+				<!-- <a href="#projects">span class="shadow">Projects</span></a> -->
+				<h2>Projects</<h2>				
+			</div>
+			<div class="circle large white-border about">
+				<!-- <a href="#about"><span class="shadow">About me</span></a> -->
+				<div class="content">				
+					<h2><strong>Hello, <br/>I'm Jonathan Solarz<strong></h2>
+					
+					<p class="font-16">
+						<strong>I'm a Software developer</strong> and co-founder of a small software factory called <a href="http://www.uppme.net" target="_blank">UppMe</a>.<br/>
+						I build websites and applications working with .NET and PHP</p>
+
+					<p class="font-16">
+						I'm a Passionate software practitioner involved in a variety of languages and frameworks with several years of experience and responsibilities.<br/>
+						In my years in the industry I've been involved in a variety of software companies as a developer focusing in sharpening my skills.
+					</p>
+				</div>
+			</div>
+			<div class="circle small white-border contact">
+				<!-- <a href="#contact"><span class="shadow">Contact me</span></a> -->
+				<p>Would you like me to work with you? <a href="mailto:hello@ionisolarz.com" class="contact">Let's get in touch.</a></p>
+			</div>
+			<div class="circle small white-border social">
+				<a href="http://www.twitter.com/ionis_" target="_blank">Twitter</a>
+				<a href="https://www.linkedin.com/in/ionisolarz" target="_blank">Linkedin</a>
+				<a href="http://github.com/jsolarz" target="_blank">GitHub</a>
+				<a href="assets/resources/cv_js.pdf" target="_blank">Resume</a>
+			</div>
+		</article>
+		<!-- <article class="panel">
 			<hr/>
 			<h1><a href="#projects">2</a></h1>
 		</article>
-		<article class="panel" id="projects">
+		<article class="panel">
 			<hr/>
 			<h1><a href="#contact">3</a></h1>
 		</article>
-		<article class="panel" id="contact">
+		<article class="panel">
 			<hr/>
 			<h1><a href="#home">4</a></h1>
-		</article>
-	</section>
+		</article> -->
+	</div>
 </div> 
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var homeHeight = $(".home").height();
+		var breakpoint = $(".home").height()/2;
+		var lastScrollTop = 0;
+		var animate = true;
+
+		$(document).on('scroll', function(){
+			var offsetTop = $(window).scrollTop();
+
+			console.log(offsetTop, breakpoint);
+	
+			if(offsetTop > breakpoint && animate && offsetTop > lastScrollTop){
+				console.log("animating");
+				$(".projects").addClass("element-animation");
+				$(".about").addClass("element-animation");
+				$(".contact").addClass("element-animation");
+				animate = false;
+			}
+
+			lastScrollTop = offsetTop;
+		});		
+	});
+</script>-->
 </body>
 </html>
