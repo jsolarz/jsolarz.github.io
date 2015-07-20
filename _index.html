@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Ioni Solarz</title>
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- <link async href="http://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css"/> -->
 	<link async href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
@@ -54,20 +58,17 @@
 			border-spacing: 0;
 		}
 
-
-
 		html,body{
 			width: 100%;
 			height: 100%;
-			position: relative; 
 		}
 
 		html {
-		    -webkit-background-size: cover;
+		   /* -webkit-background-size: cover;
 		    -moz-background-size: cover;
 		    -o-background-size: cover;
 		    background-size: cover;
-		    background-repeat:no-repeat;
+		    background-repeat:no-repeat;*/
 
 		    /*background: rgb(96,108,136);		    
 		    background: -webkit-linear-gradient( to left top, #606c88, #3f4c6b);
@@ -83,7 +84,6 @@
 		body {
 			margin: 0;		
 			color: #fff;
-			overflow: hidden;
 
 			/*background-position: center center;*/
 			/*background-repeat: no-repeat;			*/
@@ -143,41 +143,21 @@
 		}
 
 		.projects{			
-			background: #96C0CE;
 			position:absolute;
-			transition: 0.5s ease;
 			top:100px;
 			left:50px;
-		}		
-
-		.projects:hover{
-			background: #53a7ea;
 		}
 
 		.about{
-			background:#C25B56;
 			position:absolute;
-			border:3px solid #fff;
-			transition: 0.5s ease;
 			top:300px;
 			left:250px;
 		}
 
-		.about:hover{
-			background:#53a7ea;
-		}
-
 		.contact{
-			background:#BEB9B5;
 			position:absolute;
-			border:3px solid #fff;
-			transition: 0.5s ease;
 			top:150px;
 			left:350px;
-		}
-
-		.contact:hover{
-			background:#53a7ea;
 		}		
 
 		.carbon{
@@ -192,7 +172,7 @@
 			background-size: 20px 20px;
 		}
 
-		.eight-bit{			
+		/*.eight-bit{			
 			display: inline-block;
 			-webkit-box-sizing: content-box;
 			-moz-box-sizing: content-box;
@@ -204,7 +184,7 @@
 			-o-text-overflow: ellipsis;
 			text-overflow: ellipsis;
 			text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
-		}
+		}*/
 
 		.shadow{
 			text-shadow:
@@ -225,8 +205,8 @@
     transform: translateZ( 0 );
     -webkit-transition: -webkit-transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    /*-webkit-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
 }
 
 .panel h1 {
@@ -245,7 +225,7 @@
  *Scrolling
  */
 
-.nav {
+.home {
     width:100%;
     height: 770px;
 }
@@ -278,66 +258,138 @@ a[ id= "contact" ]:target ~ #main article.panel {
 }
 
 
+#mainHeader{
+	position:fixed;
+	display:none;
+	background: #fff;
+	height: 40px;
+	width:100%;
+	z-index:10;
+}
+
+#mainHeader ul {
+	list-style: none;
+	  list-style: none;
+  height: 100%;
+  position: relative;
+  float: right;
+}
+
+#mainHeader ul li{
+	  float: left;
+  margin-left: 5px;
+  width: 100px;
+  position: relative;
+  height: 100%;
+  font: normal 16px/40px "open Sans", sans-serif;
+  text-align: center;
+}
+
+.blue{			
+	background: #96C0CE;
+	transition: 0.5s ease;
+}	
+
+.blue:hover{
+	background: #53a7ea;
+}
+
+.red{
+	background:#C25B56;
+	transition: 0.5s ease;
+}
+
+.red:hover{
+	background:#53a7ea;
+}
+
+.cream{
+	background:#BEB9B5;
+	transition: 0.5s ease;
+}
+
+.cream:hover{
+	background:#53a7ea;
+}	
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
 
 
 	</style>
 </head>
 <body class="carbon">
+	
 	<div class="container">
-		<!-- <a id="projects"></a>
+		<header id="mainHeader">
+			<ul>
+				<li class="navItem blue"><a href="#home"><span class="">Home</span></a></li>
+				<li class="navItem blue"><a href="#projects"><span class="">Projects</span></a></li>
+				<li class="navItem red"><a href="#about"><span class="">About me</span></a></li>
+				<li class="navItem cream"><a href="#contact"><span class="">Contact me</span></a></li>
+			</ul>
+		</header>
+
+		<a id="home"></a>
+		<a id="projects"></a>
 		<a id="about"></a>
 		<a id="contact"></a>
-
-		<div class="nav">
-			<div class="circle large white-border projects"><a href="#projects"><span class="shadow">test 1</span></a></div>
-			<div class="circle medium white-border about"><a href="#about"><span class="shadow">test 2</span></a></div>
-			<div class="circle small white-border contact"><a href="#contact"><span class="shadow">test 3</span></a></div> 
-		</div>	
-
+		
 		<section id="main">
+			<article class="panel home">		
+				<div class="circle large white-border blue projects"><a href="#projects"><span class="">Projects</span></a></div>
+				<div class="circle medium white-border red about"><a href="#about"><span class="">About me</span></a></div>
+				<div class="circle small white-border cream contact"><a href="#contact"><span class="">Contact me</span></a></div> 
+				<!-- <h1><a href="#about">1</a></h1> -->
+			</article>		
+			<article class="panel">
+				<hr/>
+				<h1><a href="#projects">2</a></h1>
+			</article>
+			<article class="panel">
+				<hr/>
+				<h1><a href="#contact">3</a></h1>
+			</article>
+			<article class="panel">
+				<hr/>
+				<h1><a href="#home">4</a></h1>
+			</article>
+		</section>
+	</div> 
 
-		    <article class="panel" id="projects" style="border: 1px solid red">
-		        <h1>Test 1</h1>
-		        <a href="#about"><span class="shadow">test 2</span></a>
-		    </article>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(function(){
+	var height = $(".home").height();
 
-		    <article class="panel" id="about" style="border: 1px solid yellow">
-		        <h1>Test 2</h1>
-		        <a href="#about"><span class="shadow">test 3</span></a>
-		    </article>
-
-		    <article class="panel" id="contact" style="border: 1px solid green">
-		        <h1>Test 3</h1>
-		        <a href="#about"><span class="shadow">home</span></a>
-		    </article>
-		</section>	-->
+	$(document).on('scroll', function(){
+		var scroll = $(window).scrollTop();
+		
+		if(scroll > (height/2)){
+			if(!$("#mainHeader").is(":visible")){
+				$("#mainHeader").fadeIn();
+			}
+		}
+		else if(scroll < (height/2)){
+			if($("#mainHeader").is(":visible")){
+				$("#mainHeader").fadeOut();
+			}
+		}
+	});
 	
+});
+</script>
 
-	<a id="home"></a>
-	<a id="projects"></a>
-	<a id="about"></a>
-	<a id="contact"></a>
-
-	<section id="main">
-		<article class="nav panel" id="home">		
-			<div class="circle large white-border projects"><a href="#projects"><span class="shadow">Projects</span></a></div>
-			<div class="circle medium white-border about"><a href="#about"><span class="shadow">About me</span></a></div>
-			<div class="circle small white-border contact"><a href="#contact"><span class="shadow">Contact me</span></a></div> 
-			<!-- <h1><a href="#about">1</a></h1> -->
-		</article>		
-		<article class="panel" id="about">
-			<hr/>
-			<h1><a href="#projects">2</a></h1>
-		</article>
-		<article class="panel" id="projects">
-			<hr/>
-			<h1><a href="#contact">3</a></h1>
-		</article>
-		<article class="panel" id="contact">
-			<hr/>
-			<h1><a href="#home">4</a></h1>
-		</article>
-	</section>
-</div> 
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+<script>
+  var _gaq=[['_setAccount','UA-33175830-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src='//www.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>-->
 </body>
 </html>
