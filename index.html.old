@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Ioni Solarz</title>
+
+	<!-- Bootstrap -->
+	<!-- <link rel="stylesheet" href="/assets/lib/bootstrap.css">	 -->
+	<link rel="stylesheet" href="/assets/css/lavish-bootstrap (4).css">
+	<link rel="stylesheet" href="/assets/lib/font-awesome.css">
+	<link rel="stylesheet" href="/assets/lib/animate.css">
+
+	<!-- Site css -->	
+	
+	<link rel="stylesheet" href="/assets/css/site.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxdcn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="jumbotron wow fadeInDown">
+		<div class="container">
+			<div class="glitch-text-effect" data-text="Hello, world!">Hello, world!</div> 
+			<p class="text-center">
+				I'm a Software developer, I build websites and applications working with serveral technologies but mainly .NET and PHP
+				In my years in the industry I’ve been involved in a variety of software companies as a developer focusing in sharpening my skills.
+				I’m a Passionate software practitioner involved in a variety of languages and frameworks with several years of experience and responsibilities.
+				I'm always eager to confront new technologies and surpass myself.
+				I want to keep learning and growing as a software developer, working in challenging endeavors and using all my experience to improve the product and the team I work with.				
+			</p>
+		</div>  
+	</div>
+
+	<div class="container">
+
+		<!-- CV/life line -->
+		<div class="row">
+			<div class="row">
+				<div class="col-xs-12 col-md-4 col-md-offset-4">
+					<div class="page-header">
+						<h1 class="text-center text-uppercase shadow-text-effect">Where I worked</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<ul class="timeline">
+						<li>
+							<div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+							<div class="timeline-panel wow fadeInLeft border-shadow">
+								<div class="timeline-heading">
+									<h4 class="timeline-title emboss-text-effect">Software Developer, Tracx</h4>
+									<p><small class="emboss-text-effect"><i class="glyphicon glyphicon-time"></i> 2014-Present</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Design, develop and maintain the Tracx Platform. Working with big data and social medias  using PHP. Intensive use of knockout, HTML5, Jquery.</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted">
+							<div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+							<div class="timeline-panel wow fadeInRight border-shadow">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Senior software engineer, R/GA</h4>
+									<p><small class="emboss-text-effect"><i class="glyphicon glyphicon-time"></i> 2011-2014</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Solution Design & development of Frontend/Backend for Digital Platforms and Campaigns using PHP and .NET stack. Intensive usage Agile Methodologies and Continuous Integration technologies. Techonologies I used: HTML5, AngularJS, ASP.NET MVC, Jquery, NUnit, Jenkins, Drupal. Clients I worked for: PwC, Microsoft, McCormick, Verizon</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline">
+							<div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+							<div class="timeline-panel wow fadeInLeft border-shadow">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Senior developer, Tecnosoftware</h4>
+									<p><small class="emboss-text-effect"><i class="glyphicon glyphicon-time"></i> 2008-2011</small></p>
+								</div>
+								<div class="timeline-body">
+									<p>Design, development and maintenance of web and desktop applications and backend services using .NET Tech Stack (Asp.Net MVC, WCF, WPF, EF) and associate third party products. Documentation and designing architecture solutions and frameworks.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>		
+		<!-- projects -->
+		<div class="row bg-dark-red">
+			<div class="col-xs-12 col-md-4 col-md-offset-4">
+				<div class="page-header">
+					<h1 class="text-center text-uppercase shadow-text-effect">Freelance projects</h1>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-12">
+				<div class="row">
+					<div class="col-xs-12 col-md-4">
+						<div class="panel panel-default wow fadeInUp">
+							<div class="panel-body">
+								<a class="projectImg" data-project="0" data-toggle="modal" data-target="#projectModal"><img src="assets/images/revboothlook.jpg" class="img-responsive img-thumbnail" alt="Revolution Booth" height="248" width="328" style="width:328px; height:248px;"></a>
+							</div>							
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-4">
+						<div class="panel panel-default wow fadeInDown">
+							<div class="panel-body">
+								<a class="projectImg" data-project="1" data-toggle="modal" data-target="#projectModal"><img src="assets/images/harrison.jpg" class="img-responsive img-thumbnail" alt="George Harrison" height="248" width="328" style="width:328px; height:248px;"></a>
+							</div>							
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-4">
+						<div class="panel panel-default wow fadeInUp">							
+							<div class="panel-body">
+								<a class="projectImg" data-project="2" data-toggle="modal" data-target="#projectModal"><img src="assets/images/swiftory.png" class="img-responsive img-thumbnail" alt="Swiftory" height="248" width="328" style="width:328px; height:248px;"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<!-- contact -->
+		<!-- <div class="row">
+			<div class="row">
+				<div class="col-xs-5 col-md-5 col-md-offset-4 col-xd-offset-4">
+					<div class="page-header">
+						<h1 class="text-center text-uppercase shadow-text-effect">Let's get in touch</h1>
+					</div>
+				</div>
+			</div			
+			<div class="row">
+				<div class="col-xs-4 col-md-4 col-md-offset-4 col-xd-offset-4">				
+					<div class="footer-content">
+					<form class="wow fadeIn">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Name</label>
+							<input type="text" class="form-control input-lg" id="name" placeholder="Name" required="required">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control input-lg" id="email" placeholder="Email" required="required">
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputMessage1">Message</label>
+							<textarea id="message" class="form-control" rows="3" required="required"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary" onclick=javascript:sendMail();>Submit</button>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="text-center">&#169; Copyright 2015 - <a href="mailto:jsolarz@gmail.com" style="color:#fff">jsolarz@gmail.com</a></div>
+		</div>
+	</footer>
+
+
+	<div class="modal fade" id="projectModal" tabindex="-1" role="dialog"  aria-labelledby="projectLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content panel-primary">
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body">
+					<p class="text-invert"></p>
+				</div>
+				<div class="modal-footer">      	
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/assets/lib/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/assets/lib/bootstrap.js"></script>
+	<script src="/assets/lib/wow.js"></script>
+	<script src="/assets/js/site.js"></script>
+	<script type="text/javascript">
+			$(function () {
+			new WOW().init();
+			$('[data-toggle="popover"]').popover();
+
+			$('#projectModal').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Button that triggered the modal
+				var _id = button.data("project"); // Extract info from data-* attributes
+
+				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+				var project = projects[_id];			
+
+				var modal = $(this);
+				modal.find(".modal-title").text(project.title);
+				modal.find(".modal-body p").text(project.description);
+			});
+		});
+	</script>
+</body>
+</html>
