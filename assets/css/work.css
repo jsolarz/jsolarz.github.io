@@ -1,0 +1,357 @@
+html,
+body,
+.container {
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    color: #333;
+    /* text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10rem rgba(0, 0, 0, 1); */
+
+    /*background-image: url('../images/bg-7.jpg'); /* The image used */
+    /*background-position: center; /* Center the image */
+    /*background-repeat: no-repeat; /* Do not repeat the image */
+    /*background-size: cover; /* Resize the background image to cover the entire container */
+
+    font-family: 'Fira Sans', sans-serif !important;
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+.flex-container {
+    height: 85%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-row {
+    width: auto;
+}
+.flex-item {
+    padding: 5px;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+.section {
+    margin-bottom: 75px;
+}
+
+.section-about,
+.section-skills .professional-skills,
+.section-skills .additional-skills,
+.section-education .education-content,
+.section-experience .icon-experience,
+.section-experience .experience-content,
+.section-portfolio .item-portfolio,
+.section-pricing .pricing-content,
+.section-testimonials .swiper-slide,
+.section-blog .blog-content,
+.section-contact-us .form-content,
+.section-contact-us .info-content {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15),
+        0 2px 10px 0 rgba(0, 0, 0, 0.11);
+}
+
+.section .header-section {
+    text-align: center;
+}
+
+.section h2 {
+    display: inline-block;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.section .h2-section {
+    margin-bottom: 56px;
+}
+
+.section h2,
+.section-pricing .pricing-price .number {
+    font-size: 40px;
+}
+
+.menu .logo {
+    font-size: 38px;
+}
+
+.section h3 {
+    font-size: 20px;
+}
+
+.section p,
+.section h4,
+.section-about .available i,
+.section-about .available span,
+.theme-option h4,
+.section-contact-us input[type='submit'] {
+    font-size: 16px;
+}
+
+.section-about .li-social-links a,
+.section-pricing .most-populaire span,
+.section-blog .read-more,
+.section-blog .load-more span,
+.section-blog h4,
+.section-blog .blog-detail .ul-detail,
+.single-blog .populaire-posts ul {
+    font-size: 14px;
+}
+
+.section h2,
+.section-about .download-resume {
+    font-family: 'Oswald', sans-serif;
+}
+
+.section p {
+    line-height: 28px;
+}
+
+
+/****  5-4 - EXPERIENCE ****/
+
+.section-experience {
+    margin-bottom: 30px;
+}
+
+.section-experience .icon-experience {
+    display: inline-block;
+    margin-left: 161px;
+    padding: 8px 13px;
+}
+
+.section-experience .all-experience {
+    border-left: 5px solid #e3e1e1b3;
+}
+
+.section-experience .all-experience {
+    margin-left: 180px;
+    padding-top: 45px;
+    padding-left: 23px;
+}
+
+.section-experience .experience-content {
+    padding: 30px;
+    margin-bottom: 45px;
+}
+
+.section-experience .experience-content::before {
+    content: '';
+    position: absolute;
+    left: 191px;
+    margin-top: -13px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.section-experience .period-experience {
+    display: inline-block;
+    position: absolute;
+    left: -3px;
+    margin-top: -30px;
+    width: 174px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-experience .specialty-name {
+    margin-bottom: 10px;
+}
+
+.section-experience .company-name {
+    margin-bottom: 8px;
+}
+
+/****  5-5 - PORTFOLIO ****/
+
+.section-portfolio {
+    margin-bottom: 45px;
+}
+
+.section-portfolio .filter-portfolio {
+    margin-bottom: 46px;
+    text-align: center;
+}
+
+.section-portfolio .filter-portfolio li {
+    display: inline-block;
+    padding: 6px 20px;
+    margin: 0px 7px 14px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+.section-portfolio .filter-portfolio li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-portfolio .filter-portfolio li.active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-portfolio .item-portfolio {
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.8s;
+}
+
+.section-portfolio .item-overlay {
+    position: absolute;
+    padding: 30px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.section-portfolio .item-portfolio:hover .item-overlay {
+    opacity: 1;
+}
+
+.section-portfolio h3 {
+    position: relative;
+    bottom: 40px;
+    margin-top: 15px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.section-portfolio .item-portfolio:hover h3 {
+    bottom: 0;
+    opacity: 1;
+}
+
+.section-portfolio .item-overlay .icon-search,
+.section-portfolio .item-overlay .icon-plus {
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    margin-right: 26px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.section-portfolio .item-portfolio:hover .icon-search,
+.section-portfolio .item-portfolio:hover .icon-plus {
+    opacity: 1;
+    top: 0;
+}
+
+.section-portfolio .item-portfolio img {
+    width: 100%;
+    transition: all 2s;
+}
+
+.section-portfolio .item-portfolio:hover img {
+    transform: scale(1.3, 1.3) rotate(5deg);
+}
+
+
+
+
+/****  C0LOR1 #0487cc ****/
+
+.loading-overlay .spinner > div,
+.section-about .li-social-links a:hover,
+.section-skills h3,
+.section-skills .progress-bar,
+.section-education h3,
+.section-experience .experience-content::before,
+.section-experience .period-experience,
+.section-portfolio .filter-portfolio li.active,
+.section-pricing div[class^="col-"]:nth-child(2) .pricing-price,
+.section-pricing div[class^="col-"]:nth-child(2) .pricing-buy,
+.section-testimonials .personal-text,
+.section-testimonials span.swiper-pagination-bullet-active,
+.section-interests .swiper-slide,
+.section-blog .read-more,
+.section-contact-us input[type="submit"],
+.section-contact-us .info-icon,
+.section-contact-us .social-links,
+.menu,
+.menu .open-menu,
+.more-blog .pagination-blog a.active,
+.more-blog .pagination-blog a:hover,
+.single-blog .comments .reply,
+.single-blog .leave-comment input[type="submit"],
+.single-blog .tags li a {
+	background-color: #0487cc;
+}
+
+.section h2,
+.section-about .available i,
+.section-skills .other-skills i,
+.section-experience .specialty-name,
+.section-testimonials h3,
+.section-blog .blog-detail ul,
+.section-contact-us h3,
+.single-blog .comments h3,
+.single-blog .comments .name,
+.single-blog .load-more-comments h3,
+.single-blog .leave-comment h3,
+.single-blog .populaire-posts h3,
+.single-blog .tags h3,
+.single-blog .archive h3 {
+	color: #0487cc;
+}
+
+.section-about .li-social-links a:hover {
+	border-color: #0487cc;
+	box-shadow: 0 0 3px #0487cc;
+}
+
+.section-education h3::before {
+	border-top-color: #035c8a;
+	border-right-color: #035c8a;
+}
+
+.section-contact-us input:focus,
+.section-contact-us textarea:focus,
+.single-blog .leave-comment input:focus,
+.single-blog .leave-comment textarea:focus {
+	border-bottom-color: #0487cc;
+}
+
+.theme-option,
+.theme-option .open-theme {
+	border: 2px solid #0487cc;
+	border-right: none;
+}
+
+.single-blog blockquote {
+	border-left: 6px solid #0487cc;
+}
