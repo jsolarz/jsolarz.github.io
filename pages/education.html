@@ -15,63 +15,97 @@
     <link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/site.css">
 
     <title>Hello, world!</title>
-
-    <style>
-        body {
-            font-family: 'Fira Sans', sans-serif !important;
-        }
-    </style>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavTop" aria-controls="navbarNavTop"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavTop">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
+                <li class="nav-item ">
+                    <a class="nav-link " href="../index.html">Home
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="work.html">Work</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="freelance.html">Freelancer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="work.html">Work</a>
+                    <a class="nav-link " href="skills.html">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="skills.html">Skills</a>
+                    <a class="nav-link active " href="#">Education<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Education <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="blog.html">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mailto:ioni@solarz.me">Contact</a>
+                    <a class="nav-link " href="mailto:ioni@solarz.me">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-            <h2 class=" display-3 text-center animated fadeIn">Education</h2>
+        <h2 class="display-3 text-center animated fadeIn">Education</h2>
 
-        <div class="row animated fadeIn slow">
-            <div class="col">
-                <ul class="list">
-                    <li class="p-2 m-1">BS Computer Science @Universidad de Palermo, Argentina - 2011 </li>
-                    <li class="p-2 m-1">Computer System Analyst @Ort, Argentina - 2005 </li>
-                    <li class="p-2 m-1">Microsoft Certified Technology Specialist TS - 2008</li>
-
-                </ul>
-                <h5>Languages</h5>
-                <ul class="list">
-                    <li class="p-2 m-1">Spanish</li>
-                    <li class="p-2 m-1">English</li>
-                    <li class="p-2 m-1">Hebrew</li>
-                </ul>
+        <div class="row py-5 border-bottom ">
+            <div class="col-sm-4 border-right">
+                <h3 class="border-bottom text-primary text-right">2011</h3>
+                <h4 class="text-right">Universidad de Palermo</h4>
+                <p class="text-right">Buenos Aires, Argentina</p>
+            </div>
+            <div class="col-sm-8">
+                <p class="text-justify my-5">BS Computer Science</p>
             </div>
         </div>
-        <div class="row animated fadeIn slow">
+
+        <div class="row py-5 border-bottom ">
+            <div class="col-sm-4 border-right">
+                <h3 class="border-bottom text-primary text-right">2005</h3>
+                <h4 class="text-right">Ort</h4>
+                <p class="text-right">Buenos Aires, Argentina</p>
+            </div>
+            <div class="col-sm-8">
+                <p class="text-justify my-5">Computer System Analyst</p>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-sm-4 border-right">
+                <h3 class="border-bottom text-primary text-right">2008</h3>
+            </div>
+            <div class="col-sm-8">
+                <p class="text-justify my-5">Microsoft Certified Technology Specialist TS</p>
+            </div>
+        </div>
+        <div class="row py-5 border-bottom ">
+            <div class="col-sm-4 border-right">
+                <h3 class="border-bottom text-primary text-right">languages</h3>
+                <h4 class="text-right"></h4>
+                <p class="text-right"></p>
+            </div>
+            <div class="col-sm-8">
+                <p class="text-justify my-5">
+                    <ul>
+                        <li class="p-2 m-1">Spanish</li>
+                        <li class="p-2 m-1">English</li>
+                        <li class="p-2 m-1">Hebrew</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col">
                 <ul class="nav justify-content-md-center">
                     <li class="nav-items">
