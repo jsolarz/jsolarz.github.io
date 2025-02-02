@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="color-scheme" content="dark light">
     <meta name="description" content="">
     <meta name="author" content="Ioni Solarz">
     <meta property="og:type" content="website">
@@ -26,7 +27,7 @@
     </noscript>
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/global.css">
-    <<title>Ioni's Tech Thoughts</title>
+    <title>The Digital Alchemist</title>
 </head>
 
 <body>
@@ -35,7 +36,8 @@
             <header>
                 <div class="menu">
                     <nav class="menuBar">
-                        <a href="https://ioni.solarz.me" title="home" class="site-title" aria-label="home">"Behind You, a Syntax Error..."</a>
+                        <a href="https://ioni.solarz.me" title="home" class="site-title" aria-label="home">"Behind You,
+                            a Syntax Error..."</a>
                         <ul class="navLinks">
                             <li><a href="/pages/about.html">About</a></li>
                             <li><a href="/pages/cv.html">CV/Resume</a></li>
@@ -66,16 +68,65 @@
                     </ul>
                 </div>
             </div>
-            <main>Coming Soon!</main>
+            <main>
+                <div class="main-wrapper">
+                    <article class="introduction">
+                        <h3>Welcome to <b>"Behind You, a Syntax Error!"</b> </h3>
+                        <p>This isn't your typical tech blog. Here, we dive into the sometimes hilarious, often
+                            harrowing, always educational world of software development. </p>
+                        <p>Join me as we explore the trials and tribulations of a software architect, navigate the
+                            ever-expanding universe of Azure, dissect insightful code snippets, ponder the intricacies
+                            of software design, and share a bit of my personal journey along the way.</p>
+                        <p>Whether you're a seasoned coder, a curious student, or just someone who appreciates the
+                            beautiful mess that is technology, grab a virtual beverage, pull up a chair, and let's
+                            unravel the digital world together. </p>
+                        <p>Consider this your digital campfire, where we share stories, swap tips, and maybe even laugh
+                            at our own (inevitable) syntax errors.</p>
+                    </article>
+                    <article class="archive">
+                        <h3 class="archive-subtitle">Recent Posts</h3>
+                        <div class="entries">
+                            <div class="archive-item"></div>
+                            <div class="archive-item"></div>
+                            <div class="archive-item"></div>
+                        </div>
+                    </article>
+                </div>
+
+            </main>
             <article class="widget"></article>
             <article class="statistics"></article>
             <footer>
-                <div class="footer-wrapper">
-                    <div class="copyright">© 2024 <a href="https://ioni.solarz.me">Ioni Solarz</a></div>
+                <div class="footer-items">
+                    <div class="footer-wrapper">
+                        <div class="copyright">© 2024 <a href="https://ioni.solarz.me">Ioni Solarz</a></div>
+                    </div>
+
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round"></div>
+                        </label>                    
+                        <em>Dark Mode</em>
+                    </div>                                        
                 </div>
             </footer>
         </div>
     </div>
+    <script type="text/javascript">
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 </body>
 
 </html>

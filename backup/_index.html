@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Ioni Solarz</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- <link async href="http://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css"/> -->
+	<link async href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+	<style>
+		/* http://meyerweb.com/eric/tools/css/reset/ 
+		   v2.0 | 20110126
+		   License: none (public domain)
+		*/
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section,div {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+
+		
+		
+		body {
+			color: #fff;
+		}
+
+		a,
+		a:visited {
+		  color: #fff;
+		  text-decoration: none;
+		}
+
+		.white-border{
+			border:10px solid #fff;
+			/*border:groove 15px #000000;*/
+		}
+
+		.circle{
+			border-radius: 100%;			
+		}
+
+		.large{
+			width:450px;
+			height:450px;
+		}
+
+		.medium{
+			width:350px;
+			height:350px;
+		}
+
+		.small{
+			width:100px;
+			height:100px;
+		}
+
+		.projects{			
+			position:absolute;
+			top: 0px;
+  			left: 120px;
+		}		
+
+		.projects:hover{
+			background: #53a7ea;
+		}
+
+		.about{
+			position:absolute;
+			bottom:10px;
+			left:450px;
+		}
+
+		.contact{
+			position:absolute;
+			top:150px;
+			left:350px;
+		}		
+
+		.carbon{
+			background:
+				linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+				linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+				linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+				linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+				linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+				linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+			background-color: #131313;
+			background-size: 20px 20px;
+		}
+
+		/*.eight-bit{			
+			display: inline-block;
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+			padding: 10px;
+			overflow: hidden;
+			border: none;			
+			color: rgba(255,255,0,1);
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
+		}*/
+
+		.shadow{
+			text-shadow:
+				1px 1px 0 #CCC,
+				2px 2px 0 #CCC, /* end of 2 level deep grey shadow */
+				3px 3px 0 #444,
+				4px 4px 0 #444,
+				5px 5px 0 #444,
+				6px 6px 0 #444; /* end of 4 level deep dark shadow */
+		}		
+
+
+.panel {
+    width: 100%;
+    height: 500px;
+    overflow:hidden;
+    -webkit-transform: translateZ( 0 );
+    transform: translateZ( 0 );
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+}
+
+.panel h1 {
+    font-family: sans-serif;
+    font-size: 64px;
+    font-size: 4rem;
+    color: #fff;
+    position:relative;
+    line-height: 200px;
+    top: 33%;
+    text-align: center;
+    margin: 0;
+}
+
+/*
+ *Scrolling
+ */
+
+.home {
+    width:100%;
+    height: 770px;
+}
+
+a[ id= "home" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( 0px);
+    transform: translateY( 0px );
+}
+
+a[ id= "about" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -770px);
+    transform: translateY( -770px );
+}
+
+a[ id= "projects" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -1270px );
+    transform: translateY( -1270px );
+}
+a[ id= "contact" ]:target ~ #main article.panel {
+    -webkit-transform: translateY( -1820px );
+    transform: translateY( -1820px );
+}
+
+.container {
+	margin:auto;
+	width:960px;
+	border:1px solid #fff;
+}
+
+.circle p{
+	line-height: 1.4em;
+	text-align: center;
+	word-break: break-word;	
+}
+
+.circle .content{
+	width: 90%;
+	margin: -50 0 0 -50;
+	left: 50%;
+	top: 50%;
+	border: 1px solid #fff;
+}
+
+.circle h2{
+	font: normal 30px/1.4em "open Sans", sans-serif;
+	text-align: center;
+}	
+
+
+#mainHeader{
+	position:fixed;
+	display:none;
+	background: #fff;
+	height: 40px;
+	width:100%;
+	z-index:10;
+}
+
+#mainHeader ul {
+	list-style: none;
+	  list-style: none;
+  height: 100%;
+  position: relative;
+  float: right;
+}
+
+#mainHeader ul li{
+	  float: left;
+  margin-left: 5px;
+  width: 100px;
+  position: relative;
+  height: 100%;
+  font: normal 16px/40px "open Sans", sans-serif;
+  text-align: center;
+}
+
+.blue{			
+	background: #96C0CE;
+	transition: 0.5s ease;
+}	
+
+.blue:hover{
+	background: #53a7ea;
+}
+
+.red{
+	background:#C25B56;
+	transition: 0.5s ease;
+}
+
+.red:hover{
+	background:#53a7ea;
+}
+
+.cream{
+	background:#BEB9B5;
+	transition: 0.5s ease;
+}
+
+.cream:hover{
+	background:#53a7ea;
+}	
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
+
+.font-16{
+	font: normal 16px/1.4em "open Sans", sans-serif;
+}
+
+strong{
+	font-weight: bold;
+}
+
+	</style>
+</head>
+<body class="carbon">
+	
+	<div class="container">
+		<header id="mainHeader">
+			<ul>
+				<li class="navItem blue"><a href="#home"><span class="">Home</span></a></li>
+				<li class="navItem blue"><a href="#projects"><span class="">Projects</span></a></li>
+				<li class="navItem red"><a href="#about"><span class="">About me</span></a></li>
+				<li class="navItem cream"><a href="#contact"><span class="">Contact me</span></a></li>
+			</ul>
+		</header>
+
+		<a id="home"></a>
+		<a id="projects"></a>
+		<a id="about"></a>
+		<a id="contact"></a>
+		
+		<section id="main">
+			<article class="panel home">	
+				<div class="circle large white-border red about">
+					<div class="content">
+						<h2><strong>Hello, <br/>I'm Jonathan Solarz<strong></h2>
+						
+						<p class="font-16">
+							<strong>I'm a Software developer</strong> and co-founder of a small software factory called <a href="http://www.uppme.net" target="_blank">UppMe</a>.<br/>
+							I build websites and applications working with .NET and PHP</p>
+
+						<p class="font-16">
+							I'm a Passionate software practitioner involved in a variety of languages and frameworks with several years of experience and responsibilities.<br/>
+							In my years in the industry I've been involved in a variety of software companies as a developer focusing in sharpening my skills.
+						</p>
+					</div>
+				</div>
+				<div class="circle small white-border cream contact">
+					<p>Would you like me to work with you? <a href="mailto:hello@ionisolarz.com" class="contact">Let's get in touch.</a></p>
+				</div>
+				<div class="circle small white-border social">
+					<a href="http://www.twitter.com/ionis_" target="_blank">Twitter</a>
+					<a href="https://www.linkedin.com/in/ionisolarz" target="_blank">Linkedin</a>
+					<a href="http://github.com/jsolarz" target="_blank">GitHub</a>
+					<a href="assets/resources/cv_js.pdf" target="_blank">Resume</a>
+				</div>
+			</article>			
+		</section>
+	</div> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(function(){
+	var height = $(".home").height();
+
+	$(document).on('scroll', function(){
+		var scroll = $(window).scrollTop();
+		
+		if(scroll > (height/2)){
+			if(!$("#mainHeader").is(":visible")){
+				$("#mainHeader").fadeIn();
+			}
+		}
+		else if(scroll < (height/2)){
+			if($("#mainHeader").is(":visible")){
+				$("#mainHeader").fadeOut();
+			}
+		}
+	});
+	
+
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+<script>
+  var _gaq=[['_setAccount','UA-33175830-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src='//www.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+ -->
+				<h2>Projects</<h2>				
+			</div>
+			
+		</article>
+	</div>
+</div> 
+
+</body>
+</html>
