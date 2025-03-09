@@ -70,7 +70,7 @@ html {
     box-sizing: border-box;
     background-color: var(--night_color1);
     line-height: 1.5;
-    font-family: 'OpenSans', sans-serif;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     background-color: light-dark(var(--snow_color3), var(--night_color1));
     color: light-dark(var(--night_color1), var(--snow_color3));
 }
@@ -102,7 +102,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
 
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    
     text-wrap: pretty;
 }
 
