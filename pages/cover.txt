@@ -1,0 +1,14 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the Engineering Manager position at Lemonade. My experience in leading technical teams, driving technological strategy, and managing complex projects aligns well with the requirements for this role.
+
+In my previous roles, I have consistently demonstrated my ability to manage and develop engineering teams. As a Software Developer Team Lead at ImageSat International, I managed a team of 10 developers, QA, and DevOps, where I applied the iDesign Method in coordination with the product team, increasing the product launch rate by 15%. This experience has equipped me with the skills to lead a team, manage bi-weekly sprints, and drive accountability, as required for the Engineering Manager position at Lemonade.
+
+My experience as a Software Architect at Bolt, where I was responsible for software architecture and introduced advanced solutions to improve scalability and maintainability, demonstrates my ability to lead technological strategy and build a tech agenda. My skills in C#/.NET, Web Development, and cloud-native applications, along with my experience in designing and developing turnkey solutions, make me well-suited to contribute to Lemonade's high-scale, production-grade projects.
+
+I am a people-oriented leader with strong communication skills, capable of managing complex projects and thinking creatively. I am enthusiastic about learning and adapting to new technologies, and I am confident in my ability to collaborate closely with the Product team to achieve company business goals.
+
+I am excited about the opportunity to contribute to Lemonade's innovative approach to the insurance industry and to lead a team in Tel Aviv. Thank you for considering my application. I look forward to discussing my qualifications further.
+
+Sincerely,
+Jonathan Solarz

@@ -1,0 +1,34 @@
+<article>
+    <h1>{{postTitle}}</h1>
+    <div class="post-meta">Posted on {{postDate}} • {{readTime}} min read</div>
+
+    <div class="terminal">
+        <span class="prompt">$ </span>
+        <span class="command">cat {{fileName}}.md | less</span>
+    </div>
+
+    <div class="bbs-box">{{postContent}}</div>
+
+    <div class="terminal">
+        <span class="prompt">$ </span>
+        <span class="command">echo "Comments and discussion"</span>
+        <div class="output">
+            <p>
+                Feel free to share your thoughts by
+                <a href="mailto:hello@solarz.me" style="color: var(--frost-2)"
+                    >emailing me</a
+                >
+                or reaching out on social media!
+            </p>
+        </div>
+    </div>
+
+    <div class="bbs-box">
+        <div class="bbs-header">Related Posts</div>
+        <ul>
+            {{relatedPosts}}
+        </ul>
+    </div>
+
+    <a href="../blog.html" class="highlight-2">← Back to all posts</a>
+</article>

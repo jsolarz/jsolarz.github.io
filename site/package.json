@@ -1,0 +1,1 @@
+{  "name": "bbs-blog-converter",  "version": "1.0.0",  "description": "Converts markdown blog posts to HTML",  "scripts": {    "convert": "node convert-blog.js"  },  "dependencies": {    "front-matter": "^4.0.2",    "markdown-it": "^13.0.1",    "fs-extra": "^11.1.0"  }} 
