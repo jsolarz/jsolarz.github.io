@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or development areas if they exist
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /temp/
+
+# Sitemap location (create this file if you want to use it)
+Sitemap: https://ioni.solarz.me/sitemap.xml

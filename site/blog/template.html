@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#242933" />
+        <meta name="color-scheme" content="dark light" />
+        <title>Markdown Template | BBS-Style Website</title>
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- This file serves as a template for creating blog posts from markdown files -->
+        <!-- Instructions on how to use this template are in the README and below -->
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="site-title">Terminal@Username</h1>
+                <p class="site-description">
+                    A modern BBS-style website with Nord theme
+                </p>
+
+                <nav>
+                    <button
+                        class="menu-toggle"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                    >
+                        <span>Menu</span>
+                        <div class="menu-toggle-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <ul>
+                        <li><a href="../index.html">home</a></li>
+                        <li><a href="../about.html">about</a></li>
+                        <li><a href="../blog.html" class="active">blog</a></li>
+                        <li><a href="../cv.html">cv</a></li>
+                        <li><a href="../portfolio.html">portfolio</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <article>
+                    <h1>{TITLE}</h1>
+                    <div class="post-meta">
+                        Posted on {DATE} • {READ_TIME} min read
+                    </div>
+
+                    <div class="terminal">
+                        <span class="prompt">$ </span>
+                        <span class="command">cat {FILENAME}.md | less</span>
+                    </div>
+
+                    <div class="bbs-box">{CONTENT}</div>
+
+                    <div class="terminal">
+                        <span class="prompt">$ </span>
+                        <span class="command"
+                            >echo "Comments and discussion"</span
+                        >
+                        <div class="output">
+                            <p>
+                                Feel free to share your thoughts by
+                                <a
+                                    href="mailto:your.email@example.com"
+                                    style="color: var(--frost-2)"
+                                    >emailing me</a
+                                >
+                                or reaching out on social media!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bbs-box">
+                        <div class="bbs-header">Related Posts</div>
+                        <ul>
+                            {RELATED_POSTS}
+                        </ul>
+                    </div>
+
+                    <a href="../blog.html" class="highlight-2"
+                        >← Back to all posts</a
+                    >
+                </article>
+            </main>
+
+            <footer>
+                <p>
+                    &copy; <span class="current-year">2025</span> Your Name |
+                    BBS-Style Website
+                </p>
+                <div class="footer-links">
+                    <a href="mailto:your.email@example.com">Email</a>
+                    <a href="https://github.com/yourusername">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
