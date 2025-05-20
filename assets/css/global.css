@@ -468,7 +468,7 @@ body {
 }
 
 .main-wrapper h3 {
-    margin-top:0;
+    margin-top: 0;
 }
 
 .archive {}
@@ -477,7 +477,7 @@ body {
 
 .archive-item {}
 
-.footer-items{
+.footer-items {
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -541,4 +541,44 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.hamburger {    
+    /* a large z-index puts the ham button above the rest of the page*/
+    z-index: 99;
+    background: white;
+    border: none;
+    cursor: pointer;
+    
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+    .menuBar a:not(:first-child) {
+        display: none;
+    }
+
+    .menuBar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+    .menuBar.responsive {
+        position: relative;
+    }
+
+    .menuBar.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .menuBar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
