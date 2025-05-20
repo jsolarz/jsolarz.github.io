@@ -70,7 +70,7 @@ html {
     box-sizing: border-box;
     background-color: var(--night_color1);
     line-height: 1.5;
-    font-family: 'OpenSans', sans-serif;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     background-color: light-dark(var(--snow_color3), var(--night_color1));
     color: light-dark(var(--night_color1), var(--snow_color3));
 }
@@ -101,6 +101,9 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+
+
+    text-wrap: pretty;
 }
 
 
@@ -543,13 +546,14 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-.hamburger {    
+
+.hamburger {
     /* a large z-index puts the ham button above the rest of the page*/
     z-index: 99;
     background: white;
     border: none;
     cursor: pointer;
-    
+
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
