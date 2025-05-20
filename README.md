@@ -1,35 +1,116 @@
-# jsolarz.github.io
+# BBS-Style Website
 
-This repository contains the source code for my personal website, jsolarz.github.io.  It's a place where I showcase my work, share my thoughts on technology, and provide a bit of information about myself.
+A modern BBS-style website with Nord color theme (slightly darker variant), designed to be simple, responsive, and easy to update. This is a static website with no frameworks, focusing on mobile-first design and using monospace text-heavy content.
 
-## About Me
+## Features
 
-I'm a Solution/Software Architect with a passion for building innovative and robust systems. I enjoy exploring the latest technologies and sharing my insights with the community.  This website serves as a portfolio of my projects and a platform for my blog, ["Behind You, a Syntax Error"](https://ioni.solarz.me).
+- Responsive, mobile-first design
+- Simple HTML/CSS/JS without frameworks
+- BBS-style aesthetic with Nord color theme (darker variant)
+- Dark mode by default with light mode toggle option
+- Easy to update content via HTML files
+- Monospace text-heavy design inspired by old bulletin board systems
+- Modern retro feel with clean typography
 
-## Technologies Used
+## Structure
 
-This website is built using:
-  - HTML5
-  - CSS3
-  - JavaScript
-  - GitHub Pages
+```
+site/
+├── css/
+│   └── style.css             # Main CSS file with styles and Nord color theme
+├── js/
+│   └── scripts.js            # Minimal JavaScript for interactivity
+├── blog/
+│   └── first-post.html       # Sample blog post
+├── img/
+│   └── (image files)         # Image assets
+├── index.html                # Homepage
+├── about.html                # About page
+├── blog.html                 # Blog listing page
+├── cv.html                   # CV/Resume page
+├── portfolio.html            # Portfolio page
+└── README.md                 # This file
+```
 
-## Getting Started (If you want others to contribute or run locally)
+## How to Update Content
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/jsolarz/jsolarz.github.io.git](https://www.google.com/search?q=https://github.com/jsolarz/jsolarz.github.io.git)
+### General Page Content
 
-2. cd jsolarz.github.io
-3. Open index.html in your browser
+Each main section of the website has its own HTML file:
 
-## Contact
+1. `index.html` - Homepage/welcome page
+2. `about.html` - About information
+3. `blog.html` - Blog post listing
+4. `cv.html` - Resume/CV information
+5. `portfolio.html` - Portfolio of work/projects
 
-You can reach me at:
+To update any of these pages, simply edit the corresponding HTML file using a text editor.
 
-    Email:  hello@solarz.me
-    LinkedIn: [Ioni Solarz](https://www.linkedin.com/in/ioni-solarz/)
+### Adding a New Blog Post
 
-License
+To add a new blog post:
 
-MIT License
+1. Create a new HTML file in the `blog/` directory (e.g., `blog/new-post.html`)
+2. Copy the structure from an existing blog post like `blog/first-post.html`
+3. Update the content, title, meta information, etc.
+4. Add a link to the new post in `blog.html` by adding a new list item in the `post-list` section
+
+### Updating the Portfolio
+
+To add a new portfolio item:
+
+1. Open `portfolio.html`
+2. Add a new `div` element with the class `portfolio-item` within the `portfolio-grid` section
+3. Update the content with your project information
+
+### Updating the CV/Resume
+
+To update your CV or resume information:
+
+1. Open `cv.html`
+2. Edit the relevant sections to reflect your current experience, skills, education, etc.
+
+## Customization
+
+### Colors
+
+The color scheme is defined in CSS variables at the top of `css/style.css`. You can modify these to change the color scheme of the entire website.
+
+### Theme Toggle (Dark/Light Mode)
+
+The website features a dark mode by default with a light mode toggle option. The toggle button appears in the bottom right corner of every page. User preferences are saved in localStorage so their choice persists across pages and visits.
+
+To customize the light mode colors, modify the CSS variables with the `--light-` prefix in the `:root` section of the CSS file.
+
+### Typography
+
+The website uses monospace typography, with the font specified in the `--font-mono` CSS variable. You can change this to any other monospace font.
+
+### Adding Custom Styling
+
+If you need to add custom styles for specific elements, you can add them at the end of the `style.css` file.
+
+## Browser Compatibility
+
+This website is designed to work on modern browsers, including:
+
+- Chrome/Edge (latest versions)
+- Firefox (latest versions)
+- Safari (latest versions)
+- Mobile browsers (iOS/Android)
+
+## Deployment
+
+This is a static website, so it can be deployed to any web hosting service that supports static sites, including:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Amazon S3
+- Any traditional web hosting service
+
+Simply upload all the files to your hosting provider to deploy the website.
+
+## License
+
+Feel free to modify this template for your personal use.
