@@ -163,7 +163,7 @@ class AnalyticsDatabase {
 
             // Update or insert visitor record
             await this.updateVisitorRecord(visitorId, timestamp);
-            
+
             // Save database to centralized file (throttled)
             await this.saveDatabase();
 
@@ -243,7 +243,7 @@ class AnalyticsDatabase {
             console.error('❌ Failed to get analytics summary:', error);
             return this.getEmptySummary();        }
     }
-    
+
     /**
      * 💾 Save database to centralized file
      */    async saveDatabase() {
@@ -259,7 +259,7 @@ class AnalyticsDatabase {
 
             // For testing: log the database size and offer download
             console.log(`📊 Database size: ${data.length} bytes`);
-            
+
             // For GitHub Pages deployment, we'd need a serverless function
             // For now, we'll demonstrate with local storage backup and download option
             try {

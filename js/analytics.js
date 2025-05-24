@@ -54,7 +54,7 @@ class SimpleAnalytics {
             // Generate new visitor ID
             this.visitorId = this.generateVisitorId();            sessionStorage.setItem('analytics_visitor_id', this.visitorId);
         }
-        
+
         // Get or generate session ID
         this.sessionId = this.getSessionId();
     }    /**
@@ -97,7 +97,7 @@ class SimpleAnalytics {
             } catch (error) {
                 console.error('📊 Database tracking failed:', error);            }
         }
-        
+
         return pageViewData;
     }
 

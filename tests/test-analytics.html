@@ -51,7 +51,7 @@
 <body>
     <h1>📊 Analytics System Test</h1>
     <p>This page tests the centralized SQL.js analytics system to ensure it's working properly.</p>
-    
+
     <div>
         <button onclick="testDatabaseInit()">Test Database Initialization</button>
         <button onclick="testPageTracking()">Test Page Tracking</button>
@@ -59,17 +59,17 @@
         <button onclick="testDatabasePersistence()">Test Database Persistence</button>
         <button onclick="clearTestData()">Clear Test Data</button>
     </div>
-    
+
     <div id="results"></div>
 
     <!-- Include analytics scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
     <script src="js/analytics-db.js"></script>
     <script src="js/analytics.js"></script>
-    
+
     <script>
         const resultsDiv = document.getElementById('results');
-        
+
         function addResult(message, type = 'info') {
             const div = document.createElement('div');
             div.className = `test-result ${type}`;
@@ -77,21 +77,21 @@
             resultsDiv.appendChild(div);
             resultsDiv.scrollTop = resultsDiv.scrollHeight;
         }
-        
+
         async function testDatabaseInit() {
             addResult('🔧 Testing database initialization...', 'info');
-            
+
             try {
                 const db = new AnalyticsDatabase();
                 const initialized = await db.init();
-                
+
                 if (initialized) {
                     addResult('✅ Database initialized successfully!', 'success');
-                    
+
                     // Test if tables exist
                     const tablesQuery = "SELECT name FROM sqlite_master WHERE type='table';";
                     const result = db.db.exec(tablesQuery);
-                    
+
                     if (result.length > 0) {
                         const tables = result[0].values.map(row => row[0]);
                         addResult(`📋 Tables found: ${tables.join(', ')}`, 'success');
@@ -105,16 +105,16 @@
                 addResult(`❌ Database test failed: ${error.message}`, 'error');
             }
         }
-        
+
         async function testPageTracking() {
             addResult('📄 Testing page tracking...', 'info');
-            
+
             try {
                 const analytics = new SimpleAnalytics();
-                
+
                 // Wait for initialization
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
+
                 if (analytics.db && await analytics.db.isInitialized()) {
                     const pageView = await analytics.trackPageView();
                     addResult(`✅ Page view tracked: ${JSON.stringify(pageView, null, 2)}`, 'success');
@@ -125,10 +125,10 @@
                 addResult(`❌ Page tracking test failed: ${error.message}`, 'error');
             }
         }
-        
+
         async function testAnalyticsSummary() {
             addResult('📈 Testing analytics summary...', 'info');
-            
+
             try {
                 if (window.simpleAnalytics) {
                     const summary = await window.simpleAnalytics.getAnalyticsSummary();
@@ -140,18 +140,18 @@
                 addResult(`❌ Analytics summary test failed: ${error.message}`, 'error');
             }
         }
-        
+
         async function testDatabasePersistence() {
             addResult('💾 Testing database persistence...', 'info');
-            
+
             try {
                 if (window.simpleAnalytics && window.simpleAnalytics.db) {
                     const db = window.simpleAnalytics.db;
-                    
+
                     // Try to save the database
                     await db.saveDatabase();
                     addResult('✅ Database save completed', 'success');
-                    
+
                     // Check if download functionality works
                     const data = db.db.export();
                     if (data && data.length > 0) {
@@ -166,10 +166,10 @@
                 addResult(`❌ Database persistence test failed: ${error.message}`, 'error');
             }
         }
-        
+
         async function clearTestData() {
             addResult('🧹 Clearing test data...', 'info');
-            
+
             try {
                 if (window.simpleAnalytics) {
                     await window.simpleAnalytics.clearData();
@@ -181,7 +181,7 @@
                 addResult(`❌ Clear data test failed: ${error.message}`, 'error');
             }
         }
-        
+
         // Auto-run basic initialization test when page loads
         window.addEventListener('load', () => {
             setTimeout(() => {
