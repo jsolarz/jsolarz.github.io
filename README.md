@@ -12,24 +12,32 @@ A modern BBS-style website with Nord color theme (slightly darker variant), desi
 - Monospace text-heavy design inspired by old bulletin board systems
 - Modern retro feel with clean typography
 
-## Structure
+## Project Structure
 
 ```
-site/
-├── css/
-│   └── style.css             # Main CSS file with styles and Nord color theme
-├── js/
-│   └── scripts.js            # Minimal JavaScript for interactivity
-├── blog/
-│   └── first-post.html       # Sample blog post
-├── img/
-│   └── (image files)         # Image assets
+├── css/                      # Stylesheets
+│   └── style.css             # Main CSS with Nord theme
+├── js/                       # JavaScript files
+│   ├── scripts.js            # Main site scripts
+│   ├── analytics.js          # Analytics tracking
+│   └── analytics-db.js       # Analytics database
+├── scripts/                  # Build & automation scripts
+│   ├── convert-blog.js       # Markdown to HTML converter
+│   ├── generate-post-json.js # Blog post indexer
+│   └── *.bat                 # Windows batch files
+├── tests/                    # Test files
+│   ├── test-analytics.html   # Analytics testing
+│   └── test-*.html           # Various test pages
+├── blog/                     # Blog posts directory
+├── img/                      # Image assets
+├── _posts/                   # Markdown blog posts
+├── analytics-dashboard/      # Analytics dashboard
 ├── index.html                # Homepage
 ├── about.html                # About page
-├── blog.html                 # Blog listing page
-├── cv.html                   # CV/Resume page
-├── portfolio.html            # Portfolio page
-└── README.md                 # This file
+├── blog.html                 # Blog listing
+├── cv.html                   # Resume/CV
+├── portfolio.html            # Portfolio
+└── analytics.html            # Analytics dashboard
 ```
 
 ## How to Update Content
