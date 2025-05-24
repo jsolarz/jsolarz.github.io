@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#242933" />
+        <meta name="color-scheme" content="dark light" />
+        <title>Analytics Dashboard | BBS-Style Website</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <style>
+            /* 📊 Analytics Dashboard Styles */
+            .analytics-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+                margin: 2rem 0;
+            }
+
+            .metric-card {
+                text-align: center;
+                transition: transform 0.2s ease;
+            }
+
+            .metric-card:hover {
+                transform: translateY(-2px);
+            }
+
+            .metric-value {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: var(--frost-1, #8fbcbb);
+                margin: 0.5rem 0;
+            }
+
+            .metric-period {
+                font-size: 0.8rem;
+                opacity: 0.7;
+            }
+
+            .metric-breakdown div {
+                margin: 0.25rem 0;
+                font-size: 1.1rem;
+            }
+
+            .pages-list {
+                display: grid;
+                gap: 0.5rem;
+            }
+
+            .page-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem;
+                background: rgba(136, 192, 208, 0.1);
+                border-radius: 4px;
+            }
+
+            .page-path {
+                font-family: 'Courier New', monospace;
+                color: var(--frost-2, #88c0d0);
+            }
+
+            .page-count {
+                font-weight: bold;
+                color: var(--aurora-1, #bf616a);
+            }
+
+            .privacy-notice {
+                margin-top: 2rem;
+                border-left: 4px solid var(--frost-1, #8fbcbb);
+                padding-left: 1rem;
+            }
+
+            .privacy-notice ul {
+                margin: 1rem 0;
+            }
+
+            .refresh-btn {
+                background: var(--frost-1, #8fbcbb);
+                color: var(--polar-night-1, #2e3440);
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: inherit;
+                margin-bottom: 1rem;
+            }
+
+            .refresh-btn:hover {
+                background: var(--frost-2, #88c0d0);
+            }
+
+            .last-updated {
+                font-size: 0.8rem;
+                opacity: 0.7;
+                text-align: right;
+                margin-top: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="site-title">"Behind You, a Syntax Error..."</h1>
+                <nav>
+                    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                        <span>Menu</span>
+                        <div class="menu-toggle-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="about.html">about</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                        <li><a href="cv.html">cv</a></li>
+                        <li><a href="portfolio.html">portfolio</a></li>
+                        <li><a href="analytics.html" class="active">📊 analytics</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <h1>📊 Analytics Dashboard</h1>
+
+                <div class="terminal">
+                    <span class="prompt">$ </span>
+                    <span class="command">cat /var/log/analytics.json | jq '.summary'</span>
+                </div>
+
+                <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh Data</button>
+
+                <div class="analytics-grid">
+                    <div class="metric-card bbs-box">
+                        <h3>👤 Unique Visitors</h3>
+                        <div class="metric-value" id="uniqueVisitors">-</div>
+                        <div class="metric-period">Last 30 days</div>
+                    </div>
+
+                    <div class="metric-card bbs-box">
+                        <h3>📄 Page Views</h3>
+                        <div class="metric-value" id="pageViews">-</div>
+                        <div class="metric-period">Last 30 days</div>
+                    </div>
+
+                    <div class="metric-card bbs-box">
+                        <h3>🆕 New vs Returning</h3>
+                        <div class="metric-breakdown">
+                            <div>New: <span id="newVisitors">-</span></div>
+                            <div>Returning: <span id="returningVisitors">-</span></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card bbs-box">
+                        <h3>⚡ Bounce Rate</h3>
+                        <div class="metric-value" id="bounceRate">-</div>
+                        <div class="metric-period">Quick exits</div>
+                    </div>
+                </div>
+
+                <div class="bbs-box">
+                    <div class="bbs-header">📈 Popular Pages</div>
+                    <div id="popularPages" class="pages-list">
+                        <div class="page-item">
+                            <span class="page-path">Loading analytics data...</span>
+                            <span class="page-count">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-notice bbs-box">
+                    <h3>🔒 Privacy & GDPR Compliance</h3>
+                    <p>This analytics system is completely privacy-friendly:</p>
+                    <ul>
+                        <li>✅ <strong>No cookies</strong> - uses localStorage only</li>
+                        <li>✅ <strong>No personal data</strong> - anonymous visitor tracking</li>
+                        <li>✅ <strong>No external services</strong> - all data stays in your browser</li>
+                        <li>✅ <strong>Client-side only</strong> - perfect for static hosting</li>
+                    </ul>
+                    <p>Data is stored locally in your browser and automatically cleaned after 100 page views.</p>
+
+                    <div class="terminal" style="margin-top: 1rem;">
+                        <span class="prompt">$ </span>
+                        <span class="command">analytics --clear-data</span>
+                        <button onclick="clearAnalyticsData()" style="margin-left: 1rem; background: var(--aurora-1); color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer;">Clear All Data</button>
+                    </div>
+                </div>
+
+                <div class="last-updated" id="lastUpdated">
+                    Last updated: Loading...
+                </div>
+            </main>
+
+            <footer>
+                <p>&copy; <span class="current-year">2025</span> Jonathan Solarz | BBS-Style Website</p>
+                <div class="footer-links">
+                    <a href="mailto:hello@solarz.me">Email</a>
+                    <a href="https://github.com/jsolarz">GitHub</a>
+                    <a href="https://linkedin.com/in/ioni-solarz">LinkedIn</a>
+                </div>
+            </footer>        </div>
+
+        <script src="js/analytics-db.js"></script>
+        <script src="js/analytics.js"></script>
+        <script>            /**
+             * 📊 Dashboard Controller
+             */
+            async function refreshDashboard() {
+                if (!window.simpleAnalytics) {
+                    document.getElementById('uniqueVisitors').textContent = 'No data';
+                    return;
+                }
+
+                try {
+                    const summary = await window.simpleAnalytics.getAnalyticsSummary();
+
+                    // Update metrics
+                    document.getElementById('uniqueVisitors').textContent = summary.uniqueVisitors;
+                    document.getElementById('pageViews').textContent = summary.totalPageViews;
+                    document.getElementById('newVisitors').textContent = summary.newVisitors;
+                    document.getElementById('returningVisitors').textContent = summary.returningVisitors;
+                    document.getElementById('bounceRate').textContent = summary.bounceRate;
+
+                    // Update popular pages
+                    const pagesContainer = document.getElementById('popularPages');
+                    if (summary.popularPages.length > 0) {
+                        pagesContainer.innerHTML = summary.popularPages.map(page => `
+                            <div class="page-item">
+                                <span class="page-path">${page.path}</span>
+                                <span class="page-count">${page.count} views</span>
+                            </div>
+                        `).join('');
+                    } else {
+                        pagesContainer.innerHTML = `
+                            <div class="page-item">
+                                <span class="page-path">No data yet - browse the site!</span>
+                                <span class="page-count">📊</span>
+                            </div>
+                        `;
+                    }
+
+                    // Update timestamp
+                    const lastUpdated = new Date(summary.lastUpdated).toLocaleString();
+                    document.getElementById('lastUpdated').textContent = `Last updated: ${lastUpdated}`;
+
+                    // Show database status
+                    const dbStatus = window.simpleAnalytics.db && await window.simpleAnalytics.db.isInitialized()
+                        ? '🟢 SQL.js Database Active'
+                        : '🟡 localStorage Fallback';
+
+                    console.log('📊 Dashboard Status:', dbStatus);
+                } catch (error) {
+                    console.error('❌ Failed to refresh dashboard:', error);
+                    document.getElementById('uniqueVisitors').textContent = 'Error';
+                }
+            }
+
+            // /**
+            //  * 🧹 Clear analytics data
+            //  */
+            // async function clearAnalyticsData() {
+            //     if (confirm('Are you sure you want to clear all analytics data? This cannot be undone.')) {
+            //         if (window.simpleAnalytics) {
+            //             await window.simpleAnalytics.clearData();
+            //         }
+            //         await refreshDashboard();
+            //         alert('Analytics data cleared! 🧹');
+            //     }
+            // }
+
+            // 🚀 Initialize dashboard
+            document.addEventListener('DOMContentLoaded', async () => {
+                // Wait a bit for analytics to initialize
+                setTimeout(async () => {
+                    await refreshDashboard();
+                }, 1000);
+
+                // Auto-refresh every 30 seconds
+                setInterval(refreshDashboard, 30000);
+            });
+        </script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

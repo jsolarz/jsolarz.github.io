@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analytics Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="metrics">
+                <div class="metric-card" id="unique-visitors">
+                    <h2>Unique Visitors</h2>
+                    <p id="unique-visitors-count">0</p>
+                </div>
+                <div class="metric-card" id="page-views">
+                    <h2>Page Views</h2>
+                    <p id="page-views-count">0</p>
+                </div>
+                <div class="metric-card" id="new-vs-returning">
+                    <h2>New vs. Returning Visitors</h2>
+                    <p id="new-visitors-count">0 New</p>
+                    <p id="returning-visitors-count">0 Returning</p>
+                </div>
+                <div class="metric-card" id="bounce-rate">
+                    <h2>Bounce Rate</h2>
+                    <p id="bounce-rate-percentage">0%</p>
+                </div>
+                <div class="metric-card" id="abandonment-rate">
+                    <h2>Abandonment Rate</h2>
+                    <p id="abandonment-rate-percentage">0%</p>
+                </div>
+            </section>
+
+            <section class="charts">
+                <h2>Visitor Trends</h2>
+                <div id="visitor-chart"></div>
+                <div id="bounce-chart"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Your Company | Analytics Dashboard</p>
+        </footer>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
