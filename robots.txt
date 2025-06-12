@@ -5,6 +5,9 @@ Allow: /
 Disallow: /admin/
 Disallow: /dev/
 Disallow: /temp/
+Disallow: /data/
+Disallow: /files/
+Disallow: /backups/
 
 # Sitemap location (create this file if you want to use it)
 Sitemap: https://ioni.solarz.me/sitemap.xml

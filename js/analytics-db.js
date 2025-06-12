@@ -6,7 +6,7 @@
 class AnalyticsDatabase {
     constructor() {
         // Centralized database file URL for GitHub Pages
-        this.dbUrl = './analytics.db';
+        this.dbUrl = './data/analytics.db';
         this.sqlJsUrl = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js';
         this.wasmUrl = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.wasm';
         this.db = null;

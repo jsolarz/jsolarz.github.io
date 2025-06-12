@@ -1,296 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#242933" />
-        <meta name="color-scheme" content="dark light" />
-        <title>CV | BBS-Style Website</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1 class="site-title">"Behind You, a Syntax Error..."</h1>
-                <!-- <p class="site-description">
-                    A modern BBS-style website with Nord theme
-                </p> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#242933" />
+    <meta name="color-scheme" content="dark light" />
+    <title>CV | BBS-Style Website</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Dynamic header component -->
+      <div data-component="header"></div>
 
-                <nav>
-                    <button
-                        class="menu-toggle"
-                        aria-label="Toggle navigation menu"
-                        aria-expanded="false"
-                    >
-                        <span>Menu</span>
-                        <div class="menu-toggle-icon">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
-                    <ul>
-                        <li><a href="/index.html">home</a></li>
-                        <li><a href="about.html">about</a></li>
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="cv.html" class="active">cv</a></li>
-                        <li><a href="portfolio.html">portfolio</a></li>
-                        <li><a href="analytics.html">📊 analytics</a></li>
-                    </ul>
-                </nav>
-            </header>
+      <main>
+        <h1>Curriculum Vitae</h1>
 
-            <main>
-                <h1>Curriculum Vitae</h1>
-
-                <div class="terminal">
-                    <span class="prompt">$ </span>
-                    <span class="command">cat resume.md | less</span>
-                </div>
-
-                <div class="bbs-box">
-                    <h2>Your Name</h2>
-                    <p>
-                        Your Title/Position |
-                        <a href="mailto:your.email@example.com"
-                            >your.email@example.com</a
-                        >
-                        | Your Location
-                    </p>
-                </div>
-
-                <div class="cv-section">
-                    <h2>Summary</h2>
-                    <div class="bbs-box">
-                        <p>
-                            A brief summary of your professional background,
-                            core competencies, and career objectives. This
-                            should be a concise paragraph that gives readers a
-                            quick understanding of who you are professionally.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h2>Work Experience</h2>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3 class="cv-item-title">
-                                Job Title - Company Name
-                            </h3>
-                            <span class="cv-item-date"
-                                >Month Year - Present</span
-                            >
-                        </div>
-                        <ul>
-                            <li>
-                                Key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Another key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Yet another key responsibility or achievement
-                                with quantifiable results
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3 class="cv-item-title">
-                                Previous Job Title - Previous Company Name
-                            </h3>
-                            <span class="cv-item-date"
-                                >Month Year - Month Year</span
-                            >
-                        </div>
-                        <ul>
-                            <li>
-                                Key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Another key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Yet another key responsibility or achievement
-                                with quantifiable results
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3 class="cv-item-title">
-                                Earlier Job Title - Earlier Company Name
-                            </h3>
-                            <span class="cv-item-date"
-                                >Month Year - Month Year</span
-                            >
-                        </div>
-                        <ul>
-                            <li>
-                                Key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Another key responsibility or achievement with
-                                quantifiable results
-                            </li>
-                            <li>
-                                Yet another key responsibility or achievement
-                                with quantifiable results
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h2>Education</h2>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3 class="cv-item-title">
-                                Degree Name - Institution Name
-                            </h3>
-                            <span class="cv-item-date">Graduation Year</span>
-                        </div>
-                        <p>
-                            Brief description of relevant coursework,
-                            achievements, or projects
-                        </p>
-                    </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3 class="cv-item-title">
-                                Earlier Degree - Earlier Institution
-                            </h3>
-                            <span class="cv-item-date">Graduation Year</span>
-                        </div>
-                        <p>
-                            Brief description of relevant coursework,
-                            achievements, or projects
-                        </p>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h2>Skills</h2>
-
-                    <div class="bbs-box">
-                        <div class="bbs-header">Technical Skills</div>
-                        <p>
-                            <span class="highlight-1"
-                                >Programming Languages:</span
-                            >
-                            Language 1, Language 2, Language 3
-                        </p>
-                        <p>
-                            <span class="highlight-1"
-                                >Frameworks & Libraries:</span
-                            >
-                            Framework 1, Framework 2, Library 1
-                        </p>
-                        <p>
-                            <span class="highlight-1">Tools & Platforms:</span>
-                            Tool 1, Tool 2, Platform 1
-                        </p>
-                        <p>
-                            <span class="highlight-1"
-                                >Other Technical Skills:</span
-                            >
-                            Skill 1, Skill 2, Skill 3
-                        </p>
-                    </div>
-
-                    <div class="bbs-box">
-                        <div class="bbs-header">Soft Skills</div>
-                        <p>
-                            Communication, Leadership, Problem Solving, Team
-                            Collaboration, Project Management
-                        </p>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h2>Certifications & Training</h2>
-
-                    <div class="bbs-box">
-                        <ul>
-                            <li>
-                                <span class="highlight-2"
-                                    >Certification Name</span
-                                >
-                                - Issuing Organization, Year
-                            </li>
-                            <li>
-                                <span class="highlight-2"
-                                    >Another Certification</span
-                                >
-                                - Issuing Organization, Year
-                            </li>
-                            <li>
-                                <span class="highlight-2"
-                                    >Professional Training</span
-                                >
-                                - Training Provider, Year
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Added retro enhancements -->
-                <section class="bbs-box">
-                    <header class="bbs-header">Curriculum Vitae</header>
-                    <div class="cv-section">
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title"
-                                    >Software Engineer</span
-                                >
-                                <span class="cv-item-date">2020 - Present</span>
-                            </div>
-                            <p>
-                                Developed modern web applications with a retro
-                                aesthetic.
-                            </p>
-                        </div>
-                        <!-- ...existing CV items... -->
-                    </div>
-                </section>
-
-                <div class="terminal">
-                    <span class="prompt">$ </span>
-                    <span class="command">echo "Download PDF resume"</span>
-                    <div class="output">
-                        <a href="#" style="color: var(--frost-2)"
-                            >Download Complete Resume (PDF)</a
-                        >
-                    </div>
-                </div>
-            </main>
-
-            <footer>
-                <p>
-                    &copy; <span class="current-year">2025</span> Your Name |
-                    BBS-Style Website
-                </p>
-                <div class="footer-links">
-                    <a href="mailto:your.email@example.com">Email</a>
-                    <a href="https://github.com/yourusername">GitHub</a>
-                    <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-                </div>
-            </footer>
+        <div class="terminal">
+          <span class="prompt">$ </span>
+          <span class="command">cat resume.md | less</span>
         </div>
 
-        <script src="js/analytics-db.js"></script>
-        <script src="js/analytics.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+        <div class="bbs-box">
+          <h2>Ioni Solarz</h2>
+          <p>
+            Tech Lead |
+            <a href="mailto:hello@solarz.me">hello@solarz.me</a>
+            | Israel
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Summary</h2>
+          <div class="bbs-box">
+            <p>
+              I'm a versatile hands-on tech leader and software developer with
+              over 24 years of hands-on experience. I love learning new things
+              and thrive on engaging innovative technologies to build solutions.
+              My expertise covers full-stack development, data, and leading key
+              cloud apps and architecture design and implementation, including
+              AI modernization. Equally comfortable with hands-on coding,
+              architecting complex systems, or leading teams, I am driven by
+              innovation and customer success.
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Work Experience</h2>
+
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">Architect - Microsoft</h3>
+              <span class="cv-item-date">2022 - Present</span>
+            </div>
+            <ul>
+              <li>
+                Led Azure Cloud, Data, and AI initiatives across the Middle East
+                and Africa, empowering businesses to transform through
+                technology. I bring deep expertise in delivering scalable,
+                innovative solutions that meet complex business needs.
+              </li>
+              <li>
+                Led Azure-based AI and data modernization projects across MEA,
+                including a multi-phase AI Advisor enhancement that improved
+                answer accuracy and reduced deployment time through CI/CD
+                automation
+              </li>
+              <li>
+                Designed and facilitated AI CoE, Devops and Agile workshops to
+                accelerate Copilot and Agile adoption and readiness for
+                enterprise clients
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">Architect - Bolt</h3>
+              <span class="cv-item-date">2021</span>
+            </div>
+            <ul>
+              <li>
+                Led the modernization of the platform to .Net 6 & moved to Cloud
+                ﬁrst architecture.
+              </li>
+              <li>
+                Created POCs that explore new technologies, assess their
+                competence, and present recommendations to R&D leadership.
+              </li>
+              <li>
+                Responsible for software architecture, bringing in advance
+                solutions, methods, and tools. Solving issues of scalability,
+                maintainability
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Software Development Team Lead - ImageSat International
+              </h3>
+              <span class="cv-item-date">2018 - 2021</span>
+            </div>
+            <ul>
+              <li>Managed a team of 10: developers, QA, and DevOps</li>
+              <li>
+                Applied the iDesign Method in coordination with the product
+                team, increasing the product launch rate by 15%
+              </li>
+              <li>
+                Created, reviewed, and approved functional and technical design
+                speciﬁcations for applications development.
+              </li>
+              <li>
+                Setup Azure DevOps CI/CD pipeline for testing, release and
+                deploy, reducing deploy time by 60%
+              </li>
+              <li>
+                Mentored and trained team members to assist in completing tasks
+                and meeting deadlines and business goals.
+              </li>
+              <li>
+                Designed the technical solution and developed a uniﬁed
+                infrastructure for a multi satellite ground station.
+              </li>
+              <li>
+                Wrote the winning technical solution for a tender that increased
+                the company’s revenue by 30 million dollars.
+              </li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Software Development Team Lead - Activetrail
+              </h3>
+              <span class="cv-item-date">2017 - 2018</span>
+            </div>
+            <ul>
+              <li>Managed a team of 5 developers</li>
+              <li>
+                Developed a messages service expanding sent messages by 50%
+              </li>
+              <li>
+                Setup Azure DevOps CI/CD pipeline for 30 servers reducing deploy
+                time by 50%
+              </li>
+              <li>
+                Updated .Net version of existing software improving performance
+                by 70%
+              </li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Software Development Team Lead - Tracx
+              </h3>
+              <span class="cv-item-date">2014 - 2017</span>
+            </div>
+            <ul>
+              <li>
+                Designed and implemented a microservices architecture for the
+                platform, improving scalability and maintainability
+              </li>
+              <li>
+                Developed a real-time analytics dashboard using React and
+                Node.js, enhancing data visibility for clients
+              </li>
+              <li>
+                Integrated third-party APIs to expand platform capabilities and
+                improve user experience
+              </li>
+              <li>
+                Conducted code reviews and implemented best practices, resulting
+                in a 40% reduction in bugs
+              </li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">Software Developer - R/GA</h3>
+              <span class="cv-item-date">2011 - 2014</span>
+            </div>
+            <ul>
+              <li>
+                Lead a development team of 3 developers, QA, and designer.
+              </li>
+              <li>
+                Developed solutions for company’s clients: PWC, Microsoft,
+                McCormick, Verizon, improving users reach by 25%
+              </li>
+              <li>
+                Mentored and trained team members to assist in completing tasks
+                and meet deadlines and business goals.
+              </li>
+              <li>
+                Setup Azure services for testing, release and deploy, resulting
+                in reducing testing time and faster release cycle.
+              </li>
+              <li>
+                Worked on the launch of Windows 8 increasing BA branch exposure
+                and cooperation with US branches.
+              </li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Software Development Team Lead - Quadratica
+              </h3>
+              <span class="cv-item-date">2006 - 2011</span>
+            </div>
+            <ul>
+              <li>
+                Managed a team of 3 developers working on diﬀerent projects for
+                our clients.
+              </li>
+              <li>
+                Wrote requirements, technical design, implementation, testing,
+                deployment, and documentation.
+              </li>
+              <li>
+                Mentored and trained team members to assist in completing tasks
+                and meet deadlines and business goals
+              </li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Software Developer - Universidad de Flores
+              </h3>
+              <span class="cv-item-date">2001 - 2005</span>
+            </div>
+            <ul>
+              <li>
+                Developed a new student management and billing system for the
+                administration department.
+              </li>
+              <li>
+                Developed a new course registration, exams, and academic queries
+                system accessible through the university site.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Education</h2>
+
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">
+                Bachelor Computer Science - Universidad de Palermo
+              </h3>
+              <span class="cv-item-date">2011</span>
+            </div>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <h3 class="cv-item-title">Computer System Analyst - ORT</h3>
+              <span class="cv-item-date">2004</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Skills</h2>
+
+          <div class="bbs-box">
+            <div class="bbs-header">Technical Skills</div>
+            <p>
+              <span class="highlight-1">Architecture & Design:</span> Solution
+              Architecture | Enterprise Solutions Architecture | Solution
+              Architecture Design | Technical Solution Architecture | Solution
+              Building | Solutions Design | Solutions Integration | Agile
+              methodologies
+            </p>
+            <p>
+              <span class="highlight-1">Cloud & DevSecOps:</span> AWS, Azure |
+              Git & DevOps CI/CD tools (GitHub, ADO, GitLab, Bitbucket) |
+              Infrastructure as Code (IaC) | Docker
+            </p>
+            <p>
+              <span class="highlight-1">Software Development:</span> C# / .NET
+              15+ years | Web Development 15+ years | Cloud native applications
+              7+ years | Relational and NoSQL databases 15+ years | React,
+              Angular, Web Development | Python | PHP | Redis
+            </p>
+            <p>
+              <span class="highlight-1">AI:</span> Copilot | Prompt Engineering
+              | Semantic Kernel | Azure AI Services | AI Model Deployment | AI
+              Ethics | Chatbot Development, OpenAI
+            </p>
+            <p>
+              <span class="highlight-1">Languages:</span> Spanish | English |
+              Hebrew
+            </p>
+          </div>
+
+          <div class="bbs-box">
+            <div class="bbs-header">Soft Skills</div>
+            <p>
+              Communication, Leadership, Problem Solving, Team Collaboration,
+              Project Management
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Certifications & Training</h2>
+
+          <div class="bbs-box">
+            <ul>
+              <li>
+                <span class="highlight-2">Certification Name</span>
+                - Issuing Organization, Year
+              </li>
+              <li>
+                <span class="highlight-2">Another Certification</span>
+                - Issuing Organization, Year
+              </li>
+              <li>
+                <span class="highlight-2">Professional Training</span>
+                - Training Provider, Year
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <span class="prompt">$ </span>
+          <span class="command">echo "Download PDF resume"</span>
+          <div class="output">
+            <a href="#" style="color: var(--frost-2)"
+              >Download Complete Resume (PDF)</a
+            >
+          </div>
+        </div>
+      </main>
+
+      <!-- Dynamic footer component -->
+      <div data-component="footer"></div>
+    </div>
+
+    <!-- Component loader must come first -->
+    <script src="/js/component-loader.js"></script>
+  </body>
 </html>
