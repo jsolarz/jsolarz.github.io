@@ -7,7 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ioni.solarz.me/about.html</loc>
+    <loc>https://ioni.solarz.me/pages/about.html</loc>
     <lastmod>2025-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,27 +19,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ioni.solarz.me/cv.html</loc>
+    <loc>https://ioni.solarz.me/pages/cv.html</loc>
     <lastmod>2025-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ioni.solarz.me/portfolio.html</loc>
+    <loc>https://ioni.solarz.me/pages/portfolio.html</loc>
     <lastmod>2025-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ioni.solarz.me/blog/bbs-aesthetic.html</loc>
-    <lastmod>2025-05-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ioni.solarz.me/blog/first-post.html</loc>
-    <lastmod>2025-05-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
