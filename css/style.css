@@ -885,18 +885,21 @@ footer {
 }
 
 /* Light mode styles */
+html.light-mode,
 body.light-mode {
   color: var(--light-text-1);
   background-color: var(--light-bg-1);
   font-weight: 500; /* Slightly bolder font for better readability */
 }
 
+html.light-mode .theme-toggle,
 body.light-mode .theme-toggle {
   background-color: var(--light-bg-3);
   color: var(--light-text-1);
   border: 1px solid var(--light-bg-2);
 }
 
+html.light-mode .theme-toggle:hover,
 body.light-mode .theme-toggle:hover {
   background-color: var(--light-bg-2);
 }
