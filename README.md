@@ -18,6 +18,8 @@ A modern BBS-style website with Nord color theme (slightly darker variant), desi
 ├── css/                      # Stylesheets
 │   └── style.css             # Main CSS with Nord theme
 ├── js/                       # JavaScript files
+│   ├── component-loader.js   # Legacy component loader (deprecated)
+│   ├── web-components.js     # Web Components implementation using Templates and Slots
 │   ├── scripts.js            # Main site scripts
 │   ├── analytics.js          # Analytics tracking
 │   └── analytics-db.js       # Analytics database
@@ -52,7 +54,7 @@ Each main section of the website has its own HTML file:
 4. `cv.html` - Resume/CV information
 5. `portfolio.html` - Portfolio of work/projects
 
-To update any of these pages, simply edit the corresponding HTML file using a text editor.
+To update any of these pages, simply edit the corresponding HTML file using a text editor. All pages now use Web Components for consistent header and footer (see the [Web Components README](components/WEB-COMPONENTS-README.md) for more details).
 
 ### Adding a New Blog Post
 

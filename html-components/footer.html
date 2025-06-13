@@ -1,0 +1,29 @@
+<!-- Footer Component - Copy this code to include in your pages -->
+<footer>
+    <p>
+        &copy; <span class="current-year">2025</span> Jonathan Solarz | Tech Thoughts
+    </p>
+    <div class="footer-links">
+        <a href="mailto:hello@solarz.me">Email</a>
+        <a href="https://github.com/jsolarz">GitHub</a>
+        <a href="https://www.linkedin.com/in/joni-solarz/">LinkedIn</a>
+
+        <!-- Additional links slot (optional) -->
+        <div class="additional-links-slot">
+            <!-- When using this template, place your additional links here -->
+        </div>
+    </div>
+
+    <!-- Footer content slot (optional) -->
+    <div class="footer-content-slot">
+        <!-- When using this template, place your custom footer content here -->
+    </div>
+</footer>
+
+<!-- Year update script (paste inline to avoid external JS) -->
+<script>
+    // Immediately-invoked function for current year update
+    (function() {
+        document.querySelector('.current-year').textContent = new Date().getFullYear();
+    })();
+</script>

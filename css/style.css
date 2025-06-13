@@ -1139,3 +1139,247 @@ body.light-mode .highlight-3 {
 body.light-mode .highlight-4 {
   color: var(--light-frost-4);
 }
+
+/* ==================================================
+   CV DYNAMIC LOADING STYLES
+   ================================================== */
+
+/* CV Header */
+.cv-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cv-name {
+  font-size: 2.5rem;
+  color: var(--frost-1);
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(136, 192, 208, 0.3);
+}
+
+.cv-contact {
+  font-family: var(--font-mono);
+  color: var(--snow-storm-2);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.cv-contact a {
+  color: var(--frost-2);
+  text-decoration: none;
+}
+
+.cv-contact a:hover {
+  color: var(--frost-1);
+  text-decoration: underline;
+}
+
+/* CV Sections */
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-section-title {
+  color: var(--frost-1);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--polar-night-4);
+  padding-bottom: 0.5rem;
+}
+
+.cv-section-content {
+  padding: 1rem;
+}
+
+/* Job Entries */
+.cv-job-header {
+  margin: 1.5rem 0 1rem 0;
+  border-left: 4px solid var(--frost-1);
+  padding-left: 1rem;
+}
+
+.cv-job-title {
+  color: var(--frost-2);
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+.cv-company {
+  color: var(--aurora-2);
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+.cv-date {
+  background: var(--polar-night-3);
+  color: var(--aurora-3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 1px solid var(--polar-night-4);
+}
+
+/* Lists */
+.cv-list {
+  margin: 1rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.cv-bullet {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--snow-storm-2);
+  line-height: 1.5;
+}
+
+.cv-bullet::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--frost-1);
+  font-weight: bold;
+}
+
+.cv-bullet:hover {
+  color: var(--snow-storm-1);
+}
+
+/* Dividers */
+.cv-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--frost-1), transparent);
+  margin: 2rem 0;
+  opacity: 0.5;
+}
+
+/* Skills section specific styling */
+.cv-section:has(.cv-section-content:contains("Architecture")) .cv-bullet,
+.cv-section .cv-section-content:contains("Cloud") .cv-bullet,
+.cv-section .cv-section-content:contains("Software Development") .cv-bullet {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Skills section special formatting */
+.cv-section .cv-section-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.cv-section .cv-section-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Special formatting for skills with pipe separators */
+.cv-section:contains("Skills") .cv-section-content {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+/* Education section formatting */
+.cv-section:contains("Education") .cv-section-content {
+  font-family: var(--font-mono);
+}
+
+/* Error state */
+.cv-section.error {
+  background: rgba(212, 99, 108, 0.1);
+  border-color: var(--aurora-1);
+}
+
+.cv-section.error .bbs-header {
+  background: var(--aurora-1);
+  color: var(--polar-night-1);
+}
+
+/* Loading states */
+.cv-loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.cv-loading .terminal {
+  margin: 1rem auto;
+  max-width: 400px;
+}
+
+/* Light mode CV styles */
+body.light-mode .cv-name {
+  color: var(--light-frost-1);
+  text-shadow: none;
+}
+
+body.light-mode .cv-contact {
+  color: var(--light-text-1);
+}
+
+body.light-mode .cv-contact a {
+  color: var(--light-frost-2);
+}
+
+body.light-mode .cv-section-title {
+  color: var(--light-frost-1);
+  border-bottom-color: var(--light-bg-3);
+}
+
+body.light-mode .cv-job-header {
+  border-left-color: var(--light-frost-1);
+}
+
+body.light-mode .cv-job-title {
+  color: var(--light-frost-2);
+}
+
+body.light-mode .cv-company {
+  color: var(--light-text-1);
+}
+
+body.light-mode .cv-date {
+  background: var(--light-bg-3);
+  color: var(--light-text-1);
+  border-color: var(--light-bg-2);
+}
+
+body.light-mode .cv-bullet {
+  color: var(--light-text-2);
+}
+
+body.light-mode .cv-bullet::before {
+  color: var(--light-frost-1);
+}
+
+body.light-mode .cv-bullet:hover {
+  color: var(--light-header);
+}
+
+body.light-mode .cv-divider {
+  background: linear-gradient(90deg, transparent, var(--light-frost-1), transparent);
+}
+
+/* Mobile responsiveness for CV */
+@media (max-width: 768px) {
+  .cv-name {
+    font-size: 2rem;
+  }
+
+  .cv-contact {
+    font-size: 1rem;
+  }
+
+  .cv-job-header {
+    padding-left: 0.75rem;
+  }
+
+  .cv-bullet {
+    padding-left: 1.25rem;
+  }
+}
