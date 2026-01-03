@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Converts markdown blog posts to HTML",
   "scripts": {
-    "convert": "node scripts/convert-blog.js"
+    "convert": "node scripts/convert-blog.js",
+    "generate-index": "node scripts/generate-posts-index.js",
+    "build": "npm run generate-index && npm run convert"
   },
   "dependencies": {
     "front-matter": "^4.0.2",

@@ -1,0 +1,85 @@
+---
+alwaysApply: true
+---
+
+This combines the **Wikipedia: Signs of AI Writing** constraints with **Modern Vanilla Web Development** standards (HTML5, CSS Next, and ES2024+).
+
+---
+
+# .cursorrules
+
+## 1. Documentation & Communication Standards
+
+_Derived from "Wikipedia: Signs of AI Writing"_
+
+-   **Avoid AI Fluff:** No "Certainly!", "Here is an explanation...", or summary conclusions.
+-   **High Information Density:** Prioritize code and facts over conversational filler.
+-   **No Hallucinations:** Never invent an API, CSS property, or URL. If unsure, state: "Verify the current browser support for [X]."
+-   **Direct Tone:** Use "Wikipedia Voice"—neutral, objective, and technical.
+-   **Specifics:** Instead of saying "This is efficient," explain _why_ (e.g., "This uses event delegation to reduce memory overhead").
+
+---
+
+## 2. Technical Stack: Vanilla Web (HTML, CSS, JS)
+
+### HTML: Semantic & Accessible
+
+-   **Structure:** Always use semantic tags (`<main>`, `<article>`, `<nav>`, `<header>`, `<footer>`).
+-   **Modern APIs:** Use the native `<dialog>` element for modals and the `popover` attribute for menus/tooltips.
+-   **Forms:** Always include `<label>` for inputs and use appropriate `type` attributes (e.g., `email`, `tel`, `number`).
+-   **Images:** All `<img>` tags must have `alt` text. Use `loading="lazy"` for non-hero images.
+
+### CSS: Modern Layout & Styling
+
+-   **Layout:** Use **CSS Grid** for page-level layout and **Flexbox** for components.
+-   **Modern Features:** - Use **CSS Nesting** (e.g., `.parent { &.child { ... } }`).
+-   Use **CSS Variables** (`--color-primary`) defined in `:root`.
+-   Use the **`:has()`** selector for parent-based styling logic.
+-   Use **Container Queries** (`@container`) for component responsiveness instead of just media queries.
+
+-   **Units:** Use `rem` for typography/spacing. Avoid `px` for font-size.
+
+### JavaScript: ES2024+ & DOM APIs
+
+-   **Logic:** Use `const` and `let` exclusively. Use arrow functions for callbacks and `async/await` for asynchronous operations.
+-   **Modularity:** Use **ES Modules** (`import`/`export`). Load scripts via `<script type="module">`.
+-   **DOM Interaction:** - Use `querySelector` and `querySelectorAll`.
+-   Use **Event Delegation** (attaching one listener to a parent) for lists or dynamic content.
+-   Avoid `innerHTML` for user-generated content; use `textContent` or `createElement`.
+
+-   **State Management:** For simple reactivity, use the **Proxy API** or custom events.
+
+---
+
+## 3. Quick Reference Table: "Instead of X, Use Y"
+
+| Avoid (Legacy)           | Use (Modern Standard)          | Reason                                  |
+| ------------------------ | ------------------------------ | --------------------------------------- |
+| `<div>` (for layout)     | `<main>`, `<section>`, `<nav>` | Better SEO and Accessibility (A11y).    |
+| `float` / `inline-block` | `display: flex` / `grid`       | Modern, reliable layout engines.        |
+| `px` (font-size)         | `rem` / `ch`                   | Better scaling for user preferences.    |
+| `var`                    | `const` / `let`                | Proper block scoping.                   |
+| `XMLHttpRequest`         | `fetch()`                      | Cleaner, Promise-based API.             |
+| `jQuery` / `$()`         | `querySelector()`              | Native browser support is now superior. |
+
+---
+
+## 4. Component Structure Example
+
+When asked to create a new component, follow this pattern:
+
+```javascript
+/* 1. Semantic HTML structure
+2. CSS Variables and Nesting
+3. JS Module with Event Delegation
+*/
+
+// JS (example.js)
+export function initComponent(el) {
+	el.addEventListener("click", (e) => {
+		if (e.target.matches(".action-btn")) {
+			// Logic here
+		}
+	})
+}
+```

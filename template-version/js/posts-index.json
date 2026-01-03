@@ -1,0 +1,77 @@
+[
+  {
+    "title": "The Future of Intelligent Systems: Where We're Headed and Why It Matters",
+    "date": "2025-05-08",
+    "slug": "future-of-intelligent-systems",
+    "filename": "2025-05-08-future-of-intelligent-systems.md",
+    "categories": [
+      "future",
+      "innovation",
+      "ai"
+    ],
+    "excerpt": "A thoughtful exploration of where AI, cloud, and architecture are going—and how organizations can prepare for the next wave of intelligent systems.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building AI-Ready Architectures on Azure",
+    "date": "2025-04-18",
+    "slug": "building-ai-ready-architectures",
+    "filename": "2025-04-18-building-ai-ready-architectures.md",
+    "categories": [
+      "cloud",
+      "ai",
+      "azure"
+    ],
+    "excerpt": "A comprehensive guide to preparing enterprise systems for AI integration using Microsoft Azure's cloud platform and services.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "From Monolith to Microservices: Lessons from the Trenches",
+    "date": "2025-03-12",
+    "slug": "monolith-to-microservices",
+    "filename": "2025-03-12-monolith-to-microservices.md",
+    "categories": [
+      "tech",
+      "architecture"
+    ],
+    "excerpt": "Real-world insights from modernizing legacy systems and the trade-offs involved when breaking down monolithic applications into microservices.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Leading Tech Teams Through Change: What I've Learned",
+    "date": "2025-02-26",
+    "slug": "leading-tech-teams-through-change",
+    "filename": "2025-02-26-leading-tech-teams-through-change.md",
+    "categories": [
+      "leadership",
+      "management"
+    ],
+    "excerpt": "Reflections on managing teams through digital transformation and uncertainty, with practical advice for tech leaders facing similar challenges.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "From Idea to Impact: Rapid Prototyping with Azure OpenAI and Copilot Studio",
+    "date": "2025-01-15",
+    "slug": "rapid-prototyping-azure-openai",
+    "filename": "2025-01-15-rapid-prototyping-azure-openai.md",
+    "categories": [
+      "azure",
+      "ai",
+      "development"
+    ],
+    "excerpt": "A practical walkthrough showing how to turn concepts into working solutions quickly using Azure's AI services.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Architect as a Translator: Bridging Business and Engineering",
+    "date": "2024-12-10",
+    "slug": "architect-as-translator",
+    "filename": "2024-12-10-architect-as-translator.md",
+    "categories": [
+      "architecture",
+      "leadership"
+    ],
+    "excerpt": "How effective software architects turn business needs into technical solutions—and why that translation role is critical for organizational success.",
+    "author": "Jonathan Solarz"
+  }
+]
