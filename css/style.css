@@ -38,9 +38,9 @@
   --light-frost-4: #639599;
 
   /* Typography */
-  --font-mono: "Courier New", Courier, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   --font-size-base: 16px;
-  --line-height: 1.6;
+  --line-height: 1.5;
 }
 
 /* Base styles */
@@ -50,16 +50,36 @@
   box-sizing: border-box;
 }
 
+html{
+  color: var(--snow-storm-1);
+  background-color: var(--polar-night-1);
+}
+
+html,
+:host {
+  line-height: var(--line-height);
+  -webkit-text-size-adjust:100%;
+  -moz-tab-size:4;
+  -o-tab-size:4;
+  tab-size:4;
+  font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-feature-settings:normal;
+  font-variation-settings:normal;
+  -webkit-tap-highlight-color:transparent
+}
+
 body {
   font-family: var(--font-mono);
   font-size: var(--font-size-base);
-  line-height: var(--line-height);
-  color: var(--snow-storm-1);
-  background-color: var(--polar-night-1);
-  padding: 1rem;
+  line-height:inherit;
+  margin:0;
+  /*padding: 1rem;
   max-width: 100%;
   overflow-x: hidden;
-  min-height: 100vh; /* Use full viewport height */
+  min-height: 100vh;*/ /* Use full viewport height */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-wrap:pretty
 }
 
 /* CRT Screen Effect */

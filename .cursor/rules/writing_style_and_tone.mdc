@@ -1,0 +1,103 @@
+---
+alwaysApply: true
+---
+
+# Writing Style and Tone Rules
+
+## Core Principles
+
+- Professional, concise, authoritative tone suitable for enterprise engineering
+- Active voice preferred over passive voice
+- Technical neutrality (Wikipedia voice): dispassionate, accurate, direct
+- Information density over linguistic filler
+- Tailor depth and terminology to audience (executive vs. technical)
+- Prioritize clarity, precision, and correctness
+
+## Prohibited Elements
+
+### Formatting Prohibitions
+
+**Never use in content:**
+- Horizontal lines (`---`) to separate sections (allowed in YAML frontmatter only)
+- Emojis in professional documentation or code comments
+- Excessive icons or symbols (use sparingly only when adding clear value)
+- Em dashes (—) in code comments (allowed in prose where grammatically appropriate)
+- Exclamation marks in professional documents
+- Casual language (TL;DR, FYI, BTW) in formal documentation
+
+**Avoid:**
+- Overuse of formatting tricks (excessive bold, italics, code blocks) when plain text suffices
+- Unnecessary callout boxes, notes, or warnings for obvious information
+- Over-segmentation with too many section headers
+- Unnecessary introductory phrases before getting to the point
+
+### Language Prohibitions
+
+**Fluff words (avoid unless technically accurate):**
+- "groundbreaking," "seamless," "pivotal," "comprehensive," "delve," "tapestry"
+
+**Padded phrases (eliminate):**
+- "It is important to note that," "Furthermore," "In conclusion"
+- "it's worth noting," "it should be mentioned," "as you can see"
+- "it's important to understand"
+
+**AI-isms (ban unless only technically accurate option):**
+- "delve," "tapestry," "pivotal," "comprehensive"
+
+**Other prohibitions:**
+- Moralizing or lecturing
+- Over-politeness: "I'd be happy to help," "This amazing feature"
+- Starting responses with "Certainly!" or "Great question!"
+- Conclusion paragraphs that summarize previous three paragraphs
+- Over-explaining obvious concepts (assume basic domain knowledge)
+
+## Required Elements
+
+### Structure
+- Short, direct sentences
+- Vary sentence length (avoid repetitive, rhythmic structures)
+- Logical flow based on technical hierarchy, not just "Next," "Additionally," "Finally"
+- Clear headings and whitespace for structure
+- Consistent casing (title case or sentence case, not random capitalization)
+
+### Content
+- Consistent terminology throughout (define acronyms on first use)
+- Specific examples over vague qualifiers
+- Direct statements without preamble
+- Present tense for system behavior
+- Avoid ambiguous language; be explicit about assumptions and limitations
+
+### Lists
+- Do not add periods (.) at the end of bullet points unless they contain complete sentences
+- Each bullet point is a phrase on its own
+- Use bullet points for unordered lists
+- Use numbered lists for sequences or processes
+
+## Code Comments
+
+**Prohibited in code comments:**
+- Em dashes (—)
+- Horizontal lines (`---`)
+- Emojis
+- Exclamation marks
+- Casual language (TL;DR, FYI, etc.)
+- Excessive formatting (bold, italics) when plain text suffices
+
+**Prefer:**
+- Clear, concise comments explaining why, not what
+- Professional, understated language
+- Direct statements without filler phrases
+
+## Audience Adaptation
+
+- **Business stakeholders**: High-level clarity, benefits, outcomes
+- **Technical stakeholders**: Detailed architecture, constraints, trade-offs
+- **Non-technical users**: Simple language, avoid jargon, focus on actions and outcomes
+
+## Style Consistency
+
+- Use consistent terminology across all documents
+- Define all acronyms on first use
+- Avoid filler words and vague language
+- Use present tense for system behavior
+- Prefer prose over excessive bullet points when appropriate
