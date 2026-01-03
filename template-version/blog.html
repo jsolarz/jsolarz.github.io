@@ -23,8 +23,26 @@
             <div data-template="footer"></div>
         </div>
 
+        <script src="js/md4w-loader.js"></script>
         <script src="js/template-engine.js"></script>
         <script src="js/scripts.js"></script>
-        <script src="js/post-loader.js"></script>
+        <script src="js/blog-engine.js"></script>
+        <script>
+            document.addEventListener('templateLoaded', async () => {
+                const postList = document.querySelector('.post-list');
+                if (postList) {
+                    await blogEngine.renderPostList(postList);
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', async () => {
+                setTimeout(async () => {
+                    const postList = document.querySelector('.post-list');
+                    if (postList && postList.innerHTML.includes('Loading')) {
+                        await blogEngine.renderPostList(postList);
+                    }
+                }, 100);
+            });
+        </script>
     </body>
 </html>
