@@ -4,12 +4,12 @@ A minimal, performant BBS-style website with template system and markdown blog e
 
 ## Features
 
-- Template system (DRY architecture)
-- Client-side markdown blog engine using md4w (WASM)
-- BBS aesthetic with Nord color theme
-- Mobile-first responsive design
-- Template caching for performance
-- GitHub Pages compatible
+-   Template system (DRY architecture)
+-   Client-side markdown blog engine using md4w (WASM)
+-   BBS aesthetic with Nord color theme
+-   Mobile-first responsive design
+-   Template caching for performance
+-   GitHub Pages compatible
 
 ## Quick Start
 
@@ -28,8 +28,9 @@ npm run generate-index
 ```
 .
 ├── _posts/              # Markdown blog posts
+│   └── manifest.json    # Post filename list (required)
 ├── blog/                # Blog post pages
-│   └── post.html        # Dynamic post template
+│   └── post.html        # Single template for all posts (slug from URL)
 ├── css/                 # Stylesheets
 ├── docs/                # Documentation
 ├── files/               # Document files (CV, PDFs)
@@ -39,12 +40,20 @@ npm run generate-index
 │   ├── md4w-loader.js   # md4w WASM loader
 │   ├── template-engine.js # Template system
 │   ├── scripts.js       # Core scripts
-│   └── posts-index.json # Generated post index
+│   └── posts-index.json # Generated post index (optional)
 ├── scripts/             # Build scripts
-└── templates/           # HTML templates
-    ├── header.html
-    ├── footer.html
-    └── [content templates]
+├── templates/           # HTML content templates
+│   ├── header.html
+│   ├── footer.html
+│   └── [content templates]
+└── *.html               # Entry point pages (root for clean URLs)
+    ├── index.html        # Home page
+    ├── about.html        # About page
+    ├── blog.html         # Blog listing
+    ├── contact.html      # Contact page
+    ├── cv.html           # CV page
+    ├── portfolio.html    # Portfolio page
+    └── policy.html       # Privacy policy
 ```
 
 ## Blog System
@@ -52,6 +61,7 @@ npm run generate-index
 ### Adding a Post
 
 1. Create markdown file in `_posts/`:
+
 ```markdown
 ---
 title: "Your Post Title"
@@ -66,6 +76,7 @@ Markdown content here...
 ```
 
 2. Generate index:
+
 ```bash
 npm run generate-index
 ```
@@ -74,10 +85,11 @@ npm run generate-index
 
 ### Blog Engine
 
-- Client-side markdown rendering (md4w WASM)
-- Automatic front matter parsing
-- Posts index generation
-- GitHub Pages compatible
+-   **Client-side markdown rendering** - No pre-conversion needed, markdown files served directly
+-   md4w WASM renders markdown to HTML in the browser (similar to [pipress](https://github.com/pi0/pipress))
+-   Automatic front matter parsing
+-   Posts index generation (metadata only, not HTML)
+-   GitHub Pages compatible - works with static hosting
 
 See `README-blog-engine.md` for detailed documentation.
 
@@ -88,32 +100,29 @@ See `README-blog-engine.md` for detailed documentation.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Page Title | BBS-Style Website</title>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-    <div class="container">
-        <div data-template="header"></div>
-        <main>
-            <div data-template="your-content"></div>
-        </main>
-        <div data-template="footer"></div>
-    </div>
-    <script src="js/template-engine.js"></script>
-    <script src="js/scripts.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Page Title | BBS-Style Website</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div data-template="header"></div>
+			<main>
+				<div data-template="your-content"></div>
+			</main>
+			<div data-template="footer"></div>
+		</div>
+		<script src="js/template-engine.js"></script>
+		<script src="js/scripts.js"></script>
+	</body>
 </html>
 ```
 
 ### Template Variables
 
 ```html
-<div
-    data-template="blog-post"
-    data-template-data='{"postTitle":"Title","postDate":"2025-01-15"}'
-></div>
+<div data-template="blog-post" data-template-data='{"postTitle":"Title","postDate":"2025-01-15"}'></div>
 ```
 
 ## Deployment
@@ -127,13 +136,12 @@ See `README-blog-engine.md` for detailed documentation.
 
 ## Documentation
 
-- `README-blog-engine.md` - Blog engine documentation
-- `docs/SOLUTION-ANALYSIS.md` - Architecture decisions
-- `docs/CLEANUP-SUMMARY.md` - Repository cleanup details
+-   `README-blog-engine.md` - Blog engine documentation (client-side rendering)
+-   `docs/README-blog-system.md` - Blog system overview
 
 ## License
 
-- **Code (HTML, CSS, JavaScript):** MIT License - see `LICENSE` file
-- **Content (Blog Posts, Articles):** CC BY-NC-ND 4.0 - see `CONTENT-LICENSE.md`
+-   **Code (HTML, CSS, JavaScript):** MIT License - see `LICENSE` file
+-   **Content (Blog Posts, Articles):** CC BY-NC-ND 4.0 - see `CONTENT-LICENSE.md`
 
 This dual-license approach protects your written content while keeping the code open for learning and reuse.

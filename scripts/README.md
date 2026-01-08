@@ -1,22 +1,17 @@
 # Scripts Directory
 
-This directory contains build scripts, conversion tools, and automation scripts for the website.
+Build scripts for the blog website.
 
 ## Files
 
-- `convert-blog.js` - Converts markdown blog posts to HTML
-- `generate-post-json.js` - Generates posts.json for blog navigation
-- `generate-analytics-db.js` - Creates initial analytics database file
-- `*.bat` - Windows batch files for automation
+-   `generate-posts-index.js` - Generates posts index (metadata only) from `_posts/` directory
 
 ## Usage
 
-Most scripts can be run using npm:
+Generate posts index:
+
 ```bash
-npm run convert
+npm run generate-index
 ```
 
-Or directly with Node.js:
-```bash
-node scripts/convert-blog.js
-```
+This creates `js/posts-index.json` with post metadata. No HTML conversion needed - markdown is rendered client-side.
