@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const postsDir = path.join(__dirname, '..', '_posts');
-const outputPath = path.join(__dirname, '..', 'template-version', 'js', 'posts-index.json');
+const outputPath = path.join(__dirname, '..', 'js', 'posts-index.json');
 
 if (!fs.existsSync(postsDir)) {
     console.error(`Posts directory not found: ${postsDir}`);

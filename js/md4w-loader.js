@@ -78,3 +78,12 @@ class MD4WLoader {
 
 const md4wLoader = new MD4WLoader();
 
+// Preload md4w on blog pages for better performance
+if (typeof window !== 'undefined' &&
+    (window.location.pathname.includes('/blog') ||
+     document.querySelector('.post-list'))) {
+    md4wLoader.load().catch(err => {
+        console.warn('Failed to preload md4w:', err);
+    });
+}
+

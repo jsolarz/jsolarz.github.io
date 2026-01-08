@@ -13,23 +13,13 @@ class BlogEngine {
     /**
      * Detects base path for GitHub Pages compatibility
      * Handles both root domain and /repo-name/ deployments
-     * For template-version, checks if we're in a subdirectory
      */
     _detectBasePath() {
         const path = window.location.pathname;
 
-        // Check if we're in template-version subdirectory
-        if (path.includes('/template-version/')) {
-            const match = path.match(/^\/([^\/]+)\/template-version/);
-            if (match) {
-                return `/${match[1]}/template-version`;
-            }
-            return '/template-version';
-        }
-
-        // Check for repo-name deployment
+        // Check for repo-name deployment (e.g., /jsolarz.github.io/)
         const match = path.match(/^\/([^\/]+)\//);
-        if (match && !['blog', 'pages', 'templates', 'js', 'css', '_posts', 'template-version'].includes(match[1])) {
+        if (match && !['blog', 'pages', 'templates', 'js', 'css', '_posts', 'files', 'img', 'docs'].includes(match[1])) {
             return `/${match[1]}`;
         }
         return '';
@@ -49,12 +39,34 @@ class BlogEngine {
             if (!response.ok) {
                 throw new Error(`Failed to load posts index: ${response.status}`);
             }
-            this.postsIndex = await response.json();
+            const posts = await response.json();
+
+            // Cache formatted dates for performance
+            this.postsIndex = posts.map(post => ({
+                ...post,
+                formattedDate: this._formatDate(post.date)
+            }));
+
             return this.postsIndex;
         } catch (error) {
             console.error('Error loading posts index:', error);
             return [];
         }
+    }
+
+    /**
+     * Formats a date string to a readable format
+     * @param {string} dateString - Date string to format
+     * @returns {string} Formatted date
+     * @private
+     */
+    _formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
     }
 
     /**
@@ -160,12 +172,8 @@ class BlogEngine {
             const post = await this.loadPost(slug);
             const html = await md4wLoader.render(post.content);
 
-            const postDate = new Date(post.date);
-            const formattedDate = postDate.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
+            // Use cached formatted date if available, otherwise format
+            const formattedDate = post.formattedDate || this._formatDate(post.date);
 
             const wordCount = post.content.split(/\s+/).length;
             const readTime = Math.ceil(wordCount / 200);
@@ -201,17 +209,30 @@ class BlogEngine {
                 });
             }
         } catch (error) {
-            containerEl.innerHTML = `
-                <div class="bbs-box error">
-                    <div class="bbs-header">Error Loading Post</div>
-                    <p>Failed to load post: ${error.message}</p>
-                    <div class="terminal">
-                        <span class="prompt">$ </span>
-                        <span class="command">cat ${slug}.md</span>
-                        <div class="output">cat: ${slug}.md: No such file or directory</div>
-                    </div>
-                </div>
+            // Use safe DOM methods for error display
+            const errorBox = document.createElement('div');
+            errorBox.className = 'bbs-box error';
+
+            const header = document.createElement('div');
+            header.className = 'bbs-header';
+            header.textContent = 'Error Loading Post';
+            errorBox.appendChild(header);
+
+            const p = document.createElement('p');
+            p.textContent = `Failed to load post: ${error.message}`;
+            errorBox.appendChild(p);
+
+            const terminal = document.createElement('div');
+            terminal.className = 'terminal';
+            terminal.innerHTML = `
+                <span class="prompt">$ </span>
+                <span class="command">cat ${this._escapeHtml(slug)}.md</span>
+                <div class="output">cat: ${this._escapeHtml(slug)}.md: No such file or directory</div>
             `;
+            errorBox.appendChild(terminal);
+
+            containerEl.innerHTML = '';
+            containerEl.appendChild(errorBox);
         }
     }
 
@@ -233,47 +254,71 @@ class BlogEngine {
             const posts = await this.loadPostsIndex();
 
             if (posts.length === 0) {
-                containerEl.innerHTML = '<li class="post-item"><p>No posts found.</p></li>';
+                const li = document.createElement('li');
+                li.className = 'post-item';
+                const p = document.createElement('p');
+                p.textContent = 'No posts found.';
+                li.appendChild(p);
+                containerEl.innerHTML = '';
+                containerEl.appendChild(li);
                 return;
             }
 
             posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            const html = posts.map(post => {
-                const postDate = new Date(post.date);
-                const formattedDate = postDate.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
+            // Use DocumentFragment for better performance
+            const fragment = document.createDocumentFragment();
 
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.className = 'post-item';
+
+                // Title with link
+                const h2 = document.createElement('h2');
+                h2.className = 'post-title';
+                const titleLink = document.createElement('a');
+                titleLink.href = `${this.basePath}/blog/${this._escapeHtml(post.slug)}.html`;
+                titleLink.textContent = post.title; // Safe: textContent escapes automatically
+                h2.appendChild(titleLink);
+                li.appendChild(h2);
+
+                // Meta information
+                const meta = document.createElement('div');
+                meta.className = 'post-meta';
                 const categories = Array.isArray(post.categories)
                     ? post.categories.join(' • ')
                     : post.categories || '';
+                const metaText = `Posted on ${post.formattedDate}${categories ? ' • ' + categories : ''}`;
+                meta.textContent = metaText;
+                li.appendChild(meta);
 
-                return `
-                    <li class="post-item">
-                        <h2 class="post-title">
-                            <a href="${this.basePath}/blog/${post.slug}.html">${post.title}</a>
-                        </h2>
-                        <div class="post-meta">
-                            Posted on ${formattedDate}${categories ? ' • ' + categories : ''}
-                        </div>
-                        <div class="post-excerpt">
-                            <p>${post.excerpt || 'Read this post for more information.'}</p>
-                        </div>
-                        <a href="${this.basePath}/blog/${post.slug}.html">Read more →</a>
-                    </li>
-                `;
-            }).join('');
+                // Excerpt
+                const excerpt = document.createElement('div');
+                excerpt.className = 'post-excerpt';
+                const p = document.createElement('p');
+                p.textContent = post.excerpt || 'Read this post for more information.';
+                excerpt.appendChild(p);
+                li.appendChild(excerpt);
 
-            containerEl.innerHTML = html;
+                // Read more link
+                const readMoreLink = document.createElement('a');
+                readMoreLink.href = `${this.basePath}/blog/${this._escapeHtml(post.slug)}.html`;
+                readMoreLink.textContent = 'Read more →';
+                li.appendChild(readMoreLink);
+
+                fragment.appendChild(li);
+            });
+
+            containerEl.innerHTML = ''; // Clear first
+            containerEl.appendChild(fragment);
         } catch (error) {
-            containerEl.innerHTML = `
-                <li class="post-item">
-                    <p>Error loading posts: ${error.message}</p>
-                </li>
-            `;
+            const li = document.createElement('li');
+            li.className = 'post-item';
+            const p = document.createElement('p');
+            p.textContent = `Error loading posts: ${error.message}`;
+            li.appendChild(p);
+            containerEl.innerHTML = '';
+            containerEl.appendChild(li);
         }
     }
 
