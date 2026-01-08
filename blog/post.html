@@ -5,8 +5,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="theme-color" content="#242933" />
 		<meta name="color-scheme" content="dark light" />
-		<title>Loading... | BBS-Style Website</title>
+
+		<title>Loading... | Jonathan Solarz</title>
+		<meta
+			name="description"
+			content="Blog post by Jonathan Solarz on software architecture, cloud solutions, and technical leadership." />
+		<meta name="keywords" content="software architecture, cloud computing, Azure, AWS, solution architect, blog post" />
+		<meta name="author" content="Jonathan Solarz" />
+		<meta name="robots" content="index, follow" />
+		<meta name="geo.region" content="IL" />
+		<meta name="geo.placename" content="Israel" />
+		<meta name="copyright" content="Copyright © 2025 Jonathan Solarz. Content licensed under CC BY-NC-ND 4.0" />
+
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Blog Post | Jonathan Solarz" />
+		<meta property="og:description" content="Blog post on software architecture and cloud solutions." />
+		<meta property="og:site_name" content="Jonathan Solarz" />
+		<meta property="og:locale" content="en_US" />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Blog Post | Jonathan Solarz" />
+		<meta name="twitter:description" content="Blog post on software architecture and cloud solutions." />
+
 		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
 		<div class="container">
@@ -23,42 +45,65 @@
 			<div data-template="footer"></div>
 		</div>
 
-		<script src="../js/md4w-loader.js"></script>
+		<script src="../js/markdown-loader.js"></script>
 		<script src="../js/template-engine.js"></script>
 		<script src="../js/scripts.js"></script>
 		<script src="../js/blog-engine.js"></script>
+
+		<script src="../js/blog-engine.test-end-to-end.js"></script>
+
 		<script>
-			// Load tests if ?test=1 in URL
 			if (new URLSearchParams(window.location.search).get("test") === "1") {
 				const script = document.createElement("script")
 				script.src = "../js/blog-engine.test.js"
+				script.onload = () => {
+					if (window.blogEngineTests) {
+						setTimeout(() => window.blogEngineTests.runTests().catch(console.error), 500)
+					}
+				}
 				document.head.appendChild(script)
 			}
 		</script>
+
 		<script>
-			const getSlugFromUrl = () => {
-				const path = window.location.pathname
-				const match = path.match(/\/blog\/([^\/]+)(?:\.html)?$/)
-				return match ? match[1] : null
-			}
-
 			document.addEventListener("DOMContentLoaded", async () => {
-				const slug = getSlugFromUrl()
-				const container = document.getElementById("blog-post-content")
-
-				if (!slug || !container) {
+				if (typeof window.markdownLoader === "undefined") {
+					console.error("markdown-loader.js failed to load or execute")
+					const container = document.getElementById("blog-post-content")
 					if (container) {
-						const errorBox = document.createElement("div")
-						errorBox.className = "bbs-box error"
-						const p = document.createElement("p")
-						p.textContent = slug ? "Container not found" : "Invalid post URL"
-						errorBox.appendChild(p)
-						container.appendChild(errorBox)
+						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Initialization Error</div><p>markdown-loader.js failed to load. Check browser console for errors.</p></div>`
 					}
 					return
 				}
 
-				await blogEngine.renderPost(slug, container)
+				if (typeof blogEngine === "undefined") {
+					console.error("blog-engine.js failed to load or execute")
+					const container = document.getElementById("blog-post-content")
+					if (container) {
+						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Initialization Error</div><p>blog-engine.js failed to load. Check browser console for errors.</p></div>`
+					}
+					return
+				}
+
+				const params = new URLSearchParams(window.location.search)
+				const slug = params.get("slug") || window.location.pathname.match(/\/blog\/([^\/]+)(?:\.html)?$/)?.[1]
+				const container = document.getElementById("blog-post-content")
+
+				if (!slug || !container) {
+					if (container) {
+						container.innerHTML = `<div class="bbs-box error"><p>${slug ? "Container not found" : "Invalid post URL"}</p></div>`
+					}
+					return
+				}
+
+				try {
+					await blogEngine.renderPost(slug, container)
+				} catch (error) {
+					console.error("Error rendering post:", error)
+					if (container) {
+						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Error</div><p>${error.message}</p><p style="margin-top: 1rem; font-size: 0.9em;">Check browser console (F12) for details.</p></div>`
+					}
+				}
 			})
 		</script>
 	</body>

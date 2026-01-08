@@ -1,34 +1,20 @@
-/**
- * BBS-Style Website - Core JavaScript functionality
- */
-
-document.addEventListener("DOMContentLoaded", function () {
-	// Add typing effect to elements after templates are loaded
+document.addEventListener("DOMContentLoaded", () => {
 	document.addEventListener("templateLoaded", initializeTypingEffect)
-
-	// Initialize typing effect immediately for elements already in the DOM
 	initializeTypingEffect()
 })
 
-/**
- * Initializes the terminal-like typing effect on elements
- */
 function initializeTypingEffect() {
-	// Add a simple terminal-like typing effect to selected elements
 	const typingElements = document.querySelectorAll(".typing-effect:not([data-typing-initialized])")
 
 	typingElements.forEach((element) => {
-		// Skip if already initialized
-		if (element.getAttribute("data-typing-initialized") === "true") {
-			return
-		}
+		if (element.getAttribute("data-typing-initialized") === "true") return
 
 		const text = element.textContent
 		element.setAttribute("data-original-text", text)
 		element.textContent = ""
 		let index = 0
 
-		function typeNextChar() {
+		const typeNextChar = () => {
 			if (index < text.length) {
 				element.textContent += text.charAt(index)
 				index++
