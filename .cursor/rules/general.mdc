@@ -2,10 +2,6 @@
 alwaysApply: true
 ---
 
----
-
-## alwaysApply: true
-
 # General Rules for Cursor (Solution Architecture & Technical Writing)
 
 This file defines the universal rules that apply across all tasks.

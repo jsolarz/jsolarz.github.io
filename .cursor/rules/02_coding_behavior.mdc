@@ -24,7 +24,7 @@ These rules apply specifically to code modification tasks. For general behavior 
 
 ## After Making Changes
 
--   **MANDATORY: Update session ledger**: Update `SESSION-LEDGER.md` with the interaction details (see `session-ledger.mdc` for format).
+-   **MANDATORY: Update session ledger**: Update `SESSION-LEDGER.md` with the interaction details (see `01_session_ledger.mdc` for format).
 -   **Always verify the change**: Test that the change works correctly and matches the intended behavior.
 -   **Check for regressions**: Verify that existing functionality still works.
 -   **Update changelog**: Update `CHANGELOG.md` with completed changes and verification status.
@@ -41,6 +41,6 @@ These rules apply specifically to code modification tasks. For general behavior 
 ## Related Rules
 
 -   See `general.mdc` for universal behavior rules.
--   See `session-ledger.mdc` for mandatory session ledger update requirements.
+-   See `01_session_ledger.mdc` for mandatory session ledger update requirements.
 -   See `project-navigation.mdc` for codebase exploration guidelines.
 -   See `coding-mode.mdc` for language-specific and cloud architecture patterns.

@@ -300,3 +300,4 @@ Key points:
 - One CHANGELOG.md in root directory
 - MANDATORY: Update SESSION-LEDGER.md after every user request
 - Documentation location: `docs/` for global, `src/` for code-specific, root for essential only
+
