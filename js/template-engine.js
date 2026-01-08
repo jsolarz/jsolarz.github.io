@@ -28,6 +28,7 @@ class TemplateEngine {
 	_setupEventDelegation() {
 		// Use event delegation on document to avoid duplicate listeners
 		document.addEventListener("click", (e) => {
+			if (!e.target || !(e.target instanceof Element)) return
 			const menuToggle = e.target.closest(".menu-toggle")
 			if (menuToggle) {
 				const navMenu = document.querySelector("nav ul")
@@ -35,7 +36,7 @@ class TemplateEngine {
 					const isExpanded = navMenu.classList.contains("show")
 					navMenu.classList.toggle("show")
 					menuToggle.classList.toggle("active")
-					menuToggle.setAttribute("aria-expanded", !isExpanded)
+					menuToggle.setAttribute("aria-expanded", String(!isExpanded))
 				}
 			}
 		})
@@ -99,14 +100,15 @@ class TemplateEngine {
 
 	/**
 	 * Loads and renders a template into a target element
-	 * @param {string} targetSelector - CSS selector for target element
+	 * @param {string|HTMLElement} targetSelector - CSS selector or HTMLElement for target
 	 * @param {string} templateId - Unique identifier for the template
 	 * @param {string} templateUrl - URL to fetch the template from
 	 * @param {Object} data - Data to inject into the template
 	 */
 	async includeTemplate(targetSelector, templateId, templateUrl, data = {}) {
-		const targetElement = document.querySelector(targetSelector)
-		if (!targetElement) {
+		const targetElement = typeof targetSelector === "string" ? document.querySelector(targetSelector) : targetSelector
+
+		if (!targetElement || !(targetElement instanceof HTMLElement)) {
 			console.error(`Target element not found: ${targetSelector}`)
 			return
 		}
@@ -128,7 +130,9 @@ class TemplateEngine {
 			this.dispatchTemplateLoadedEvent(targetElement)
 		} catch (error) {
 			console.error(`Error including template ${templateId}:`, error)
-			targetElement.innerHTML = `<div class="error">Failed to load template: ${error.message}</div>`
+			if (targetElement instanceof HTMLElement) {
+				targetElement.innerHTML = `<div class="error">Failed to load template: ${error.message}</div>`
+			}
 		}
 	}
 
@@ -153,6 +157,7 @@ class TemplateEngine {
 		const navLinks = parentElement.querySelectorAll("nav a")
 
 		navLinks.forEach((link) => {
+			if (!(link instanceof HTMLAnchorElement)) return
 			// Get the path from the href
 			const linkPath = new URL(link.href, window.location.origin).pathname
 
@@ -191,7 +196,9 @@ class TemplateEngine {
 				}
 			}
 
-			return this.includeTemplate(`[data-template="${templateId}"]`, templateId, templateUrl, templateData)
+			const templateIdAttr = section.getAttribute("data-template")
+			if (!templateIdAttr) return Promise.resolve()
+			return this.includeTemplate(`[data-template="${templateIdAttr}"]`, templateIdAttr, templateUrl, templateData)
 		})
 
 		// Wait for all templates to load in parallel
@@ -205,7 +212,7 @@ class TemplateEngine {
 		this.initThemeToggle()
 
 		// Dispatch event to notify that templates are loaded
-		this.dispatchTemplateLoadedEvent()
+		this.dispatchTemplateLoadedEvent(document)
 
 		// Update current year in footer
 		updateCurrentYear()
@@ -248,15 +255,18 @@ class TemplateEngine {
 
 	/**
 	 * Dispatches a custom event when templates are loaded
-	 * @param {HTMLElement} element - Element to dispatch the event on
+	 * @param {EventTarget} element - Element to dispatch the event on (defaults to document)
 	 */
-	dispatchTemplateLoadedEvent(element = document) {
+	dispatchTemplateLoadedEvent(element) {
 		// Create and dispatch a custom event that other scripts can listen for
+		const target = element || document
 		const event = new CustomEvent("templateLoaded", {
 			bubbles: true,
 			detail: { timestamp: new Date() },
 		})
-		element.dispatchEvent(event)
+		if (target instanceof EventTarget) {
+			target.dispatchEvent(event)
+		}
 	}
 
 	/**
@@ -271,7 +281,9 @@ class TemplateEngine {
 
 			// Add debug visualization
 			document.querySelectorAll("[data-template]").forEach((el) => {
+				if (!(el instanceof HTMLElement)) return
 				const templateId = el.getAttribute("data-template")
+				if (!templateId) return
 				const debugElement = document.createElement("div")
 				debugElement.className = "template-debug-info"
 				debugElement.innerHTML = `Template: ${templateId}`
@@ -310,7 +322,9 @@ const templateEngine = new TemplateEngine()
 
 // Expose templateEngine to window for debugging
 if (typeof window !== "undefined") {
-	window.templateEngine = templateEngine
+	/** @type {any} */
+	const win = window
+	win.templateEngine = templateEngine
 }
 
 // Load all template sections when the DOM is loaded
@@ -327,6 +341,6 @@ function updateCurrentYear() {
 	const currentYear = new Date().getFullYear()
 
 	yearElements.forEach((element) => {
-		element.textContent = currentYear
+		element.textContent = String(currentYear)
 	})
 }

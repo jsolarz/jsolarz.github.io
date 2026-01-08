@@ -168,40 +168,40 @@
 
 **AI Actions**:
 
-- Removed unused code (loadQueue, isLoading from template-engine.js)
-- Removed emoji from template-engine.js comment (violates rules)
-- Removed redundant event listeners in blog.html
-- Fixed all blog post HTML files to use safe DOM methods instead of innerHTML
-- Removed template-version reference from path detection
-- Deleted redundant scripts: convert-blog.js, generate-post-json.js, convert_markdown.bat, convert-and-preview.bat, run-conversion.bat, update-post-json.bat
-- Deleted unused template: page-template.html
-- Updated package.json: removed convert script, removed unused dependencies (markdown-it, fs-extra), updated description
-- Updated scripts/README.md to reflect current architecture
-- Minimized console statements (kept only essential error logging)
-- Cleaned up comments in scripts.js
-- Fixed categories parsing bug in generate-posts-index.js
+-   Removed unused code (loadQueue, isLoading from template-engine.js)
+-   Removed emoji from template-engine.js comment (violates rules)
+-   Removed redundant event listeners in blog.html
+-   Fixed all blog post HTML files to use safe DOM methods instead of innerHTML
+-   Removed template-version reference from path detection
+-   Deleted redundant scripts: convert-blog.js, generate-post-json.js, convert_markdown.bat, convert-and-preview.bat, run-conversion.bat, update-post-json.bat
+-   Deleted unused template: page-template.html
+-   Updated package.json: removed convert script, removed unused dependencies (markdown-it, fs-extra), updated description
+-   Updated scripts/README.md to reflect current architecture
+-   Minimized console statements (kept only essential error logging)
+-   Cleaned up comments in scripts.js
+-   Fixed categories parsing bug in generate-posts-index.js
 
 **Files Modified**:
 
-- Modified: `js/template-engine.js` (removed unused vars, emoji, template-version ref, minimized console)
-- Modified: `js/scripts.js` (cleaned up comments)
-- Modified: `blog.html` (removed redundant event listener)
-- Modified: `blog/post.html` (safe DOM methods)
-- Modified: `blog/*.html` (6 files - safe DOM methods for error handling)
-- Modified: `package.json` (removed unused scripts and dependencies)
-- Modified: `scripts/README.md` (updated to reflect current architecture)
-- Modified: `scripts/generate-posts-index.js` (fixed categories parsing)
-- Deleted: `scripts/convert-blog.js`, `scripts/generate-post-json.js`, `scripts/convert_markdown.bat`, `scripts/convert-and-preview.bat`, `scripts/run-conversion.bat`, `scripts/update-post-json.bat`, `templates/page-template.html`
+-   Modified: `js/template-engine.js` (removed unused vars, emoji, template-version ref, minimized console)
+-   Modified: `js/scripts.js` (cleaned up comments)
+-   Modified: `blog.html` (removed redundant event listener)
+-   Modified: `blog/post.html` (safe DOM methods)
+-   Modified: `blog/*.html` (6 files - safe DOM methods for error handling)
+-   Modified: `package.json` (removed unused scripts and dependencies)
+-   Modified: `scripts/README.md` (updated to reflect current architecture)
+-   Modified: `scripts/generate-posts-index.js` (fixed categories parsing)
+-   Deleted: `scripts/convert-blog.js`, `scripts/generate-post-json.js`, `scripts/convert_markdown.bat`, `scripts/convert-and-preview.bat`, `scripts/run-conversion.bat`, `scripts/update-post-json.bat`, `templates/page-template.html`
 
 **Context/Notes**:
 
-- All code now follows lean, clean, efficient principles
-- No redundant scripts or unused dependencies
-- All XSS vulnerabilities fixed (no innerHTML for user content)
-- Console statements minimized (only essential error logging)
-- Code is consistent across all files
-- Performance optimized (removed unnecessary code paths)
-- Repository is now minimal and maintainable
+-   All code now follows lean, clean, efficient principles
+-   No redundant scripts or unused dependencies
+-   All XSS vulnerabilities fixed (no innerHTML for user content)
+-   Console statements minimized (only essential error logging)
+-   Code is consistent across all files
+-   Performance optimized (removed unnecessary code paths)
+-   Repository is now minimal and maintainable
 
 **Status**: Completed
 
@@ -211,33 +211,33 @@
 
 **Timestamp**: 2025-01-08
 
-**User Request**: Why do I need to keep doing generate-index? Is it possible to run through _posts and get all the posts? Or is this step necessary?
+**User Request**: Why do I need to keep doing generate-index? Is it possible to run through \_posts and get all the posts? Or is this step necessary?
 
 **AI Actions**:
 
-- Modified blog engine to support optional index with manifest fallback
-- Created `_posts/manifest.json` - simple filename list (required)
-- Updated `loadPostsIndex()` to try index first, fall back to manifest + markdown parsing
-- Updated `generate-posts-index.js` to also generate manifest.json
-- Updated documentation to clarify manifest is required, index is optional
-- Fixed TypeScript linter errors in generate-posts-index.js
+-   Modified blog engine to support optional index with manifest fallback
+-   Created `_posts/manifest.json` - simple filename list (required)
+-   Updated `loadPostsIndex()` to try index first, fall back to manifest + markdown parsing
+-   Updated `generate-posts-index.js` to also generate manifest.json
+-   Updated documentation to clarify manifest is required, index is optional
+-   Fixed TypeScript linter errors in generate-posts-index.js
 
 **Files Modified**:
 
-- Modified: `js/blog-engine.js` (optional index with manifest fallback)
-- Created: `_posts/manifest.json` (simple filename list)
-- Modified: `scripts/generate-posts-index.js` (generates both index and manifest, fixed sort)
-- Modified: `README.md` (updated workflow to show manifest is required)
-- Modified: `README-blog-engine.md` (clarified manifest vs index)
+-   Modified: `js/blog-engine.js` (optional index with manifest fallback)
+-   Created: `_posts/manifest.json` (simple filename list)
+-   Modified: `scripts/generate-posts-index.js` (generates both index and manifest, fixed sort)
+-   Modified: `README.md` (updated workflow to show manifest is required)
+-   Modified: `README-blog-engine.md` (clarified manifest vs index)
 
 **Context/Notes**:
 
-- GitHub Pages doesn't support directory listing, so we can't fetch file lists directly
-- Solution: Simple `manifest.json` with just filenames (easy to maintain manually)
-- Blog engine tries `posts-index.json` first (fast), falls back to `manifest.json` + parsing markdown
-- `generate-index` is now optional - only needed for performance optimization
-- Manifest can be maintained manually or auto-generated by the script
-- No build step required - just add filename to manifest and deploy
+-   GitHub Pages doesn't support directory listing, so we can't fetch file lists directly
+-   Solution: Simple `manifest.json` with just filenames (easy to maintain manually)
+-   Blog engine tries `posts-index.json` first (fast), falls back to `manifest.json` + parsing markdown
+-   `generate-index` is now optional - only needed for performance optimization
+-   Manifest can be maintained manually or auto-generated by the script
+-   No build step required - just add filename to manifest and deploy
 
 **Status**: Completed
 
@@ -251,24 +251,24 @@
 
 **AI Actions**:
 
-- Deleted 6 redundant individual blog post HTML files
-- Kept only `post.html` as single template
-- Updated documentation to reflect single template approach
-- Title already updates dynamically (implemented earlier)
+-   Deleted 6 redundant individual blog post HTML files
+-   Kept only `post.html` as single template
+-   Updated documentation to reflect single template approach
+-   Title already updates dynamically (implemented earlier)
 
 **Files Modified**:
 
-- Deleted: `blog/architect-as-translator.html`, `blog/building-ai-ready-architectures.html`, `blog/future-of-intelligent-systems.html`, `blog/leading-tech-teams-through-change.html`, `blog/monolith-to-microservices.html`, `blog/rapid-prototyping-azure-openai.html`
-- Modified: `README.md` (updated blog folder description)
-- Modified: `README-blog-engine.md` (updated to reflect single template)
+-   Deleted: `blog/architect-as-translator.html`, `blog/building-ai-ready-architectures.html`, `blog/future-of-intelligent-systems.html`, `blog/leading-tech-teams-through-change.html`, `blog/monolith-to-microservices.html`, `blog/rapid-prototyping-azure-openai.html`
+-   Modified: `README.md` (updated blog folder description)
+-   Modified: `README-blog-engine.md` (updated to reflect single template)
 
 **Context/Notes**:
 
-- Individual HTML files were redundant - all identical except for hardcoded titles
-- Violated lean/clean code principles - unnecessary duplication
-- Now using single `post.html` template with dynamic title update
-- Trade-off: Direct links like `/blog/[slug].html` won't work on GitHub Pages without individual files, but code is now lean and maintainable
-- Follows consistency, lean, clean code, efficiency principles
+-   Individual HTML files were redundant - all identical except for hardcoded titles
+-   Violated lean/clean code principles - unnecessary duplication
+-   Now using single `post.html` template with dynamic title update
+-   Trade-off: Direct links like `/blog/[slug].html` won't work on GitHub Pages without individual files, but code is now lean and maintainable
+-   Follows consistency, lean, clean code, efficiency principles
 
 **Status**: Completed
 
@@ -282,32 +282,73 @@
 
 **AI Actions**:
 
-- Standardized all root HTML files to consistent format (tabs, removed redundant comments)
-- Converted policy.html from plain text to proper HTML structure with templates
-- Removed redundant HTML comments from all root pages
-- Updated README.md to document file structure clearly
-- All root HTML files now follow same pattern: header template, content template, footer template
+-   Standardized all root HTML files to consistent format (tabs, removed redundant comments)
+-   Converted policy.html from plain text to proper HTML structure with templates
+-   Removed redundant HTML comments from all root pages
+-   Updated README.md to document file structure clearly
+-   All root HTML files now follow same pattern: header template, content template, footer template
 
 **Files Modified**:
 
-- Modified: `index.html` (standardized format, removed comments)
-- Modified: `about.html` (standardized format, removed comments)
-- Modified: `contact.html` (standardized format, removed comments)
-- Modified: `cv.html` (standardized format, removed comments)
-- Modified: `portfolio.html` (standardized format, removed comments)
-- Modified: `blog.html` (removed redundant comments)
-- Rewrote: `policy.html` (converted to proper HTML structure with templates)
-- Modified: `README.md` (updated structure documentation)
+-   Modified: `index.html` (standardized format, removed comments)
+-   Modified: `about.html` (standardized format, removed comments)
+-   Modified: `contact.html` (standardized format, removed comments)
+-   Modified: `cv.html` (standardized format, removed comments)
+-   Modified: `portfolio.html` (standardized format, removed comments)
+-   Modified: `blog.html` (removed redundant comments)
+-   Rewrote: `policy.html` (converted to proper HTML structure with templates)
+-   Modified: `README.md` (updated structure documentation)
 
 **Context/Notes**:
 
-- Root HTML files are entry points - must stay in root for GitHub Pages clean URLs
-- blog/post.html is in subdirectory for organization (blog posts vs main pages)
-- All root HTML files follow consistent pattern (no redundancy in structure)
-- policy.html was plain text - converted to proper HTML with template system
-- Structure is now: Root = entry points, blog/ = blog posts, templates/ = reusable content
-- All files use consistent indentation (tabs) and format
-- Removed redundant HTML comments that didn't add value
-- Follows consistency, lean, clean code, efficiency principles
+-   Root HTML files are entry points - must stay in root for GitHub Pages clean URLs
+-   blog/post.html is in subdirectory for organization (blog posts vs main pages)
+-   All root HTML files follow consistent pattern (no redundancy in structure)
+-   policy.html was plain text - converted to proper HTML with template system
+-   Structure is now: Root = entry points, blog/ = blog posts, templates/ = reusable content
+-   All files use consistent indentation (tabs) and format
+-   Removed redundant HTML comments that didn't add value
+-   Follows consistency, lean, clean code, efficiency principles
+
+**Status**: Completed
+
+---
+
+## 2025-01-08 - Fixed TypeScript Errors and Added Tests
+
+**Timestamp**: 2025-01-08
+
+**User Request**: Getting errors from JS files, check files for errors, add tests to verify posts are loading
+
+**AI Actions**:
+
+-   Fixed all TypeScript linter errors (19 errors across 3 files)
+-   Added proper type guards and null checks (EventTarget, Element vs HTMLElement)
+-   Added JSDoc type annotations for IDE support
+-   Created blog-engine.test.js with tests for post loading, front matter parsing, date formatting, manifest fallback
+-   Created template-engine.test.js with tests for template rendering, path detection
+-   Added error handling and logging to blog.html
+-   Updated package.json with test script
+-   Fixed remaining type errors in dispatchTemplateLoadedEvent
+
+**Files Modified**:
+
+-   Modified: `js/template-engine.js` (fixed type errors: EventTarget checks, Element vs HTMLElement, null checks, window.templateEngine type, dispatchTemplateLoadedEvent)
+-   Modified: `js/blog-engine.js` (fixed type errors: date sorting with null checks, window.templateEngine type, null checks)
+-   Modified: `js/md4w-loader.js` (added @ts-ignore for dynamic CDN import)
+-   Modified: `blog.html` (added error handling and logging)
+-   Modified: `package.json` (added test script)
+-   Modified: `README.md` (added test instructions)
+-   Created: `js/blog-engine.test.js` (comprehensive tests for blog engine)
+-   Created: `js/template-engine.test.js` (tests for template engine)
+
+**Context/Notes**:
+
+-   All TypeScript linter errors fixed with proper type guards
+-   Tests can be run in browser console: `blogEngineTests.runTests()` or `templateEngineTests.runTests()`
+-   Tests verify: post loading, front matter parsing, date formatting, manifest fallback, template rendering
+-   md4w CDN import error is expected (dynamic import) - suppressed with @ts-ignore
+-   All type safety issues resolved while maintaining runtime functionality
+-   Tests use mocks to avoid requiring actual server/files
 
 **Status**: Completed

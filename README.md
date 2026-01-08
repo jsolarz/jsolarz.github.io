@@ -17,10 +17,11 @@ A minimal, performant BBS-style website with template system and markdown blog e
 # Install dependencies
 npm install
 
-# Generate blog posts index
+# (Optional) Generate blog posts index for faster loading
 npm run generate-index
 
 # Open index.html in browser
+# To test: Open browser console and run blogEngineTests.runTests()
 ```
 
 ## Project Structure
