@@ -8,6 +8,41 @@ class TemplateEngine {
         this.templates = {}; // Cache for loaded templates
         this.isLoading = false;
         this.loadQueue = []; // Queue for pending template loads
+        this.basePath = this._detectBasePath(); // Cache base path
+        this._setupEventDelegation(); // Setup event delegation once
+    }
+
+    /**
+     * Detects base path for path adjustment
+     * @returns {string} Base path prefix
+     * @private
+     */
+    _detectBasePath() {
+        const pathSegments = window.location.pathname.split("/");
+        const isInSubdirectory =
+            pathSegments[pathSegments.length - 2] !== "" &&
+            pathSegments[pathSegments.length - 2] !== "template-version";
+        return isInSubdirectory ? '../' : '';
+    }
+
+    /**
+     * Sets up event delegation for menu toggle
+     * @private
+     */
+    _setupEventDelegation() {
+        // Use event delegation on document to avoid duplicate listeners
+        document.addEventListener('click', (e) => {
+            const menuToggle = e.target.closest('.menu-toggle');
+            if (menuToggle) {
+                const navMenu = document.querySelector('nav ul');
+                if (navMenu) {
+                    const isExpanded = navMenu.classList.contains('show');
+                    navMenu.classList.toggle('show');
+                    menuToggle.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                }
+            }
+        });
     }
 
     /**
@@ -45,14 +80,8 @@ class TemplateEngine {
      * @returns {string} - Adjusted template URL
      */
     adjustTemplatePath(templateUrl) {
-        // Check if we're in a subdirectory
-        const pathSegments = window.location.pathname.split("/");
-        const isInSubdirectory =
-            pathSegments[pathSegments.length - 2] !== "" &&
-            pathSegments[pathSegments.length - 2] !== "template-version";
-
-        // If we're in a subdirectory, prefix template path with ../
-        return isInSubdirectory ? `../${templateUrl}` : templateUrl;
+        // Use cached base path
+        return this.basePath ? `${this.basePath}${templateUrl}` : templateUrl;
     }
 
     /**
@@ -115,18 +144,8 @@ class TemplateEngine {
      * @param {HTMLElement} parentElement - Parent element containing components
      */
     initComponents(parentElement) {
-        // Initialize menu toggle functionality
-        const menuToggle = parentElement.querySelector(".menu-toggle");
-        const navMenu = parentElement.querySelector("nav ul");
-
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener("click", function () {
-                const isExpanded = navMenu.classList.contains("show");
-                navMenu.classList.toggle("show");
-                menuToggle.classList.toggle("active");
-                menuToggle.setAttribute("aria-expanded", !isExpanded);
-            });
-        }
+        // Menu toggle is now handled by event delegation in constructor
+        // No need to add listeners here
 
         // Highlight current page in navigation
         this.highlightCurrentPage(parentElement);
@@ -167,7 +186,8 @@ class TemplateEngine {
     async loadAllTemplateSections() {
         const templateSections = document.querySelectorAll("[data-template]");
 
-        for (const section of templateSections) {
+        // Load all templates in parallel for better performance
+        const loadPromises = Array.from(templateSections).map(section => {
             const templateId = section.getAttribute("data-template");
             const templateUrl = `templates/${templateId}.html`;
             const dataAttr = section.getAttribute("data-template-data");
@@ -181,12 +201,19 @@ class TemplateEngine {
                 }
             }
 
-            await this.includeTemplate(
+            return this.includeTemplate(
                 `[data-template="${templateId}"]`,
                 templateId,
                 templateUrl,
                 templateData
             );
+        });
+
+        // Wait for all templates to load in parallel
+        try {
+            await Promise.all(loadPromises);
+        } catch (error) {
+            console.error('Error loading templates:', error);
         }
 
         // Initialize theme toggle after all templates are loaded
