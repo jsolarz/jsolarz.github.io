@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"description": "BBS-style static blog website with client-side markdown rendering",
 	"scripts": {
-		"generate-index": "node scripts/generate-posts-index.js"
+		"generate-index": "node scripts/generate-posts-index.js",
+		"test": "echo 'Open blog.html in browser and run: blogEngineTests.runTests() in console'"
 	},
 	"dependencies": {
 		"front-matter": "^4.0.2"

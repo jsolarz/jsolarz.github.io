@@ -28,6 +28,14 @@
 		<script src="../js/scripts.js"></script>
 		<script src="../js/blog-engine.js"></script>
 		<script>
+			// Load tests if ?test=1 in URL
+			if (new URLSearchParams(window.location.search).get("test") === "1") {
+				const script = document.createElement("script")
+				script.src = "../js/blog-engine.test.js"
+				document.head.appendChild(script)
+			}
+		</script>
+		<script>
 			const getSlugFromUrl = () => {
 				const path = window.location.pathname
 				const match = path.match(/\/blog\/([^\/]+)(?:\.html)?$/)

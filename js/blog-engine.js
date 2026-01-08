@@ -94,7 +94,12 @@ class BlogEngine {
 			})
 
 			const posts = (await Promise.all(postPromises)).filter(Boolean)
-			posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+			posts.sort((a, b) => {
+				if (!a || !b) return 0
+				const dateA = a.date ? new Date(a.date).getTime() : 0
+				const dateB = b.date ? new Date(b.date).getTime() : 0
+				return dateB - dateA
+			})
 
 			this.postsIndex = posts
 			return this.postsIndex
@@ -226,7 +231,9 @@ class BlogEngine {
 
 			const categories = Array.isArray(post.categories) ? post.categories.join(" • ") : post.categories || ""
 
-			if (window.templateEngine) {
+			/** @type {any} */
+			const win = window
+			if (win.templateEngine) {
 				const templateData = {
 					postTitle: post.title,
 					postDate: formattedDate,
@@ -236,7 +243,7 @@ class BlogEngine {
 					categories: categories,
 				}
 
-				await templateEngine.includeTemplate(containerEl, "blog-post", "templates/blog-post.html", templateData)
+				await win.templateEngine.includeTemplate(containerEl, "blog-post", "templates/blog-post.html", templateData)
 			} else {
 				containerEl.innerHTML = this._renderPostHTML({
 					postTitle: post.title,
@@ -301,7 +308,11 @@ class BlogEngine {
 				return
 			}
 
-			posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+			posts.sort((a, b) => {
+				const dateA = a.date ? new Date(a.date).getTime() : 0
+				const dateB = b.date ? new Date(b.date).getTime() : 0
+				return dateB - dateA
+			})
 
 			// Use DocumentFragment for better performance
 			const fragment = document.createDocumentFragment()
