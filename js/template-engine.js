@@ -13,19 +13,7 @@ class TemplateEngine {
 	}
 
 	#setupEventDelegation() {
-		document.addEventListener("click", (e) => {
-			if (!(e.target instanceof Element)) return
-			const menuToggle = e.target.closest(".menu-toggle")
-			if (!menuToggle) return
-
-			const navMenu = document.querySelector("nav ul")
-			if (!navMenu) return
-
-			const isExpanded = navMenu.classList.contains("show")
-			navMenu.classList.toggle("show")
-			menuToggle.classList.toggle("active")
-			menuToggle.setAttribute("aria-expanded", String(!isExpanded))
-		})
+		// Navigation handled by native details/summary element - no JS needed
 	}
 
 	async loadTemplate(templateId, url) {
@@ -50,10 +38,25 @@ class TemplateEngine {
 	}
 
 	renderTemplate(templateHtml, data = {}) {
-		return templateHtml.replace(/\{\{([^}]+)\}\}/g, (match, variable) => {
+		// Handle simple conditionals {{#if variable}}...{{/if}}
+		let html = templateHtml
+		html = html.replace(/\{\{#if\s+([^}]+)\}\}([\s\S]*?)\{\{\/if\}\}/g, (match, variable, content) => {
+			const trimmedVar = variable.trim()
+			const value = data[trimmedVar]
+			// Show content if value is truthy and not empty string
+			if (value && value !== "") {
+				return content
+			}
+			return ""
+		})
+
+		// Handle variable replacement
+		html = html.replace(/\{\{([^}]+)\}\}/g, (match, variable) => {
 			const trimmedVar = variable.trim()
 			return data.hasOwnProperty(trimmedVar) ? data[trimmedVar] : ""
 		})
+
+		return html
 	}
 
 	async includeTemplate(targetSelector, templateId, templateUrl, data = {}) {
@@ -96,6 +99,11 @@ class TemplateEngine {
 				(currentPath === "/" && linkPath.endsWith("index.html"))
 
 			link.classList.toggle("active", isActive)
+			if (isActive) {
+				link.setAttribute("aria-current", "page")
+			} else {
+				link.removeAttribute("aria-current")
+			}
 		})
 	}
 
@@ -162,23 +170,17 @@ class TemplateEngine {
 	}
 }
 
-const templateEngine = new TemplateEngine()
+export const templateEngine = new TemplateEngine()
 
-if (typeof window !== "undefined") {
-	/** @type {any} */
-	const win = window
-	win.templateEngine = templateEngine
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-	templateEngine.loadAllTemplateSections()
-	updateCurrentYear()
-})
-
-function updateCurrentYear() {
+export function updateCurrentYear() {
 	const yearElements = document.querySelectorAll(".current-year")
 	const currentYear = String(new Date().getFullYear())
 	yearElements.forEach((element) => {
 		element.textContent = currentYear
 	})
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+	templateEngine.loadAllTemplateSections()
+	updateCurrentYear()
+})

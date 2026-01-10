@@ -1,6 +1,9 @@
+import { markdownLoader } from "./markdown-loader.js"
+
 class BlogEngine {
 	#postsIndex = /** @type {Array<Object> | null} */ (null)
 	#basePath = ""
+	#currentPostTitle = ""
 
 	constructor() {
 		this.#basePath = this.#detectBasePath()
@@ -140,32 +143,49 @@ class BlogEngine {
 		}
 
 		try {
+			containerEl.setAttribute("aria-busy", "true")
 			const post = await this.loadPost(slug)
 			if (!post || !post.content) {
 				throw new Error("Post content is missing")
 			}
 
-			/** @type {any} */
-			const win = window
-			const loader = win.markdownLoader
+			// Store post title for TOC generation
+			this.#currentPostTitle = post.title
 
-			if (!loader) {
-				throw new Error("markdownLoader is not available. Check if markdown-loader.js loaded successfully.")
-			}
+			// Generate TOC from markdown before rendering
+			const toc = this.#generateTOCFromMarkdown(post.content)
 
-			if (typeof loader.render !== "function") {
-				throw new Error(`markdownLoader.render is not a function (type: ${typeof loader.render})`)
-			}
-
-			const html = await loader.render(post.content)
+			let html = await markdownLoader.render(post.content)
 			if (!html || typeof html !== "string") {
 				throw new Error("Markdown rendering returned invalid result")
 			}
 
+			// Add IDs to h2 headings for TOC links
+			const tempDiv = document.createElement("div")
+			tempDiv.innerHTML = html
+			const headings = tempDiv.querySelectorAll("h2")
+			headings.forEach((heading) => {
+				if (!heading.id) {
+					const slug = heading.textContent
+						.trim()
+						.toLowerCase()
+						.replace(/[^\w\s-]/g, "")
+						.replace(/\s+/g, "-")
+						.replace(/-+/g, "-")
+					heading.id = slug
+				}
+			})
+			html = tempDiv.innerHTML
+
+			// Remove duplicate h1 if it matches the post title
+			html = this.#removeDuplicateTitle(html, post.title)
+
 			this.#updateMetaTags(post)
-			this.#renderPostContent(containerEl, post, html, slug)
+			this.#renderPostContent(containerEl, post, html, slug, toc)
+			containerEl.setAttribute("aria-busy", "false")
 		} catch (error) {
 			console.error("Error rendering post:", error)
+			containerEl.setAttribute("aria-busy", "false")
 			this.#renderError(containerEl, error, slug)
 		}
 	}
@@ -228,7 +248,7 @@ class BlogEngine {
 		canonical.href = `${window.location.origin}${this.#basePath}/blog/post.html?slug=${post.slug}`
 	}
 
-	#renderPostContent(containerEl, post, html, slug) {
+	#renderPostContent(containerEl, post, html, slug, toc = "") {
 		const formattedDate = post.formattedDate || this.#formatDate(post.date)
 		const wordCount = post.content.split(/\s+/).length
 		const readTime = Math.ceil(wordCount / 200)
@@ -241,6 +261,8 @@ class BlogEngine {
 			fileName: slug,
 			postContent: html,
 			categories,
+			relatedPosts: "", // Empty for now - will be populated when related posts are implemented
+			toc,
 		}
 
 		/** @type {any} */
@@ -254,14 +276,12 @@ class BlogEngine {
 
 	#renderPostHTML(data) {
 		return `
-			<article>
-				<h1>${this.#escapeHtml(data.postTitle)}</h1>
-				<div class="post-meta">Posted on ${this.#escapeHtml(data.postDate)} • ${data.readTime} min read</div>
-				<div class="terminal">
-					<span class="prompt">$ </span>
-					<span class="command">cat ${this.#escapeHtml(data.fileName)}.md | less</span>
-				</div>
-				<div class="bbs-box">${data.postContent}</div>
+			<article class="blog-post">
+				<header class="post-header">
+					<h1 class="post-title-main">${this.#escapeHtml(data.postTitle)}</h1>
+					<div class="post-meta">Posted on ${this.#escapeHtml(data.postDate)} • ${data.readTime} min read</div>
+				</header>
+				<div class="post-content" role="article">${data.postContent}</div>
 				<div class="terminal">
 					<span class="prompt">$ </span>
 					<span class="command">echo "Comments and discussion"</span>
@@ -328,12 +348,14 @@ class BlogEngine {
 				.forEach((post) => {
 					const li = document.createElement("li")
 					li.className = "post-item"
+					li.setAttribute("role", "listitem")
 
 					const h2 = document.createElement("h2")
 					h2.className = "post-title"
 					const titleLink = document.createElement("a")
 					titleLink.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
 					titleLink.textContent = post.title
+					titleLink.setAttribute("aria-label", `Read post: ${post.title}`)
 					h2.appendChild(titleLink)
 					li.appendChild(h2)
 
@@ -353,6 +375,7 @@ class BlogEngine {
 					const readMoreLink = document.createElement("a")
 					readMoreLink.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
 					readMoreLink.textContent = "Read more →"
+					readMoreLink.setAttribute("aria-label", `Read full post: ${post.title}`)
 					li.appendChild(readMoreLink)
 
 					fragment.appendChild(li)
@@ -360,8 +383,10 @@ class BlogEngine {
 
 			containerEl.innerHTML = ""
 			containerEl.appendChild(fragment)
+			containerEl.setAttribute("aria-busy", "false")
 		} catch (error) {
-			containerEl.innerHTML = `<li class="post-item"><p>Error loading posts: ${error.message}</p></li>`
+			containerEl.innerHTML = `<li class="post-item" role="listitem"><p>Error loading posts: ${error.message}</p></li>`
+			containerEl.setAttribute("aria-busy", "false")
 		}
 	}
 
@@ -370,6 +395,42 @@ class BlogEngine {
 		div.textContent = text
 		return div.innerHTML
 	}
+
+	#removeDuplicateTitle(html, title) {
+		// Remove the first h1 if it matches the post title (case-insensitive, trimmed)
+		const escapedTitle = this.#escapeHtml(title).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+		const titleRegex = new RegExp(`<h1[^>]*>\\s*${escapedTitle}\\s*</h1>\\s*`, "i")
+		return html.replace(titleRegex, "")
+	}
+
+	#generateTOCFromMarkdown(markdown) {
+		// Extract h2 headings from markdown (posts use h2 for sections)
+		const h2Regex = /^##\s+(.+)$/gm
+		const matches = markdown.matchAll(h2Regex)
+		const tocItems = []
+
+		for (const match of matches) {
+			const text = match[1].trim()
+			const slug = text
+				.toLowerCase()
+				.replace(/[^\w\s-]/g, "")
+				.replace(/\s+/g, "-")
+				.replace(/-+/g, "-")
+			const id = slug || `heading-${tocItems.length}`
+			tocItems.push({ id, text })
+		}
+
+		if (tocItems.length === 0) return ""
+
+		// Generate TOC HTML
+		let tocHtml = '<nav class="toc" aria-label="Table of contents"><ul class="toc-list">'
+		tocItems.forEach((item) => {
+			tocHtml += `<li class="toc-item"><a href="#${item.id}">${this.#escapeHtml(item.text)}</a></li>`
+		})
+		tocHtml += "</ul></nav>"
+
+		return tocHtml
+	}
 }
 
-const blogEngine = new BlogEngine()
+export const blogEngine = new BlogEngine()

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Theme Visual Tests</title>
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<div class="container">
+		<main>
+			<h1>Theme Visual Tests</h1>
+
+			<section>
+				<h2>Dark Theme (Default)</h2>
+				<p>This text should be visible and not too bright: <code>--snow-storm-2: #a8b0b8</code></p>
+				<p>Primary text: <code>--snow-storm-1: #d0d8e0</code></p>
+			</section>
+
+			<section class="light-theme-test">
+				<h2>Light Theme</h2>
+				<p style="color: var(--light-text-1);">This text should be dark and visible: <code>--light-text-1: #0d1117</code></p>
+				<p style="color: var(--light-text-1);">Header text: <code>--light-header: #010409</code></p>
+			</section>
+
+			<button onclick="toggleTheme()">Toggle Theme</button>
+		</main>
+	</div>
+
+	<script>
+		function toggleTheme() {
+			document.body.classList.toggle("light-theme")
+		}
+	</script>
+</body>
+</html>

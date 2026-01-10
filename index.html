@@ -20,6 +20,10 @@
 		<meta name="copyright" content="Copyright © 2025 Jonathan Solarz. Content licensed under CC BY-NC-ND 4.0" />
 		<link rel="canonical" href="https://ioni.solarz.me/" />
 
+		<!-- Cache Control -->
+		<meta http-equiv="Cache-Control" content="public, max-age=3600" />
+		<meta http-equiv="Expires" content="" />
+
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Jonathan Solarz - Software Architect & Technical Lead" />
 		<meta
@@ -59,15 +63,18 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 		<div class="container">
 			<div data-template="header"></div>
-			<main>
+			<main id="main-content" role="main">
 				<div data-template="home-content"></div>
 			</main>
 			<div data-template="footer"></div>
 		</div>
 
-		<script src="js/template-engine.js"></script>
-		<script src="js/scripts.js"></script>
+		<script type="module">
+			import { templateEngine } from "./js/template-engine.js"
+			import "./js/scripts.js"
+		</script>
 	</body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Post E2E Tests</title>
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<div class="container">
+		<main id="main-content">
+			<h1>Blog Post E2E Tests</h1>
+			<div id="blog-post-content"></div>
+			<div id="test-results"></div>
+		</main>
+	</div>
+
+	<script type="module">
+		import { blogEngine } from "../../js/blog-engine.js"
+
+		const container = document.getElementById("blog-post-content")
+		const results = document.getElementById("test-results")
+		const tests = []
+
+		async function runTests() {
+			try {
+				// Test 1: Load and render a post
+				console.log("Test: Loading post...")
+				await blogEngine.renderPost("architect-as-translator", container)
+
+				// Test 2: Check for duplicate title
+				const h1s = container.querySelectorAll("h1")
+				if (h1s.length === 1) {
+					tests.push({ name: "No duplicate title", passed: true })
+				} else {
+					tests.push({ name: "No duplicate title", passed: false, issue: `Found ${h1s.length} h1 elements` })
+				}
+
+				// Test 3: Check TOC exists
+				const toc = container.querySelector(".toc-sidebar")
+				if (toc) {
+					tests.push({ name: "TOC sidebar present", passed: true })
+				} else {
+					tests.push({ name: "TOC sidebar present", passed: false, issue: "TOC sidebar not found" })
+				}
+
+				// Test 4: Check related posts section (should be hidden if empty)
+				const relatedPosts = container.querySelector("nav[aria-label='Related posts']")
+				if (!relatedPosts) {
+					tests.push({ name: "Related posts hidden when empty", passed: true })
+				} else {
+					tests.push({ name: "Related posts hidden when empty", passed: false, issue: "Related posts section visible when empty" })
+				}
+
+				// Test 5: Check headings have IDs for TOC
+				const headings = container.querySelectorAll("h2, h3, h4, h5, h6")
+				let allHaveIds = true
+				headings.forEach(h => {
+					if (!h.id) allHaveIds = false
+				})
+				if (allHaveIds && headings.length > 0) {
+					tests.push({ name: "Headings have IDs", passed: true })
+				} else {
+					tests.push({ name: "Headings have IDs", passed: false, issue: "Some headings missing IDs" })
+				}
+
+			} catch (error) {
+				tests.push({ name: "Post loading", passed: false, issue: error.message })
+			}
+
+			// Display results
+			let html = "<h2>Test Results</h2><ul>"
+			tests.forEach(test => {
+				const status = test.passed ? "✓" : "✗"
+				const color = test.passed ? "#44ff88" : "#ff3366"
+				html += `<li style="color: ${color}">${status} ${test.name}`
+				if (test.issue) {
+					html += ` - ${test.issue}`
+				}
+				html += "</li>"
+			})
+			html += "</ul>"
+
+			results.innerHTML = html
+		}
+
+		runTests()
+	</script>
+</body>
+</html>
