@@ -1,4 +1,4 @@
-class MarkdownLoader {
+export class MarkdownLoader {
 	#marked = null
 	#isLoading = false
 	#loadPromise = null
@@ -30,12 +30,11 @@ class MarkdownLoader {
 
 	async #loadMarked() {
 		try {
-			// @ts-ignore - Dynamic import from CDN
 			const markedModule = await import("https://cdn.jsdelivr.net/npm/marked@15.0.12/+esm")
 
 			const marked = markedModule.default || markedModule.marked || markedModule
 
-			if (!marked || typeof marked.parse !== "function" && typeof marked !== "function") {
+			if (!marked || (typeof marked.parse !== "function" && typeof marked !== "function")) {
 				throw new Error("marked module loaded but parse function is not available")
 			}
 
@@ -76,15 +75,9 @@ class MarkdownLoader {
 	}
 }
 
-const markdownLoader = new MarkdownLoader()
+export const markdownLoader = new MarkdownLoader()
 
-if (typeof window !== "undefined") {
-	/** @type {any} */
-	const win = window
-	win.markdownLoader = markdownLoader
-
-	if (window.location.pathname.includes("/blog") || document.querySelector(".post-list")) {
-		markdownLoader.load().catch(() => {})
-	}
+if (window.location.pathname.includes("/blog") || document.querySelector(".post-list")) {
+	markdownLoader.load().catch(() => {})
 }
 

@@ -1,9 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-	document.addEventListener("templateLoaded", initializeTypingEffect)
-	initializeTypingEffect()
-})
+import "./keyboard-navigation.js"
 
-function initializeTypingEffect() {
+export function initializeTypingEffect() {
 	const typingElements = document.querySelectorAll(".typing-effect:not([data-typing-initialized])")
 
 	typingElements.forEach((element) => {
@@ -29,3 +26,8 @@ function initializeTypingEffect() {
 		element.setAttribute("data-typing-initialized", "true")
 	})
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("templateLoaded", initializeTypingEffect)
+	initializeTypingEffect()
+})

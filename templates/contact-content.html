@@ -1,72 +1,71 @@
 <h1>Contact</h1>
 
-<div class="terminal">
-    <span class="prompt">$ </span>
-    <span class="command">cat contact_info.txt</span>
+<div class="terminal" role="status" aria-label="Contact information">
+	<span class="prompt" aria-hidden="true">$ </span>
+	<span class="command" aria-hidden="true">cat contact_info.txt</span>
 </div>
 
 <div class="bbs-box">
-    <div class="bbs-header">Get in Touch</div>
-    <p>
-        Have a question, interested in working together, or just want to say
-        hello? I'd love to hear from you. Here are the best ways to reach me:
-    </p>
+	<div class="bbs-header">Get in Touch</div>
+	<p>
+		Have a question, interested in working together, or just want to say hello? I'd love to hear from you. Here are the best ways to reach me:
+	</p>
 
-    <div class="contact-methods">
-        <div class="contact-method">
-            <h3><span class="highlight-1">Email</span></h3>
-            <p>
-                <a href="mailto:hello@solarz.me">hello@solarz.me</a><br />
-                For professional inquiries and general questions.
-            </p>
-        </div>
+	<div class="contact-methods">
+		<div class="contact-method">
+			<h3><span class="highlight-1">Email</span></h3>
+			<p>
+				<a href="mailto:hello@solarz.me" aria-label="Send email to hello@solarz.me">hello@solarz.me</a><br />
+				For professional inquiries and general questions.
+			</p>
+		</div>
 
-        <div class="contact-method">
-            <h3><span class="highlight-1">Social Media</span></h3>
-            <p>
-                <a href="https://twitter.com/jonsolarz">Twitter</a><br />
-                <a href="https://github.com/jsolarz">GitHub</a><br />
-                <a href="https://linkedin.com/in/jonathan-solarz">LinkedIn</a>
-            </p>
-        </div>
-    </div>
+		<div class="contact-method">
+			<h3><span class="highlight-1">Social Media</span></h3>
+			<p>
+				<a href="https://twitter.com/jonsolarz" aria-label="Jonathan Solarz on Twitter" rel="noopener noreferrer">Twitter</a><br />
+				<a href="https://github.com/jsolarz" aria-label="Jonathan Solarz on GitHub" rel="noopener noreferrer">GitHub</a><br />
+				<a href="https://linkedin.com/in/jonathan-solarz" aria-label="Jonathan Solarz on LinkedIn" rel="noopener noreferrer">LinkedIn</a>
+			</p>
+		</div>
+	</div>
 </div>
 
-<div class="terminal">
-    <span class="prompt">$ </span>
-    <span class="command">echo "Send me a message"</span>
+<div class="terminal" role="status" aria-label="Contact form prompt">
+	<span class="prompt" aria-hidden="true">$ </span>
+	<span class="command" aria-hidden="true">echo "Send me a message"</span>
 </div>
 
 <div class="bbs-box">
-    <div class="bbs-header">Contact Form</div>
-    <form id="contact-form" class="contact-form">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-        </div>
+	<div class="bbs-header">Contact Form</div>
+	<form id="contact-form" class="contact-form" aria-label="Contact form">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required aria-required="true" />
+		</div>
 
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-        </div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required aria-required="true" />
+		</div>
 
-        <div class="form-group">
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" required />
-        </div>
+		<div class="form-group">
+			<label for="subject">Subject:</label>
+			<input type="text" id="subject" name="subject" required aria-required="true" />
+		</div>
 
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-        </div>
+		<div class="form-group">
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+		</div>
 
-        <button type="submit" class="submit-btn">Send Message</button>
-    </form>
+		<button type="submit" class="submit-btn">Send Message</button>
+	</form>
 
-    <div id="form-response" class="form-response" style="display: none">
-        <div class="bbs-header">Message Status</div>
-        <p id="response-text"></p>
-    </div>
+	<div id="form-response" class="form-response" style="display: none" role="status" aria-live="polite" aria-atomic="true">
+		<div class="bbs-header">Message Status</div>
+		<p id="response-text"></p>
+	</div>
 </div>
 
 <script>

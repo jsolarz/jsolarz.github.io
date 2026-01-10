@@ -29,62 +29,34 @@
 
 		<link rel="stylesheet" href="../css/style.css" />
 		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+		<!-- Cache Control -->
+		<meta http-equiv="Cache-Control" content="public, max-age=3600" />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 		<div class="container">
 			<div data-template="header"></div>
-			<main>
-				<div id="blog-post-content">
-					<div class="terminal">
-						<span class="prompt">$ </span>
-						<span class="command">cat post.md</span>
-						<div class="output">Loading post...</div>
+			<main id="main-content" role="main">
+				<div id="blog-post-content" role="article" aria-live="polite" aria-busy="true">
+					<div class="terminal" role="status" aria-label="Loading post">
+						<span class="prompt" aria-hidden="true">$ </span>
+						<span class="command" aria-hidden="true">cat post.md</span>
+						<div class="output" aria-live="polite">Loading post...</div>
 					</div>
 				</div>
 			</main>
 			<div data-template="footer"></div>
 		</div>
 
-		<script src="../js/markdown-loader.js"></script>
-		<script src="../js/template-engine.js"></script>
-		<script src="../js/scripts.js"></script>
-		<script src="../js/blog-engine.js"></script>
+		<script type="module">
+			import { templateEngine } from "../js/template-engine.js"
+			import { blogEngine } from "../js/blog-engine.js"
+			import "../js/scripts.js"
 
-		<script src="../js/blog-engine.test-end-to-end.js"></script>
+			window.templateEngine = templateEngine
 
-		<script>
-			if (new URLSearchParams(window.location.search).get("test") === "1") {
-				const script = document.createElement("script")
-				script.src = "../js/blog-engine.test.js"
-				script.onload = () => {
-					if (window.blogEngineTests) {
-						setTimeout(() => window.blogEngineTests.runTests().catch(console.error), 500)
-					}
-				}
-				document.head.appendChild(script)
-			}
-		</script>
-
-		<script>
 			document.addEventListener("DOMContentLoaded", async () => {
-				if (typeof window.markdownLoader === "undefined") {
-					console.error("markdown-loader.js failed to load or execute")
-					const container = document.getElementById("blog-post-content")
-					if (container) {
-						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Initialization Error</div><p>markdown-loader.js failed to load. Check browser console for errors.</p></div>`
-					}
-					return
-				}
-
-				if (typeof blogEngine === "undefined") {
-					console.error("blog-engine.js failed to load or execute")
-					const container = document.getElementById("blog-post-content")
-					if (container) {
-						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Initialization Error</div><p>blog-engine.js failed to load. Check browser console for errors.</p></div>`
-					}
-					return
-				}
-
 				const params = new URLSearchParams(window.location.search)
 				const slug = params.get("slug") || window.location.pathname.match(/\/blog\/([^\/]+)(?:\.html)?$/)?.[1]
 				const container = document.getElementById("blog-post-content")

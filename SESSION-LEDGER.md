@@ -1,5 +1,262 @@
 # Session Ledger
 
+## 2025-01-27 - Cyberpunk BBS Color Palette with Cyan Core Brand
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Create a color palette using the Google technique - start with core brand color (cyan), create full palette from light to dark with cyan tint. Text should be very light cyan (not pure white), background very dark cyan (not pure black). Combine with shadcn color generation approach. Create retro futuristic, Blade Runner, Neuromancer, cyberpunk aesthetic.
+
+**AI Actions**:
+
+- Implemented Google color technique:
+  - Core brand color: Cyan (#00d4ff)
+  - Created full palette from very light cyan to very dark cyan
+  - Text: Very light cyan (#e8f5ff) instead of pure white
+  - Background: Very dark cyan (#0a0f14) instead of pure black
+  - All elements have subtle cyan tint for cohesive brand feeling
+- Updated color variables:
+  - Backgrounds: #0a0f14, #0f1a20, #15252f, #1a303d (dark cyan progression)
+  - Text: #e8f5ff, #d0e8f5, #b8d8e8 (light cyan progression)
+  - Primary: #00d4ff, #00b8e0, #009cc0, #0080a0 (cyan spectrum)
+  - Accents: Neon red, orange-red, orange, neon green, purple-magenta
+- Enhanced cyberpunk aesthetic:
+  - Added subtle cyan glows to borders and shadows
+  - Terminal elements have cyan-tinted shadows
+  - BBS boxes have cyan glow on hover
+  - Navigation separators have cyan tint
+  - Site title has subtle cyan text shadow
+  - All hover states incorporate cyan accents
+- Maintained BBS structure while adding cyberpunk visual language
+
+**Files Modified**:
+
+- Modified: `css/style.css` (complete color palette overhaul with cyan core brand)
+
+**Context/Notes**:
+
+- Technique from Google: Start with core brand color, create full palette with that tint
+- Text is very light cyan (not pure white) - creates brand feeling
+- Background is very dark cyan (not pure black) - maintains brand consistency
+- All shadows, borders, and accents have cyan influence
+- Cyberpunk aesthetic: Blade Runner, Neuromancer, retro futuristic
+- Accent colors (red, orange, purple) are secondary to cyan core
+- Creates cohesive "brand feeling" throughout interface
+
+**Status**: Completed
+
+## 2025-01-27 - Darker BBS Color Scheme with Red Tones
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Update color scheme to darker background with better contrast, add red/orange/purple tones inspired by classic BBS aesthetic. Background should be darker, text should have better contrast.
+
+**AI Actions**:
+
+- Updated color palette to much darker background:
+  - Background: #0a0a0f (very dark, almost black) instead of #161920
+  - Secondary backgrounds: #121218, #1a1a22, #24242e (darker progression)
+- Improved text contrast:
+  - Text colors: #f0f0f5, #e0e0e8, #d0d0d8 (brighter, higher contrast)
+  - Primary accent: Bright cyan (#5dd5ff, #7de5ff) for better visibility
+- Added red tone colors:
+  - Red: #ff5555 (bright red)
+  - Orange-red: #ff8844
+  - Orange: #ffaa44
+  - Purple: #cc88ff
+- Updated navigation colors to use red tones:
+  - home: Cyan
+  - about: Red
+  - blog: Orange-red
+  - cv: Orange
+  - portfolio: Purple
+  - contact: Bright cyan
+- Enhanced all text elements for better contrast:
+  - Headings use brighter cyan colors
+  - Links use brighter colors with better hover states
+  - Terminal elements have improved contrast
+- Added font smoothing for better text rendering
+
+**Files Modified**:
+
+- Modified: `css/style.css` (complete color scheme overhaul)
+
+**Context/Notes**:
+
+- Inspired by classic BBS terminal aesthetics (bytecellar.com/bbsing/)
+- Much darker background (#0a0a0f) for authentic terminal feel
+- High contrast text ensures readability
+- Red/orange/purple tones add classic BBS color variety
+- Maintains 8px base unit system and bracket styling
+
+**Status**: Completed
+
+## 2025-01-27 - PlanetScale-Style Navigation Implementation
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Implement navigation like PlanetScale with details/summary for mobile, always visible on desktop, with pipe separators and dashed box styling.
+
+**AI Actions**:
+
+- Updated header template to use `<details>` and `<summary>` structure
+- Implemented PlanetScale-style navigation with:
+  - Dashed border box around nav items
+  - Pipe separators (|) between nav items
+  - Details/summary for mobile collapsible navigation
+  - Always visible on desktop (1024px+)
+  - BBS-style brackets around nav items
+  - Individual colors for each nav item
+- Removed old menu toggle button and hamburger icon code
+- Updated keyboard navigation to work with details element
+- Updated template engine to remove old menu toggle handler
+- Responsive design: mobile uses details/summary, desktop always shows nav
+
+**Files Modified**:
+
+- Modified: `templates/header.html` (PlanetScale-style structure)
+- Modified: `css/style.css` (new navigation styles, removed old menu toggle)
+- Modified: `js/keyboard-navigation.js` (updated for details element)
+- Modified: `js/template-engine.js` (removed old menu toggle handler)
+
+**Context/Notes**:
+
+- Navigation uses native HTML details/summary for accessibility
+- Mobile: collapsible with "Navigation" summary
+- Desktop: always visible, no summary shown
+- Maintains BBS aesthetic with brackets and colors
+- Pipe separators styled with polar-night-4 color
+
+**Status**: Completed
+
+## 2025-01-27 - Removed All Glow Effects for Clean BBS Aesthetic
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Remove all text glow effects - want clean, old BBS aesthetic, not modern futuristic effects.
+
+**AI Actions**:
+
+- Removed all text-shadow glow effects throughout CSS
+- Removed pulse-glow animation from site title
+- Removed text-shadow from navigation items
+- Removed text-shadow from BBS headers
+- Removed text-shadow from post titles
+- Removed text-shadow from prompt elements
+- Removed filter brightness effects
+- Removed background gradient overlays
+- Removed hover glow effects on portfolio items
+- Removed animated underline from site title
+- Removed gradient overlay effects from BBS boxes
+- Cleaned up all decorative effects to maintain minimal, old BBS aesthetic
+
+**Files Modified**:
+
+- Modified: `css/style.css` (removed all glow and decorative effects)
+
+**Context/Notes**:
+
+- User wants clean, minimal aesthetic like old bulletin board systems
+- No modern decorative effects - just clean text and borders
+- Maintained 8px base unit system and bracket styling
+- Kept keyboard navigation and responsive fixes
+
+**Status**: Completed
+
+## 2025-01-27 - Comprehensive BBS-Style Enhancements & Keyboard Navigation
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Fix double brackets on post titles, add keyboard navigation, fix responsive design (iPhone menu overlap), add cache meta tags, refactor to 8px base unit system, enhance aesthetic for decadent futuristic BBS look with better typography and effects.
+
+**AI Actions**:
+
+- Fixed double brackets on post titles by excluding `.post-title` from h2 bracket styling
+- Created comprehensive keyboard navigation system (`js/keyboard-navigation.js`):
+  - M key toggles menu
+  - Escape closes menu
+  - Ctrl/Cmd + Arrow keys navigate between posts
+  - H key goes to home, B key goes to blog
+  - Arrow keys navigate menu items
+- Fixed responsive design issues:
+  - Added proper spacing and flex properties to menu toggle to prevent hamburger/X overlap on iPhone
+  - Added media query for mobile menu with proper z-index and spacing
+  - Improved menu toggle icon sizing and positioning
+- Added cache meta tags to all HTML pages (index, blog, about, cv, contact, portfolio, policy, blog/post)
+- Refactored entire CSS to use strict 8px base unit system:
+  - `--unit: 8px` (base unit)
+  - `--spacing-component: 16px` (2 * unit)
+  - `--spacing-section: 32px` (4 * unit)
+  - `--spacing-major: 64px` (8 * unit)
+  - All spacing values converted to use these variables
+- Enhanced aesthetic for decadent futuristic BBS look:
+  - Added subtle background gradients with radial overlays
+  - Enhanced text shadows with glow effects
+  - Added hover effects with gradient overlays on BBS boxes and portfolio items
+  - Added animated underline to site title
+  - Enhanced navigation item glow effects
+  - Improved terminal and post item hover states
+  - Added decorative gradient effects throughout
+
+**Files Modified**:
+
+- Modified: `css/style.css` (8px base unit system, enhanced aesthetic, responsive fixes)
+- Created: `js/keyboard-navigation.js` (keyboard navigation system)
+- Modified: `js/scripts.js` (import keyboard navigation)
+- Modified: `index.html` (added cache meta tags)
+- Modified: `blog.html` (added cache meta tags)
+- Modified: `about.html` (added cache meta tags)
+- Modified: `cv.html` (added cache meta tags)
+- Modified: `contact.html` (added cache meta tags)
+- Modified: `portfolio.html` (added cache meta tags)
+- Modified: `policy.html` (added cache meta tags)
+- Modified: `blog/post.html` (added cache meta tags)
+
+**Context/Notes**:
+
+- Keyboard navigation follows accessibility best practices
+- 8px base unit system ensures consistent spacing throughout
+- Decadent futuristic aesthetic achieved through subtle gradients, glows, and animations
+- All changes maintain existing color scheme (Nord theme)
+- Responsive design now properly handles mobile devices
+- Cache meta tags set to 1 hour (3600 seconds) for optimal performance
+
+**Status**: Completed
+
+## 2025-01-27 - BBS-Style CSS Improvements
+
+**Timestamp**: 2025-01-27
+
+**User Request**: Improve CSS styling with BBS-style brackets for menus, links, and sections. Fix skip link rendering. Remove CRT effect while keeping modernized BBS aesthetic. Keep existing colors.
+
+**AI Actions**:
+
+- Removed CRT screen effect (scanline animation and gradient overlay)
+- Fixed skip link accessibility (using clip instead of top positioning, better focus behavior)
+- Added BBS-style brackets to navigation menu items using CSS ::before and ::after
+- Added brackets to all links (excluding navigation, buttons, skip link, and form elements)
+- Added brackets to headings (h1, h2, h3) with appropriate opacity
+- Added brackets to BBS headers (.bbs-header)
+- Added brackets to menu toggle button text
+- Excluded site title from brackets (it's a quote, brackets would look odd)
+- Updated light mode styles to maintain bracket styling consistency
+- Improved desktop navigation spacing and layout
+
+**Files Modified**:
+
+- Modified: `css/style.css` (removed CRT effect, added bracket styling throughout, fixed skip link)
+
+**Context/Notes**:
+
+- Inspired by monospace web design patterns from reference sites
+- Brackets use CSS pseudo-elements for clean implementation
+- Navigation brackets use individual colors per item (frost, aurora colors)
+- Link brackets use subtle opacity that increases on hover
+- Skip link now uses clip property for better accessibility compliance
+- All bracket styling respects existing color scheme
+- Site title excluded from brackets as it's a quoted phrase
+
+**Status**: Completed
+
 ## 2025-01-08 - Repository Cleanup and Optimization
 
 **Timestamp**: 2025-01-08
@@ -531,7 +788,7 @@ WHY window.md4wLoader?
 SCRIPT LOADING ORDER (CRITICAL):
 1. md4w-loader.js - Creates window.md4wLoader (MUST BE FIRST)
 2. template-engine.js - Template system
-3. scripts.js - Core functionality  
+3. scripts.js - Core functionality
 4. blog-engine.js - Depends on window.md4wLoader
 
 TESTING:
@@ -964,5 +1221,116 @@ IMPLEMENTATION:
 - Handles both default and named exports
 - Configures marked with gfm: true for GitHub Flavored Markdown
 - Clean, simple implementation without test code
+
+**Status**: Completed
+---
+
+## 2025-01-08 - Migrated to ES Modules for Better Encapsulation
+
+**Timestamp**: 2025-01-08
+
+**User Request**: Migrate to ES modules following modern JS best practices, don't add new files.
+
+**AI Actions**:
+
+- Converted all JavaScript files to ES modules (export/import)
+- Updated all HTML files to use type="module" with import statements
+- Removed global window assignments (except templateEngine for backward compatibility)
+- Deleted temporary .esm.js example files
+- Zero global pollution - explicit dependencies only
+
+**Files Modified**:
+
+- Modified: js/markdown-loader.js (export class and instance, removed window.markdownLoader)
+- Modified: js/blog-engine.js (import markdownLoader, export blogEngine, removed window.markdownLoader usage)
+- Modified: js/template-engine.js (export templateEngine and updateCurrentYear)
+- Modified: js/scripts.js (export initializeTypingEffect)
+- Modified: blog/post.html (ES module imports)
+- Modified: blog.html (ES module imports)
+- Modified: index.html (ES module imports)
+- Modified: about.html (ES module imports)
+- Modified: contact.html (ES module imports)
+- Modified: cv.html (ES module imports)
+- Modified: portfolio.html (ES module imports)
+- Modified: policy.html (ES module imports)
+- Deleted: js/markdown-loader.esm.js
+- Deleted: js/blog-engine.esm.js
+- Deleted: js/template-engine.esm.js
+- Deleted: js/scripts.esm.js
+- Deleted: blog/post.esm.html
+
+**Context/Notes**:
+
+MIGRATION TO ES MODULES:
+- All JavaScript files now use export/import instead of global variables
+- HTML files use type="module" with explicit import statements
+- Zero global namespace pollution (except templateEngine on window for backward compatibility)
+- Better encapsulation and explicit dependencies
+- No performance impact - same file sizes and HTTP requests
+- Modern JavaScript standard (ES2015+)
+
+BENEFITS:
+- Explicit dependencies via import statements
+- Module scope isolation
+- Better maintainability
+- Easier testing (can mock imports)
+- Future-proof approach
+
+**Status**: Completed
+---
+
+## 2025-01-08 - Modernized CSS and Added ARIA Attributes
+
+**Timestamp**: 2025-01-08
+
+**User Request**: Modernize CSS with best practices, then add ARIA attributes to HTML files.
+
+**AI Actions**:
+
+- Refactored CSS using modern features (nesting, container queries, prefers-reduced-motion)
+- Simplified navigation color system using CSS custom properties
+- Removed dead comments and redundant code
+- Added skip links and ARIA attributes to all HTML files
+- Enhanced focus styles for keyboard navigation
+- Added proper ARIA roles, labels, and live regions
+
+**Files Modified**:
+
+- Modified: css/style.css (modern CSS nesting, container queries, reduced motion, simplified nav colors, skip links, focus styles)
+- Modified: templates/header.html (added aria-label, aria-controls, aria-expanded, role="list")
+- Modified: templates/footer.html (added role="contentinfo", aria-label for nav, rel="noopener noreferrer")
+- Modified: templates/blog-content.html (added ARIA roles, labels, live regions)
+- Modified: templates/blog-post.html (added semantic HTML, ARIA labels, time element)
+- Modified: templates/home-content.html (added ARIA roles and labels)
+- Modified: templates/about-content.html (added ARIA roles and labels)
+- Modified: templates/contact-content.html (added ARIA to form, aria-required, aria-live)
+- Modified: templates/cv-content.html (added ARIA roles)
+- Modified: templates/portfolio-content.html (added ARIA roles, rel="noopener noreferrer")
+- Modified: index.html, about.html, blog.html, blog/post.html, contact.html, cv.html, portfolio.html, policy.html (added skip links, main content IDs, role="main")
+- Modified: js/blog-engine.js (added aria-busy, aria-label for links)
+- Modified: js/template-engine.js (added aria-current="page" for active nav links)
+
+**Context/Notes**:
+
+CSS MODERNIZATION:
+- Used CSS Nesting (2023+) to reduce repetition (~200 lines saved)
+- Added container queries for component-level responsiveness
+- Added prefers-reduced-motion support for accessibility
+- Simplified navigation colors using CSS custom properties (--nav-color)
+- Converted remaining px to rem for better scalability
+- Added enhanced focus-visible styles for keyboard navigation
+- Removed all dead comments
+
+ARIA IMPROVEMENTS:
+- Added skip links to all pages for keyboard navigation
+- Added role="main" to main content areas
+- Added role="contentinfo" to footer
+- Added aria-label to navigation, forms, and interactive elements
+- Added aria-current="page" for active navigation links
+- Added aria-busy and aria-live for dynamic content
+- Added aria-required for form inputs
+- Added aria-hidden="true" for decorative elements (prompts, commands)
+- Added rel="noopener noreferrer" to external links
+- Added proper semantic HTML (header, nav, article, aside, time)
 
 **Status**: Completed
