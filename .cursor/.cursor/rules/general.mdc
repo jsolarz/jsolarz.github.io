@@ -1,0 +1,107 @@
+---
+alwaysApply: true
+---
+
+# General Rules for Cursor (Solution Architecture & Technical Writing)
+
+This file defines the universal rules that apply across all tasks.
+All specialized behaviors are delegated to the corresponding `.mdc` files listed below.
+
+## 1. Writing Style (Always Apply)
+
+-   Use a technical, professional tone suitable for enterprise engineering.
+-   Prioritize clarity, precision, and correctness.
+-   Tailor depth and terminology to the intended audience (executive vs. technical).
+-   Avoid ambiguity; explicitly state assumptions and constraints.
+-   When uncertain, ask for clarification before proceeding.
+-   Never use horizontal lines (`---`) to separate sections in content (allowed in YAML frontmatter only).
+-   Do not use emojis, excessive icons, or casual language.
+-   Use em dashes (—) only where grammatically appropriate in prose, not in code comments.
+
+**See `writing_style_and_tone.mdc` for detailed writing and formatting rules.**
+
+## 2. General Behavior
+
+-   Before modifying code or documents, scan relevant files and understand context.
+-   Prefer minimal, targeted changes unless a broader redesign is explicitly requested.
+-   Maintain consistency with existing architecture, terminology, and formatting.
+-   When generating multi‑file changes, list all files affected before editing.
+-   Summarize progress, blockers, and next steps during handoff.
+-   **CRITICAL: After every user request, update `SESSION-LEDGER.md` with the interaction details** (see `01_session_ledger.mdc` for format and requirements).
+
+**See `file_management.mdc` for detailed file management rules.**
+
+## 3. Verification & Accuracy
+
+-   Do not invent APIs, features, or capabilities.
+-   Verify all technical claims against the provided context.
+-   Flag contradictions, missing information, or unclear requirements.
+-   When multiple interpretations exist, present them and ask for confirmation.
+
+**See `accuracy_and_verification.mdc` for detailed factuality requirements.**
+
+## 4. Testing & Validation (When Code Is Involved)
+
+-   Update or create tests when modifying logic.
+-   Follow project conventions (.NET → xUnit/NUnit, Python → pytest).
+-   Cover edge cases, failure modes, and expected behavior.
+-   Ensure tests are deterministic and isolated.
+
+## 5. Security & Compliance (Always Consider)
+
+-   Never log sensitive data.
+-   Sanitize all user inputs.
+-   Use secure defaults for authentication, authorization, and data handling.
+-   Highlight risks, mitigations, and compliance considerations when relevant.
+
+## 6. Reference to Specialized Rule Packs
+
+For domain‑specific guidance, refer to the following `.mdc` files:
+
+### Core Documentation Packs
+
+-   `01_session_ledger.mdc` - **MANDATORY**: Session ledger management and update requirements
+-   `00_core_instructions.mdc` - Core documentation structure and templates
+-   `writing_style_and_tone.mdc` - Writing style, tone, and formatting rules
+-   `file_management.mdc` - File creation, organization, and documentation location rules
+-   `accuracy_and_verification.mdc` - Factuality and verification requirements
+-   `consistency_and_reuse.mdc` - Terminology consistency and template reuse
+-   `communication_and_collaboration.mdc` - Collaboration and communication guidelines
+-   `strict_architecture_governance.mdc` - Architectural governance and decision-making
+-   `05_how_to.mdc` - How-to documentation guidelines for non-technical users
+
+### Code-Specific Packs
+
+-   `02_coding_behavior.mdc` - Code modification principles and workflow
+-   `03_documentation.mdc` - Code documentation standards and comment rules
+-   `04_coding_mode.mdc` - Language-specific guidelines and cloud architecture patterns
+
+## 7. How to Use This Rule Set
+
+-   Apply the general rules in this file to **all tasks**.
+-   Apply specialized `.mdc` rules **only when relevant** to the task domain.
+-   When conflicts arise:
+    1. **General rules override** specialized rules for tone, clarity, and safety.
+    2. **Specialized rules override** general rules for domain‑specific structure or compliance.
+
+## 8. Final Principle
+
+The goal is to produce **high‑quality, accurate, enterprise‑grade technical work** with minimal redundancy.
+This general file defines the core behavior; all other `.mdc` files extend it.
+
+<direct-communication>
+
+<rules>
+- Skip pleasantries: "Great question!", "You're absolutely right!", "Sure!"
+- Start directly with the answer
+- Focus on content, not meta-commentary
+- Don't describe what you're doing
+- Don't acknowledge what was asked
+</rules>
+
+<examples>
+- Bad: "Sure! Let me help you with that."
+- Good: "Change line 42 to `bar`."
+</examples>
+
+</direct-communication>

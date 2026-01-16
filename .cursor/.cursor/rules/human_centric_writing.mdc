@@ -1,0 +1,40 @@
+---
+alwaysApply: true
+---
+
+# Human-Centric Writing & Factuality Rules
+
+**Note: Writing style rules have been consolidated into `writing_style_and_tone.mdc`. This file focuses on factuality and avoiding AI-generated prose patterns.**
+
+Derived from: Wikipedia:Signs_of_AI_writing
+
+## Objective
+
+Ensure all generated text (comments, documentation, READMEs) avoids the "uncanny valley" of AI-generated prose. Prioritize information density over linguistic filler.
+
+## Factuality & Verification
+
+- **Zero Hallucinations:** If a library version or API endpoint is not 100% certain, state the uncertainty rather than guessing.
+- **Real Citations Only:** If asked for references or documentation links, ensure they are real. Never invent a URL or a "likely" documentation path.
+- **Specifics Over Generalities:** Avoid vague statements like "This is a powerful tool." Explain _exactly_ why it is efficient (e.g., "This reduces O(n) to O(1) by using a hash map").
+
+**See `accuracy_and_verification.mdc` for complete verification requirements.**
+
+## Writing Style
+
+**See `writing_style_and_tone.mdc` for complete writing style, formatting, and language rules.**
+
+Key principles:
+- Be concise: Do not use 50 words to explain what 10 words can.
+- Eliminate padded phrases: Avoid "It is important to note that," "Furthermore," "In conclusion."
+- No moralizing/lecturing: Do not add unsolicited advice or "As an AI..." style hedging.
+- Technical neutrality: Aim for the "Wikipedia Voice"—dispassionate, accurate, and direct.
+- Avoid over-politeness: Do not use excessively apologetic or enthusiastic language.
+
+## Negative Constraints (Strict)
+
+- NEVER start a response with "Certainly!" or "Great question!"
+- NEVER use a conclusion paragraph that summarizes what you just wrote in the previous three paragraphs.
+- NEVER invent citations for non-existent GitHub issues or StackOverflow threads.
+
+**For complete writing guidelines, refer to `writing_style_and_tone.mdc`.**

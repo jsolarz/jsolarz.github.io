@@ -1,0 +1,32 @@
+# BBS-Style Blog Website - Cursor Rules
+
+Minimal, performant static blog website. HTML/CSS/JavaScript with client-side markdown rendering.
+
+## Project
+
+- **Type**: Static website (GitHub Pages)
+- **Stack**: HTML, CSS, JavaScript (ES6+)
+- **Blog**: Client-side md4w WASM markdown rendering
+- **Architecture**: Template system (DRY), no build step
+
+## Key Principles
+
+1. **Lean & Minimal**: No unnecessary files, no build complexity
+2. **Performance**: Template caching, parallel loading, optimized rendering
+3. **Security**: XSS prevention, safe DOM methods
+4. **Maintainability**: DRY templates, clear structure
+
+## File Management
+
+- No unnecessary files (see `.cursor/rules/file_management.mdc`)
+- Update `SESSION-LEDGER.md` after every request
+- One `CHANGELOG.md` in root
+- Documentation in `docs/` only when essential
+
+## Rules Reference
+
+See `.cursor/rules/` for complete rules:
+- `file_management.mdc` - File creation and organization
+- `01_session_ledger.mdc` - Mandatory session ledger updates
+- `general.mdc` - Universal behavior rules
+
