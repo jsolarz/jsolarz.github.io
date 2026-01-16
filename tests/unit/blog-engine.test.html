@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Engine Tests</title>
+	<style>
+		body {
+			font-family: monospace;
+			padding: 2rem;
+			background: #0a0f14;
+			color: #d0d8e0;
+		}
+		.test-results {
+			margin-top: 2rem;
+			padding: 1rem;
+			background: #1a303d;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Blog Engine Unit Tests</h1>
+	<div id="test-output"></div>
+	<div class="test-results" id="results"></div>
+
+	<script type="module">
+		import { blogEngine } from "../../js/blog-engine.js"
+		import { BlogEngineTests } from "./blog-engine.test.js"
+
+		// Expose private methods for testing (in real scenario, use proper testing framework)
+		blogEngine._removeDuplicateTitle = blogEngine._BlogEngine__removeDuplicateTitle || (() => {})
+		blogEngine._generateTOC = blogEngine._BlogEngine__generateTOC || (() => {})
+		blogEngine._escapeHtml = blogEngine._BlogEngine__escapeHtml || (() => {})
+
+		const tests = new BlogEngineTests()
+		tests.runAll().then(() => {
+			document.getElementById("results").textContent = `Tests completed: ${tests.passed} passed, ${tests.failed} failed`
+		})
+	</script>
+</body>
+</html>

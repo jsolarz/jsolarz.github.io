@@ -1,6 +1,6 @@
-# Contributing to Documentation Toolkit
+# Contributing
 
-Thank you for your interest in contributing to the Documentation Toolkit! This document provides guidelines and instructions for contributing.
+Guidelines for contributing to this BBS-style blog website.
 
 ## Code of Conduct
 
@@ -33,7 +33,7 @@ Do not open an issue on GitHub until you have collected positive feedback about 
     - Clear title and description
     - Steps to reproduce
     - Expected vs actual behavior
-    - Environment details (OS, Python version, PowerShell version)
+    - Environment details (OS, Node.js version, browser)
 
 ### Suggesting Enhancements
 
@@ -83,22 +83,25 @@ Do not open an issue on GitHub until you have collected positive feedback about 
 ## Project Structure
 
 ```
-/doc-toolkit/
-    /scripts/        - PowerShell and Python scripts
-    /templates/      - Document templates
-    /docs/           - Project documentation
-    /.cursor/        - Cursor IDE configuration
+.
+├── _posts/          # Markdown blog posts
+├── blog/            # Blog post pages
+├── css/             # Stylesheets
+├── js/              # JavaScript modules
+├── templates/       # HTML templates
+├── docs/            # Documentation
+└── scripts/         # Build scripts
 ```
 
 ## Testing
 
 Before submitting a PR:
 
-1. Test on Windows (PowerShell 5+)
-2. Verify Python scripts work with Python 3.10+
-3. Test with sample documents
-4. Ensure error handling works correctly
-5. Validate that generated documents are correct
+1. Test in multiple browsers (Chrome, Firefox, Safari, Edge)
+2. Verify blog posts render correctly
+3. Test template system functionality
+4. Ensure responsive design works
+5. Validate markdown rendering
 
 ## Commit Messages
 

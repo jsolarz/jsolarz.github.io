@@ -1,1 +1,9 @@
 .vscode/
+node_modules/
+*.log
+
+# Keep _old for reference (don't ignore)
+_old/
+
+SESSION-LEDGER.MD
+
