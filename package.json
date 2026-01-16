@@ -1,13 +1,12 @@
 {
-  "name": "bbs-blog-converter",
-  "version": "1.0.0",
-  "description": "Converts markdown blog posts to HTML",
-  "scripts": {
-    "convert": "node scripts/convert-blog.js"
-  },
-  "dependencies": {
-    "front-matter": "^4.0.2",
-    "markdown-it": "^13.0.1",
-    "fs-extra": "^11.1.0"
-  }
+	"name": "bbs-blog-website",
+	"version": "1.0.0",
+	"description": "BBS-style static blog website with client-side markdown rendering",
+	"scripts": {
+		"generate-index": "node scripts/generate-posts-index.js",
+		"test": "echo 'Open blog.html in browser and run: blogEngineTests.runTests() in console'"
+	},
+	"dependencies": {
+		"front-matter": "^4.0.2"
+	}
 }
