@@ -1,0 +1,72 @@
+---
+alwaysApply: true
+---
+
+# File Management Rules
+
+## General Principles
+
+1. **Do not generate unnecessary files**: Only create files explicitly requested or required for the task
+2. **Do not delete and recreate whole files**: Use targeted edits (search_replace or similar) to existing files
+3. **Use one CHANGELOG.md**: Single file in root directory, no version-specific changelogs
+4. **Use one PATCH-\*.md per change set**: This file will be deleted after changes are applied. Do not create multiple patch files for the same change set
+5. **MANDATORY: Update SESSION-LEDGER.md**: After every user request (see `01_session_ledger.mdc` for format)
+
+## Temporary Files
+
+-   **Do not create intermediate markdown files** for planning, analysis, or step-by-step breakdowns
+-   **Work directly** with the codebase and existing files
+-   **Temporary files** may only be created when:
+    -   Required for a specific operation that needs temporary storage
+    -   The file will be explicitly deleted immediately after use
+    -   The user explicitly requests a temporary file
+
+## Documentation Updates
+
+After making changes, always update:
+
+-   **README.md**: If project structure or usage changes
+-   **docs/design.md**: If architecture changes
+-   **CHANGELOG.md**: With all changes (planned and completed)
+-   **SESSION-LEDGER.md**: MANDATORY - After every user request
+-   **Relevant documentation files**: As needed
+
+## Documentation Location Rules
+
+### Global Project Documentation (`docs/` folder)
+
+-   Architecture documents (docs/ARCHITECTURE-\*.md)
+-   Product requirements (docs/PRD-\*.md)
+-   Data models (docs/DATA-\*.md)
+-   Engineering specs (docs/SPEC-\*.md)
+-   Solution proposals (docs/SOLUTION-\*.md)
+-   Technical documentation (docs/TECHNICAL-DOCUMENTATION.md)
+-   System design (docs/design.md)
+-   Code standards (docs/CODE-DOCUMENTATION-STANDARDS.md)
+-   Developer guides (docs/DEVELOPER-QUICK-REFERENCE.md)
+-   Compliance documents (docs/IDESIGN-CSHARP-CODING-STANDARD-COMPLIANCE.md)
+
+### Source Code Specific Documentation (`src/` folder)
+
+-   Application-specific docs: `src/Docs/` or `src/README.md`
+
+### Root Level Documentation (Essential Only)
+
+-   README.md (project overview)
+-   SESSION-LEDGER.md (mandatory: tracks all AI interactions and context)
+-   CHANGELOG.md (project changelog)
+-   ONBOARDING.md (project onboarding)
+-   LICENSE (if applicable)
+
+### Do NOT Create Documentation In
+
+-   Multiple locations for the same content
+-   Temporary or intermediary folders
+-   Root directory (except essential files listed above)
+
+## File Cleanup
+
+-   Keep documentation clean and concise
+-   Remove unnecessary content, avoid redundancy
+-   Focus on essential information
+-   Do not use emojis, icons, or horizontal rules (---) in documentation files

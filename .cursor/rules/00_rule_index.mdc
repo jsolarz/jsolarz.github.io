@@ -1,0 +1,116 @@
+---
+alwaysApply: false
+description: Index of all cursor rules and their purposes
+---
+
+# Cursor Rules Index
+
+## Purpose
+
+This index provides a quick reference to all cursor rules, their purposes, and when they apply.
+
+## Core Rules (Always Apply)
+
+### Universal Behavior
+- **`general.mdc`** - Universal behavior, file management, and rule hierarchy
+  - Base rules that apply to all tasks
+  - References to specialized rules
+  - Conflict resolution guidance
+
+### Documentation Structure
+- **`00_core_instructions.mdc`** - Document structure and templates
+  - PRD, RFP, Tender Response, Architecture Design, Solution Proposal templates
+  - Universal document structure requirements
+  - Document-specific rules and validation
+
+### Context Management
+- **`01_session_ledger.mdc`** - **MANDATORY** session ledger updates
+  - Tracks all AI interactions and context across sessions
+  - Required after every user request
+  - Format and best practices
+
+### Writing Standards
+- **`writing_style_and_tone.mdc`** - Writing style, tone, and formatting
+  - Professional writing principles
+  - Prohibited elements (formatting, language)
+  - Code comment standards
+  - Audience adaptation
+
+### File Management
+- **`file_management.mdc`** - File creation and organization
+  - File creation principles
+  - Documentation location rules
+  - Temporary file guidelines
+
+## Specialized Rules (Apply When Relevant)
+
+### Code Development
+- **`02_coding_behavior.mdc`** - Code modification principles
+  - Before/after change workflows
+  - Code modification best practices
+  - File management for code
+
+- **`03_documentation.mdc`** - Code documentation standards
+  - Function docstring requirements
+  - Code comment standards
+  - Documentation requirements
+
+- **`04_coding_mode.mdc`** - Language-specific and cloud patterns
+  - Python, .NET, TypeScript/JavaScript guidelines
+  - Cloud architecture patterns
+  - Testing requirements
+  - Code review checklist
+
+### Documentation Types
+- **`05_how_to.mdc`** - How-to documentation for users
+  - Non-technical user guides
+  - Step-by-step instructions
+  - Converting technical content to user guides
+
+### Quality and Consistency
+- **`accuracy_and_verification.mdc`** - Factuality requirements
+  - Verify technical claims
+  - No hallucinations
+  - Real citations only
+
+- **`consistency_and_reuse.mdc`** - Terminology and templates
+  - Consistent terminology
+  - Template reuse
+  - Alignment with style guides
+
+- **`communication_and_collaboration.mdc`** - Collaboration guidelines
+  - Handling uncertainty
+  - Summarizing complex topics
+  - Handoff procedures
+
+### Architecture
+- **`strict_architecture_governance.mdc`** - Architectural governance
+  - Architecture principles
+  - Change control
+  - Documentation requirements
+  - Risk and threat modeling
+
+## Rule Hierarchy
+
+1. **`general.mdc`** - Base rules (always apply)
+2. **Specialized rules** - Apply when relevant to task domain
+3. **Conflict resolution**:
+   - General rules override specialized rules for tone, clarity, and safety
+   - Specialized rules override general rules for domain-specific structure or compliance
+
+## Quick Reference
+
+| Task Type | Primary Rules |
+|-----------|--------------|
+| Writing documentation | `general.mdc`, `writing_style_and_tone.mdc`, `00_core_instructions.mdc` |
+| Writing code | `general.mdc`, `02_coding_behavior.mdc`, `03_documentation.mdc`, `04_coding_mode.mdc` |
+| Architecture design | `general.mdc`, `strict_architecture_governance.mdc`, `00_core_instructions.mdc` |
+| User guides | `general.mdc`, `05_how_to.mdc`, `writing_style_and_tone.mdc` |
+| Any task | `general.mdc`, `01_session_ledger.mdc` (mandatory) |
+
+## Notes
+
+- All rules marked with `alwaysApply: true` are automatically applied
+- Rules marked with `alwaysApply: false` require explicit reference
+- When in doubt, check `general.mdc` for base behavior
+- Session ledger updates are mandatory after every user request

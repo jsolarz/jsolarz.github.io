@@ -1,0 +1,38 @@
+---
+alwaysApply: true
+---
+
+# Clarity and Tone Rules
+
+**Note: This file is maintained for backward compatibility. For complete writing style rules, see `writing_style_and_tone.mdc`.**
+
+## Core Principles
+
+- Write in a professional, concise, and authoritative tone.
+- Avoid jargon unless necessary; define all technical terms on first use.
+- Prefer active voice and direct statements.
+- Tailor tone to the audience:
+    - Business stakeholders → high-level clarity, benefits, outcomes.
+    - Technical stakeholders → detailed architecture, constraints, trade-offs.
+- Avoid ambiguous language; be explicit about assumptions and limitations.
+- When describing architecture, prefer diagrams, lists, and structured explanations.
+- Use diagrams (described textually) when helpful.
+
+## Formatting Rules
+
+**See `writing_style_and_tone.mdc` for complete formatting prohibitions and requirements.**
+
+Key points:
+- No horizontal lines (`---`) in content (YAML frontmatter only)
+- No emojis in professional documentation
+- No em dashes in code comments
+- No exclamation marks in professional documents
+- No casual language in formal documentation
+
+## List Formatting
+
+- Do not add periods (.) at the end of bullet points unless they contain complete sentences.
+- Each bullet point is a phrase on its own and does not require a period.
+- Use periods only when a bullet point contains complete sentences that would naturally end with a period.
+
+**For complete writing style guidelines, refer to `writing_style_and_tone.mdc`.**
