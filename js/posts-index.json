@@ -75,6 +75,19 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "Building a Documentation Toolkit: How I Solved the Fragmented Documentation Problem",
+    "date": "2025-09-24",
+    "slug": "building-a-documentation-toolkit-solving-fragmented-documentation",
+    "filename": "2025-09-24-building-a-documentation-toolkit-solving-fragmented-documentation.md",
+    "categories": [
+      "documentation",
+      "knowledge-management",
+      "enterprise"
+    ],
+    "excerpt": "How spec-driven development transformed our workflow from chaos to clarity, enabling us to maintain architectural integrity while delivering features rapidly. Covers the three-file structure (spec, plan, tasks), volatility-based decomposition, and contract-first development.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Building Enterprise Systems with Spec-Driven Development",
     "date": "2025-10-01",
     "slug": "building-enterprise-systems-with-spec-driven-development",
