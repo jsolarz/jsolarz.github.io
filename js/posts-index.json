@@ -1,52 +1,14 @@
 [
   {
-    "title": "The Future of Intelligent Systems: Where We're Headed and Why It Matters",
-    "date": "2025-05-08",
-    "slug": "future-of-intelligent-systems",
-    "filename": "2025-05-08-future-of-intelligent-systems.md",
+    "title": "Architect as a Translator: Bridging Business and Engineering",
+    "date": "2024-12-10",
+    "slug": "architect-as-translator",
+    "filename": "2024-12-10-architect-as-translator.md",
     "categories": [
-      "future",
-      "innovation",
-      "ai"
+      "architecture",
+      "leadership"
     ],
-    "excerpt": "A thoughtful exploration of where AI, cloud, and architecture are going—and how organizations can prepare for the next wave of intelligent systems.",
-    "author": "Jonathan Solarz"
-  },
-  {
-    "title": "Building AI-Ready Architectures on Azure",
-    "date": "2025-04-18",
-    "slug": "building-ai-ready-architectures",
-    "filename": "2025-04-18-building-ai-ready-architectures.md",
-    "categories": [
-      "cloud",
-      "ai",
-      "azure"
-    ],
-    "excerpt": "A comprehensive guide to preparing enterprise systems for AI integration using Microsoft Azure's cloud platform and services.",
-    "author": "Jonathan Solarz"
-  },
-  {
-    "title": "From Monolith to Microservices: Lessons from the Trenches",
-    "date": "2025-03-12",
-    "slug": "monolith-to-microservices",
-    "filename": "2025-03-12-monolith-to-microservices.md",
-    "categories": [
-      "tech",
-      "architecture"
-    ],
-    "excerpt": "Real-world insights from modernizing legacy systems and the trade-offs involved when breaking down monolithic applications into microservices.",
-    "author": "Jonathan Solarz"
-  },
-  {
-    "title": "Leading Tech Teams Through Change: What I've Learned",
-    "date": "2025-02-26",
-    "slug": "leading-tech-teams-through-change",
-    "filename": "2025-02-26-leading-tech-teams-through-change.md",
-    "categories": [
-      "leadership",
-      "management"
-    ],
-    "excerpt": "Reflections on managing teams through digital transformation and uncertainty, with practical advice for tech leaders facing similar challenges.",
+    "excerpt": "How effective software architects turn business needs into technical solutions—and why that translation role is critical for organizational success.",
     "author": "Jonathan Solarz"
   },
   {
@@ -63,15 +25,170 @@
     "author": "Jonathan Solarz"
   },
   {
-    "title": "Architect as a Translator: Bridging Business and Engineering",
-    "date": "2024-12-10",
-    "slug": "architect-as-translator",
-    "filename": "2024-12-10-architect-as-translator.md",
+    "title": "Leading Tech Teams Through Change: What I've Learned",
+    "date": "2025-02-26",
+    "slug": "leading-tech-teams-through-change",
+    "filename": "2025-02-26-leading-tech-teams-through-change.md",
+    "categories": [
+      "leadership",
+      "management"
+    ],
+    "excerpt": "Reflections on managing teams through digital transformation and uncertainty, with practical advice for tech leaders facing similar challenges.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "From Monolith to Microservices: Lessons from the Trenches",
+    "date": "2025-03-12",
+    "slug": "monolith-to-microservices",
+    "filename": "2025-03-12-monolith-to-microservices.md",
+    "categories": [
+      "tech",
+      "architecture"
+    ],
+    "excerpt": "Real-world insights from modernizing legacy systems and the trade-offs involved when breaking down monolithic applications into microservices.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building AI-Ready Architectures on Azure",
+    "date": "2025-04-18",
+    "slug": "building-ai-ready-architectures",
+    "filename": "2025-04-18-building-ai-ready-architectures.md",
+    "categories": [
+      "cloud",
+      "ai",
+      "azure"
+    ],
+    "excerpt": "A comprehensive guide to preparing enterprise systems for AI integration using Microsoft Azure's cloud platform and services.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The Future of Intelligent Systems: Where We're Headed and Why It Matters",
+    "date": "2025-05-08",
+    "slug": "future-of-intelligent-systems",
+    "filename": "2025-05-08-future-of-intelligent-systems.md",
+    "categories": [
+      "future",
+      "innovation",
+      "ai"
+    ],
+    "excerpt": "A thoughtful exploration of where AI, cloud, and architecture are going—and how organizations can prepare for the next wave of intelligent systems.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building Enterprise Systems with Spec-Driven Development",
+    "date": "2025-10-01",
+    "slug": "building-enterprise-systems-with-spec-driven-development",
+    "filename": "2025-10-01-building-enterprise-systems-with-spec-driven-development.md",
     "categories": [
       "architecture",
-      "leadership"
+      "development",
+      "enterprise"
     ],
-    "excerpt": "How effective software architects turn business needs into technical solutions—and why that translation role is critical for organizational success.",
+    "excerpt": "How spec-driven development transformed our workflow from chaos to clarity, enabling us to maintain architectural integrity while delivering features rapidly. Covers the three-file structure (spec, plan, tasks), volatility-based decomposition, and contract-first development.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Documentation as Code: Building a Semantic Knowledge Base",
+    "date": "2025-10-15",
+    "slug": "documentation-as-code-with-semantic-indexing",
+    "filename": "2025-10-15-documentation-as-code-with-semantic-indexing.md",
+    "categories": [
+      "documentation",
+      "knowledge-management",
+      "development"
+    ],
+    "excerpt": "How Documentation as Code principles combined with semantic indexing create a living knowledge base. Covers semantic search, knowledge graphs, and automatic indexing that transforms documentation from a burden into a powerful tool.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AI-Assisted Development: Building Enterprise Systems with Cursor",
+    "date": "2025-10-29",
+    "slug": "ai-assisted-development-with-cursor",
+    "filename": "2025-10-29-ai-assisted-development-with-cursor.md",
+    "categories": [
+      "ai",
+      "development",
+      "tools"
+    ],
+    "excerpt": "How AI-assisted development with Cursor maintains architectural integrity and accelerates feature delivery. Covers rule-based enforcement, context management, and multi-agent orchestration that helps developers focus on problem-solving.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The Complete Picture: How It All Fits Together",
+    "date": "2025-11-12",
+    "slug": "the-complete-picture",
+    "filename": "2025-11-12-the-complete-picture.md",
+    "categories": [
+      "architecture",
+      "development",
+      "process"
+    ],
+    "excerpt": "Ties together all three approaches (spec-driven development, documentation as code, AI-assisted development) into a cohesive workflow. Shows how they integrate and create feedback loops that maintain quality while accelerating delivery.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "IDesign Method: Designing for Change, Not Requirements",
+    "date": "2025-11-26",
+    "slug": "idesign-method-volatility-based-decomposition",
+    "filename": "2025-11-26-idesign-method-volatility-based-decomposition.md",
+    "categories": [
+      "architecture",
+      "design",
+      "enterprise"
+    ],
+    "excerpt": "Deep dive into volatility-based decomposition—the core principle behind IDesign Method. Explains how designing around what might change (not what the system does) creates resilient architectures that evolve gracefully.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Documentation as Code: The Technical Deep Dive",
+    "date": "2025-12-10",
+    "slug": "documentation-as-code-folder-structure",
+    "filename": "2025-12-10-documentation-as-code-folder-structure.md",
+    "categories": [
+      "documentation",
+      "technical",
+      "architecture"
+    ],
+    "excerpt": "Super technical post explaining the reasoning behind folder structure, numbering conventions, and organizational decisions. Covers why each choice was made and how it enables tooling and maintainability.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Agentic Documentation: How AI Maintains Consistency",
+    "date": "2025-12-24",
+    "slug": "agentic-documentation-ai-maintains-consistency",
+    "filename": "2025-12-24-agentic-documentation-ai-maintains-consistency.md",
+    "categories": [
+      "ai",
+      "documentation",
+      "technical"
+    ],
+    "excerpt": "Super technical post about the agentic framework architecture for maintaining documentation consistency. Covers agent types, decision boundaries, and autonomous operation patterns that keep documentation in sync with code.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Lessons Learned: A Year Building Enterprise Systems",
+    "date": "2026-01-07",
+    "slug": "lessons-learned-building-enterprise-systems",
+    "filename": "2026-01-07-lessons-learned-building-enterprise-systems.md",
+    "categories": [
+      "leadership",
+      "reflection",
+      "enterprise"
+    ],
+    "excerpt": "Personal reflection on the journey—mistakes, surprises, and hard-won insights. Covers what worked, what didn't, and what would be done differently. Process matters more than code.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Scaling Spec-Driven Development: What I Learned from 24 Features",
+    "date": "2026-01-21",
+    "slug": "scaling-spec-driven-development-24-features",
+    "filename": "2026-01-21-scaling-spec-driven-development-24-features.md",
+    "categories": [
+      "development",
+      "process",
+      "scaling"
+    ],
+    "excerpt": "Reflection on applying spec-driven development to 24 features. Covers patterns that emerged, consistency benefits, component reuse discovery, and insights from scale. The process that worked for one feature works for 24.",
     "author": "Jonathan Solarz"
   }
 ]
