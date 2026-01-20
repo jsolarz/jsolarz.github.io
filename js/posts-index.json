@@ -84,7 +84,7 @@
       "knowledge-management",
       "enterprise"
     ],
-    "excerpt": "How spec-driven development transformed our workflow from chaos to clarity, enabling us to maintain architectural integrity while delivering features rapidly. Covers the three-file structure (spec, plan, tasks), volatility-based decomposition, and contract-first development.",
+    "excerpt": "This is the story of the Documentation Toolkit - a reusable framework that centralizes documentation standards, eliminates duplication, and adds semantic intelligence to every project workspace.",
     "author": "Jonathan Solarz"
   },
   {
