@@ -1,0 +1,71 @@
+<div class="blog-post-wrapper">
+	{{#if toc}}
+	<aside class="toc-sidebar" aria-label="Table of contents">
+		{{toc}}
+		<section class="keyboard-shortcuts" aria-label="Keyboard shortcuts">
+			<h2>Keyboard Shortcuts</h2>
+			<dl>
+				<dt><kbd>M</kbd></dt>
+				<dd>Toggle navigation menu</dd>
+				<dt><kbd>Esc</kbd></dt>
+				<dd>Close navigation menu</dd>
+				<dt><kbd>H</kbd></dt>
+				<dd>Go to home page</dd>
+				<dt><kbd>B</kbd></dt>
+				<dd>Go to blog</dd>
+				<dt><kbd>Ctrl</kbd> + <kbd>←</kbd> / <kbd>→</kbd></dt>
+				<dd>Navigate between blog posts</dd>
+				<dt><kbd>←</kbd> / <kbd>→</kbd></dt>
+				<dd>Navigate menu items (when menu is open)</dd>
+			</dl>
+		</section>
+	</aside>
+	{{/if}}
+
+	<article class="blog-post">
+		<header class="post-header">
+			<h1 class="post-title-main">{{postTitle}}</h1>
+			<div class="post-meta" aria-label="Post metadata">
+				Posted on <time datetime="{{postDateISO}}">{{postDate}}</time> • {{readTime}} min read
+			</div>
+		</header>
+
+		<div class="post-content" role="article">{{postContent}}</div>
+
+		<div class="terminal" role="status" aria-label="Comments information">
+			<span class="prompt" aria-hidden="true">$ </span>
+			<span class="command" aria-hidden="true">echo "Comments and discussion"</span>
+			<div class="output">
+				<p>
+					Feel free to share your thoughts by
+					<a href="mailto:hello@solarz.me" style="color: var(--frost-2)" aria-label="Send email to Jonathan Solarz"
+						>emailing me</a
+					>
+					or reaching out on social media!
+				</p>
+			</div>
+		</div>
+
+		{{#if relatedPosts}}
+		<nav class="bbs-box" aria-label="Related posts">
+			<div class="bbs-header">Related Posts</div>
+			<ul role="list">
+				{{relatedPosts}}
+			</ul>
+		</nav>
+		{{/if}}
+
+		<nav aria-label="Blog navigation">
+			<a href="../blog.html" class="highlight-2">← Back to all posts</a>
+		</nav>
+
+		<aside class="bbs-box" style="margin-top: 2rem; font-size: 0.9rem" aria-label="Content license">
+			<div class="bbs-header">License</div>
+			<p>
+				This post is licensed under
+				<a href="../CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. You may share with attribution, but not use commercially or create
+				derivatives.
+			</p>
+		</aside>
+	</article>
+</div>

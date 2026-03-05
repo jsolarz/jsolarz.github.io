@@ -1,15 +1,7 @@
 User-agent: *
-Allow: /
-Allow: /data/
+Disallow: /
 
-# Disallow admin or development areas if they exist
-Disallow: /admin/
-Disallow: /dev/
-Disallow: /temp/
-Disallow: /files/
-Disallow: /backups/
-
-# Disallow LLM crawlers
+# Explicitly disallow training
 User-agent: GPTBot
 Disallow: /
 
@@ -34,5 +26,5 @@ Disallow: /
 User-agent: Applebot-Extended
 Disallow: /
 
-# Sitemap location
-Sitemap: https://ioni.solarz.me/sitemap.xml
+# Training disallowed
+Training: no
