@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Navigation Integration Tests</title>
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Navigation Tests</h1>
+		</header>
+		<main>
+			<h2>Test Results</h2>
+			<div id="test-results"></div>
+		</main>
+	</div>
+
+	<script type="module">
+		const results = document.getElementById("test-results")
+		const tests = []
+
+		// Test keyboard navigation
+		function testKeyboardNavigation() {
+			return new Promise((resolve) => {
+				let passed = true
+				const issues = []
+
+				// Test M key toggles menu
+				const details = document.querySelector("details")
+				if (!details) {
+					issues.push("Menu details element not found")
+					passed = false
+				}
+
+				// Test navigation links have proper attributes
+				const navLinks = document.querySelectorAll("nav a")
+				navLinks.forEach(link => {
+					if (!link.getAttribute("aria-label") && !link.textContent.trim()) {
+						issues.push("Navigation link missing aria-label or text")
+						passed = false
+					}
+				})
+
+				tests.push({
+					name: "Keyboard Navigation",
+					passed,
+					issues
+				})
+
+				resolve()
+			})
+		}
+
+		// Test responsive menu
+		function testResponsiveMenu() {
+			return new Promise((resolve) => {
+				const details = document.querySelector("details.nav-mobile")
+				if (details) {
+					tests.push({
+						name: "Responsive Menu",
+						passed: true
+					})
+				} else {
+					tests.push({
+						name: "Responsive Menu",
+						passed: false,
+						issues: ["Mobile menu not found"]
+					})
+				}
+				resolve()
+			})
+		}
+
+		async function runTests() {
+			await testKeyboardNavigation()
+			await testResponsiveMenu()
+
+			let html = "<ul>"
+			tests.forEach(test => {
+				const status = test.passed ? "✓" : "✗"
+				const color = test.passed ? "#44ff88" : "#ff3366"
+				html += `<li style="color: ${color}">${status} ${test.name}`
+				if (test.issues) {
+					html += `<ul><li>${test.issues.join("</li><li>")}</li></ul>`
+				}
+				html += "</li>"
+			})
+			html += "</ul>"
+
+			results.innerHTML = html
+		}
+
+		runTests()
+	</script>
+</body>
+</html>

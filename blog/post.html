@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#242933" />
+		<meta name="color-scheme" content="dark light" />
+
+		<title>Loading... | Jonathan Solarz</title>
+		<meta
+			name="description"
+			content="Blog post by Jonathan Solarz on software architecture, cloud solutions, and technical leadership." />
+		<meta name="keywords" content="software architecture, cloud computing, Azure, AWS, solution architect, blog post" />
+		<meta name="author" content="Jonathan Solarz" />
+		<meta name="robots" content="index, follow" />
+		<meta name="geo.region" content="IL" />
+		<meta name="geo.placename" content="Israel" />
+		<meta name="copyright" content="Copyright © 2025 Jonathan Solarz. Content licensed under CC BY-NC-ND 4.0" />
+
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Blog Post | Jonathan Solarz" />
+		<meta property="og:description" content="Blog post on software architecture and cloud solutions." />
+		<meta property="og:site_name" content="Jonathan Solarz" />
+		<meta property="og:locale" content="en_US" />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Blog Post | Jonathan Solarz" />
+		<meta name="twitter:description" content="Blog post on software architecture and cloud solutions." />
+
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+		<!-- Cache Control -->
+		<meta http-equiv="Cache-Control" content="public, max-age=3600" />
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<div class="container">
+			<div data-template="header"></div>
+			<main id="main-content" role="main">
+				<div id="blog-post-content" role="article" aria-live="polite" aria-busy="true">
+					<div class="terminal" role="status" aria-label="Loading post">
+						<span class="prompt" aria-hidden="true">$ </span>
+						<span class="command" aria-hidden="true">cat post.md</span>
+						<div class="output" aria-live="polite">Loading post...</div>
+					</div>
+				</div>
+			</main>
+			<div data-template="footer"></div>
+		</div>
+
+		<script type="module">
+			import { templateEngine } from "../js/template-engine.js"
+			import { blogEngine } from "../js/blog-engine.js"
+			import "../js/scripts.js"
+
+			window.templateEngine = templateEngine
+
+			document.addEventListener("DOMContentLoaded", async () => {
+				const params = new URLSearchParams(window.location.search)
+				const slug = params.get("slug") || window.location.pathname.match(/\/blog\/([^\/]+)(?:\.html)?$/)?.[1]
+				const container = document.getElementById("blog-post-content")
+
+				if (!slug || !container) {
+					if (container) {
+						container.innerHTML = `<div class="bbs-box error"><p>${slug ? "Container not found" : "Invalid post URL"}</p></div>`
+					}
+					return
+				}
+
+				try {
+					await blogEngine.renderPost(slug, container)
+				} catch (error) {
+					console.error("Error rendering post:", error)
+					if (container) {
+						container.innerHTML = `<div class="bbs-box error"><div class="bbs-header">Error</div><p>${error.message}</p><p style="margin-top: 1rem; font-size: 0.9em;">Check browser console (F12) for details.</p></div>`
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
