@@ -1,14 +1,14 @@
 import "./keyboard-navigation.js"
 
+/** Initializes typing effect on elements with class .typing-effect. */
 export function initializeTypingEffect() {
 	const typingElements = document.querySelectorAll(".typing-effect:not([data-typing-initialized])")
 
 	typingElements.forEach((element) => {
-		if (element.getAttribute("data-typing-initialized") === "true") return
-
 		const text = element.textContent
 		element.setAttribute("data-original-text", text)
 		element.textContent = ""
+		element.setAttribute("data-typing-initialized", "true")
 		let index = 0
 
 		const typeNextChar = () => {
@@ -16,14 +16,11 @@ export function initializeTypingEffect() {
 				element.textContent += text.charAt(index)
 				index++
 				const delay = Math.random() * 50 + 30
-				requestAnimationFrame(() => {
-					setTimeout(() => requestAnimationFrame(typeNextChar), delay)
-				})
+				setTimeout(typeNextChar, delay)
 			}
 		}
 
 		typeNextChar()
-		element.setAttribute("data-typing-initialized", "true")
 	})
 }
 

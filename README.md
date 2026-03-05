@@ -86,13 +86,12 @@ npm run generate-index
 
 ### Blog Engine
 
--   **Client-side markdown rendering** - No pre-conversion needed, markdown files served directly
--   md4w WASM renders markdown to HTML in the browser (similar to [pipress](https://github.com/pi0/pipress))
--   Automatic front matter parsing
--   Posts index generation (metadata only, not HTML)
--   GitHub Pages compatible - works with static hosting
+-   **Client-side markdown rendering** — Markdown in `_posts/` is fetched and rendered in the browser (e.g. marked). No build-time HTML.
+-   **Index + manifest:** Listing uses `js/posts-index.json`; if that fails, fallback is `_posts/manifest.json` plus per-file fetch.
+-   **Run `npm run generate-index`** after adding or changing posts so the index (and manifest) stay up to date.
+-   GitHub Pages compatible (`.nojekyll` keeps `_posts` served as static files).
 
-See `README-blog-engine.md` for detailed documentation.
+See `docs/README-blog-system.md` and the post [How This Blog Engine Works](/blog/post.html?slug=how-this-blog-engine-works) for details.
 
 ## Template System
 

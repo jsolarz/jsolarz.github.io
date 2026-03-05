@@ -1,17 +1,24 @@
 [
   {
+    "title": "How This Blog Engine Works",
+    "date": "2026-03-05",
+    "slug": "how-this-blog-engine-works",
+    "filename": "2026-03-05-how-this-blog-engine-works.md",
+    "categories": [
+      "meta",
+      "blog",
+      "architecture"
+    ],
+    "excerpt": "A short walkthrough of how this site serves a markdown blog with no build step—index, manifest fallback, client-side fetch and render, and the one command to run after adding posts.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Building on AWS to Learn AWS: A Professional Study Project",
     "date": "2026-02-23",
     "slug": "building-on-aws-to-learn-aws",
     "filename": "2026-02-23-building-on-aws-to-learn-aws.md",
-    "categories": [
-      "aws",
-      "certification",
-      "architecture",
-      "learning",
-      "career"
-    ],
-    "excerpt": "I've worked with cloud for years, but studying for the AWS Solutions Architect Professional made me realize there's a gap between using services and understanding them. So I built a tool that forces me to use them all.",
+    "categories": [],
+    "excerpt": "I have worked with cloud infrastructure for years. Azure, primarily, through my role at Microsoft. AWS, frequently, through customer engagements and personal projects. I can provision a VPC, configure",
     "author": "Jonathan Solarz"
   },
   {
@@ -19,14 +26,8 @@
     "date": "2026-02-16",
     "slug": "the-one-page-dashboard-why-tui-apps-still-matter",
     "filename": "2026-02-16-the-one-page-dashboard-why-tui-apps-still-matter.md",
-    "categories": [
-      "tui",
-      "aws",
-      "operations",
-      "terminal",
-      "devtools"
-    ],
-    "excerpt": "In a world of web dashboards and SaaS platforms, the terminal remains the fastest path from question to answer. This is why AwsViz has a TUI, and how it gives operators what the Console cannot.",
+    "categories": [],
+    "excerpt": "Open a terminal. Type a command. See the answer.",
     "author": "Jonathan Solarz"
   },
   {
@@ -34,13 +35,8 @@
     "date": "2026-02-09",
     "slug": "documentation-first-development-with-ai",
     "filename": "2026-02-09-documentation-first-development-with-ai.md",
-    "categories": [
-      "ai",
-      "development",
-      "architecture",
-      "documentation"
-    ],
-    "excerpt": "I prefer to RTFM over vibe coding. This is how I use AI to turn documented ideas into working software, while keeping the documentation as the source of truth.",
+    "categories": [],
+    "excerpt": "I have a confession that will sound strange coming from someone who uses AI-assisted development daily: I prefer to read the manual.",
     "author": "Jonathan Solarz"
   },
   {
@@ -48,13 +44,8 @@
     "date": "2026-02-02",
     "slug": "architecture-for-change-volatility-based-decomposition",
     "filename": "2026-02-02-architecture-for-change-volatility-based-decomposition.md",
-    "categories": [
-      "architecture",
-      "idesign",
-      "aws",
-      "design"
-    ],
-    "excerpt": "Most software architecture is designed around what the system does. AwsViz is designed around what might change. This is the architecture of a system built to absorb change.",
+    "categories": [],
+    "excerpt": "The first question people ask when they see AwsViz's architecture is: \"Why don't you have an Ec2Service, an S3Service, a LambdaService?\"",
     "author": "Jonathan Solarz"
   },
   {
@@ -62,13 +53,98 @@
     "date": "2026-01-28",
     "slug": "why-the-aws-console-is-not-enough",
     "filename": "2026-01-28-why-the-aws-console-is-not-enough.md",
-    "categories": [
-      "aws",
-      "architecture",
-      "cloud",
-      "tools"
-    ],
-    "excerpt": "After years of clicking through the AWS Console, piping CLI output through jq, and stitching together Grafana dashboards, I decided to build the tool I've been wanting. This is why.",
+    "categories": [],
+    "excerpt": "I manage AWS infrastructure. I have for years. And every single day I perform the same ritual: open the Console, click through five services, mentally stitch together a picture of what my environment ",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Scaling Spec-Driven Development: What I Learned from 24 Features",
+    "date": "2026-01-21",
+    "slug": "scaling-spec-driven-development-24-features",
+    "filename": "2026-01-21-scaling-spec-driven-development-24-features.md",
+    "categories": [],
+    "excerpt": "A year ago, I started with a hypothesis: spec-driven development would help maintain architectural integrity across a complex enterprise system. One feature became two. Two became five. Five became te",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Lessons Learned: A Year Building Enterprise Systems",
+    "date": "2026-01-07",
+    "slug": "lessons-learned-building-enterprise-systems",
+    "filename": "2026-01-07-lessons-learned-building-enterprise-systems.md",
+    "categories": [],
+    "excerpt": "A year ago, I started building an enterprise system with 24 components, multiple integrations, and strict architectural requirements. I thought I knew what I was doing. I was wrong.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Agentic Documentation: How AI Maintains Consistency at Scale",
+    "date": "2025-12-24",
+    "slug": "agentic-documentation-ai-maintains-consistency",
+    "filename": "2025-12-24-agentic-documentation-ai-maintains-consistency.md",
+    "categories": [],
+    "excerpt": "Writing documentation is hard. Keeping it consistent is harder. At scale, maintaining hundreds of documents that follow the same structure, use the same terminology, and stay current with code changes",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Documentation as Code: The Technical Deep Dive",
+    "date": "2025-12-10",
+    "slug": "documentation-as-code-folder-structure",
+    "filename": "2025-12-10-documentation-as-code-folder-structure.md",
+    "categories": [],
+    "excerpt": "Documentation as Code sounds simple: treat documentation like source code. But the devil is in the details. How do you structure hundreds of documents? How do you maintain consistency? How do you ensu",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "IDesign Method: Designing for Change, Not Requirements",
+    "date": "2025-11-26",
+    "slug": "idesign-method-volatility-based-decomposition",
+    "filename": "2025-11-26-idesign-method-volatility-based-decomposition.md",
+    "categories": [],
+    "excerpt": "Most software architecture fails because it's designed around the wrong thing. We design around requirements, user stories, or data models—things that change constantly. When requirements change (and ",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The Complete Picture: How It All Fits Together",
+    "date": "2025-11-12",
+    "slug": "the-complete-picture",
+    "filename": "2025-11-12-the-complete-picture.md",
+    "categories": [],
+    "excerpt": "Building enterprise systems requires more than good code—it requires good process, good documentation, and good tools. Over the past year, I've developed a comprehensive approach that combines spec-dr",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AI-Assisted Development: Building Enterprise Systems with Cursor",
+    "date": "2025-10-29",
+    "slug": "ai-assisted-development-with-cursor",
+    "filename": "2025-10-29-ai-assisted-development-with-cursor.md",
+    "categories": [],
+    "excerpt": "I'll admit it: I was skeptical about AI-assisted development. \"It's just autocomplete with marketing,\" I thought. \"Real developers don't need AI to write code.\"",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Documentation as Code: Building a Semantic Knowledge Base",
+    "date": "2025-10-15",
+    "slug": "documentation-as-code-with-semantic-indexing",
+    "filename": "2025-10-15-documentation-as-code-with-semantic-indexing.md",
+    "categories": [],
+    "excerpt": "I used to hate documentation. Write it once, watch it go stale, spend hours searching for information that should be easy to find. Sound familiar?",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building Enterprise Systems with Spec-Driven Development",
+    "date": "2025-10-01",
+    "slug": "building-enterprise-systems-with-spec-driven-development",
+    "filename": "2025-10-01-building-enterprise-systems-with-spec-driven-development.md",
+    "categories": [],
+    "excerpt": "A year ago, I started building an enterprise system. 24 components. Multiple integrations. Strict architectural requirements. I thought I knew what I was doing.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building a Documentation Toolkit: How I Solved the Fragmented Documentation Problem",
+    "date": "2025-09-24",
+    "slug": "building-a-documentation-toolkit-solving-fragmented-documentation",
+    "filename": "2025-09-24-building-a-documentation-toolkit-solving-fragmented-documentation.md",
+    "categories": [],
+    "excerpt": "As a solution architect managing multiple projects simultaneously, I found myself constantly wrestling with the same problems: inconsistent documentation formats, duplicated templates scattered across",
     "author": "Jonathan Solarz"
   },
   {

@@ -3,6 +3,7 @@ export class MarkdownLoader {
 	#isLoading = false
 	#loadPromise = null
 
+	/** Loads the marked library (CDN). Returns cached instance on repeat calls. Resolves to a { parse(markdown) } object or fallback. */
 	async load() {
 		if (this.#marked) return this.#marked
 		if (this.#isLoading && this.#loadPromise) return this.#loadPromise
@@ -61,6 +62,7 @@ export class MarkdownLoader {
 		}
 	}
 
+	/** Renders markdown string to HTML using loaded marked (or fallback). */
 	async render(markdown) {
 		if (!markdown || typeof markdown !== "string") {
 			throw new Error("Invalid markdown input")

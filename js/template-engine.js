@@ -1,3 +1,6 @@
+/**
+ * Template engine: loads HTML templates, renders with {{variable}} and {{#if var}}...{{/if}}, injects into [data-template] sections.
+ */
 class TemplateEngine {
 	#templates = new Map()
 	#basePath = ""
@@ -16,6 +19,7 @@ class TemplateEngine {
 		// Navigation handled by native details/summary element - no JS needed
 	}
 
+	/** Loads and caches a template by id from the given URL. Returns cached HTML on repeat calls. */
 	async loadTemplate(templateId, url) {
 		if (this.#templates.has(templateId)) return this.#templates.get(templateId)
 
@@ -37,6 +41,7 @@ class TemplateEngine {
 		return this.#basePath ? `${this.#basePath}${templateUrl}` : templateUrl
 	}
 
+	/** Replaces {{var}} and {{#if var}}...{{/if}} in templateHtml with values from data. */
 	renderTemplate(templateHtml, data = {}) {
 		// Handle simple conditionals {{#if variable}}...{{/if}}
 		let html = templateHtml
@@ -53,12 +58,13 @@ class TemplateEngine {
 		// Handle variable replacement
 		html = html.replace(/\{\{([^}]+)\}\}/g, (match, variable) => {
 			const trimmedVar = variable.trim()
-			return data.hasOwnProperty(trimmedVar) ? data[trimmedVar] : ""
+			return Object.hasOwn(data, trimmedVar) ? data[trimmedVar] : ""
 		})
 
 		return html
 	}
 
+	/** Loads template, renders with data, and injects into the target element (selector or Element). */
 	async includeTemplate(targetSelector, templateId, templateUrl, data = {}) {
 		const targetElement = typeof targetSelector === "string" ? document.querySelector(targetSelector) : targetSelector
 		if (!targetElement || !(targetElement instanceof HTMLElement)) {
@@ -107,6 +113,7 @@ class TemplateEngine {
 		})
 	}
 
+	/** Finds all [data-template] elements, loads each template, and injects rendered HTML; runs theme toggle and updateCurrentYear once. */
 	async loadAllTemplateSections() {
 		const templateSections = document.querySelectorAll("[data-template]")
 		const loadPromises = Array.from(templateSections).map((section) => {
@@ -125,7 +132,7 @@ class TemplateEngine {
 				}
 			}
 
-			return this.includeTemplate(`[data-template="${templateId}"]`, templateId, templateUrl, templateData)
+			return this.includeTemplate(section, templateId, templateUrl, templateData)
 		})
 
 		try {
@@ -172,6 +179,7 @@ class TemplateEngine {
 
 export const templateEngine = new TemplateEngine()
 
+/** Sets .current-year elements to the current year. Called once after loadAllTemplateSections. */
 export function updateCurrentYear() {
 	const yearElements = document.querySelectorAll(".current-year")
 	const currentYear = String(new Date().getFullYear())
@@ -182,5 +190,4 @@ export function updateCurrentYear() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	templateEngine.loadAllTemplateSections()
-	updateCurrentYear()
 })
