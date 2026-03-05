@@ -1,12 +1,3 @@
----
-layout: post
-title: "Building on AWS to Learn AWS: A Professional Study Project"
-date: 2026-02-23
-author: Jonathan Solarz
-categories: aws certification architecture learning career
-excerpt: I've worked with cloud for years, but studying for the AWS Solutions Architect Professional made me realize there's a gap between using services and understanding them. So I built a tool that forces me to use them all.
----
-
 # Building on AWS to Learn AWS: A Professional Study Project
 
 I have worked with cloud infrastructure for years. Azure, primarily, through my role at Microsoft. AWS, frequently, through customer engagements and personal projects. I can provision a VPC, configure security groups, deploy a Lambda function, and set up an RDS cluster without consulting documentation. I have done it hundreds of times.

@@ -1,12 +1,3 @@
----
-layout: post
-title: "The One-Page Dashboard: Why TUI Apps Still Matter for Cloud Operations"
-date: 2026-02-16
-author: Jonathan Solarz
-categories: tui aws operations terminal devtools
-excerpt: In a world of web dashboards and SaaS platforms, the terminal remains the fastest path from question to answer. This is why AwsViz has a TUI, and how it gives operators what the Console cannot.
----
-
 # The One-Page Dashboard: Why TUI Apps Still Matter for Cloud Operations
 
 Open a terminal. Type a command. See the answer.

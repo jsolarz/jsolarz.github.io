@@ -1,12 +1,3 @@
----
-layout: post
-title: "Why the AWS Console Is Not Enough: Building the Dashboard I Actually Need"
-date: 2026-01-28
-author: Jonathan Solarz
-categories: aws architecture cloud tools
-excerpt: After years of clicking through the AWS Console, piping CLI output through jq, and stitching together Grafana dashboards, I decided to build the tool I've been wanting. This is why.
----
-
 # Why the AWS Console Is Not Enough: Building the Dashboard I Actually Need
 
 I manage AWS infrastructure. I have for years. And every single day I perform the same ritual: open the Console, click through five services, mentally stitch together a picture of what my environment looks like right now, then alt-tab to the CLI to get the numbers the Console makes you hunt for, then check Grafana for the metrics the Console buries three clicks deep.
