@@ -59,14 +59,14 @@ After the front matter, write your blog post using standard Markdown syntax:
 
 ## How It Works
 
-The blog engine uses **client-side rendering** - no conversion step needed:
+The blog engine uses **client-side rendering** — no build-time copy of content:
 
-1. Markdown files in `_posts/` are served directly
-2. Browser fetches markdown via `fetch()` API
-3. md4w WASM renders markdown to HTML in the browser
-4. Rendered HTML is inserted into the page
+1. **Single source of truth:** Markdown lives in `_posts/`. No pre-rendered HTML.
+2. **Index vs manifest:** The engine first loads `js/posts-index.json` (title, date, slug, excerpt, etc.). If that fetch fails, it falls back to `_posts/manifest.json` (list of filenames), then fetches each `.md` file to build the list.
+3. **Rendering a post:** The client fetches `_posts/<filename>.md`, parses front matter, renders markdown to HTML (e.g. [marked](https://github.com/markedjs/marked)), and injects into the page.
+4. **`.nojekyll`:** Used so GitHub Pages serves `_posts/*.md` as static files instead of running Jekyll.
 
-This is similar to [pipress](https://github.com/pi0/pipress) but client-side instead of server-side.
+**Keeping the list up to date:** After adding or changing posts, run `npm run generate-index`. This updates `js/posts-index.json` and `_posts/manifest.json` so the blog list and metadata stay correct. See the blog post [How This Blog Engine Works](/blog/post.html?slug=how-this-blog-engine-works) for a fuller narrative.
 
 ## Adding Posts
 

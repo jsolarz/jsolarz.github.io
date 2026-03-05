@@ -1,22 +1,29 @@
+/**
+ * Blog engine: loads posts index (or manifest fallback), fetches markdown from _posts/, renders client-side.
+ * @see docs/README-blog-system.md
+ */
 import { markdownLoader } from "./markdown-loader.js"
+
+const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
 
 class BlogEngine {
 	#postsIndex = /** @type {Array<Object> | null} */ (null)
 	#basePath = ""
-	#currentPostTitle = ""
+	#indexFromManifest = false
 
 	constructor() {
 		this.#basePath = this.#detectBasePath()
 	}
 
 	#detectBasePath() {
-		const match = window.location.pathname.match(/^\/([^\/]+)\//)
-		if (match && !["blog", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"].includes(match[1])) {
-			return `/${match[1]}`
-		}
-		return ""
+		const match = window.location.pathname.match(/^\/([^/]+)\//)
+		return match && !BASE_PATH_EXCLUDE_SEGMENTS.includes(match[1]) ? `/${match[1]}` : ""
 	}
 
+	/**
+	 * Loads the posts list. Uses js/posts-index.json first; on failure falls back to _posts/manifest.json and fetches each file.
+	 * @returns {Promise<Array<{slug:string,title:string,date:string,excerpt?:string,filename?:string,categories?:string[],formattedDate?:string}>>}
+	 */
 	async loadPostsIndex() {
 		if (this.#postsIndex) return this.#postsIndex
 
@@ -25,10 +32,11 @@ class BlogEngine {
 			if (response.ok) {
 				const posts = await response.json()
 				this.#postsIndex = posts.map((post) => ({ ...post, formattedDate: this.#formatDate(post.date) }))
+				this.#indexFromManifest = false
 				return this.#postsIndex
 			}
-		} catch {
-			// Fall through to manifest fallback
+		} catch (error) {
+			console.error("Error loading posts index:", error)
 		}
 
 		try {
@@ -79,6 +87,7 @@ class BlogEngine {
 				const dateB = b?.date ? new Date(b.date).getTime() : 0
 				return dateB - dateA
 			})
+			this.#indexFromManifest = true
 			return this.#postsIndex
 		} catch (error) {
 			console.error("Error loading posts:", error)
@@ -119,6 +128,11 @@ class BlogEngine {
 		return { metadata, content: match[2] }
 	}
 
+	/**
+	 * Loads a single post by slug: fetches _posts/<filename>.md, parses front matter, returns metadata + content.
+	 * @param {string} slug - Post slug (filename without date prefix and .md).
+	 * @returns {Promise<{slug:string,title:string,date:string,content:string,excerpt?:string,categories?:string[],filename?:string}>}
+	 */
 	async loadPost(slug) {
 		const index = await this.loadPostsIndex()
 		if (!index) throw new Error("Posts index not loaded")
@@ -135,6 +149,11 @@ class BlogEngine {
 		return { ...postMeta, ...metadata, content, markdown }
 	}
 
+	/**
+	 * Renders a post into a container: loads post, renders markdown, updates meta and TOC.
+	 * @param {string} slug - Post slug.
+	 * @param {string|Element} container - CSS selector or DOM element.
+	 */
 	async renderPost(slug, container) {
 		const containerEl = typeof container === "string" ? document.querySelector(container) : container
 		if (!containerEl) {
@@ -149,9 +168,6 @@ class BlogEngine {
 				throw new Error("Post content is missing")
 			}
 
-			// Store post title for TOC generation
-			this.#currentPostTitle = post.title
-
 			// Generate TOC from markdown before rendering
 			const toc = this.#generateTOCFromMarkdown(post.content)
 
@@ -164,15 +180,15 @@ class BlogEngine {
 			const tempDiv = document.createElement("div")
 			tempDiv.innerHTML = html
 			const headings = tempDiv.querySelectorAll("h2")
-			headings.forEach((heading) => {
+			headings.forEach((heading, idx) => {
 				if (!heading.id) {
-					const slug = heading.textContent
+					const headingId = heading.textContent
 						.trim()
 						.toLowerCase()
 						.replace(/[^\w\s-]/g, "")
 						.replace(/\s+/g, "-")
 						.replace(/-+/g, "-")
-					heading.id = slug
+					heading.id = headingId || `heading-${idx}`
 				}
 			})
 			html = tempDiv.innerHTML
@@ -250,7 +266,7 @@ class BlogEngine {
 
 	#renderPostContent(containerEl, post, html, slug, toc = "") {
 		const formattedDate = post.formattedDate || this.#formatDate(post.date)
-		const wordCount = post.content.split(/\s+/).length
+		const wordCount = (post.content || "").trim().split(/\s+/).filter(Boolean).length
 		const readTime = Math.ceil(wordCount / 200)
 		const categories = Array.isArray(post.categories) ? post.categories.join(" • ") : post.categories || ""
 
@@ -322,6 +338,10 @@ class BlogEngine {
 		containerEl.appendChild(errorBox)
 	}
 
+	/**
+	 * Renders the blog post list into a container. Uses index order when from posts-index.json; sorts by date when from manifest.
+	 * @param {string|Element} container - CSS selector or DOM element.
+	 */
 	async renderPostList(container) {
 		const containerEl = typeof container === "string" ? document.querySelector(container) : container
 		if (!containerEl) {
@@ -337,15 +357,12 @@ class BlogEngine {
 			}
 
 			const fragment = document.createDocumentFragment()
-			/** @type {any} */
-			const postsArray = posts
-			postsArray
-				.toSorted((a, b) => {
-					const dateA = a?.date ? new Date(a.date).getTime() : 0
-					const dateB = b?.date ? new Date(b.date).getTime() : 0
-					return dateB - dateA
-				})
-				.forEach((post) => {
+			const list = this.#indexFromManifest ? [...posts].sort((a, b) => {
+				const dateA = a?.date ? new Date(a.date).getTime() : 0
+				const dateB = b?.date ? new Date(b.date).getTime() : 0
+				return dateB - dateA
+			}) : posts
+			for (const post of list) {
 					const li = document.createElement("li")
 					li.className = "post-item"
 					li.setAttribute("role", "listitem")
@@ -379,7 +396,7 @@ class BlogEngine {
 					li.appendChild(readMoreLink)
 
 					fragment.appendChild(li)
-				})
+			}
 
 			containerEl.innerHTML = ""
 			containerEl.appendChild(fragment)

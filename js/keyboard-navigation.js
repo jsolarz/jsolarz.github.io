@@ -1,10 +1,19 @@
 /**
- * Keyboard Navigation System
- * Provides keyboard shortcuts for menu, navigation, and post navigation
+ * Keyboard navigation: menu (M/Escape), post prev/next (Ctrl+Arrow), home (H), blog (B). Respects base path for subpath hosting.
  */
 
+const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
+
+function getBasePath() {
+	const match = window.location.pathname.match(/^\/([^/]+)\//)
+	return match && !BASE_PATH_EXCLUDE_SEGMENTS.includes(match[1]) ? `/${match[1]}` : ""
+}
+
 class KeyboardNavigation {
+	#basePath = ""
+
 	constructor() {
+		this.#basePath = getBasePath()
 		this.menuOpen = false
 		this.currentPostIndex = -1
 		this.posts = []
@@ -55,7 +64,7 @@ class KeyboardNavigation {
 		if ((e.key === "h" || e.key === "H" || e.key === "Home") && !e.ctrlKey && !e.metaKey) {
 			if (e.key !== "Home" || !e.shiftKey) {
 				e.preventDefault()
-				window.location.href = "/index.html"
+				window.location.href = `${this.#basePath}/index.html`
 			}
 		}
 
@@ -63,7 +72,7 @@ class KeyboardNavigation {
 		if (e.key === "b" || e.key === "B") {
 			if (!e.ctrlKey && !e.metaKey && !e.altKey) {
 				e.preventDefault()
-				window.location.href = "/blog.html"
+				window.location.href = `${this.#basePath}/blog.html`
 			}
 		}
 	}
@@ -129,11 +138,13 @@ class KeyboardNavigation {
 		})
 	}
 
+	/** @returns {string|null} Slug from ?slug= query param. */
 	getCurrentPostSlug() {
 		const params = new URLSearchParams(window.location.search)
 		return params.get("slug")
 	}
 
+	/** Navigates to previous/next post by index. direction is "prev" or "next". */
 	navigatePosts(direction) {
 		if (this.posts.length === 0) return
 
@@ -141,7 +152,7 @@ class KeyboardNavigation {
 			// Not on a post page, go to first/last
 			const targetIndex = direction === "next" ? 0 : this.posts.length - 1
 			const post = this.posts[targetIndex]
-			window.location.href = `/blog/post.html?slug=${encodeURIComponent(post.slug)}`
+			window.location.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
 			return
 		}
 
@@ -155,7 +166,7 @@ class KeyboardNavigation {
 		}
 
 		const post = this.posts[newIndex]
-		window.location.href = `/blog/post.html?slug=${encodeURIComponent(post.slug)}`
+		window.location.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
 	}
 
 	toggleMenu() {
