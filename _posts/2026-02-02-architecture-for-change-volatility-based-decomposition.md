@@ -1,12 +1,3 @@
----
-layout: post
-title: "Architecture for Change: Applying Volatility-Based Decomposition to a Real Project"
-date: 2026-02-02
-author: Jonathan Solarz
-categories: architecture idesign aws design
-excerpt: Most software architecture is designed around what the system does. AwsViz is designed around what might change. This is the architecture of a system built to absorb change.
----
-
 # Architecture for Change: Applying Volatility-Based Decomposition to a Real Project
 
 The first question people ask when they see AwsViz's architecture is: "Why don't you have an Ec2Service, an S3Service, a LambdaService?"

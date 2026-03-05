@@ -1,12 +1,3 @@
----
-layout: post
-title: "Documentation-First Development with AI: How Ideas Become Architecture"
-date: 2026-02-09
-author: Jonathan Solarz
-categories: ai development architecture documentation
-excerpt: I prefer to RTFM over vibe coding. This is how I use AI to turn documented ideas into working software, while keeping the documentation as the source of truth.
----
-
 # Documentation-First Development with AI: How Ideas Become Architecture
 
 I have a confession that will sound strange coming from someone who uses AI-assisted development daily: I prefer to read the manual.
@@ -48,6 +39,7 @@ Here is what my `.cursor/rules/` directory contains:
 - **Session ledger requirements:** Log every action for continuity across sessions
 
 These rules mean the AI operates within architectural constraints. When I ask it to implement SecurityEngine, it already knows:
+
 - Engines are pure. No I/O, no injected Accessors.
 - Engines accept data as parameters and return results.
 - Engines are `internal sealed class` with a `public interface` in Contracts.
@@ -81,6 +73,7 @@ Document the architecture
 The key insight is that documentation is not a byproduct of development. It is the input. The architecture docs are not written after the code; they are written before. The code is the implementation of the documentation, not the other way around.
 
 When the AI produces code that violates an architectural constraint (and it does, regularly), the violation is caught by:
+
 - Build-time analysis (the project has strict analyzers, formatting rules, and nullable reference types)
 - Test failures (933 tests catch behavioral regressions)
 - My review (I read every line the AI produces)
@@ -105,4 +98,4 @@ That is not something vibe coding produces.
 
 ---
 
-*This is part 3 of a series on building AwsViz. Previous: [Architecture for Change: Volatility-Based Decomposition](/2026/03/10/architecture-for-change-volatility-based-decomposition). Next: [The One-Page Dashboard: Why TUI Apps Still Matter](/2026/03/24/the-one-page-dashboard-why-tui-apps-still-matter)*
+_This is part 3 of a series on building AwsViz. Previous: [Architecture for Change: Volatility-Based Decomposition](/2026/03/10/architecture-for-change-volatility-based-decomposition). Next: [The One-Page Dashboard: Why TUI Apps Still Matter](/2026/03/24/the-one-page-dashboard-why-tui-apps-still-matter)_
