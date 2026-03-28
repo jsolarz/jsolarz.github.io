@@ -124,7 +124,7 @@ class KeyboardNavigation {
 		document.addEventListener("DOMContentLoaded", async () => {
 			try {
 				const { blogEngine } = await import("./blog-engine.js")
-				const posts = await blogEngine.loadPostsIndex()
+				const posts = await blogEngine.loadPostsIndex({ publishedOnly: true })
 				if (posts && posts.length > 0) {
 					this.posts = posts
 					const currentSlug = this.getCurrentPostSlug()

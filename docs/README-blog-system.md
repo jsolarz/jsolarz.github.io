@@ -64,7 +64,8 @@ The blog engine uses **client-side rendering** — no build-time copy of content
 1. **Single source of truth:** Markdown lives in `_posts/`. No pre-rendered HTML.
 2. **Index vs manifest:** The engine first loads `js/posts-index.json` (title, date, slug, excerpt, etc.). If that fetch fails, it falls back to `_posts/manifest.json` (list of filenames), then fetches each `.md` file to build the list.
 3. **Rendering a post:** The client fetches `_posts/<filename>.md`, parses front matter, renders markdown to HTML (e.g. [marked](https://github.com/markedjs/marked)), and injects into the page.
-4. **`.nojekyll`:** Used so GitHub Pages serves `_posts/*.md` as static files instead of running Jekyll.
+4. **Scheduled posts:** Posts with a future `date` (in front matter or filename) are hidden from the blog listing and show a "scheduled" message when opened by URL until that date (UTC). You can copy all posts into `_posts/` in advance; they become visible automatically on their publish date.
+5. **`.nojekyll`:** Used so GitHub Pages serves `_posts/*.md` as static files instead of running Jekyll.
 
 **Keeping the list up to date:** After adding or changing posts, run `npm run generate-index`. This updates `js/posts-index.json` and `_posts/manifest.json` so the blog list and metadata stay correct. See the blog post [How This Blog Engine Works](/blog/post.html?slug=how-this-blog-engine-works) for a fuller narrative.
 

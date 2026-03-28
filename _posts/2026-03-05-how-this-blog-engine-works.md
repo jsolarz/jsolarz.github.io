@@ -47,3 +47,5 @@ The site is hosted on GitHub Pages. By default, Jekyll treats `_posts` and other
 3. **Push** — the site works. New and updated posts appear in the list and load when you open them.
 
 That’s the engine: markdown in `_posts/`, index (and optional manifest) for the list, client fetch + parse + render, and one command to keep the index up to date.
+
+Scheduled posts (a future `date` in front matter) are filtered client-side: they do not appear in the listing and show a "scheduled" notice when opened by direct link until the publish date (UTC). The engine supports scheduled visibility by date in addition to the rest above.
