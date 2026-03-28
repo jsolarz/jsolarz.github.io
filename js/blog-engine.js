@@ -21,19 +21,35 @@ class BlogEngine {
 	}
 
 	/**
+	 * True if post.date is on or before today (UTC midnight). Used to hide scheduled posts from listing and direct view.
+	 * @param {{ date?: string }} post - Post with at least a date string (YYYY-MM-DD or parseable).
+	 * @returns {boolean}
+	 */
+	#isPublished(post) {
+		if (!post?.date) return true
+		const postTime = new Date(post.date).getTime()
+		const today = new Date()
+		today.setUTCHours(0, 0, 0, 0)
+		return postTime <= today.getTime()
+	}
+
+	/**
 	 * Loads the posts list. Uses js/posts-index.json first; on failure falls back to _posts/manifest.json and fetches each file.
+	 * @param {Object} [options]
+	 * @param {boolean} [options.publishedOnly] - If true, return only posts with date on or before today (UTC).
 	 * @returns {Promise<Array<{slug:string,title:string,date:string,excerpt?:string,filename?:string,categories?:string[],formattedDate?:string}>>}
 	 */
-	async loadPostsIndex() {
-		if (this.#postsIndex) return this.#postsIndex
-
+	async loadPostsIndex(options = {}) {
+		if (this.#postsIndex) {
+			return options.publishedOnly ? this.#postsIndex.filter((p) => this.#isPublished(p)) : this.#postsIndex
+		}
 		try {
 			const response = await fetch(`${this.#basePath}/js/posts-index.json`)
 			if (response.ok) {
 				const posts = await response.json()
 				this.#postsIndex = posts.map((post) => ({ ...post, formattedDate: this.#formatDate(post.date) }))
 				this.#indexFromManifest = false
-				return this.#postsIndex
+				return options.publishedOnly ? this.#postsIndex.filter((p) => this.#isPublished(p)) : this.#postsIndex
 			}
 		} catch (error) {
 			console.error("Error loading posts index:", error)
@@ -88,7 +104,7 @@ class BlogEngine {
 				return dateB - dateA
 			})
 			this.#indexFromManifest = true
-			return this.#postsIndex
+			return options.publishedOnly ? this.#postsIndex.filter((p) => this.#isPublished(p)) : this.#postsIndex
 		} catch (error) {
 			console.error("Error loading posts:", error)
 			return []
@@ -146,7 +162,12 @@ class BlogEngine {
 		const markdown = await response.text()
 		const { metadata, content } = this.#parseFrontMatter(markdown)
 
-		return { ...postMeta, ...metadata, content, markdown }
+		const post = { ...postMeta, ...metadata, content, markdown }
+		if (!this.#isPublished(post)) {
+			post.scheduled = true
+			post.formattedDate = post.formattedDate || this.#formatDate(post.date)
+		}
+		return post
 	}
 
 	/**
@@ -166,6 +187,10 @@ class BlogEngine {
 			const post = await this.loadPost(slug)
 			if (!post || !post.content) {
 				throw new Error("Post content is missing")
+			}
+			if (post.scheduled) {
+				containerEl.setAttribute("aria-busy", "false")
+				return
 			}
 
 			// Generate TOC from markdown before rendering
@@ -350,7 +375,7 @@ class BlogEngine {
 		}
 
 		try {
-			const posts = await this.loadPostsIndex()
+			const posts = await this.loadPostsIndex({ publishedOnly: true })
 			if (!posts || posts.length === 0) {
 				containerEl.innerHTML = '<li class="post-item"><p>No posts found.</p></li>'
 				return
