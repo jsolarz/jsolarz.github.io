@@ -1,5 +1,250 @@
 [
   {
+    "title": "GCP Professional Cloud Architect: The AZ-305 Equivalent Study Guide",
+    "date": "2026-07-04",
+    "slug": "gcp-professional-cloud-architect-study-guide",
+    "filename": "2026-07-04-gcp-professional-cloud-architect-study-guide.md",
+    "categories": [
+      "gcp",
+      "certification",
+      "architecture"
+    ],
+    "excerpt": "The Google Cloud Professional Cloud Architect (PCA) exam is the design-focused cert—the closest equivalent to AZ-305. What it tests and how to prepare.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "GCP Associate Cloud Engineer: The AZ-104 Equivalent Study Guide",
+    "date": "2026-06-27",
+    "slug": "gcp-associate-cloud-engineer-study-guide",
+    "filename": "2026-06-27-gcp-associate-cloud-engineer-study-guide.md",
+    "categories": [
+      "gcp",
+      "certification",
+      "learning"
+    ],
+    "excerpt": "The Google Cloud Associate Cloud Engineer (ACE) exam is the operations-focused cert—the closest equivalent to AZ-104. What it covers and how to prepare.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AWS Solutions Architect Professional: The AZ-305 Equivalent Study Guide",
+    "date": "2026-06-20",
+    "slug": "aws-solutions-architect-professional-study-guide",
+    "filename": "2026-06-20-aws-solutions-architect-professional-study-guide.md",
+    "categories": [
+      "aws",
+      "certification",
+      "architecture"
+    ],
+    "excerpt": "The AWS Solutions Architect Professional (SAP-C02) is the design-focused advanced cert—the closest equivalent to AZ-305. What it tests and how to prepare.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AWS SysOps Administrator Associate: The AZ-104 Equivalent Study Guide",
+    "date": "2026-06-13",
+    "slug": "aws-sysops-administrator-associate-study-guide",
+    "filename": "2026-06-13-aws-sysops-administrator-associate-study-guide.md",
+    "categories": [
+      "aws",
+      "certification",
+      "learning"
+    ],
+    "excerpt": "If you've done AZ-104, the AWS SysOps Administrator Associate (SOA-C02) is the closest equivalent—operations, monitoring, and managing AWS resources. What to prioritize and how to prepare.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Solution Architect and Expert Generalist: Why the Role Fits",
+    "date": "2026-06-06",
+    "slug": "solution-architect-and-expert-generalist",
+    "filename": "2026-06-06-solution-architect-and-expert-generalist.md",
+    "categories": [
+      "career",
+      "personal",
+      "architecture"
+    ],
+    "excerpt": "The solution architect role demands breadth and depth—technical design, customer engagement, problem-solving, and continuous learning. That's the expert generalist's home ground.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Terraform with Azure: A Learning Path and Certification Prep",
+    "date": "2026-05-30",
+    "slug": "terraform-with-azure-learning-path-and-certification",
+    "filename": "2026-05-30-terraform-with-azure-learning-path-and-certification.md",
+    "categories": [
+      "terraform",
+      "azure",
+      "iac",
+      "certification"
+    ],
+    "excerpt": "How to learn Terraform in the context of Azure: from basics to certification, with a practical order of topics and how it complements AZ-104 and AZ-305.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AZ-305: Key Topics and How to Prepare for Designing Azure Infrastructure",
+    "date": "2026-05-23",
+    "slug": "az-305-key-topics-and-how-to-prepare",
+    "filename": "2026-05-23-az-305-key-topics-and-how-to-prepare.md",
+    "categories": [
+      "azure",
+      "certification",
+      "architecture"
+    ],
+    "excerpt": "What the AZ-305 exam actually tests: design domains, weighting, and how to study for a design-focused certification.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Ace the AZ-104: A Practical Study Guide for the Azure Administrator Exam",
+    "date": "2026-05-16",
+    "slug": "ace-the-az-104-azure-administrator-study-guide",
+    "filename": "2026-05-16-ace-the-az-104-azure-administrator-study-guide.md",
+    "categories": [
+      "azure",
+      "certification",
+      "learning"
+    ],
+    "excerpt": "How to prepare for the Microsoft Azure Administrator (AZ-104) exam: skills measured, what to prioritize, and a study approach that sticks.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "On Being an Expert Generalist",
+    "date": "2026-05-12",
+    "slug": "on-being-an-expert-generalist",
+    "filename": "2026-05-12-on-being-an-expert-generalist.md",
+    "categories": [
+      "career",
+      "personal"
+    ],
+    "excerpt": "The industry rewards narrow specialization. I've always leaned the other way—broad fundamentals, a few deep legs, and the ability to land in a new domain and contribute. Why that's a skill, not a compromise.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "How I Work: Strengths, Thinking, and Approach",
+    "date": "2026-05-09",
+    "slug": "how-i-work-strengths-and-approach",
+    "filename": "2026-05-09-how-i-work-strengths-and-approach.md",
+    "categories": [
+      "personal",
+      "career"
+    ],
+    "excerpt": "A short note on how I approach work: what drives me, where I add value, and how I handle problems and uncertainty. For anyone who wants to know how I think.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The Role of AI in Modern Solution Design",
+    "date": "2026-05-02",
+    "slug": "the-role-of-ai-in-modern-solution-design",
+    "filename": "2026-05-02-the-role-of-ai-in-modern-solution-design.md",
+    "categories": [
+      "ai",
+      "architecture",
+      "design"
+    ],
+    "excerpt": "AI is changing how we design systems—not by replacing the architect but by accelerating research, checking assumptions, and filling in boilerplate. Where it helps and where it doesn't.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The Importance of Continuous Learning in Technology",
+    "date": "2026-04-25",
+    "slug": "the-importance-of-continuous-learning-in-technology",
+    "filename": "2026-04-25-the-importance-of-continuous-learning-in-technology.md",
+    "categories": [
+      "learning",
+      "career"
+    ],
+    "excerpt": "Technology doesn't stand still. How I stay current without burning out: build things, curate sources, and connect learning to real problems.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building a DevOps Culture in Your Organization",
+    "date": "2026-04-18",
+    "slug": "building-a-devops-culture",
+    "filename": "2026-04-18-building-a-devops-culture.md",
+    "categories": [
+      "devops",
+      "culture",
+      "process"
+    ],
+    "excerpt": "DevOps is not a job title. It's ownership, automation, and feedback loops. What actually moves the needle when you're trying to change how teams ship.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Designing Resilient Cloud Architectures",
+    "date": "2026-04-11",
+    "slug": "designing-resilient-cloud-architectures",
+    "filename": "2026-04-11-designing-resilient-cloud-architectures.md",
+    "categories": [
+      "architecture",
+      "cloud",
+      "azure"
+    ],
+    "excerpt": "Principles and patterns for building cloud systems that absorb failure: redundancy, boundaries, and designing for the things that will go wrong.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Studying for the AWS Solutions Architect Associate Exam: What Actually Worked",
+    "date": "2026-04-04",
+    "slug": "studying-for-the-aws-solutions-architect-associate-exam",
+    "filename": "2026-04-04-studying-for-the-aws-solutions-architect-associate-exam.md",
+    "categories": [
+      "aws",
+      "certification",
+      "learning"
+    ],
+    "excerpt": "How I prepared for (and passed) the SAA: domains to prioritize, why hands-on beats passive learning, and how to use practice exams without memorizing answers.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Building a TUI Framework from First Principles",
+    "date": "2026-03-28",
+    "slug": "building-a-tui-framework-from-first-principles",
+    "filename": "2026-03-28-building-a-tui-framework-from-first-principles.md",
+    "categories": [
+      "architecture",
+      "tools",
+      "dotnet"
+    ],
+    "excerpt": "Why I built a minimal TUI framework instead of using Terminal.Gui or ncurses: virtual buffer, diff-based renderer, view tree, and the same volatility-based architecture I use everywhere. No black box.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "The IDesign Method: Taxonomy, Volatility, and Closed Architecture",
+    "date": "2026-03-21",
+    "slug": "idesign-method-taxonomy-volatility-and-closed-architecture",
+    "filename": "2026-03-21-idesign-method-taxonomy-volatility-and-closed-architecture.md",
+    "categories": [
+      "architecture",
+      "idesign",
+      "design"
+    ],
+    "excerpt": "One place to understand IDesign: why functional decomposition breaks, the four component types, and the dependency rule that keeps change local. With pointers to deeper posts.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Iterating on the Turbo Pascal Theme: When the Palette Fights Back",
+    "date": "2026-03-21",
+    "slug": "iterating-modern-turbo-pascal-theme-colors",
+    "filename": "2026-03-21-iterating-modern-turbo-pascal-theme-colors.md",
+    "categories": [
+      "tools",
+      "design",
+      "nostalgia"
+    ],
+    "excerpt": "A theme is never done. After shipping the Borland and modern VS Code variants, I filled every workbench token, fixed menu and chrome contrast, split the grays, and darkened the blues. Here's what that iteration looked like.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Modern Turbo Pascal: Why I Still Care About Editor Colors",
+    "date": "2026-03-14",
+    "slug": "modern-turbo-pascal-why-i-still-care-about-editor-colors",
+    "filename": "2026-03-14-modern-turbo-pascal-why-i-still-care-about-editor-colors.md",
+    "categories": [
+      "tools",
+      "design",
+      "nostalgia"
+    ],
+    "excerpt": "The Borland Turbo Pascal IDE had one job—get out of the way and let you code. I ported that ethic to a Nord-inspired theme for VS Code, JetBrains, and terminals. Here's why it matters.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "How This Blog Engine Works",
     "date": "2026-03-05",
     "slug": "how-this-blog-engine-works",
