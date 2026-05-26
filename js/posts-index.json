@@ -79,6 +79,20 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "AWS FinOps: Cost Observability for a Complex Document and AI Workload",
+    "date": "2026-05-25",
+    "slug": "aws-finops-cost-observability-complex-workload",
+    "filename": "2026-05-25-aws-finops-cost-observability-complex-workload.md",
+    "categories": [
+      "aws",
+      "finops",
+      "architecture",
+      "observability"
+    ],
+    "excerpt": "Tags, Resource Groups, a Bedrock-aware CloudWatch dashboard, and budgets you can automate—how to see spend on a document + extraction platform before finance asks.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "AZ-305: Key Topics and How to Prepare for Designing Azure Infrastructure",
     "date": "2026-05-23",
     "slug": "az-305-key-topics-and-how-to-prepare",
