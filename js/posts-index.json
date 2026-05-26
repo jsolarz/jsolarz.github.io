@@ -39,6 +39,20 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "AWS Pipeline Deployment: Wiring Document Ingestion End to End",
+    "date": "2026-06-16",
+    "slug": "document-pipeline-event-driven-deploy",
+    "filename": "2026-06-16-document-pipeline-event-driven-deploy.md",
+    "categories": [
+      "aws",
+      "cdk",
+      "architecture",
+      "serverless"
+    ],
+    "excerpt": "Step Functions, GuardDuty scan events, EventBridge API Destinations, and the port migration that broke health checks—how to deploy a document pipeline users can actually finish.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "AWS SysOps Administrator Associate: The AZ-104 Equivalent Study Guide",
     "date": "2026-06-13",
     "slug": "aws-sysops-administrator-associate-study-guide",
