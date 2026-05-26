@@ -52,6 +52,20 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "Bedrock Knowledge Base IaC: OpenSearch Serverless and GuardDuty Checklists",
+    "date": "2026-06-09",
+    "slug": "bedrock-opensearch-guardduty-iac-checklist",
+    "filename": "2026-06-09-bedrock-opensearch-guardduty-iac-checklist.md",
+    "categories": [
+      "aws",
+      "cdk",
+      "bedrock",
+      "security"
+    ],
+    "excerpt": "Copy-paste deployment checklists for Bedrock Knowledge Bases on private OpenSearch Serverless, vector index custom resources, and GuardDuty Malware Protection IAM—what the console hides.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Solution Architect and Expert Generalist: Why the Role Fits",
     "date": "2026-06-06",
     "slug": "solution-architect-and-expert-generalist",
