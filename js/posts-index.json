@@ -1,5 +1,19 @@
 [
   {
+    "title": "Bedrock and Pipeline Cost: Reading the Dashboard Before You Blame Aurora",
+    "date": "2026-07-14",
+    "slug": "bedrock-pipeline-cost-observability",
+    "filename": "2026-07-14-bedrock-pipeline-cost-observability.md",
+    "categories": [
+      "aws",
+      "finops",
+      "bedrock",
+      "observability"
+    ],
+    "excerpt": "When sandbox spend jumps, Bedrock tokens, SQS oldest-message age, and VPC bytes tell different stories—how to read AWS cost observability for extraction pipelines.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "AWS Cost Allocation Tags: CDK, Pipelines, and the Backfill You Still Need",
     "date": "2026-07-11",
     "slug": "aws-cost-allocation-tags-cdk-and-deploy",
