@@ -65,6 +65,20 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "CloudFormation Stack Layers: Foundation, Services, Application, and Pipeline Discipline",
+    "date": "2026-06-02",
+    "slug": "aws-cdk-layered-stacks-pipeline",
+    "filename": "2026-06-02-aws-cdk-layered-stacks-pipeline.md",
+    "categories": [
+      "aws",
+      "cdk",
+      "architecture",
+      "devops"
+    ],
+    "excerpt": "How to split CDK into Foundation, Services, and Application stacks—with SSM handoffs, context gates, and a pipeline that builds images before ECS ever deploys.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Terraform with Azure: A Learning Path and Certification Prep",
     "date": "2026-05-30",
     "slug": "terraform-with-azure-learning-path-and-certification",
