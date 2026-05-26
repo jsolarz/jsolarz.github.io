@@ -79,6 +79,20 @@
     "author": "Jonathan Solarz"
   },
   {
+    "title": "AWS CDK Deployment: When Simple Services Break a Complex Stack",
+    "date": "2026-05-26",
+    "slug": "aws-cdk-complex-deployment-postmortem",
+    "filename": "2026-05-26-aws-cdk-complex-deployment-postmortem.md",
+    "categories": [
+      "aws",
+      "cdk",
+      "architecture",
+      "devops"
+    ],
+    "excerpt": "A post-mortem on layered CDK deploys—Bedrock, OpenSearch Serverless, GuardDuty, and pipeline hygiene—when the architecture diagram looked easy and CloudFormation disagreed.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "AWS FinOps: Cost Observability for a Complex Document and AI Workload",
     "date": "2026-05-25",
     "slug": "aws-finops-cost-observability-complex-workload",
