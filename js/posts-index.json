@@ -1,5 +1,19 @@
 [
   {
+    "title": "AWS Cost Allocation Tags: CDK, Pipelines, and the Backfill You Still Need",
+    "date": "2026-07-11",
+    "slug": "aws-cost-allocation-tags-cdk-and-deploy",
+    "filename": "2026-07-11-aws-cost-allocation-tags-cdk-and-deploy.md",
+    "categories": [
+      "aws",
+      "finops",
+      "cdk",
+      "architecture"
+    ],
+    "excerpt": "CDK tags resources at create time; pipelines own prod. Sandbox still needs a backfill pass—and one Resource Group setting that hides your entire inventory.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "GCP Professional Cloud Architect: The AZ-305 Equivalent Study Guide",
     "date": "2026-07-04",
     "slug": "gcp-professional-cloud-architect-study-guide",
