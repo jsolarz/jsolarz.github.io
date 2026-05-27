@@ -1,5 +1,49 @@
 [
   {
+    "title": "Azure DevOps Pipeline AWS: Parallel CI, Coverage, and Deploy Guardrails",
+    "date": "2026-08-04",
+    "slug": "ado-aws-parallel-ci-coverage",
+    "filename": "2026-08-04-ado-aws-parallel-ci-coverage.md",
+    "categories": [
+      "aws",
+      "azure",
+      "devops",
+      "dotnet",
+      "testing"
+    ],
+    "excerpt": "Pattern A only works if ADO CI is fast and honest—parallel dotnet and client jobs, one merged coverage number, path filters that skip doc-only deploys, and packaging that matches what CodePipeline expects.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "AWS OIDC Azure DevOps: Trust Policies, IAM Roles, and SCP Landmines",
+    "date": "2026-07-28",
+    "slug": "ado-aws-oidc-iam-scp",
+    "filename": "2026-07-28-ado-aws-oidc-iam-scp.md",
+    "categories": [
+      "aws",
+      "azure",
+      "devops",
+      "security",
+      "iam"
+    ],
+    "excerpt": "The upload role is easy on paper—issuer, subject, audience, two IAM actions. The failures are trust mismatches, bootstrap vs daily permissions, and org SCPs that beat AdministratorAccess.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Azure DevOps AWS Integration: Hybrid CI/CD for a Document Platform",
+    "date": "2026-07-21",
+    "slug": "azure-devops-aws-hybrid-cicd",
+    "filename": "2026-07-21-azure-devops-aws-hybrid-cicd.md",
+    "categories": [
+      "aws",
+      "azure",
+      "devops",
+      "architecture"
+    ],
+    "excerpt": "How to connect Azure DevOps to AWS without giving ADO the keys to the kingdom—OIDC upload, S3 handoff, CodePipeline deploy, and the failures we actually hit.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Bedrock and Pipeline Cost: Reading the Dashboard Before You Blame Aurora",
     "date": "2026-07-14",
     "slug": "bedrock-pipeline-cost-observability",
