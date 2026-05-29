@@ -1,132 +1,129 @@
 # Contributing
 
-Guidelines for contributing to this BBS-style blog website.
+This repository is the source for [ioni.solarz.me](https://ioni.solarz.me)—a personal site (portfolio, CV, journal, contact), not an open-source product with a public roadmap.
 
-## Code of Conduct
+**Code** (HTML, CSS, JavaScript) is [MIT](LICENSE). **Journal text and articles** are [CC BY-NC-ND 4.0](CONTENT-LICENSE.md).
 
--   Don't be an asshole
--   Provide constructive feedback
--   Focus on what is best for the community
--   If you become more annoying to work with than your contributions justify, you will get booted.
+## Who this is for
 
-## How to Contribute
+| Audience | What to do |
+|----------|------------|
+| **Jonathan (site owner)** | Use the workflows below when adding content or changing the site. |
+| **Everyone else** | You may report broken links or rendering bugs; do not expect drive-by PRs to be merged. Suggestions and typo reports are welcome via [hello@solarz.me](mailto:hello@solarz.me). |
 
-Did you find a bug?
-Ensure the bug was not already reported by searching on GitHub under Issues.
+Forks for learning or local mirrors are fine. Copying journal posts into derivative works is not permitted under the content license without permission.
 
-If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
+## Site owner workflow
 
-Did you write a patch that fixes a bug?
-Open a new GitHub pull request with the patch.
+### Prerequisites
 
-Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
-
-Did you fix whitespace, format code, or make a purely cosmetic patch?
-Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability will generally not be accepted.
-
-Do not open an issue on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
-
-### Reporting Bugs
-
-1. Check if the bug has already been reported in existing issues
-2. Create a new issue with:
-    - Clear title and description
-    - Steps to reproduce
-    - Expected vs actual behavior
-    - Environment details (OS, Node.js version, browser)
-
-### Suggesting Enhancements
-
-1. Check existing issues and discussions
-2. Create a new issue with:
-    - Clear description of the enhancement
-    - Use case and benefits
-    - Proposed implementation approach (if applicable)
-
-### Pull Requests
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes following the coding standards below
-4. Test your changes thoroughly
-5. Update documentation as needed
-6. Commit with clear, descriptive messages
-7. Push to your fork and create a Pull Request
-
-## Coding Standards
-
-### PowerShell Scripts
-
--   Use proper parameter naming (PascalCase with `-` prefix)
--   Include parameter validation
--   Add error handling with try-catch blocks
--   Use Write-Host for user-facing messages
--   Include usage examples in comments
--   Validate dependencies before execution
-
-### Python Scripts
-
--   Follow PEP 8 style guidelines
--   Use type hints where appropriate
--   Include docstrings for functions
--   Handle exceptions gracefully
--   Use `os.path.join()` for path operations
-
-### Documentation
-
--   Use Markdown format
--   Follow existing document structure
--   Keep language clear and concise
--   Update README.md for user-facing changes
--   Update CHANGELOG.md for all changes
-
-## Project Structure
-
-```
-.
-├── _posts/          # Markdown blog posts
-├── blog/            # Blog post pages
-├── css/             # Stylesheets
-├── js/              # JavaScript modules
-├── templates/       # HTML templates
-├── docs/            # Documentation
-└── scripts/         # Build scripts
+```bash
+npm install
 ```
 
-## Testing
+Serve the repo root with any static server (Live Server, `npx serve`, GitHub Pages locally). Open `index.html` or `journal.html`.
 
-Before submitting a PR:
+### Add or edit a journal entry
 
-1. Test in multiple browsers (Chrome, Firefox, Safari, Edge)
-2. Verify blog posts render correctly
-3. Test template system functionality
-4. Ensure responsive design works
-5. Validate markdown rendering
+1. Create or edit `_posts/YYYY-MM-DD-slug.md` with YAML front matter (`title`, `date`, `slug`, `excerpt`, optional `scene`, `tldr`, `categories`).
+2. Put images under `img/blog/` and reference them as `/img/blog/...` in markdown.
+3. Regenerate the listing index:
 
-## Commit Messages
+   ```bash
+   npm run generate-index
+   ```
 
-Use clear, descriptive commit messages:
+4. Commit `_posts/...`, `js/posts-index.json`, and `_posts/manifest.json` together.
+5. Verify in the browser:
+   - `journal.html` lists the entry
+   - `journal/post.html?slug=your-slug` renders DM block, TL;DR, body, prev/next
+   - Old URLs `blog/post.html?slug=...` still redirect
 
--   Use present tense ("Add feature" not "Added feature")
--   First line should be concise (50 chars or less)
--   Include detailed description if needed
--   Reference issue numbers if applicable
+Scheduled posts: set a future `date` in front matter; they stay hidden until that date (UTC). See [docs/README-blog-system.md](docs/README-blog-system.md).
 
-Examples:
+### Change layout, theme, or engine
+
+- **Styles:** `css/style.css` (Turbo Logic tokens—no per-page CSS bundles).
+- **Chrome:** `templates/header.html`, `templates/footer.html`.
+- **Pages:** root `*.html` + matching `templates/*-content.html`.
+- **Journal rendering:** `js/blog-engine.js`, `templates/blog-post.html`, `js/markdown-loader.js`.
+
+After JS or template changes, smoke-test:
+
+- `journal.html` and one long post (code blocks, TOC)
+- `portfolio.html` (images/SVGs in card media)
+- `tests/integration/navigation.test.html` in a browser if you touched nav
+
+### Portfolio or static pages
+
+- Portfolio cards: `templates/portfolio-content.html`, assets in `img/portfolio/`.
+- Dev project media uses dark `#0d141e` frames; client photos use `portfolio-card__media--light`.
+
+### Deploy
+
+Hosted on **GitHub Pages** (`CNAME` → `ioni.solarz.me`). Push to the branch GitHub Pages uses (typically `master`).
+
+The workflow [`.github/workflows/reindex-posts.yml`](.github/workflows/reindex-posts.yml) runs `npm run generate-index` when `_posts/**` changes on `master` or `main` and commits index updates if needed. Still run `generate-index` locally before pushing so your branch is consistent.
+
+## Project layout
 
 ```
-Add error handling to semantic-index.ps1
-
-- Validate Python installation
-- Check for required packages
-- Provide helpful error messages
-- Fixes #123
+_posts/              Journal markdown (source of truth)
+journal/             Entry viewer (post.html?slug=)
+blog/                Legacy redirects → journal/
+js/                  blog-engine.js, template-engine.js, posts-index.json
+templates/           Page fragments loaded by template-engine
+css/style.css        Global Turbo Logic theme
+img/blog/            Journal images
+img/portfolio/       Portfolio thumbnails
+docs/                Maintainer docs (start with README-blog-system.md)
+scripts/             generate-posts-index.js
 ```
 
-## Questions?
+## Conventions
 
-If you have questions, please open an issue with the "question" label.
+### Commits
 
-Thanks!
+- Present tense, one logical change per commit when possible.
+- Journal-only: `journal: add post on …` or `journal: fix typos in …`
+- Site chrome: `ui: …`, `fix: journal base path …`, `chore: regenerate posts index`
 
-Thank you for contributing!
+### JavaScript
+
+- ES modules (`import` / `export`); no new global `window.*` unless required for templates.
+- Match existing style in `js/blog-engine.js` and `js/template-engine.js`.
+- Keep `journal` in `BASE_PATH_EXCLUDE_SEGMENTS` in `blog-engine.js` and `keyboard-navigation.js` so `/journal/post.html` resolves assets from the site root.
+
+### Content
+
+- Internal links: `/journal/post.html?slug=...` (not `/blog/...`).
+- Excerpt: used in the index and meta tags; optional `tldr` for the on-page summary box.
+- `scene`: optional DM intro; keep it short and on-topic.
+
+### What not to commit
+
+- `.cursor/`, `.kiro/`, `.idea/`, `node_modules/`, `SESSION-LEDGER.md` (local notes; gitignored)
+- Duplicate images under `_posts/img/`—use `img/blog/` only
+
+## External contributions
+
+**Issues and PRs** on GitHub are not the primary channel. Email is preferred for:
+
+- Broken links or 404s on the live site
+- Accessibility or mobile layout problems
+- Factual corrections (with source)
+
+**Pull requests** are unlikely to be accepted unless discussed first (typo fixes in code/docs may be an exception). Large drive-by refactors, dependency upgrades, or design overhauls will be closed.
+
+## Documentation
+
+| Doc | Purpose |
+|-----|---------|
+| [README.md](README.md) | Overview and quick start |
+| [docs/README-blog-system.md](docs/README-blog-system.md) | Journal engine, front matter, index |
+| [CONTENT-LICENSE.md](CONTENT-LICENSE.md) | Article licensing |
+| [SECURITY.md](SECURITY.md) | Security reporting |
+
+## Questions
+
+[hello@solarz.me](mailto:hello@solarz.me)
