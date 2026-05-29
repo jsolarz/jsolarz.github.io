@@ -8,6 +8,7 @@ Disallow: /dev/
 Disallow: /temp/
 Disallow: /files/
 Disallow: /backups/
+Disallow: /_posts/
 
 # Disallow LLM crawlers
 User-agent: GPTBot
