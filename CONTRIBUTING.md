@@ -59,6 +59,20 @@ After JS or template changes, smoke-test:
 - Portfolio cards: `templates/portfolio-content.html`, assets in `img/portfolio/`.
 - Dev project media uses dark `#0d141e` frames; client photos use `portfolio-card__media--light`.
 
+### Contact form (GitHub Pages)
+
+The site is static—there is no server to run PHP or send mail. The form in `templates/contact-content.html` supports two modes:
+
+1. **Formspree (recommended)** — messages arrive in your inbox without opening the visitor’s mail app.
+   - Create a form at [formspree.io](https://formspree.io) for `hello@solarz.me`.
+   - Copy the form URL (e.g. `https://formspree.io/f/xxxxxxxx`).
+   - Set `data-form-endpoint="https://formspree.io/f/xxxxxxxx"` on `#contact-form` in `templates/contact-content.html`.
+   - Logic lives in `js/contact-form.js` (JSON POST, honeypot field `_gotcha`).
+
+2. **mailto fallback** — if `data-form-endpoint` is empty, submit builds a `mailto:hello@solarz.me` draft in the user’s email client. Works with zero signup; UX depends on them having a mail client configured.
+
+Alternatives with the same pattern: [Web3Forms](https://web3forms.com), [Getform](https://getform.io), or a small Cloudflare Worker / Azure Function if you want full control.
+
 ### Deploy
 
 Hosted on **GitHub Pages** (`CNAME` → `ioni.solarz.me`). Push to the branch GitHub Pages uses (typically `master`).

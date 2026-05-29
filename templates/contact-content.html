@@ -33,7 +33,15 @@
 <section class="terminal-window">
 	<div class="terminal-header">├───[ MESSAGE_FORM ]───┤</div>
 	<div class="terminal-window-body">
-		<form id="contact-form" class="contact-form" aria-label="Contact form">
+		<form
+			id="contact-form"
+			class="contact-form"
+			aria-label="Contact form"
+			data-form-endpoint=""
+			data-mailto="hello@solarz.me">
+			<p class="contact-form__honeypot" aria-hidden="true">
+				<label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+			</p>
 			<div class="form-group">
 				<label for="name">Name:</label>
 				<input type="text" id="name" name="name" required aria-required="true" />
@@ -63,30 +71,3 @@
 		</div>
 	</div>
 </section>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		const form = document.getElementById("contact-form")
-		const formResponse = document.getElementById("form-response")
-		const responseText = document.getElementById("response-text")
-
-		if (form) {
-			form.addEventListener("submit", function (e) {
-				e.preventDefault()
-
-				setTimeout(() => {
-					form.hidden = true
-					formResponse.hidden = false
-					responseText.innerHTML = `
-						<div class="terminal">
-							<div class="output">
-								<span class="highlight-2">Message received!</span><br>
-								Thanks for reaching out. I'll get back to you as soon as possible.
-							</div>
-						</div>
-					`
-				}, 1000)
-			})
-		}
-	})
-</script>
