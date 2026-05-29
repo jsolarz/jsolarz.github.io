@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: architecture leadership
 image: /img/blog/architect-translator.jpg
 excerpt: How effective software architects turn business needs into technical solutions—and why that translation role is critical for organizational success.
+
+  You stand between two camps that speak different dialects of urgency. The quest givers wave slide decks; the party expects sequence diagrams. Your charter is not to pick a side but to translate intent into constraints the engineers can defend.
+  
+  Roll for patience when someone says "just make it scalable." The encounter rewards examples, trade-offs, and a shared vocabulary before anyone commits gold.
+scene: |
+  You stand between two camps that speak different dialects of urgency. The quest givers wave slide decks; the party expects sequence diagrams. Your charter is not to pick a side but to translate intent into constraints the engineers can defend.
+  
+  Roll for patience when someone says "just make it scalable." The encounter rewards examples, trade-offs, and a shared vocabulary before anyone commits gold.
+
 ---
 
 # Architect as a Translator: Bridging Business and Engineering

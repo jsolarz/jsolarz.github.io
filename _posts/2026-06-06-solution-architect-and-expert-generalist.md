@@ -5,11 +5,16 @@ slug: solution-architect-and-expert-generalist
 author: Jonathan Solarz
 categories: career personal architecture
 excerpt: The solution architect role demands breadth and depth—technical design, customer engagement, problem-solving, and continuous learning. That's the expert generalist's home ground.
+scene: |
+  The title on your character sheet says Solution Architect; the build is expert generalist. You connect business outcomes to technical guardrails without outsourcing thinking to a single vendor slide.
+  
+  This ties role definition to how you actually run programs—translation, volatility, delivery.
+
 ---
 
 # Solution Architect and Expert Generalist: Why the Role Fits
 
-In [On Being an Expert Generalist](/blog/post.html?slug=on-being-an-expert-generalist) I wrote about the ability to learn quickly, spot fundamentals, and apply them across domains. In [How I Work](/blog/post.html?slug=how-i-work-strengths-and-approach) I described my strengths and how I approach problems. This post connects those to the **solution architect** (or cloud & AI solution engineer) role: why that role is a natural fit for expert generalists and how the competencies line up.
+In [On Being an Expert Generalist](/journal/post.html?slug=on-being-an-expert-generalist) I wrote about the ability to learn quickly, spot fundamentals, and apply them across domains. In [How I Work](/journal/post.html?slug=how-i-work-strengths-and-approach) I described my strengths and how I approach problems. This post connects those to the **solution architect** (or cloud & AI solution engineer) role: why that role is a natural fit for expert generalists and how the competencies line up.
 
 I'm drawing on a strategic blueprint for the Cloud & AI Solution Engineer role—one that spells out core competencies, the blend of technical and relational skills, and the path from strong practitioner to expert. What follows is my take on why the role and the expert-generalist profile align, without tying it to a single employer.
 
@@ -46,4 +51,4 @@ For me, the useful part is naming the combination: **technical breadth and depth
 
 ---
 
-_Reference: strategic blueprint for the Cloud & AI Solution Engineer role (cultivating expertise, core competencies, alignment with strengths and development). Previous posts: [On Being an Expert Generalist](/blog/post.html?slug=on-being-an-expert-generalist), [How I Work: Strengths and Approach](/blog/post.html?slug=how-i-work-strengths-and-approach)._
+_Reference: strategic blueprint for the Cloud & AI Solution Engineer role (cultivating expertise, core competencies, alignment with strengths and development). Previous posts: [On Being an Expert Generalist](/journal/post.html?slug=on-being-an-expert-generalist), [How I Work: Strengths and Approach](/journal/post.html?slug=how-i-work-strengths-and-approach)._

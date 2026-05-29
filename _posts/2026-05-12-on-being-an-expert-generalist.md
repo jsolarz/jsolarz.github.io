@@ -5,11 +5,16 @@ slug: on-being-an-expert-generalist
 author: Jonathan Solarz
 categories: career personal
 excerpt: The industry rewards narrow specialization. I've always leaned the other way—broad fundamentals, a few deep legs, and the ability to land in a new domain and contribute. Why that's a skill, not a compromise.
+scene: |
+  Specialists drill one mine; generalists keep the overworld map. You have chosen breadth with enough depth to challenge bad defaults in cloud, code, and culture. The cost is context switching; the payoff is seeing traps that siloed experts miss.
+  
+  No vanity—just the case for expert generalists in architecture-heavy quests.
+
 ---
 
 # On Being an Expert Generalist
 
-Martin Fowler and colleagues recently put a name to something I've lived for years: the [Expert Generalist](https://martinfowler.com/articles/expert-generalist.html). Not "broad and shallow," but the ability to learn quickly, spot the fundamentals under the surface of tools and trends, and apply them wherever you land. They argue it's a first-class skill—something to recruit for, develop, and promote. I agree. This post is my take, after the one where I described [how I work](/blog/post.html?slug=how-i-work-strengths-and-approach): why I identify with the label and why it matters more, not less, as the industry pushes for narrower specialization.
+Martin Fowler and colleagues recently put a name to something I've lived for years: the [Expert Generalist](https://martinfowler.com/articles/expert-generalist.html). Not "broad and shallow," but the ability to learn quickly, spot the fundamentals under the surface of tools and trends, and apply them wherever you land. They argue it's a first-class skill—something to recruit for, develop, and promote. I agree. This post is my take, after the one where I described [how I work](/journal/post.html?slug=how-i-work-strengths-and-approach): why I identify with the label and why it matters more, not less, as the industry pushes for narrower specialization.
 
 ## What an Expert Generalist Is (and Isn't)
 
@@ -35,4 +40,4 @@ If we don't name it, we don't recruit for it, train for it, or promote for it. W
 
 ---
 
-_Reference: [Expert Generalists](https://martinfowler.com/articles/expert-generalist.html), Martin Fowler, Unmesh Joshi, Gitanjali Venkatraman (July 2025). Previous post: [How I Work: Strengths and Approach](/blog/post.html?slug=how-i-work-strengths-and-approach)._
+_Reference: [Expert Generalists](https://martinfowler.com/articles/expert-generalist.html), Martin Fowler, Unmesh Joshi, Gitanjali Venkatraman (July 2025). Previous post: [How I Work: Strengths and Approach](/journal/post.html?slug=how-i-work-strengths-and-approach)._

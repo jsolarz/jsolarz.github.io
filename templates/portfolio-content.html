@@ -1,87 +1,211 @@
-<h1>Portfolio</h1>
+<section class="terminal-window portfolio-page">
+	<div class="terminal-header">───[ PROJECTS ]───</div>
+	<div class="terminal-window-body">
+		<p class="portfolio-lead">
+			Selected personal builds and client delivery—each card uses the same layout so screenshots and logos read at a glance.
+		</p>
 
-<div class="terminal" role="status" aria-label="Portfolio projects">
-	<span class="prompt" aria-hidden="true">$ </span>
-	<span class="command" aria-hidden="true">ls -la ~/projects | grep featured</span>
-</div>
+		<h2 class="portfolio-section-title">Personal &amp; open source</h2>
+		<div class="portfolio-showcase" role="list">
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/b800-minitui.svg" alt="B800 MiniTUI terminal UI preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">JS.B800.MiniTUI</h3>
+					<p class="portfolio-card__desc">
+						Cross-platform .NET TUI framework: cell grid, Measure/Arrange, diff rendering, XML markup aligned with XAML.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET</span></li>
+						<li><span class="tag-chip">TUI</span></li>
+						<li><span class="tag-chip">C#</span></li>
+					</ul>
+				</div>
+			</article>
 
-<div class="portfolio-grid" role="list">
-	<div class="portfolio-item" role="listitem">
-		<h3>Project One</h3>
-		<div>
-			<em>[ANSI art removed]</em>
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/modern-turbo-ui.svg" alt="Modern Turbo UI theme preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">Modern-Turbo-UI-Color-Scheme</h3>
+					<p class="portfolio-card__desc">
+						Borland Turbo Pascal themes for VS Code, JetBrains, Vim, terminals—original palette plus a modern variant.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">VS Code</span></li>
+						<li><span class="tag-chip">Themes</span></li>
+					</ul>
+					<p class="portfolio-card__links">
+						<a href="https://github.com/jsolarz/Modern-Turbo-UI-Color-Scheme" target="_blank" rel="noopener noreferrer" class="bracket-link">[ SOURCE ]</a>
+						<a href="journal/post.html?slug=iterating-modern-turbo-pascal-theme-colors" class="bracket-link">[ JOURNAL ]</a>
+					</p>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/forge.svg" alt="Forge delivery SDK preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">Forge (not-another-github-clone)</h3>
+					<p class="portfolio-card__desc">
+						C# delivery language with plan/apply semantics—<code>draft</code>, <code>weave</code>, <code>inspect</code>.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">C#</span></li>
+						<li><span class="tag-chip">IaC</span></li>
+						<li><span class="tag-chip">DevOps</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/awsviz.svg" alt="AwsViz infrastructure graph preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">aws-account-visualization-tool</h3>
+					<p class="portfolio-card__desc">
+						AwsViz: live AWS infrastructure graph in the terminal—EC2, Lambda, RDS, S3, and more.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET</span></li>
+						<li><span class="tag-chip">AWS</span></li>
+						<li><span class="tag-chip">TUI</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/js-rssreader.svg" alt="js.rssreader TUI preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">js.rssreader</h3>
+					<p class="portfolio-card__desc">
+						Keyboard-first RSS/Atom reader: custom parser, LiteDB, IDesign layers on MiniTui.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET 10</span></li>
+						<li><span class="tag-chip">LiteDB</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media">
+					<img src="img/portfolio/bms.svg" alt="BMS building management preview" width="640" height="360" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">bms</h3>
+					<p class="portfolio-card__desc">
+						Building management for residential committees—ledger, dues, Avalonia desktop, web, and CLI.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET</span></li>
+						<li><span class="tag-chip">SQLite</span></li>
+						<li><span class="tag-chip">Avalonia</span></li>
+					</ul>
+					<p class="portfolio-card__links">
+						<a href="https://github.com/jsolarz/bms" target="_blank" rel="noopener noreferrer" class="bracket-link">[ SOURCE ]</a>
+					</p>
+				</div>
+			</article>
 		</div>
-		<p>
-			Brief description of the project, its purpose, and your role in it. What technologies were used? What problems did it solve?
-		</p>
-		<p>
-			<span class="highlight-1">Technologies:</span> Tech 1, Tech 2, Tech 3
-		</p>
-		<p>
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project One live demo">Live Demo</a> |
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project One source code">Source Code</a>
-		</p>
-	</div>
 
-	<div class="portfolio-item" role="listitem">
-		<h3>Project Two</h3>
-		<div>
-			<em>[ANSI art removed]</em>
+		<h2 class="portfolio-section-title">Client &amp; product work</h2>
+		<div class="portfolio-showcase" role="list">
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/lsgo.png" alt="LifeSkills GO" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">LifeSkills GO</h3>
+					<p class="portfolio-card__desc">
+						Learning platform for social, emotional, and physical development (ages 5–13). GitLab CI/CD on AWS, Node.js, React,
+						Redis, MySQL.
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">AWS</span></li>
+						<li><span class="tag-chip">Node.js</span></li>
+						<li><span class="tag-chip">React</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/dgda.jpg" alt="Duglemmerdetaldrig" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">Duglemmerdetaldrig</h3>
+					<p class="portfolio-card__desc">
+						Experiences marketplace. Senior developer: C#, .NET, AngularJS, Redis, Docker, Umbraco, SQL Server (2015–2017).
+					</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET</span></li>
+						<li><span class="tag-chip">AngularJS</span></li>
+						<li><span class="tag-chip">Docker</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/pwc.jpg" alt="PwC 365" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">PwC 365</h3>
+					<p class="portfolio-card__desc">Award-winning app bringing PwC people, ideas, and insights to mobile every day.</p>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/harrison.jpg" alt="The Guitar Collection: George Harrison" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">The Guitar Collection: George Harrison</h3>
+					<p class="portfolio-card__desc">
+						Private collection app—photos, audio, video—and Metro-style Windows 8 delivery (Fressiel).
+					</p>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/revboothlook.jpg" alt="Rebooth" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">Rebooth</h3>
+					<p class="portfolio-card__desc">360° DSLR capture prototype using Canon SDK and .NET.</p>
+					<ul class="portfolio-card__tags" aria-label="Technologies">
+						<li><span class="tag-chip">.NET</span></li>
+						<li><span class="tag-chip">Canon SDK</span></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="portfolio-card" role="listitem">
+				<div class="portfolio-card__media portfolio-card__media--light">
+					<img src="img/portfolio/swiftory.png" alt="Swiftory" loading="lazy" decoding="async" />
+				</div>
+				<div class="portfolio-card__body">
+					<h3 class="portfolio-card__title">Swiftory</h3>
+					<p class="portfolio-card__desc">Stories-style sharing before Facebook Stories existed.</p>
+				</div>
+			</article>
 		</div>
-		<p>
-			Brief description of the project, its purpose, and your role in it. What technologies were used? What problems did it solve?
-		</p>
-		<p>
-			<span class="highlight-1">Technologies:</span> Tech 1, Tech 2, Tech 3
-		</p>
-		<p>
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Two live demo">Live Demo</a> |
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Two source code">Source Code</a>
-		</p>
 	</div>
-
-	<div class="portfolio-item" role="listitem">
-		<h3>Project Three</h3>
-		<div>
-			<em>[ANSI art removed]</em>
-		</div>
-		<p>
-			Brief description of the project, its purpose, and your role in it. What technologies were used? What problems did it solve?
-		</p>
-		<p>
-			<span class="highlight-1">Technologies:</span> Tech 1, Tech 2, Tech 3
-		</p>
-		<p>
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Three live demo">Live Demo</a> |
-			<a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Three source code">Source Code</a>
-		</p>
-	</div>
-</div>
-
-<!-- BBS-style highlights -->
-<div class="bbs-box">
-	<div class="bbs-header">Other Projects</div>
-	<p>In addition to the featured projects above, I've also worked on:</p>
-	<ul role="list">
-		<li>
-			<span class="highlight-2">Side Project A</span> - Brief description
-		</li>
-		<li>
-			<span class="highlight-2">Open Source Contribution</span> - Brief description
-		</li>
-		<li>
-			<span class="highlight-2">Experimental Project</span> - Brief description
-		</li>
-	</ul>
-</div>
+</section>
 
 <div class="terminal" role="status" aria-label="Collaboration invitation">
 	<span class="prompt" aria-hidden="true">$ </span>
 	<span class="command" aria-hidden="true">echo "Interested in working together?"</span>
 	<div class="output">
 		I'm always open to discussing new projects and opportunities.<br />
-		Feel free to
-		<a href="mailto:hello@solarz.me" style="color: var(--frost-2)" aria-label="Send email to Jonathan Solarz">reach out</a>
-		if you'd like to collaborate!
+		Feel free to <a href="contact.html">reach out</a> if you'd like to collaborate!
 	</div>
 </div>

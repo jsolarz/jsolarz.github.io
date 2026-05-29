@@ -101,13 +101,19 @@ const posts = files
 				}
 			})
 
+			const body = frontMatterMatch[2]
+			const excerpt =
+				metadata.excerpt && String(metadata.excerpt).trim()
+					? metadata.excerpt
+					: excerptFromFirstParagraph(body)
+
 			return {
-				title: metadata.title || titleFromFirstHeading(rawContent),
+				title: metadata.title || titleFromFirstHeading(body),
 				date: metadata.date || date,
 				slug: metadata.slug || slug,
 				filename: file,
 				categories: parseCategories(metadata.categories),
-				excerpt: metadata.excerpt || "",
+				excerpt,
 				author: metadata.author || DEFAULT_AUTHOR,
 			}
 		}

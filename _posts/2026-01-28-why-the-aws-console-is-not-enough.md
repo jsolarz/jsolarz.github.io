@@ -1,4 +1,15 @@
-# Why the AWS Console Is Not Enough: Building the Dashboard I Actually Need
+---
+title: "Why the AWS Console Is Not Enough: Building the Dashboard I Actually Need"
+date: 2026-01-28
+slug: why-the-aws-console-is-not-enough
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  The glowing map in the AWS console flatters you with clicks while the real terrain lives in CloudFormation, tags, and bills you discover late. Console literacy is starter gear; operations at scale demand codified intent and observability you can diff.
+  
+  You are being pushed toward infrastructure as narrative you can replay, not screenshots you cannot audit.
+---
 
 I manage AWS infrastructure. I have for years. And every single day I perform the same ritual: open the Console, click through five services, mentally stitch together a picture of what my environment looks like right now, then alt-tab to the CLI to get the numbers the Console makes you hunt for, then check Grafana for the metrics the Console buries three clicks deep.
 

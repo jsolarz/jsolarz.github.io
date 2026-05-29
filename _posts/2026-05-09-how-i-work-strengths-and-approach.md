@@ -5,6 +5,11 @@ slug: how-i-work-strengths-and-approach
 author: Jonathan Solarz
 categories: personal career
 excerpt: A short note on how I approach work: what drives me, where I add value, and how I handle problems and uncertainty. For anyone who wants to know how I think.
+scene: |
+  Before the technical loot, the party asks how you DM engagements—pace, communication, depth. This entry is character sheet transparency: strengths, blind spots, how you run discovery and delivery.
+  
+  Use it to align expectations before you roll initiative on a multi-month program.
+
 ---
 
 # How I Work: Strengths, Thinking, and Approach

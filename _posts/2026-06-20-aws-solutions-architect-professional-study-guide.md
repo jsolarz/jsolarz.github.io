@@ -5,6 +5,11 @@ slug: aws-solutions-architect-professional-study-guide
 author: Jonathan Solarz
 categories: aws certification architecture
 excerpt: The AWS Solutions Architect Professional (SAP-C02) is the design-focused advanced cert—the closest equivalent to AZ-305. What it tests and how to prepare.
+scene: |
+  Professional tier means multi-account, multi-region, multi-constraint riddles under time. SAP is AZ-305's AWS cousin with heavier hybrid and cost flavor.
+  
+  This guide is the grind route—domains to overweight, labs that matter, and humility about what still needs real project XP.
+
 ---
 
 # AWS Solutions Architect Professional: The AZ-305 Equivalent Study Guide
@@ -42,4 +47,4 @@ With AZ-305 or SAA under your belt, 6–10 weeks of focused study is typical. SA
 
 ---
 
-_Related: [AZ-305 key topics](/blog/post.html?slug=az-305-key-topics-and-how-to-prepare), [Studying for the AWS Solutions Architect Associate](/blog/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam), [AWS SysOps Associate](/blog/post.html?slug=aws-sysops-administrator-associate-study-guide)._
+_Related: [AZ-305 key topics](/journal/post.html?slug=az-305-key-topics-and-how-to-prepare), [Studying for the AWS Solutions Architect Associate](/journal/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam), [AWS SysOps Associate](/journal/post.html?slug=aws-sysops-administrator-associate-study-guide)._

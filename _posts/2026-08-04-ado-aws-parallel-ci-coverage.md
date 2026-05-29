@@ -8,11 +8,16 @@ categories: aws azure devops dotnet testing
 image: /img/blog/ado-aws-parallel-ci.jpg
 series: hybrid-cicd-ado-aws
 series_part: 3
+scene: |
+  Serial pipelines are for patience you do not have. You parallelize test matrices, surface coverage, and guard deploys so speed does not become recklessness.
+  
+  Azure DevOps YAML meets AWS targets—fan-out, artifacts, and gates that still protect the main branch.
+
 ---
 
 # Azure DevOps Pipeline AWS: Parallel CI, Coverage, and Deploy Guardrails
 
-Parts [1](https://ioni.solarz.me/blog/post.html?slug=azure-devops-aws-hybrid-cicd) and [2](https://ioni.solarz.me/blog/post.html?slug=ado-aws-oidc-iam-scp) split **who deploys**. This post is **how ADO should behave** before the zip hits S3: parallel jobs, artifacts, coverage that means something, triggers that respect `main`, and a source archive CodeBuild can actually synth.
+Parts [1](https://ioni.solarz.me/journal/post.html?slug=azure-devops-aws-hybrid-cicd) and [2](https://ioni.solarz.me/journal/post.html?slug=ado-aws-oidc-iam-scp) split **who deploys**. This post is **how ADO should behave** before the zip hits S3: parallel jobs, artifacts, coverage that means something, triggers that respect `main`, and a source archive CodeBuild can actually synth.
 
 **Azure DevOps pipeline AWS** handoff fails in boring ways—a 40-minute serial pipeline, 2% coverage dashboards, or a `docs/` commit that ships Bedrock config to production.
 
@@ -183,7 +188,7 @@ stages:
 | Explicit `risEnv` + `awsRegion` parameters | Wrong bucket / wrong pipeline name |
 | S3 object metadata `git-sha`, `ado-build-id` | “Which commit is in prod?” archaeology |
 
-Upload task uses OIDC connection + inline script: `aws s3 cp` then `aws codepipeline start-pipeline-execution`—see [part 2](https://ioni.solarz.me/blog/post.html?slug=ado-aws-oidc-iam-scp).
+Upload task uses OIDC connection + inline script: `aws s3 cp` then `aws codepipeline start-pipeline-execution`—see [part 2](https://ioni.solarz.me/journal/post.html?slug=ado-aws-oidc-iam-scp).
 
 ---
 
@@ -243,9 +248,9 @@ Optional: require merged coverage trend on PR without publishing to AWS. Keep **
 
 ## Series
 
-**Series:** [Part 1 — Pattern A](https://ioni.solarz.me/blog/post.html?slug=azure-devops-aws-hybrid-cicd) · [Part 2 — OIDC & SCP](https://ioni.solarz.me/blog/post.html?slug=ado-aws-oidc-iam-scp) · **Part 3** (this)
+**Series:** [Part 1 — Pattern A](https://ioni.solarz.me/journal/post.html?slug=azure-devops-aws-hybrid-cicd) · [Part 2 — OIDC & SCP](https://ioni.solarz.me/journal/post.html?slug=ado-aws-oidc-iam-scp) · **Part 3** (this)
 
-From here, jump back to the **CDK series** for what happens after the zip lands: [layered stacks](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline), [document pipeline deploy](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy).
+From here, jump back to the **CDK series** for what happens after the zip lands: [layered stacks](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline), [document pipeline deploy](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy).
 
 ---
 

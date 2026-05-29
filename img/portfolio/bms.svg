@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="BMS building management">
+  <rect width="640" height="360" fill="#161c26"/>
+  <rect x="24" y="24" width="592" height="312" fill="#0d141e" stroke="#44474a" stroke-width="2"/>
+  <text x="40" y="52" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="14">bms - committee ledger</text>
+  <rect x="40" y="72" width="260" height="200" fill="#1a202a" stroke="#97cfe0" stroke-width="2"/>
+  <text x="56" y="100" fill="#ffffff" font-family="ui-monospace, monospace" font-size="12">Unit 12 - dues paid</text>
+  <rect x="320" y="72" width="280" height="96" fill="#1a202a" stroke="#e9c34d" stroke-width="2"/>
+  <text x="336" y="100" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="12">Avalonia + Web + CLI</text>
+  <text x="40" y="320" fill="#97cfe0" font-family="ui-monospace, monospace" font-size="12">Residential committees - .NET</text>
+</svg>

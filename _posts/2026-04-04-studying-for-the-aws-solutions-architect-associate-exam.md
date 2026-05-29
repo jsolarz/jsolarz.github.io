@@ -5,6 +5,11 @@ slug: studying-for-the-aws-solutions-architect-associate-exam
 author: Jonathan Solarz
 categories: aws certification learning
 excerpt: How I prepared for (and passed) the SAA: domains to prioritize, why hands-on beats passive learning, and how to use practice exams without memorizing answers.
+scene: |
+  The certification dungeon is open-book in spirit but closed-book in time. You need patterns, not trivia—VPC peering, S3 policies, RDS failover—wired into stories you can retell under pressure.
+  
+  This guide is what actually moved your XP bar: labs, whitepapers, and ruthless elimination of false confidence.
+
 ---
 
 # Studying for the AWS Solutions Architect Associate Exam: What Actually Worked
@@ -53,4 +58,4 @@ The Associate is passable with consistent, hands-on study. Build small, map to t
 
 ---
 
-_Related: [Building on AWS to Learn AWS: A Professional Study Project](/blog/post.html?slug=building-on-aws-to-learn-aws) (using a real project to study for the Professional)._
+_Related: [Building on AWS to Learn AWS: A Professional Study Project](/journal/post.html?slug=building-on-aws-to-learn-aws) (using a real project to study for the Professional)._

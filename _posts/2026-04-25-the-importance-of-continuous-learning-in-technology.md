@@ -5,6 +5,11 @@ slug: the-importance-of-continuous-learning-in-technology
 author: Jonathan Solarz
 categories: learning career
 excerpt: Technology doesn't stand still. How I stay current without burning out: build things, curate sources, and connect learning to real problems.
+scene: |
+  The rulebooks reprint every quarter. Continuous learning is not motivational poster—it is how you avoid becoming the NPC who still fights with deprecated skills.
+  
+  Short reflection quest: carve time, choose depth over hype cycles, and teach the party what you learned so knowledge isn't solo-bound.
+
 ---
 
 # The Importance of Continuous Learning in Technology

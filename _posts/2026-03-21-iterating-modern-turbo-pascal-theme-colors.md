@@ -5,11 +5,16 @@ slug: iterating-modern-turbo-pascal-theme-colors
 author: Jonathan Solarz
 categories: tools design nostalgia
 excerpt: A theme is never done. After shipping the Borland and modern VS Code variants, I filled every workbench token, fixed menu and chrome contrast, split the grays, and darkened the blues. Here's what that iteration looked like.
+scene: |
+  The palette fought back. What looked correct in the swatch book clashed in real buffers—ANSI pairs, selection states, markdown fences. You iterated like a DM adjusting encounter difficulty after the first TPK.
+  
+  Color work is tuning, not inspiration. Bring patience and a reference monitor, not vibes alone.
+
 ---
 
 # Iterating on the Turbo Pascal Theme: When the Palette Fights Back
 
-In [the post from March](/blog/post.html?slug=modern-turbo-pascal-why-i-still-care-about-editor-colors) I argued that editor colors are information, not decoration. I shipped **Modern Turbo UI Color Scheme** with two VS Code faces: **Borland Turbo Pascal Original** and a modern variant, plus ports to other editors and terminals.
+In [the post from March](/journal/post.html?slug=modern-turbo-pascal-why-i-still-care-about-editor-colors) I argued that editor colors are information, not decoration. I shipped **Modern Turbo UI Color Scheme** with two VS Code faces: **Borland Turbo Pascal Original** and a modern variant, plus ports to other editors and terminals.
 
 Then I sat in the theme for real work—and the gaps showed up.
 
@@ -62,4 +67,4 @@ If you already use the extension, pull the latest. If not: [VS Code Marketplace]
 
 ---
 
-_Follow-up to [Modern Turbo Pascal: Why I Still Care About Editor Colors](/blog/post.html?slug=modern-turbo-pascal-why-i-still-care-about-editor-colors)._
+_Follow-up to [Modern Turbo Pascal: Why I Still Care About Editor Colors](/journal/post.html?slug=modern-turbo-pascal-why-i-still-care-about-editor-colors)._

@@ -1,4 +1,15 @@
-# The Complete Picture: How It All Fits Together
+---
+title: "The Complete Picture: How It All Fits Together"
+date: 2025-11-12
+slug: the-complete-picture
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  You have been studying fragments—cloud, architecture, leadership, AI—like side quests without a main plot. This entry stitches the tapestry: how the pieces reinforce one another when you design systems people must run for years.
+  
+  No new spell here; alignment. Read it when you feel competent in every room but unsure why the campaign still feels scattered.
+---
 
 ## Introduction
 

@@ -1,4 +1,15 @@
-# Scaling Spec-Driven Development: What I Learned from 24 Features
+---
+title: "Scaling Spec-Driven Development: What I Learned from 24 Features"
+date: 2026-01-21
+slug: scaling-spec-driven-development-24-features
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  The spec bible grew to twenty-four chapters while the calendar did not. You scaled spec-driven work across parallel streams without letting each squad invent its own canon.
+  
+  Expect notes on batching, ownership, test oracles, and the diplomacy required when AI accelerates typing but not agreement.
+---
 
 ## Introduction
 

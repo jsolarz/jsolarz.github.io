@@ -5,6 +5,11 @@ slug: designing-resilient-cloud-architectures
 author: Jonathan Solarz
 categories: architecture cloud azure
 excerpt: Principles and patterns for building cloud systems that absorb failure: redundancy, boundaries, and designing for the things that will go wrong.
+scene: |
+  Uptime is a story about failure domains, not optimism. You design for AZ loss, throttling, poison messages, and humans deploying on Fridays. Resilience is component boundaries plus operational playbooks, not a single "multi-AZ" checkbox.
+  
+  Walk through the encounters you plan for—not the happy path demo.
+
 ---
 
 # Designing Resilient Cloud Architectures

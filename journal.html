@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#0d141e" />
+		<meta name="color-scheme" content="dark" />
+
+		<title>Journal | Jonathan Solarz</title>
+		<meta
+			name="description"
+			content="Personal journal — field notes on software architecture, cloud systems, terminals, and building things." />
+		<meta
+			name="keywords"
+			content="software architecture, cloud solutions, journal, field notes, solution architecture" />
+		<meta name="author" content="Jonathan Solarz" />
+		<meta name="robots" content="index, follow" />
+		<meta name="geo.region" content="IL" />
+		<meta name="geo.placename" content="Israel" />
+		<meta name="copyright" content="Copyright © 2025 Jonathan Solarz. Content licensed under CC BY-NC-ND 4.0" />
+		<link rel="canonical" href="https://ioni.solarz.me/journal.html" />
+
+		<meta http-equiv="Cache-Control" content="public, max-age=3600" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Journal | Jonathan Solarz" />
+		<meta
+			property="og:description"
+			content="Personal journal — field notes on architecture, cloud, and code." />
+		<meta property="og:url" content="https://ioni.solarz.me/journal.html" />
+		<meta property="og:site_name" content="Jonathan Solarz" />
+		<meta property="og:locale" content="en_US" />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Journal | Jonathan Solarz" />
+		<meta name="twitter:description" content="Personal journal — field notes on architecture and cloud." />
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Blog",
+				"name": "Jonathan Solarz Journal",
+				"description": "Personal journal on software architecture and cloud systems",
+				"url": "https://ioni.solarz.me/journal.html",
+				"author": {
+					"@type": "Person",
+					"name": "Jonathan Solarz",
+					"email": "hello@solarz.me"
+				},
+				"copyrightHolder": {
+					"@type": "Person",
+					"name": "Jonathan Solarz"
+				},
+				"license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<div class="container">
+			<div data-template="header"></div>
+			<main id="main-content" role="main">
+				<div data-template="journal-content"></div>
+			</main>
+			<div data-template="footer"></div>
+		</div>
+
+		<script type="module">
+			import { templateEngine } from "./js/template-engine.js"
+			import { blogEngine } from "./js/blog-engine.js"
+			import "./js/scripts.js"
+
+			document.addEventListener("templateLoaded", async () => {
+				const postList = document.querySelector(".post-list")
+				if (postList) {
+					try {
+						await blogEngine.renderPostList(postList)
+					} catch (error) {
+						console.error("Error loading journal entries:", error)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

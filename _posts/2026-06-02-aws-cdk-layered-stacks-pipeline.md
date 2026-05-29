@@ -8,6 +8,11 @@ categories: aws cdk architecture devops
 image: /img/blog/aws-cdk-ssm-handoff.jpg
 series: aws-cdk-complex-deployments
 series_part: 2
+scene: |
+  One stack to rule them all was a lie. You split foundation, services, application, and pipeline into layers with explicit contracts. Deploy order becomes choreography; drift becomes visible.
+  
+  Read for stack boundaries, promotion gates, and why pipelines deserve their own layer—not an afterthought script.
+
 ---
 
 # CloudFormation Stack Layers: Foundation, Services, Application, and Pipeline Discipline
@@ -204,12 +209,12 @@ Splitting stacks is not bureaucracy. It is how you **stop one ALB scheme change 
 
 | Part | Topic |
 |------|--------|
-| [1 — Post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
+| [1 — Post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
 | **2 (this post)** | **CloudFormation stack layers** + pipeline |
-| [3 — IaC checklists](https://ioni.solarz.me/blog/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) | Bedrock, OpenSearch Serverless, GuardDuty |
-| [4 — End-to-end wiring](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy) | Step Functions, EventBridge, UI events |
+| [3 — IaC checklists](https://ioni.solarz.me/journal/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) | Bedrock, OpenSearch Serverless, GuardDuty |
+| [4 — End-to-end wiring](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy) | Step Functions, EventBridge, UI events |
 
-**Related:** [AWS FinOps: Cost Observability](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload) — same architecture shape, different lens.
+**Related:** [AWS FinOps: Cost Observability](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload) — same architecture shape, different lens.
 
 ---
 

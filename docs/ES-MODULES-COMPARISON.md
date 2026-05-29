@@ -1,5 +1,7 @@
 # ES Modules vs Global Scripts - Comparison
 
+> **Note:** Historical design notes. The site uses ES modules today (`journal/post.html`, `js/blog-engine.js`). Legacy paths like `blog/post.esm.html` are not shipped.
+
 ## Encapsulation Comparison
 
 ### Current Approach (Global Scripts)

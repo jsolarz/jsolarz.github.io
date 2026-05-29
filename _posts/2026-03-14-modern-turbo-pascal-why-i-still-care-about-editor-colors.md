@@ -5,6 +5,11 @@ slug: modern-turbo-pascal-why-i-still-care-about-editor-colors
 author: Jonathan Solarz
 categories: tools design nostalgia
 excerpt: The Borland Turbo Pascal IDE had one job—get out of the way and let you code. I ported that ethic to a Nord-inspired theme for VS Code, JetBrains, and terminals. Here's why it matters.
+scene: |
+  Nostalgia is a trap; craft is not. Turbo Pascal's palette encoded state—keywords, strings, errors—before themes were fashion. You are reviving that clarity for a modern editor skin because readability is a combat stat.
+  
+  Expect opinions on contrast, memory, and why neon chaos loses fights against tired eyes.
+
 ---
 
 # Modern Turbo Pascal: Why I Still Care About Editor Colors

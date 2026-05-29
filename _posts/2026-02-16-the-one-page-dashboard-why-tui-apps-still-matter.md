@@ -1,4 +1,15 @@
-# The One-Page Dashboard: Why TUI Apps Still Matter for Cloud Operations
+---
+title: "The One-Page Dashboard: Why TUI Apps Still Matter for Cloud Operations"
+date: 2026-02-16
+slug: the-one-page-dashboard-why-tui-apps-still-matter
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Not every operator wants a sprawling web realm. Sometimes a single terminal pane, refreshed without flicker, is the legendary item. TUIs still matter for dense status, SSH sessions, and engineers who live in the shell.
+  
+  You are defending a smaller UI surface that punches above its pixel budget—keyboard-first, honest, fast.
+---
 
 Open a terminal. Type a command. See the answer.
 

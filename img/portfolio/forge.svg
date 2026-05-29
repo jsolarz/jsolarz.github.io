@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Forge delivery SDK">
+  <rect width="640" height="360" fill="#161c26"/>
+  <rect x="24" y="24" width="592" height="312" fill="#0d141e" stroke="#44474a" stroke-width="2"/>
+  <text x="40" y="56" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="14">$ forge draft</text>
+  <text x="40" y="84" fill="#97cfe0" font-family="ui-monospace, monospace" font-size="13">Plan: 3 threads - delivery.v1</text>
+  <rect x="80" y="108" width="120" height="48" fill="#1a202a" stroke="#97cfe0" stroke-width="2" rx="2"/>
+  <text x="96" y="138" fill="#ffffff" font-family="ui-monospace, monospace" font-size="12">build</text>
+  <rect x="400" y="108" width="120" height="48" fill="#1a202a" stroke="#e9c34d" stroke-width="2" rx="2"/>
+  <text x="416" y="138" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="12">deploy</text>
+  <text x="40" y="280" fill="#97cfe0" font-family="ui-monospace, monospace" font-size="13">draft - weave - inspect - C# plan/apply</text>
+</svg>

@@ -8,6 +8,11 @@ categories: aws azure devops architecture
 image: /img/blog/ado-aws-hybrid-cicd.jpg
 series: hybrid-cicd-ado-aws
 series_part: 1
+scene: |
+  Azure DevOps holds the quest board; AWS hosts the battlefield. Hybrid CI/CD means identities, service connections, and artifacts crossing clouds without becoming a folklore integration.
+  
+  You document a document-platform pipeline that respects both realms' gatekeepers.
+
 ---
 
 # Azure DevOps AWS Integration: Hybrid CI/CD for a Document Platform
@@ -71,7 +76,7 @@ Hybrid is not “more complex” for sport. It is **who is allowed to change wha
                       └─────────────────────────────────────┘
 ```
 
-ADO never calls `cdk deploy` for Foundation, Services, or Application on every push. AWS CodePipeline already encodes that graph—see the [layered stacks post](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) for why those layers exist.
+ADO never calls `cdk deploy` for Foundation, Services, or Application on every push. AWS CodePipeline already encodes that graph—see the [layered stacks post](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) for why those layers exist.
 
 ### What goes in the zip?
 
@@ -195,7 +200,7 @@ If upload succeeds but nothing runs, check the upload role policy before you bla
 
 **Governance**
 
-- [ ] Align with hybrid ADR: why AWS still runs layer deploys ([example framing](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)).
+- [ ] Align with hybrid ADR: why AWS still runs layer deploys ([example framing](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)).
 - [ ] SCP review before promising “ADO will bootstrap production.”
 
 ---
@@ -206,10 +211,10 @@ If you are building the same class of system:
 
 | Topic | Read |
 |-------|------|
-| Why deploys hurt | [AWS CDK deployment post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem) |
-| Foundation / Services / Application | [CloudFormation stack layers](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) |
-| Bedrock + OpenSearch IaC | [Bedrock Knowledge Base IaC checklist](https://ioni.solarz.me/blog/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) |
-| Ingestion wiring | [Document pipeline event-driven deploy](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy) |
+| Why deploys hurt | [AWS CDK deployment post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem) |
+| Foundation / Services / Application | [CloudFormation stack layers](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) |
+| Bedrock + OpenSearch IaC | [Bedrock Knowledge Base IaC checklist](https://ioni.solarz.me/journal/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) |
+| Ingestion wiring | [Document pipeline event-driven deploy](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy) |
 
 This post is the **fifth discipline**: *who runs CI* versus *who runs CDK deploy* when Git lives in Azure DevOps.
 
@@ -220,8 +225,8 @@ This post is the **fifth discipline**: *who runs CI* versus *who runs CDK deploy
 | Part | Post |
 |------|------|
 | **1** (this) | Azure DevOps AWS integration — Pattern A |
-| **2** | [AWS OIDC Azure DevOps: trust, IAM, SCP](https://ioni.solarz.me/blog/post.html?slug=ado-aws-oidc-iam-scp) |
-| **3** | [Parallel CI, coverage, guardrails](https://ioni.solarz.me/blog/post.html?slug=ado-aws-parallel-ci-coverage) |
+| **2** | [AWS OIDC Azure DevOps: trust, IAM, SCP](https://ioni.solarz.me/journal/post.html?slug=ado-aws-oidc-iam-scp) |
+| **3** | [Parallel CI, coverage, guardrails](https://ioni.solarz.me/journal/post.html?slug=ado-aws-parallel-ci-coverage) |
 
 ---
 
@@ -235,4 +240,4 @@ Start with Pattern A. Bootstrap the pipeline stack once. Wire OIDC upload. Kill 
 
 *Building hybrid CI/CD or fighting SCP denies on bootstrap? [Connect with me](/contact.html)—happy to compare notes.*
 
-**Related:** [CloudFormation stack layers](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) · [AWS pipeline deployment (ingestion)](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy) · [AWS CDK deployment post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)
+**Related:** [CloudFormation stack layers](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) · [AWS pipeline deployment (ingestion)](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy) · [AWS CDK deployment post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)

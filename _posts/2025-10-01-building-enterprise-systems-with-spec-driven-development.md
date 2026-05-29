@@ -1,4 +1,15 @@
-# Building Enterprise Systems with Spec-Driven Development
+---
+title: "Building Enterprise Systems with Spec-Driven Development"
+date: 2025-10-01
+slug: building-enterprise-systems-with-spec-driven-development
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  You have been handed a campaign bible before line one of code: specs as contracts, tests as witnesses. Enterprise scale means the DM cannot improvise every encounter—volatility must land in named components, not surprise refactors.
+  
+  This chronicle is how spec-driven discipline survived contact with real stakeholders and AI-assisted velocity.
+---
 
 ## Introduction
 

@@ -5,6 +5,11 @@ slug: az-305-key-topics-and-how-to-prepare
 author: Jonathan Solarz
 categories: azure certification architecture
 excerpt: What the AZ-305 exam actually tests: design domains, weighting, and how to study for a design-focused certification.
+scene: |
+  Design exams punish hand-wavy diagrams. AZ-305 wants trade-offs: landing zones, governance, hybrid, data platforms. You are preparing to defend choices aloud, not recite SKUs.
+  
+  Focus on scenario chains—if this constraint, which Azure service and why—not flashcards of feature lists.
+
 ---
 
 # AZ-305: Key Topics and How to Prepare for Designing Azure Infrastructure
@@ -58,4 +63,4 @@ AZ-305 builds on AZ-104. If you've passed AZ-104 and have done some design work,
 
 ---
 
-_Related: [Ace the AZ-104](/blog/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [Studying for the AWS Solutions Architect Associate](/blog/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam)._
+_Related: [Ace the AZ-104](/journal/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [Studying for the AWS Solutions Architect Associate](/journal/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam)._

@@ -8,6 +8,11 @@ categories: aws cdk bedrock security
 image: /img/blog/bedrock-opensearch-iac.jpg
 series: aws-cdk-complex-deployments
 series_part: 3
+scene: |
+  Knowledge bases do not summon themselves—OpenSearch Serverless, Bedrock policies, GuardDuty signals, all codified. You are holding a checklist forged from IaC battles where one missing permission voided the ritual.
+  
+  Run down the list before you claim RAG is "done"; production loves omitted security groups.
+
 ---
 
 # Bedrock Knowledge Base IaC: OpenSearch Serverless and GuardDuty Checklists
@@ -20,7 +25,7 @@ Part 3 is the checklist we wish we had before the first deploy on a document pla
 
 ## In Brief
 
-This is **part 3** of the AWS CDK complex deployment series—reference material, not war stories ([part 1 post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)).
+This is **part 3** of the AWS CDK complex deployment series—reference material, not war stories ([part 1 post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)).
 
 - **OpenSearch Serverless** needs encryption, network (VPC endpoint + Bedrock `SourceServices`), and data policies before anything calls the collection API.
 - **Vector index** is a separate step: `knn_vector` field, Titan embedding dimensions, field names matching Bedrock’s `fieldMapping`.
@@ -217,10 +222,10 @@ Keep **collection, KB, GuardDuty plan** in Services (platform). Keep **scan-move
 
 | Part | Topic |
 |------|--------|
-| [1 — Post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
-| [2 — Layer cake](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) | CloudFormation stack layers + pipeline |
+| [1 — Post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
+| [2 — Layer cake](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) | CloudFormation stack layers + pipeline |
 | **3 (this post)** | **Bedrock Knowledge Base IaC** checklists |
-| [4 — End-to-end wiring](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy) | Step Functions, EventBridge, UI events |
+| [4 — End-to-end wiring](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy) | Step Functions, EventBridge, UI events |
 
 ---
 

@@ -5,6 +5,11 @@ slug: gcp-associate-cloud-engineer-study-guide
 author: Jonathan Solarz
 categories: gcp certification learning
 excerpt: The Google Cloud Associate Cloud Engineer (ACE) exam is the operations-focused cert—the closest equivalent to AZ-104. What it covers and how to prepare.
+scene: |
+  You cross into Google territory—projects, IAM, GKE basics, networking—not because AWS was wrong, but because employers print multi-cloud quest logs. ACE is the practitioner gate.
+  
+  Notes on what maps from Azure/AWS mental models and what will trip you if you assume parity.
+
 ---
 
 # GCP Associate Cloud Engineer: The AZ-104 Equivalent Study Guide
@@ -44,4 +49,4 @@ The next step on GCP is **Professional Cloud Architect** (design-focused, equiva
 
 ---
 
-_Related: [Ace the AZ-104](/blog/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [AWS SysOps Associate](/blog/post.html?slug=aws-sysops-administrator-associate-study-guide), [GCP Professional Cloud Architect](/blog/post.html?slug=gcp-professional-cloud-architect-study-guide)._
+_Related: [Ace the AZ-104](/journal/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [AWS SysOps Associate](/journal/post.html?slug=aws-sysops-administrator-associate-study-guide), [GCP Professional Cloud Architect](/journal/post.html?slug=gcp-professional-cloud-architect-study-guide)._

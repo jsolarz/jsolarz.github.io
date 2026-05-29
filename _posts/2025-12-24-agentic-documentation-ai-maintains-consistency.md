@@ -1,4 +1,15 @@
-# Agentic Documentation: How AI Maintains Consistency at Scale
+---
+title: "Agentic Documentation: How AI Maintains Consistency at Scale"
+date: 2025-12-24
+slug: agentic-documentation-ai-maintains-consistency
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  You unleash a scribe that never sleeps, tasked with keeping terminology and diagrams aligned as the codebase moves. Agentic maintenance is seductive until it drifts—wrong tense, wrong component name, confident hallucination in the appendix.
+  
+  This quest log covers guardrails, review queues, and when to let the agent patch versus when to roll initiative yourself.
+---
 
 ## Introduction
 

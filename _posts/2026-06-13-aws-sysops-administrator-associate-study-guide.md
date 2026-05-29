@@ -5,6 +5,11 @@ slug: aws-sysops-administrator-associate-study-guide
 author: Jonathan Solarz
 categories: aws certification learning
 excerpt: If you've done AZ-104, the AWS SysOps Administrator Associate (SOA-C02) is the closest equivalent—operations, monitoring, and managing AWS resources. What to prioritize and how to prepare.
+scene: |
+  Operations exams test scars—monitoring, backups, incident response, automation. SysOps Associate is the AWS equivalent of living in the runbook, not the whiteboard.
+  
+  Study guide notes: what to automate first, which services appear repeatedly, and how this pairs with architect-level context.
+
 ---
 
 # AWS SysOps Administrator Associate: The AZ-104 Equivalent Study Guide
@@ -44,4 +49,4 @@ The natural next step on AWS is the **Solutions Architect Associate (SAA-C03)** 
 
 ---
 
-_Related: [Ace the AZ-104](/blog/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [Studying for the AWS Solutions Architect Associate](/blog/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam)._
+_Related: [Ace the AZ-104](/journal/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [Studying for the AWS Solutions Architect Associate](/journal/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam)._

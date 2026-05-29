@@ -1,4 +1,15 @@
-# Building on AWS to Learn AWS: A Professional Study Project
+---
+title: "Building on AWS to Learn AWS: A Professional Study Project"
+date: 2026-02-23
+slug: building-on-aws-to-learn-aws
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Reading the rulebook without play teaches rules, not judgment. You chose to learn AWS by building—stacks that fail, pipelines that stall, services that bill while you sleep.
+  
+  Expect scar tissue as curriculum: the post is the travelogue, not the certification cheat sheet.
+---
 
 I have worked with cloud infrastructure for years. Azure, primarily, through my role at Microsoft. AWS, frequently, through customer engagements and personal projects. I can provision a VPC, configure security groups, deploy a Lambda function, and set up an RDS cluster without consulting documentation. I have done it hundreds of times.
 

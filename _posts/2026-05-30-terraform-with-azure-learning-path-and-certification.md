@@ -5,6 +5,11 @@ slug: terraform-with-azure-learning-path-and-certification
 author: Jonathan Solarz
 categories: terraform azure iac certification
 excerpt: How to learn Terraform in the context of Azure: from basics to certification, with a practical order of topics and how it complements AZ-104 and AZ-305.
+scene: |
+  You carry Terraform scrolls into Azure territory—state, modules, provider quirks, and exam objectives overlapping AZ-104/305 thinking. IaC is the language; certification is the proof someone listened.
+  
+  Path notes for learning in parallel without mixing up Azure-only assumptions with AWS habits.
+
 ---
 
 # Terraform with Azure: A Learning Path and Certification Prep
@@ -59,4 +64,4 @@ Terraform with Azure is a strong combination for anyone doing cloud infra. Learn
 
 ---
 
-_Related: [Ace the AZ-104](/blog/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [AZ-305 key topics](/blog/post.html?slug=az-305-key-topics-and-how-to-prepare)._
+_Related: [Ace the AZ-104](/journal/post.html?slug=ace-the-az-104-azure-administrator-study-guide), [AZ-305 key topics](/journal/post.html?slug=az-305-key-topics-and-how-to-prepare)._

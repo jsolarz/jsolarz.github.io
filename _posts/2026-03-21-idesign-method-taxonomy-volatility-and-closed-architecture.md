@@ -5,11 +5,16 @@ slug: idesign-method-taxonomy-volatility-and-closed-architecture
 author: Jonathan Solarz
 categories: architecture idesign design
 excerpt: One place to understand IDesign: why functional decomposition breaks, the four component types, and the dependency rule that keeps change local. With pointers to deeper posts.
+scene: |
+  You enter the taxonomy hall: Clients, Managers, Engines, Accessors—each a role guarding a different kind of change. Closed architecture forbids shortcut teleports; dependency direction is law.
+  
+  This is the deeper lecture after the intro post—volatility named, interfaces stable, orchestration separated from logic and I/O.
+
 ---
 
 # The IDesign Method: Taxonomy, Volatility, and Closed Architecture
 
-I've written about volatility-based decomposition and applied it to real projects (AwsViz, BMS, MiniTui). This post is the single reference: what IDesign is, why the usual alternative fails, and how the taxonomy and closed architecture work together. If you want the "why design around change" story, see [IDesign Method: Designing for Change, Not Requirements](/blog/post.html?slug=idesign-method-volatility-based-decomposition). If you want a full application example, see [Architecture for Change: Volatility-Based Decomposition](/blog/post.html?slug=architecture-for-change-volatility-based-decomposition).
+I've written about volatility-based decomposition and applied it to real projects (AwsViz, BMS, MiniTui). This post is the single reference: what IDesign is, why the usual alternative fails, and how the taxonomy and closed architecture work together. If you want the "why design around change" story, see [IDesign Method: Designing for Change, Not Requirements](/journal/post.html?slug=idesign-method-volatility-based-decomposition). If you want a full application example, see [Architecture for Change: Volatility-Based Decomposition](/journal/post.html?slug=architecture-for-change-volatility-based-decomposition).
 
 ## The Mistake: Decompose by Function
 
@@ -62,4 +67,4 @@ I use this on every non-trivial codebase: AwsViz, BMS, the RSS reader, MiniTui (
 
 ---
 
-_More: [Designing for Change, Not Requirements](/blog/post.html?slug=idesign-method-volatility-based-decomposition) (concept and vault metaphor), [Architecture for Change](/blog/post.html?slug=architecture-for-change-volatility-based-decomposition) (AwsViz applied)._
+_More: [Designing for Change, Not Requirements](/journal/post.html?slug=idesign-method-volatility-based-decomposition) (concept and vault metaphor), [Architecture for Change](/journal/post.html?slug=architecture-for-change-volatility-based-decomposition) (AwsViz applied)._

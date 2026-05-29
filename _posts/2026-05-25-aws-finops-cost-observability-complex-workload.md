@@ -8,6 +8,11 @@ categories: aws finops architecture observability
 image: /img/blog/aws-finops-cost-observability.jpg
 series: aws-finops-on-complex-workloads
 series_part: 1
+scene: |
+  The bill is the final boss hiding behind your architecture. Document pipelines, Bedrock calls, and Aurora storage each leave fingerprints. FinOps here means tags, dashboards, and narratives finance can trust—not yelling at engineers to "be cheaper."
+  
+  You will read how cost observability was wired into a complex workload without guessing in the dark.
+
 ---
 
 # AWS FinOps: Cost Observability for a Complex Document and AI Workload
@@ -255,10 +260,10 @@ This post is **part 1**. Planned follow-ups (same generic document/AI platform�
 | Part | Topic | Focus keyphrase angle |
 |------|--------|------------------------|
 | **1** (this post) | Tags, inventory, dashboard, budgets, automation | AWS FinOps |
-| **[2](https://ioni.solarz.me/blog/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy)** | IaC and deploy discipline—CDK tags, pipeline-only prod, manual sandbox scripts | AWS cost allocation tags |
-| **[3](https://ioni.solarz.me/blog/post.html?slug=bedrock-pipeline-cost-observability)** | Bedrock and pipeline economics—token dashboards, SQS as early warning, when to throttle extraction | AWS cost observability |
+| **[2](https://ioni.solarz.me/journal/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy)** | IaC and deploy discipline—CDK tags, pipeline-only prod, manual sandbox scripts | AWS cost allocation tags |
+| **[3](https://ioni.solarz.me/journal/post.html?slug=bedrock-pipeline-cost-observability)** | Bedrock and pipeline economics—token dashboards, SQS as early warning, when to throttle extraction | AWS cost observability |
 
-**Related:** [Why the AWS Console Is Not Enough](https://ioni.solarz.me/blog/post.html?slug=why-the-aws-console-is-not-enough), [Building on AWS to Learn AWS](https://ioni.solarz.me/blog/post.html?slug=building-on-aws-to-learn-aws).
+**Related:** [Why the AWS Console Is Not Enough](https://ioni.solarz.me/journal/post.html?slug=why-the-aws-console-is-not-enough), [Building on AWS to Learn AWS](https://ioni.solarz.me/journal/post.html?slug=building-on-aws-to-learn-aws).
 
 ---
 

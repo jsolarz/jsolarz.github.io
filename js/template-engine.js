@@ -113,7 +113,7 @@ class TemplateEngine {
 		})
 	}
 
-	/** Finds all [data-template] elements, loads each template, and injects rendered HTML; runs theme toggle and updateCurrentYear once. */
+	/** Finds all [data-template] elements, loads each template, and injects rendered HTML; runs updateCurrentYear once. */
 	async loadAllTemplateSections() {
 		const templateSections = document.querySelectorAll("[data-template]")
 		const loadPromises = Array.from(templateSections).map((section) => {
@@ -141,31 +141,8 @@ class TemplateEngine {
 			console.error("Error loading templates:", error)
 		}
 
-		this.#initThemeToggle()
 		this.#dispatchTemplateLoadedEvent(document)
 		updateCurrentYear()
-	}
-
-	#initThemeToggle() {
-		if (document.querySelector(".theme-toggle")) return
-
-		const themeToggle = document.createElement("button")
-		themeToggle.className = "theme-toggle"
-		themeToggle.setAttribute("aria-label", "Toggle light/dark theme")
-		themeToggle.innerHTML = `<span>Theme</span><div class="theme-toggle-icon"></div>`
-		document.body.appendChild(themeToggle)
-
-		const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-		const storedTheme = localStorage.getItem("theme")
-		const isDarkMode = storedTheme === "dark" || (!storedTheme && prefersDarkMode)
-
-		if (!isDarkMode) document.body.classList.add("light-mode")
-
-		themeToggle.addEventListener("click", () => {
-			document.body.classList.toggle("light-mode")
-			const isLightMode = document.body.classList.contains("light-mode")
-			localStorage.setItem("theme", isLightMode ? "light" : "dark")
-		})
 	}
 
 	#dispatchTemplateLoadedEvent(element) {

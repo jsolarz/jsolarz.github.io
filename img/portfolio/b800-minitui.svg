@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="B800 MiniTUI terminal UI framework">
+  <rect width="640" height="360" fill="#161c26"/>
+  <rect x="24" y="24" width="592" height="312" fill="#0d141e" stroke="#44474a" stroke-width="2"/>
+  <rect x="24" y="24" width="592" height="28" fill="#1a202a" stroke="#44474a" stroke-width="2"/>
+  <text x="40" y="44" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="14">[ B800.MiniTUI ]</text>
+  <g fill="none" stroke="#44474a" stroke-width="1">
+    <line x1="40" y1="72" x2="600" y2="72"/>
+    <line x1="40" y1="120" x2="600" y2="120"/>
+    <line x1="184" y1="60" x2="184" y2="320"/>
+  </g>
+  <rect x="96" y="108" width="200" height="88" fill="#1a202a" stroke="#97cfe0" stroke-width="2"/>
+  <rect x="320" y="132" width="96" height="28" fill="#1a202a" stroke="#e9c34d" stroke-width="2"/>
+  <text x="328" y="152" fill="#e9c34d" font-family="ui-monospace, monospace" font-size="12">[ OK ]</text>
+  <text x="48" y="300" fill="#97cfe0" font-family="ui-monospace, monospace" font-size="13">Measure / Arrange - diff render - XML markup</text>
+</svg>

@@ -1,4 +1,15 @@
-# AI-Assisted Development: Building Enterprise Systems with Cursor
+---
+title: "AI-Assisted Development: Building Enterprise Systems with Cursor"
+date: 2025-10-29
+slug: ai-assisted-development-with-cursor
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  A familiar sits on your shoulder, suggesting completions faster than you can read them. Cursor is not a replacement adventurer—it is a torch in dark caverns if you still hold the map. You will learn when to accept the draft, when to reject, and when to banish the familiar for a thinking turn.
+  
+  This entry is practical loot: workflows that kept quality from becoming speed-run regret.
+---
 
 ## Introduction
 

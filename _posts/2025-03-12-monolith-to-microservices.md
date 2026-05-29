@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: tech architecture
 image: /img/blog/monolith-to-microservices.jpg
 excerpt: Real-world insights from modernizing legacy systems and the trade-offs involved when breaking down monolithic applications into microservices.
+
+  You have cleared the starter dungeon—a single deployable keep with one gate. The guild now whispers that microservices will make you immortal. The path ahead is littered with distributed traps: partial failures, observability gaps, and teams that outran their boundaries.
+  
+  Treat this as a debrief from survivors, not a sales scroll. Some doors should stay closed until you have a reason to kick them.
+scene: |
+  You have cleared the starter dungeon—a single deployable keep with one gate. The guild now whispers that microservices will make you immortal. The path ahead is littered with distributed traps: partial failures, observability gaps, and teams that outran their boundaries.
+  
+  Treat this as a debrief from survivors, not a sales scroll. Some doors should stay closed until you have a reason to kick them.
+
 ---
 
 # From Monolith to Microservices: Lessons from the Trenches

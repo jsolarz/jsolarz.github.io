@@ -1,4 +1,15 @@
-# Building a Documentation Toolkit: How I Solved the Fragmented Documentation Problem
+---
+title: "Building a Documentation Toolkit: How I Solved the Fragmented Documentation Problem"
+date: 2025-09-24
+slug: building-a-documentation-toolkit-solving-fragmented-documentation
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Your party finds three contradictory maps to the same ruin—Confluence, README scraps, and tribal knowledge in chat. The quest is to forge a toolkit that makes docs discoverable without pretending one shrine fits all content.
+  
+  Expect friction from authors who liked their old rituals. Victory is measured in fewer "where does it say that?" messages, not prettier cover pages.
+---
 
 ## Introduction
 

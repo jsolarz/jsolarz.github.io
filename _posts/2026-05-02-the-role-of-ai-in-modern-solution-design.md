@@ -5,6 +5,11 @@ slug: the-role-of-ai-in-modern-solution-design
 author: Jonathan Solarz
 categories: ai architecture design
 excerpt: AI is changing how we design systems—not by replacing the architect but by accelerating research, checking assumptions, and filling in boilerplate. Where it helps and where it doesn't.
+scene: |
+  AI is a new party member with unknown alignment. Solution design must say where inference is allowed, what data may enter the model, and who owns wrong answers. You are not sprinkling "AI-powered" on the brochure—you are placing constraints.
+  
+  Expect architecture checkpoints: retrieval, evaluation, cost, and human override.
+
 ---
 
 # The Role of AI in Modern Solution Design

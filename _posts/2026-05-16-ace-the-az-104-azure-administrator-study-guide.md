@@ -5,6 +5,11 @@ slug: ace-the-az-104-azure-administrator-study-guide
 author: Jonathan Solarz
 categories: azure certification learning
 excerpt: How to prepare for the Microsoft Azure Administrator (AZ-104) exam: skills measured, what to prioritize, and a study approach that sticks.
+scene: |
+  Azure's admin trial tests whether you can keep tenants, identities, storage, and networks standing under time pressure. AZ-104 is the gate; this guide is the grind route—what to lab, what to skim, what to drill until muscle memory.
+  
+  Bring a subscription sandbox; reading alone will not clear the boss.
+
 ---
 
 # Ace the AZ-104: A Practical Study Guide for the Azure Administrator Exam
@@ -53,4 +58,4 @@ AZ-104 is the admin cert. If you're heading toward design (AZ-305) or specialty 
 
 ---
 
-_Related: [Studying for the AWS Solutions Architect Associate](/blog/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam) (same hands-on-first approach for another cloud)._
+_Related: [Studying for the AWS Solutions Architect Associate](/journal/post.html?slug=studying-for-the-aws-solutions-architect-associate-exam) (same hands-on-first approach for another cloud)._

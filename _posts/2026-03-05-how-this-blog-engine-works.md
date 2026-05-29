@@ -5,6 +5,11 @@ slug: how-this-blog-engine-works
 excerpt: A short walkthrough of how this site serves a markdown blog with no build step—index, manifest fallback, client-side fetch and render, and the one command to run after adding posts.
 author: Jonathan Solarz
 categories: meta blog architecture
+scene: |
+  You open the engine room of this site: markdown in `_posts`, metadata in an index, rendering in the browser. No Jekyll golem—just fetch, parse, and paint. Scheduled posts hide until their date; one npm script refreshes the manifest.
+  
+  Meta quest, low drama. Useful when you wonder why the journal behaves like a terminal archive, not a CMS theme.
+
 ---
 
 # How This Blog Engine Works
@@ -26,13 +31,15 @@ So: index for fast listing; manifest so the site still works if the index isn’
 
 ## Loading a post
 
-When you open a post (e.g. `blog/post.html?slug=how-this-blog-engine-works`):
+When you open a post (e.g. `journal/post.html?slug=how-this-blog-engine-works`):
 
 1. The engine already has (or loads) the posts list, finds the entry for that slug, and gets the filename (e.g. `2026-03-05-how-this-blog-engine-works.md`).
 2. It fetches `_posts/<filename>.md` with `fetch()`.
-3. It parses front matter (the `---` block at the top) for title, date, excerpt, etc., and treats the rest as markdown.
-4. The markdown is rendered to HTML in the browser (this site uses [marked](https://github.com/markedjs/marked) from a CDN).
-5. The resulting HTML is injected into the page and meta tags are updated for sharing.
+3. It parses front matter (the `---` block at the top) for title, date, excerpt, optional multiline `scene: |`, and treats the rest as markdown.
+4. Optional `scene` (**DM_READS**) and `tldr` (**TL;DR**, or `excerpt` if `tldr` is omitted) render above the article; the index and meta tags still use `excerpt`.
+5. **Previous / Next** links (and Ctrl+← / Ctrl+→) walk the published list—previous = older entry, next = newer.
+6. The markdown is rendered to HTML in the browser (this site uses [marked](https://github.com/markedjs/marked) from a CDN).
+7. The resulting HTML is injected into the page and meta tags are updated for sharing.
 
 No server-side rendering. No static HTML for each post. Just markdown over the wire and client-side render.
 

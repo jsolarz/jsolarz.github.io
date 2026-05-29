@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: azure ai development
 image: /img/blog/rapid-prototyping-azure.jpg
 excerpt: A practical walkthrough showing how to turn concepts into working solutions quickly using Azure's AI services.
+
+  The tavern rumor is that a model can answer anything if you feed it the right prompt. You have been sent to prove value before the treasury funds a full citadel. Azure OpenAI and Copilot Studio are your field kit—not prophecy, but a fast scout.
+  
+  Expect the first prototype to embarrass you. That is the point. You are mapping where human review still holds the quest line.
+scene: |
+  The tavern rumor is that a model can answer anything if you feed it the right prompt. You have been sent to prove value before the treasury funds a full citadel. Azure OpenAI and Copilot Studio are your field kit—not prophecy, but a fast scout.
+  
+  Expect the first prototype to embarrass you. That is the point. You are mapping where human review still holds the quest line.
+
 ---
 
 # From Idea to Impact: Rapid Prototyping with Azure OpenAI and Copilot Studio

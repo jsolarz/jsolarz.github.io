@@ -1,8 +1,9 @@
-name: 'Reindex blog posts'
+name: 'Reindex journal posts'
 on:
   push:
     branches:
       - master
+      - main
     paths:
       - "_posts/**"
   workflow_dispatch: {}
@@ -34,6 +35,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "Index already up to date."
           else
-            git commit -m "chore: regenerate blog post index"
+            git commit -m "chore: regenerate journal posts index"
             git push
           fi

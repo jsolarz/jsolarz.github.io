@@ -2,6 +2,8 @@
 
 Client-side markdown blog system - no pre-conversion needed.
 
+**Theme:** The site uses the **Turbo Logic** terminal design system (Turbo Pascal / BBS aesthetic). All layout and colors live in [`css/style.css`](../css/style.css) — no Tailwind or per-page style bundles.
+
 ## Overview
 
 1. Blog posts are written in Markdown format with front matter metadata
@@ -38,6 +40,10 @@ author: Your Name
 categories: category1 category2
 image: /img/blog/image-name.jpg
 excerpt: A brief summary of your post that will appear in listings.
+scene: |
+  Optional dungeon-master intro (second person, dry tone). Shown only on the journal post page above the article body—not in the index.
+tldr: |
+  Optional short summary after the scene block. If omitted, `excerpt` is used for the TL;DR box.
 ---
 
 # Your Post Content Starts Here
@@ -63,11 +69,11 @@ The blog engine uses **client-side rendering** — no build-time copy of content
 
 1. **Single source of truth:** Markdown lives in `_posts/`. No pre-rendered HTML.
 2. **Index vs manifest:** The engine first loads `js/posts-index.json` (title, date, slug, excerpt, etc.). If that fetch fails, it falls back to `_posts/manifest.json` (list of filenames), then fetches each `.md` file to build the list.
-3. **Rendering a post:** The client fetches `_posts/<filename>.md`, parses front matter, renders markdown to HTML (e.g. [marked](https://github.com/markedjs/marked)), and injects into the page.
+3. **Rendering a post:** The client fetches `_posts/<filename>.md`, parses front matter (including multiline `scene: |` and `tldr: |` blocks), renders markdown to HTML (e.g. [marked](https://github.com/markedjs/marked)), and injects into the page. Optional `scene` (**DM_READS**) and `tldr` (**TL;DR**, falls back to `excerpt`) appear above `.post-content`. **Previous / Next** links use the published index (newest first): previous = older entry, next = newer. Keyboard: Ctrl+← / Ctrl+→ on post pages.
 4. **Scheduled posts:** Posts with a future `date` (in front matter or filename) are hidden from the blog listing and show a "scheduled" message when opened by URL until that date (UTC). You can copy all posts into `_posts/` in advance; they become visible automatically on their publish date.
 5. **`.nojekyll`:** Used so GitHub Pages serves `_posts/*.md` as static files instead of running Jekyll.
 
-**Keeping the list up to date:** After adding or changing posts, run `npm run generate-index`. This updates `js/posts-index.json` and `_posts/manifest.json` so the blog list and metadata stay correct. See the blog post [How This Blog Engine Works](/blog/post.html?slug=how-this-blog-engine-works) for a fuller narrative.
+**Keeping the list up to date:** After adding or changing posts, run `npm run generate-index`. This updates `js/posts-index.json` and `_posts/manifest.json` so the journal list and metadata stay correct. See the blog post [How This Blog Engine Works](/journal/post.html?slug=how-this-blog-engine-works) for a fuller narrative.
 
 ## Adding Posts
 
@@ -87,9 +93,9 @@ The system uses templates in `templates/blog-post.html` for consistent styling. 
 ## Notes
 
 1. Images referenced in your blog posts should use paths relative to the root of the website
-2. If you want to update the template, edit `blog/template.html`
-3. For custom styling of Markdown elements, add CSS rules to `css/style.css`
+2. If you want to update the template, edit `templates/blog-post.html`
+3. For custom styling of Markdown elements, add CSS rules to `css/style.css` (`.post-content` uses Turbo Logic prose colors)
 
 ---
 
-Happy blogging!
+Happy writing.

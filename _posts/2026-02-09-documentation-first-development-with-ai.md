@@ -1,4 +1,15 @@
-# Documentation-First Development with AI: How Ideas Become Architecture
+---
+title: "Documentation-First Development with AI: How Ideas Become Architecture"
+date: 2026-02-09
+slug: documentation-first-development-with-ai
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  You write the quest briefing before drawing swords—docs as the contract AI and humans share. Models accelerate drafting; they also amplify ambiguity if the spec was lazy.
+  
+  This session covers ordering work documentation-first without turning every spike into a parchment bureaucracy.
+---
 
 I have a confession that will sound strange coming from someone who uses AI-assisted development daily: I prefer to read the manual.
 

@@ -5,8 +5,8 @@ A minimal, performant BBS-style website with template system and markdown blog e
 ## Features
 
 -   Template system (DRY architecture)
--   Client-side markdown blog engine using md4w (WASM)
--   BBS aesthetic with Nord color theme
+-   Client-side journal (markdown) engine
+-   Turbo Logic terminal aesthetic
 -   Mobile-first responsive design
 -   Template caching for performance
 -   GitHub Pages compatible
@@ -30,15 +30,17 @@ npm run generate-index
 .
 ├── _posts/              # Markdown blog posts
 │   └── manifest.json    # Post filename list (required)
-├── blog/                # Blog post pages
-│   └── post.html        # Single template for all posts (slug from URL)
+├── journal/             # Journal entry pages
+│   └── post.html        # Single template for all entries (slug from URL)
+├── blog/                # Legacy redirects to journal/
+│   └── post.html
 ├── css/                 # Stylesheets
 ├── docs/                # Documentation
 ├── files/               # Document files (CV, PDFs)
 ├── img/                 # Image assets
 ├── js/                  # JavaScript modules
-│   ├── blog-engine.js   # Blog engine (md4w)
-│   ├── md4w-loader.js   # md4w WASM loader
+│   ├── blog-engine.js   # Journal engine
+│   ├── markdown-loader.js
 │   ├── template-engine.js # Template system
 │   ├── scripts.js       # Core scripts
 │   └── posts-index.json # Generated post index (optional)
@@ -50,7 +52,8 @@ npm run generate-index
 └── *.html               # Entry point pages (root for clean URLs)
     ├── index.html        # Home page
     ├── about.html        # About page
-    ├── blog.html         # Blog listing
+    ├── journal.html      # Journal listing
+    ├── blog.html         # Redirects to journal.html
     ├── contact.html      # Contact page
     ├── cv.html           # CV page
     ├── portfolio.html    # Portfolio page
@@ -82,16 +85,16 @@ Markdown content here...
 npm run generate-index
 ```
 
-3. Post appears automatically in blog listing
+3. Post appears automatically in the journal listing
 
-### Blog Engine
+### Journal engine
 
--   **Client-side markdown rendering** — Markdown in `_posts/` is fetched and rendered in the browser (e.g. marked). No build-time HTML.
+-   **Client-side markdown rendering** — Markdown in `_posts/` is fetched and rendered in the browser (marked). No build-time HTML.
 -   **Index + manifest:** Listing uses `js/posts-index.json`; if that fails, fallback is `_posts/manifest.json` plus per-file fetch.
 -   **Run `npm run generate-index`** after adding or changing posts so the index (and manifest) stay up to date.
 -   GitHub Pages compatible (`.nojekyll` keeps `_posts` served as static files).
 
-See `docs/README-blog-system.md` and the post [How This Blog Engine Works](/blog/post.html?slug=how-this-blog-engine-works) for details.
+See `docs/README-blog-system.md` and the post [How This Blog Engine Works](/journal/post.html?slug=how-this-blog-engine-works) for details.
 
 ## Template System
 
@@ -136,8 +139,7 @@ See `docs/README-blog-system.md` and the post [How This Blog Engine Works](/blog
 
 ## Documentation
 
--   `README-blog-engine.md` - Blog engine documentation (client-side rendering)
--   `docs/README-blog-system.md` - Blog system overview
+-   `docs/README-blog-system.md` - Journal system overview (front matter, index, scenes)
 
 ## License
 

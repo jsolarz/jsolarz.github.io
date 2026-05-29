@@ -5,6 +5,11 @@ slug: building-a-devops-culture
 author: Jonathan Solarz
 categories: devops culture process
 excerpt: DevOps is not a job title. It's ownership, automation, and feedback loops. What actually moves the needle when you're trying to change how teams ship.
+scene: |
+  Tools drop from loot tables; culture is the party composition. DevOps here means shared ownership, measurable flow, and blameless postmortems that change the next sprint—not renaming ops to "platform" and calling it done.
+  
+  You are DMing habits: small batches, visible work, psychological safety when pipelines fail at 2 a.m.
+
 ---
 
 # Building a DevOps Culture in Your Organization

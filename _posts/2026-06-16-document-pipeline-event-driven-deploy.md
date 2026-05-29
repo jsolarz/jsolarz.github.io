@@ -8,6 +8,11 @@ categories: aws cdk architecture serverless
 image: /img/blog/document-pipeline-eventbridge.jpg
 series: aws-cdk-complex-deployments
 series_part: 4
+scene: |
+  Documents enter the realm through an event-driven pipeline—ingest, transform, deploy, notify. You wired AWS pieces end to end so a file landing in the right bucket starts a quest chain with idempotency and failure branches.
+  
+  Follow the data, not the console clicks; the post is the map of that flow.
+
 ---
 
 # AWS Pipeline Deployment: Wiring Document Ingestion End to End
@@ -20,7 +25,7 @@ Infrastructure can go green while the product still feels broken. Uploads stall.
 
 ## In Brief
 
-Parts [1](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)–[3](https://ioni.solarz.me/blog/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) covered failures, layers, and IaC checklists. This post is the **happy path you still have to encode**.
+Parts [1](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)–[3](https://ioni.solarz.me/journal/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) covered failures, layers, and IaC checklists. This post is the **happy path you still have to encode**.
 
 - **GuardDuty → scan-mover → ready bucket → SQS** is the front half; test it before Step Functions.
 - **Step Functions SUCCEEDED** should emit a **domain event**, not an SQS hack left from an earlier design.
@@ -208,12 +213,12 @@ When refactoring event paths:
 
 | Part | Topic |
 |------|--------|
-| [1 — Post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
-| [2 — Layer cake](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) | CloudFormation stack layers + pipeline |
-| [3 — IaC checklists](https://ioni.solarz.me/blog/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) | Bedrock, OpenSearch Serverless, GuardDuty |
+| [1 — Post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem) | When simple services break the stack |
+| [2 — Layer cake](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) | CloudFormation stack layers + pipeline |
+| [3 — IaC checklists](https://ioni.solarz.me/journal/post.html?slug=bedrock-opensearch-guardduty-iac-checklist) | Bedrock, OpenSearch Serverless, GuardDuty |
 | **4 (this post)** | **AWS pipeline deployment** end to end |
 
-**Related FinOps track:** [Bedrock and Pipeline Cost Observability](https://ioni.solarz.me/blog/post.html?slug=bedrock-pipeline-cost-observability) — watch token and queue signals on the same flow.
+**Related FinOps track:** [Bedrock and Pipeline Cost Observability](https://ioni.solarz.me/journal/post.html?slug=bedrock-pipeline-cost-observability) — watch token and queue signals on the same flow.
 
 ---
 

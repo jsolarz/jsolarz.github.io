@@ -1,4 +1,15 @@
-# Documentation as Code: The Technical Deep Dive
+---
+title: "Documentation as Code: The Technical Deep Dive"
+date: 2025-12-10
+slug: documentation-as-code-folder-structure
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Before the indexer and the agents, someone must decide where scrolls live. Folder structure sounds mundane until three teams invent three taxonomies and search becomes folklore.
+  
+  You are standardizing the shelves so humans and automation can reshelve without a council meeting per file.
+---
 
 ## Introduction
 

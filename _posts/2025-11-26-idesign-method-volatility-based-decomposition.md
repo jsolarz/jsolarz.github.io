@@ -1,4 +1,15 @@
-# IDesign Method: Designing for Change, Not Requirements
+---
+title: "IDesign Method: Designing for Change, Not Requirements"
+date: 2025-11-26
+slug: idesign-method-volatility-based-decomposition
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Functional decomposition is the trap door: every new requirement rewrites half the party. Volatility-based design asks what will change independently and gives each threat its own guardian component. Managers, Engines, Accessors—roles, not job titles.
+  
+  You are learning to draw borders where change hurts least. Closed architecture is the door rule: no skipping tiers.
+---
 
 ## Introduction
 

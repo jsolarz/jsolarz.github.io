@@ -8,6 +8,11 @@ categories: aws finops cdk architecture
 image: /img/blog/aws-cost-allocation-tags.jpg
 series: aws-finops-on-complex-workloads
 series_part: 2
+scene: |
+  Tags are not decoration—they are how finance sees your architecture. CDK and pipelines can stamp them; backfill still haunts legacy resources. You document the tagging covenant and the deploy hooks that enforce it.
+  
+  Miss this quest and FinOps plays detective with spreadsheets—bad for everyone.
+
 ---
 
 # AWS Cost Allocation Tags: CDK, Pipelines, and the Backfill You Still Need
@@ -155,9 +160,9 @@ Part 3 goes signal-by-signal: Bedrock tokens, SQS age, and when Aurora is a red 
 
 | Part | Topic |
 |------|--------|
-| [1 — AWS FinOps overview](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload) | Dashboard, budgets, automation |
+| [1 — AWS FinOps overview](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload) | Dashboard, budgets, automation |
 | **2** (this post) | CDK, pipelines, backfill |
-| [3 — Bedrock & pipeline signals](https://ioni.solarz.me/blog/post.html?slug=bedrock-pipeline-cost-observability) | Reading the dashboard |
+| [3 — Bedrock & pipeline signals](https://ioni.solarz.me/journal/post.html?slug=bedrock-pipeline-cost-observability) | Reading the dashboard |
 
 ---
 

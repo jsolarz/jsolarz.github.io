@@ -1,4 +1,15 @@
-# Lessons Learned: A Year Building Enterprise Systems
+---
+title: "Lessons Learned: A Year Building Enterprise Systems"
+date: 2026-01-07
+slug: lessons-learned-building-enterprise-systems
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Enterprise campaigns run long; shortcuts become curses seasons later. You have survived procurement, compliance, multi-team dependencies, and the quiet violence of "temporary" integrations.
+  
+  Treat this as a loot table of lessons—some rare, some common—pulled from systems that had to work Monday morning, not demo Friday afternoon.
+---
 
 ## Introduction
 

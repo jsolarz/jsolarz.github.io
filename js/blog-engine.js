@@ -4,7 +4,7 @@
  */
 import { markdownLoader } from "./markdown-loader.js"
 
-const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
+const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "journal", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
 
 class BlogEngine {
 	#postsIndex = /** @type {Array<Object> | null} */ (null)
@@ -119,29 +119,112 @@ class BlogEngine {
 		})
 	}
 
+	#parseFrontMatterMetadata(metadataText) {
+		const metadata = {}
+		const lines = metadataText.split("\n")
+		let i = 0
+		while (i < lines.length) {
+			const trimmed = lines[i].trim()
+			if (!trimmed || trimmed.startsWith("#")) {
+				i++
+				continue
+			}
+			const colonIndex = trimmed.indexOf(":")
+			if (colonIndex <= 0) {
+				i++
+				continue
+			}
+			const key = trimmed.substring(0, colonIndex).trim()
+			const valuePart = trimmed.substring(colonIndex + 1).trim()
+			if (valuePart === "|" || valuePart === "|-" || valuePart === ">") {
+				i++
+				const block = []
+				while (i < lines.length) {
+					const next = lines[i]
+					if (/^ {2}/.test(next)) {
+						block.push(next.replace(/^ {2}/, ""))
+						i++
+					} else if (next.trim() === "" && block.length > 0) {
+						block.push("")
+						i++
+					} else break
+				}
+				metadata[key] = block.join("\n").replace(/\n+$/, "")
+				continue
+			}
+			let value = valuePart
+			if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+				value = value.slice(1, -1)
+			}
+			metadata[key] = key === "categories" && value.includes(" ") ? value.split(" ").filter(Boolean) : value
+			i++
+		}
+		return metadata
+	}
+
 	#parseFrontMatter(markdown) {
 		const match = markdown.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/)
 		if (!match) return { metadata: {}, content: markdown }
+		return { metadata: this.#parseFrontMatterMetadata(match[1]), content: match[2] }
+	}
 
-		const metadata = {}
-		match[1].split("\n").forEach((line) => {
-			const trimmed = line.trim()
-			if (!trimmed || trimmed.startsWith("#")) return
+	#formatJournalProseBlock(text) {
+		if (!text || typeof text !== "string") return ""
+		return text
+			.split(/\n\n+/)
+			.map((para) => para.trim())
+			.filter(Boolean)
+			.map((para) => `<p>${this.#escapeHtml(para)}</p>`)
+			.join("")
+	}
 
-			const colonIndex = trimmed.indexOf(":")
-			if (colonIndex > 0) {
-				const key = trimmed.substring(0, colonIndex).trim()
-				let value = trimmed.substring(colonIndex + 1).trim()
+	#formatJournalScene(scene) {
+		return this.#formatJournalProseBlock(scene)
+	}
 
-				if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-					value = value.slice(1, -1)
-				}
+	#formatJournalTldr(post) {
+		const raw = post.tldr || post.excerpt
+		return this.#formatJournalProseBlock(raw)
+	}
 
-				metadata[key] = key === "categories" && value.includes(" ") ? value.split(" ").filter(Boolean) : value
-			}
-		})
+	/**
+	 * Published posts are newest-first. Prev = older entry, next = newer entry.
+	 * @param {string} slug
+	 */
+	async #getPostNeighbors(slug) {
+		const posts = await this.loadPostsIndex({ publishedOnly: true })
+		let index = posts.findIndex((p) => p.slug === slug)
+		if (index === -1) {
+			index = posts.findIndex(
+				(p) => p.filename === `${slug}.md` || p.filename?.endsWith(`-${slug}.md`)
+			)
+		}
+		if (index === -1) return { prev: null, next: null }
+		return {
+			prev: index < posts.length - 1 ? posts[index + 1] : null,
+			next: index > 0 ? posts[index - 1] : null,
+		}
+	}
 
-		return { metadata, content: match[2] }
+	#buildPostPagerHtml({ prev, next }) {
+		if (!prev && !next) return ""
+
+		const link = (post, rel, direction) => {
+			const href = `${this.#basePath}/journal/post.html?slug=${encodeURIComponent(post.slug)}`
+			const title = this.#escapeHtml(post.title)
+			const arrow = direction === "prev" ? "←" : "→"
+			const label =
+				direction === "prev"
+					? `<span class="post-pager__dir">${arrow} Previous</span><span class="post-pager__title">${title}</span>`
+					: `<span class="post-pager__dir">Next ${arrow}</span><span class="post-pager__title">${title}</span>`
+			return `<a href="${href}" class="post-pager__link post-pager__link--${direction}" rel="${rel}">${label}</a>`
+		}
+
+		const parts = []
+		if (prev) parts.push(link(prev, "prev", "prev"))
+		if (next) parts.push(link(next, "next", "next"))
+
+		return `<nav class="post-pager" aria-label="Adjacent journal entries">${parts.join("")}</nav>`
 	}
 
 	/**
@@ -152,7 +235,12 @@ class BlogEngine {
 	async loadPost(slug) {
 		const index = await this.loadPostsIndex()
 		if (!index) throw new Error("Posts index not loaded")
-		const postMeta = index.find((p) => p.slug === slug)
+		let postMeta = index.find((p) => p.slug === slug)
+		if (!postMeta) {
+			postMeta = index.find(
+				(p) => p.filename === `${slug}.md` || p.filename?.endsWith(`-${slug}.md`)
+			)
+		}
 		if (!postMeta) throw new Error(`Post not found: ${slug}`)
 
 		const filename = postMeta.filename || `${postMeta.date}-${slug}.md`
@@ -222,7 +310,7 @@ class BlogEngine {
 			html = this.#removeDuplicateTitle(html, post.title)
 
 			this.#updateMetaTags(post)
-			this.#renderPostContent(containerEl, post, html, slug, toc)
+			await this.#renderPostContent(containerEl, post, html, slug, toc)
 			containerEl.setAttribute("aria-busy", "false")
 		} catch (error) {
 			console.error("Error rendering post:", error)
@@ -262,7 +350,7 @@ class BlogEngine {
 		)
 		updateProperty("og:title", `${post.title} | Jonathan Solarz`)
 		updateProperty("og:description", post.excerpt || `${post.title} - Article on software architecture and cloud solutions.`)
-		updateProperty("og:url", `${window.location.origin}${this.#basePath}/blog/post.html?slug=${post.slug}`)
+		updateProperty("og:url", `${window.location.origin}${this.#basePath}/journal/post.html?slug=${post.slug}`)
 
 		const publishedTime = document.querySelector('meta[property="article:published_time"]') || document.createElement("meta")
 		if (!publishedTime.hasAttribute("property")) {
@@ -286,30 +374,38 @@ class BlogEngine {
 			canonical.rel = "canonical"
 			document.head.appendChild(canonical)
 		}
-		canonical.href = `${window.location.origin}${this.#basePath}/blog/post.html?slug=${post.slug}`
+		canonical.href = `${window.location.origin}${this.#basePath}/journal/post.html?slug=${post.slug}`
 	}
 
-	#renderPostContent(containerEl, post, html, slug, toc = "") {
+	async #renderPostContent(containerEl, post, html, slug, toc = "") {
 		const formattedDate = post.formattedDate || this.#formatDate(post.date)
 		const wordCount = (post.content || "").trim().split(/\s+/).filter(Boolean).length
 		const readTime = Math.ceil(wordCount / 200)
 		const categories = Array.isArray(post.categories) ? post.categories.join(" • ") : post.categories || ""
 
+		const journalScene = this.#formatJournalScene(post.scene)
+		const journalTldr = this.#formatJournalTldr(post)
+		const neighbors = await this.#getPostNeighbors(slug)
+		const postPager = this.#buildPostPagerHtml(neighbors)
 		const templateData = {
 			postTitle: post.title,
 			postDate: formattedDate,
+			postDateISO: post.date || "",
 			readTime,
 			fileName: slug,
 			postContent: html,
+			journalScene,
+			journalTldr,
+			postPager,
 			categories,
-			relatedPosts: "", // Empty for now - will be populated when related posts are implemented
+			relatedPosts: "",
 			toc,
 		}
 
 		/** @type {any} */
 		const win = window
 		if (win.templateEngine) {
-			win.templateEngine.includeTemplate(containerEl, "blog-post", "templates/blog-post.html", templateData)
+			await win.templateEngine.includeTemplate(containerEl, "blog-post", "templates/blog-post.html", templateData)
 		} else {
 			containerEl.innerHTML = this.#renderPostHTML(templateData)
 		}
@@ -317,22 +413,42 @@ class BlogEngine {
 
 	#renderPostHTML(data) {
 		return `
-			<article class="blog-post">
-				<header class="post-header">
-					<h1 class="post-title-main">${this.#escapeHtml(data.postTitle)}</h1>
-					<div class="post-meta">Posted on ${this.#escapeHtml(data.postDate)} • ${data.readTime} min read</div>
-				</header>
-				<div class="post-content" role="article">${data.postContent}</div>
-				<div class="terminal">
-					<span class="prompt">$ </span>
-					<span class="command">echo "Comments and discussion"</span>
-					<div class="output">
-						<p>Feel free to share your thoughts by
-							<a href="mailto:hello@solarz.me" style="color: var(--frost-2)">emailing me</a>
-							or reaching out on social media!</p>
+			<article class="blog-post terminal-window">
+				<div class="terminal-header">───[ ${this.#escapeHtml(data.postTitle)} ]───</div>
+				<div class="terminal-window-body">
+					<header class="post-header">
+						<h1 class="post-title-main">${this.#escapeHtml(data.postTitle)}</h1>
+						<div class="post-meta">Posted on ${this.#escapeHtml(data.postDate)} • ${data.readTime} min read</div>
+					</header>
+					${
+						data.journalScene
+							? `<aside class="journal-scene" aria-label="Dungeon Master introduction">
+						<p class="journal-scene__label" aria-hidden="true">───[ DM_READS ]───</p>
+						<div class="journal-scene__body">${data.journalScene}</div>
+					</aside>`
+							: ""
+					}
+					${
+						data.journalTldr
+							? `<aside class="journal-tldr" aria-label="Summary">
+						<p class="journal-tldr__label" aria-hidden="true">───[ TL;DR ]───</p>
+						<div class="journal-tldr__body">${data.journalTldr}</div>
+					</aside>`
+							: ""
+					}
+					<div class="post-content" role="article">${data.postContent}</div>
+					${data.postPager || ""}
+					<div class="terminal">
+						<span class="prompt">$ </span>
+						<span class="command">echo "Comments and discussion"</span>
+						<div class="output">
+							<p>Feel free to share your thoughts by
+								<a href="mailto:hello@solarz.me">emailing me</a>
+								or reaching out on social media!</p>
+						</div>
 					</div>
+					<a href="${this.#basePath}/journal.html" class="bracket-link">[ BACK_TO_ARCHIVE ]</a>
 				</div>
-				<a href="${this.#basePath}/blog.html" class="highlight-2">← Back to all posts</a>
 			</article>
 		`
 	}
@@ -389,22 +505,31 @@ class BlogEngine {
 			}) : posts
 			for (const post of list) {
 					const li = document.createElement("li")
-					li.className = "post-item"
+					li.className = "post-item post-item--row"
 					li.setAttribute("role", "listitem")
+
+					const row = document.createElement("div")
+					row.className = "post-row"
+
+					const dateCol = document.createElement("span")
+					dateCol.className = "post-date-col"
+					dateCol.textContent = post.formattedDate || post.date || ""
+					row.appendChild(dateCol)
 
 					const h2 = document.createElement("h2")
 					h2.className = "post-title"
 					const titleLink = document.createElement("a")
-					titleLink.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
+					titleLink.href = `${this.#basePath}/journal/post.html?slug=${encodeURIComponent(post.slug)}`
 					titleLink.textContent = post.title
 					titleLink.setAttribute("aria-label", `Read post: ${post.title}`)
 					h2.appendChild(titleLink)
-					li.appendChild(h2)
+					row.appendChild(h2)
+					li.appendChild(row)
 
 					const meta = document.createElement("div")
 					meta.className = "post-meta"
 					const categories = Array.isArray(post.categories) ? post.categories.join(" • ") : post.categories || ""
-					meta.textContent = `Posted on ${post.formattedDate}${categories ? " • " + categories : ""}`
+					if (categories) meta.textContent = categories
 					li.appendChild(meta)
 
 					const excerpt = document.createElement("div")
@@ -415,8 +540,9 @@ class BlogEngine {
 					li.appendChild(excerpt)
 
 					const readMoreLink = document.createElement("a")
-					readMoreLink.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
-					readMoreLink.textContent = "Read more →"
+					readMoreLink.href = `${this.#basePath}/journal/post.html?slug=${encodeURIComponent(post.slug)}`
+					readMoreLink.className = "bracket-link"
+					readMoreLink.textContent = "[ READ_MORE ]"
 					readMoreLink.setAttribute("aria-label", `Read full post: ${post.title}`)
 					li.appendChild(readMoreLink)
 

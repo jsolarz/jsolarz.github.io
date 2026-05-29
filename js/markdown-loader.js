@@ -79,7 +79,11 @@ export class MarkdownLoader {
 
 export const markdownLoader = new MarkdownLoader()
 
-if (window.location.pathname.includes("/blog") || document.querySelector(".post-list")) {
+if (
+	window.location.pathname.includes("/journal") ||
+	window.location.pathname.includes("/blog") ||
+	document.querySelector(".post-list")
+) {
 	markdownLoader.load().catch(() => {})
 }
 

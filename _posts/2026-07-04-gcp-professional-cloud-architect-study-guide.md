@@ -5,6 +5,11 @@ slug: gcp-professional-cloud-architect-study-guide
 author: Jonathan Solarz
 categories: gcp certification architecture
 excerpt: The Google Cloud Professional Cloud Architect (PCA) exam is the design-focused cert—the closest equivalent to AZ-305. What it tests and how to prepare.
+scene: |
+  PCA is design on GCP: trade-offs, case studies, no mercy for buzzwords. You prepare to justify Spanner versus SQL, org policies, and data residency stories.
+  
+  Pair this with AZ-305 thinking—same boss fight, different spell list.
+
 ---
 
 # GCP Professional Cloud Architect: The AZ-305 Equivalent Study Guide
@@ -44,4 +49,4 @@ You'll have a design-focused cert on GCP. Combined with AZ-305 and SAP (or SAA),
 
 ---
 
-_Related: [AZ-305 key topics](/blog/post.html?slug=az-305-key-topics-and-how-to-prepare), [AWS Solutions Architect Professional](/blog/post.html?slug=aws-solutions-architect-professional-study-guide), [GCP Associate Cloud Engineer](/blog/post.html?slug=gcp-associate-cloud-engineer-study-guide)._
+_Related: [AZ-305 key topics](/journal/post.html?slug=az-305-key-topics-and-how-to-prepare), [AWS Solutions Architect Professional](/journal/post.html?slug=aws-solutions-architect-professional-study-guide), [GCP Associate Cloud Engineer](/journal/post.html?slug=gcp-associate-cloud-engineer-study-guide)._

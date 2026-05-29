@@ -1,8 +1,8 @@
 /**
- * Keyboard navigation: menu (M/Escape), post prev/next (Ctrl+Arrow), home (H), blog (B). Respects base path for subpath hosting.
+ * Keyboard navigation: menu (M/Escape), post prev/next (Ctrl+Arrow), home (H), journal (J). Respects base path for subpath hosting.
  */
 
-const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
+const BASE_PATH_EXCLUDE_SEGMENTS = ["blog", "journal", "pages", "templates", "js", "css", "_posts", "files", "img", "docs"]
 
 function getBasePath() {
 	const match = window.location.pathname.match(/^\/([^/]+)\//)
@@ -68,11 +68,11 @@ class KeyboardNavigation {
 			}
 		}
 
-		// Blog: B
-		if (e.key === "b" || e.key === "B") {
+		// Journal: J
+		if (e.key === "j" || e.key === "J") {
 			if (!e.ctrlKey && !e.metaKey && !e.altKey) {
 				e.preventDefault()
-				window.location.href = `${this.#basePath}/blog.html`
+				window.location.href = `${this.#basePath}/journal.html`
 			}
 		}
 	}
@@ -152,7 +152,7 @@ class KeyboardNavigation {
 			// Not on a post page, go to first/last
 			const targetIndex = direction === "next" ? 0 : this.posts.length - 1
 			const post = this.posts[targetIndex]
-			window.location.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
+			window.location.href = `${this.#basePath}/journal/post.html?slug=${encodeURIComponent(post.slug)}`
 			return
 		}
 
@@ -166,7 +166,7 @@ class KeyboardNavigation {
 		}
 
 		const post = this.posts[newIndex]
-		window.location.href = `${this.#basePath}/blog/post.html?slug=${encodeURIComponent(post.slug)}`
+		window.location.href = `${this.#basePath}/journal/post.html?slug=${encodeURIComponent(post.slug)}`
 	}
 
 	toggleMenu() {

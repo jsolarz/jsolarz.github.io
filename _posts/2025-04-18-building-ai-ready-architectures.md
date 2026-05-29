@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: cloud ai azure
 image: /img/blog/ai-ready-architecture.jpg
 excerpt: A comprehensive guide to preparing enterprise systems for AI integration using Microsoft Azure's cloud platform and services.
+
+  Intelligence is joining the party whether you invited it or not. Your architecture must leave sockets for models, guardrails for data, and honest limits on what automation may decide alone. Azure is the backdrop; the discipline is designing for unknown model volatility.
+  
+  You are not building a oracle—you are building a camp that can host one without burning down the supply lines.
+scene: |
+  Intelligence is joining the party whether you invited it or not. Your architecture must leave sockets for models, guardrails for data, and honest limits on what automation may decide alone. Azure is the backdrop; the discipline is designing for unknown model volatility.
+  
+  You are not building a oracle—you are building a camp that can host one without burning down the supply lines.
+
 ---
 
 # Building AI-Ready Architectures on Azure

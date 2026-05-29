@@ -1,10 +1,10 @@
 {
 	"name": "bbs-blog-website",
 	"version": "1.0.0",
-	"description": "BBS-style static blog website with client-side markdown rendering",
+	"description": "BBS-style static site with client-side journal (markdown) rendering",
 	"scripts": {
 		"generate-index": "node scripts/generate-posts-index.js",
-		"test": "echo 'Open blog.html in browser and run: blogEngineTests.runTests() in console'"
+		"test": "echo 'Open tests/integration/navigation.test.html or tests/e2e/blog-post.test.html in a browser'"
 	},
 	"dependencies": {
 		"front-matter": "^4.0.2"

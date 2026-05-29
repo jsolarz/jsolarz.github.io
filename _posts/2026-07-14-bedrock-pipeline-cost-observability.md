@@ -8,6 +8,11 @@ categories: aws finops bedrock observability
 image: /img/blog/bedrock-pipeline-cost.jpg
 series: aws-finops-on-complex-workloads
 series_part: 3
+scene: |
+  When the invoice spikes, the party blames Aurora first. Sometimes the villain is Bedrock tokens and pipeline retries you did not chart. You learn to read dashboards before narrative fallacy.
+  
+  Cost observability tied to AI paths—metrics, alarms, and questions to ask before rerolling architecture.
+
 ---
 
 # Bedrock and Pipeline Cost: Reading the Dashboard Before You Blame Aurora
@@ -16,7 +21,7 @@ Spend climbed again. You open the database panel. Aurora looks fine. Meanwhile t
 
 **AWS cost observability** for document platforms is not one metric. It is a short list of signals that answer different questions—and a Monday habit of reading them together.
 
-Parts [1](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload) and [2](https://ioni.solarz.me/blog/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy) built the layer: dashboard, tags, budgets. This is **part 3**: how to interpret it when the workload is ingest → **Amazon Bedrock** extract → persist → notify.
+Parts [1](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload) and [2](https://ioni.solarz.me/journal/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy) built the layer: dashboard, tags, budgets. This is **part 3**: how to interpret it when the workload is ingest → **Amazon Bedrock** extract → persist → notify.
 
 ![Which metric tells the truth — Bedrock, SQS, Aurora](/img/blog/bedrock-pipeline-cost.png)
 
@@ -116,7 +121,7 @@ Avoid heroic “turn off Bedrock” moves. Narrow the experiment: one queue, one
 
 ## Closing the Series
 
-Complex document and AI workloads need FinOps that respects the pipeline: tags and governance ([part 2](https://ioni.solarz.me/blog/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy)), inventory and alerts ([part 1](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload)), and weekly reading of the signals that actually move the bill ([part 3](https://ioni.solarz.me/blog/post.html?slug=bedrock-pipeline-cost-observability)—this post).
+Complex document and AI workloads need FinOps that respects the pipeline: tags and governance ([part 2](https://ioni.solarz.me/journal/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy)), inventory and alerts ([part 1](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload)), and weekly reading of the signals that actually move the bill ([part 3](https://ioni.solarz.me/journal/post.html?slug=bedrock-pipeline-cost-observability)—this post).
 
 When the number moves, let the dashboard tell you which lever—not which service name sounds scariest in a stand-up.
 
@@ -133,8 +138,8 @@ When the number moves, let the dashboard tell you which lever—not which servic
 
 | Part | Topic |
 |------|--------|
-| [1 — Overview](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload) | Tags, dashboard, budgets |
-| [2 — Tags](https://ioni.solarz.me/blog/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy) | CDK + backfill |
+| [1 — Overview](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload) | Tags, dashboard, budgets |
+| [2 — Tags](https://ioni.solarz.me/journal/post.html?slug=aws-cost-allocation-tags-cdk-and-deploy) | CDK + backfill |
 | **3** (this post) | Bedrock + pipeline signals |
 
 ---

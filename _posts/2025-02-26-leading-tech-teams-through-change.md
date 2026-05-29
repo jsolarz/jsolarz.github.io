@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: leadership management
 image: /img/blog/leading-through-change.jpg
 excerpt: Reflections on managing teams through digital transformation and uncertainty, with practical advice for tech leaders facing similar challenges.
+
+  The party has leveled up, but the old map still hangs on the wall. Morale is a resource you cannot see on the character sheet until it is gone. You are the DM for a campaign where the rules of engagement keep changing mid-session.
+  
+  This entry catalogs what broke, what held, and why transparency beats heroic solo rolls when the roadmap shifts.
+scene: |
+  The party has leveled up, but the old map still hangs on the wall. Morale is a resource you cannot see on the character sheet until it is gone. You are the DM for a campaign where the rules of engagement keep changing mid-session.
+  
+  This entry catalogs what broke, what held, and why transparency beats heroic solo rolls when the roadmap shifts.
+
 ---
 
 # Leading Tech Teams Through Change: What I've Learned

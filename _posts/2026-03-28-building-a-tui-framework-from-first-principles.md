@@ -5,6 +5,11 @@ slug: building-a-tui-framework-from-first-principles
 author: Jonathan Solarz
 categories: architecture tools dotnet
 excerpt: Why I built a minimal TUI framework instead of using Terminal.Gui or ncurses: virtual buffer, diff-based renderer, view tree, and the same volatility-based architecture I use everywhere. No black box.
+scene: |
+  GUIs have guilds; TUIs demand you forge your own widgets. You are building MiniTui from volatility analysis—layout, input, render loops—without importing a whole desktop toolkit.
+  
+  Expect talk of double buffering, focus rings, and why flicker is the dragon you slay before features.
+
 ---
 
 # Building a TUI Framework from First Principles
@@ -39,4 +44,4 @@ MiniTui is used by the RSS reader TUI and is packaged as a NuGet library. If you
 
 ---
 
-_Related: [The IDesign Method: Taxonomy, Volatility, and Closed Architecture](/blog/post.html?slug=idesign-method-taxonomy-volatility-and-closed-architecture), [The One-Page Dashboard: Why TUI Apps Still Matter](/blog/post.html?slug=the-one-page-dashboard-why-tui-apps-still-matter)._
+_Related: [The IDesign Method: Taxonomy, Volatility, and Closed Architecture](/journal/post.html?slug=idesign-method-taxonomy-volatility-and-closed-architecture), [The One-Page Dashboard: Why TUI Apps Still Matter](/journal/post.html?slug=the-one-page-dashboard-why-tui-apps-still-matter)._

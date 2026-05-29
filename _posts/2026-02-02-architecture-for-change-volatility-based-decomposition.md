@@ -1,4 +1,15 @@
-# Architecture for Change: Applying Volatility-Based Decomposition to a Real Project
+---
+title: "Architecture for Change: Applying Volatility-Based Decomposition to a Real Project"
+date: 2026-02-02
+slug: architecture-for-change-volatility-based-decomposition
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Requirements will mutate; that is not a bug in the campaign setting. Your architecture wins if each mutation triggers a localized quest, not a full-party wipe. Volatility-based decomposition returns with examples tied to systems you actually ship.
+  
+  Read this when someone asks for "flexible" without naming what must bend.
+---
 
 The first question people ask when they see AwsViz's architecture is: "Why don't you have an Ec2Service, an S3Service, a LambdaService?"
 

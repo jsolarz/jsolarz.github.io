@@ -1,45 +1,86 @@
-<p class="site-description">
-	This isn't your typical tech blog. Here, we dive into the sometimes hilarious, often harrowing, always educational world of software
-	development. Join me as we explore the trials and tribulations of a software architect, navigate the ever-expanding universe of Azure,
-	dissect insightful code snippets, ponder the intricacies of software design, and share a bit of my personal journey along the way.
-</p>
-<p class="site-description">
-	Whether you're a seasoned coder, a curious student, or just someone who appreciates the beautiful mess that is technology, grab a
-	virtual beverage, pull up a chair, and let's unravel the digital world together. Consider this your digital campfire, where we share
-	stories, swap tips, and maybe even laugh at our own (inevitable) syntax errors.
-</p>
-
-<div class="terminal" role="status" aria-label="User information">
-	<span class="prompt" aria-hidden="true">$ </span>
-	<span class="command" aria-hidden="true">whoami</span>
-	<div class="output">I'm Jonathan, software and solution architect</div>
-</div>
-
-<h2>Recent Updates</h2>
-
-<div class="bbs-box">
-	<div class="bbs-header">05/13/2025 - Site Launched</div>
-	<p>Welcome to my new BBS-style website. Take a look around and explore the different sections.</p>
-</div>
-
-<nav class="bbs-box" aria-label="Featured content">
-	<div class="bbs-header">Featured Content</div>
-	<ul role="list">
-		<li>
-			<a href="blog.html">Latest Blog Posts</a>
-		</li>
-		<li><a href="portfolio.html">Latest Projects</a></li>
-		<li><a href="about.html">About Me</a></li>
-	</ul>
-</nav>
-
-<div class="terminal" role="status" aria-label="Welcome message">
-	<span class="prompt" aria-hidden="true">$ </span>
-	<span class="command" aria-hidden="true">cat welcome.txt</span>
-	<div class="output">
-		Thanks for visiting my site! Feel free to explore and learn more about me and my work.
-		<br /><br />
-		This site is built with simple HTML, CSS, and minimal JavaScript to recreate the nostalgic feel of BBS systems with a modern twist
-		using the Nord color palette.
+<div class="home-stage">
+<section class="terminal-window home-welcome">
+	<div class="terminal-header">───[ welcome.txt ]───</div>
+	<div class="terminal-window-body">
+		<p class="prompt-line-meta">$ cat welcome.txt</p>
+		<div class="welcome-quote">
+			<p>
+				This isn't a typical tech blog. A personal journal: the sometimes hilarious, often harrowing, always educational world of
+				software development. Join me as we explore the trials and tribulations of a software architect, navigate the ever-expanding
+				universe of Azure, dissect insightful code snippets, ponder the intricacies of software design, and share a bit of my personal
+				journey along the way.
+			</p>
+			<p>
+				Whether you're a seasoned coder, a curious student, or just someone who appreciates the beautiful mess that is technology, grab a
+				virtual beverage, pull up a chair, and let's unravel the digital world together.
+			</p>
+		</div>
+		<p class="prompt-line-meta"><em>// Press [ESC] to close menu on mobile</em></p>
 	</div>
+</section>
+
+<div class="home-bento">
+	<section class="terminal-window span-7">
+		<div class="terminal-header">├───[ WHOAMI ]───┤</div>
+		<div class="terminal-window-body terminal-window-body--compact">
+			<div class="terminal" role="status" aria-label="User information">
+				<span class="prompt" aria-hidden="true">$ </span>
+				<span class="command" aria-hidden="true">whoami</span>
+			</div>
+			<p class="whoami-name">Jonathan Solarz</p>
+			<p class="whoami-role">Software &amp; Solution Architect</p>
+			<p>
+				Building resilient systems with a focus on .NET, cloud-native patterns, and developer experience. Passionate about clean
+				architecture and legacy computing aesthetics.
+			</p>
+			<div class="tag-row">
+				<span class="tag-chip">&lt;azure&gt;</span>
+				<span class="tag-chip">&lt;dotnet&gt;</span>
+				<span class="tag-chip">&lt;architecture&gt;</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="terminal-window span-5">
+		<div class="terminal-header">├───[ LOGS ]───┤</div>
+		<div class="terminal-window-body terminal-window-body--compact">
+			<ul class="log-list" role="list">
+				<li>
+					<span class="log-date">05/13/25</span>
+					<span class="log-title">Site Launched</span>
+				</li>
+				<li>
+					<span class="log-date">—</span>
+					<span class="log-title">Welcome to the Turbo Logic refresh</span>
+				</li>
+			</ul>
+			<p><a href="journal.html" class="bracket-link">[ VIEW_JOURNAL ]</a></p>
+		</div>
+	</section>
+
+	<section class="terminal-window span-12">
+		<div class="terminal-header">───[ FEATURED_CONTENT ]───</div>
+		<div class="featured-grid">
+			<a href="journal.html" class="featured-panel">
+				<h3>01. JOURNAL</h3>
+				<p>Field notes on technology, architecture, and the craft of building systems.</p>
+				<span class="featured-goto">&gt;&gt;&gt; GOTO JOURNAL</span>
+			</a>
+			<a href="portfolio.html" class="featured-panel">
+				<h3>02. PROJECTS</h3>
+				<p>A curated gallery of open-source contributions and professional work.</p>
+				<span class="featured-goto">&gt;&gt;&gt; GOTO REPOS</span>
+			</a>
+			<a href="about.html" class="featured-panel">
+				<h3>03. ABOUT_ME</h3>
+				<p>Professional history, CV, and contact details.</p>
+				<span class="featured-goto">&gt;&gt;&gt; GOTO INFO</span>
+			</a>
+		</div>
+	</section>
+</div>
+</div>
+
+<div class="prompt-line" aria-hidden="true">
+	<span class="prompt-user">user@ioni-solarz:</span><span class="prompt-path">~</span>$ <span id="home-typing-text"></span><span class="cursor-block"></span>
 </div>

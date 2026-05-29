@@ -8,6 +8,11 @@ categories: aws cdk architecture devops
 image: /img/blog/aws-cdk-deployment-hero.jpg
 series: aws-cdk-complex-deployments
 series_part: 1
+scene: |
+  A "simple" service addition collapsed the stack—dependencies you did not respect, deploy order you assumed. CDK made the failure legible after the fact. This is postmortem loot: what broke, how you detected it, how you hardened the next deploy.
+  
+  Treat CDK as executable design doc; still read the CloudFormation battle log.
+
 ---
 
 # AWS CDK Deployment: When Simple Services Break a Complex Stack
@@ -94,7 +99,7 @@ Changing an ALB from internet-facing to internal is not a tweak. It is a replace
 
 We had branched logic: greenfield sandbox wants a public ALB plus CloudFront; an existing VPC landing zone wants an internal ALB plus VPC Origin. One boolean drifted relative to what was already live. Synth looked fine. Deploy was not.
 
-**Lesson:** For brownfield stacks, treat load balancer scheme, subnet placement, and security group ingress as frozen unless you plan a migration. Branch in CDK on *observed* environment state (`isExistingVpc`, SSM parameters, or explicit config flags)—not on what greenfield *should* look like next quarter.
+**Lesson:** For brownfield stacks, treat load balancer scheme, subnet placement, and security group ingress as frozen unless you plan a migration. Branch in CDK on _observed_ environment state (`isExistingVpc`, SSM parameters, or explicit config flags)—not on what greenfield _should_ look like next quarter.
 
 ## Failure Mode 2: Tags That Replace Instead of Update
 
@@ -102,7 +107,7 @@ OpenSearch Serverless collections are sensitive to tag changes. Propagate stack-
 
 We pinned collection tags in code—frozen to what was already deployed— and excluded the collection from generic stack tag aspects. Unromantic. Effective.
 
-**Lesson:** Know which resources in your template are replace-only for tag diffs. OpenSearch Serverless collections belong on that list. FinOps tags are vital; apply them with aspects that *exclude* fragile resource types.
+**Lesson:** Know which resources in your template are replace-only for tag diffs. OpenSearch Serverless collections belong on that list. FinOps tags are vital; apply them with aspects that _exclude_ fragile resource types.
 
 ## Failure Mode 3: Bedrock Meets Private OpenSearch (Policy Order Matters)
 
@@ -110,12 +115,12 @@ A private **OpenSearch Serverless** collection needs:
 
 - A VPC endpoint in your network policy (`SourceVPCEs`)
 - A separate network rule allowing `bedrock.amazonaws.com` (`SourceServices`)
-- Data access policies for the KB role *and* your application role
+- Data access policies for the KB role _and_ your application role
 - The vector index created with the exact field names Bedrock expects
 
 We initially merged Bedrock access into in-place policy updates on resources that already existed. CloudFormation interleaved events: **KnowledgeBase CREATE started**, then **network policy UPDATE** completed. Bedrock hit the collection during the gap. `403 Forbidden`. Rollback reverted the policy work. Next deploy, same race.
 
-Fix: **new** security and access policy resources dedicated to Bedrock—CREATE-only on a fresh deploy—plus explicit dependencies so KB waits for policies *and* the KB role’s default policy attachment.
+Fix: **new** security and access policy resources dedicated to Bedrock—CREATE-only on a fresh deploy—plus explicit dependencies so KB waits for policies _and_ the KB role’s default policy attachment.
 
 Still not enough.
 
@@ -188,7 +193,7 @@ CloudFormation does not fail in isolation. One resource stuck in `CREATE_FAILED`
               split stacks / custom resources
 ```
 
-During rollback, the knowledge base resource disappears. OpenSearch policies may revert. Your *next* deploy is not a clean retry—it is a new negotiation with whatever partial state survived.
+During rollback, the knowledge base resource disappears. OpenSearch policies may revert. Your _next_ deploy is not a clean retry—it is a new negotiation with whatever partial state survived.
 
 **Study tip:** Screenshot the CloudFormation **Events** tab sorted by timestamp, not just the red resource. Ordering tells the story `cdk diff` cannot.
 
@@ -196,16 +201,16 @@ During rollback, the knowledge base resource disappears. OpenSearch policies may
 
 These rules emerged from the post-mortem. They are boring. Boring is the point.
 
-| Practice | Why |
-|----------|-----|
-| Pipeline-only deploys to shared accounts | No manual `cdk deploy` drift vs CI |
-| Three stacks with SSM handoffs | Foundation → Services → Application boundaries match blast radius |
-| Separate CREATE policies for new access paths | Avoid UPDATE vs CREATE races on hot resources |
-| Custom resource for AOSS index | Bedrock KB has a hard prerequisite |
-| Full GuardDuty IAM template | Ownership validation is real |
-| Frozen tags on replace-sensitive resources | Especially OpenSearch Serverless collections |
-| `npm ci` + lock file in same commit | Synth must reproduce CI locally |
-| Image build before Services deploy | ECR tags exist before ECS references them |
+| Practice                                      | Why                                                               |
+| --------------------------------------------- | ----------------------------------------------------------------- |
+| Pipeline-only deploys to shared accounts      | No manual `cdk deploy` drift vs CI                                |
+| Three stacks with SSM handoffs                | Foundation → Services → Application boundaries match blast radius |
+| Separate CREATE policies for new access paths | Avoid UPDATE vs CREATE races on hot resources                     |
+| Custom resource for AOSS index                | Bedrock KB has a hard prerequisite                                |
+| Full GuardDuty IAM template                   | Ownership validation is real                                      |
+| Frozen tags on replace-sensitive resources    | Especially OpenSearch Serverless collections                      |
+| `npm ci` + lock file in same commit           | Synth must reproduce CI locally                                   |
+| Image build before Services deploy            | ECR tags exist before ECS references them                         |
 
 ```
   Developer workflow (target steady state):
@@ -236,7 +241,7 @@ This is an operational rehearsal list—not a certification guide.
 4. **Reproduce CI locally.** `npm ci`, `cdk synth`, `cdk diff` with the same context flags the pipeline passes (`env=sandbox`, layer toggles).
 5. **Maintain a failure log.** One table like the timeline above saves the next engineer six deploy cycles.
 
-If you have already built document pipelines on AWS, you know Step Functions and SQS. **Complex AWS deployment** asks whether your IaC encodes the *boring* steps the console wizard hid—and whether your pipeline enforces them on every merge.
+If you have already built document pipelines on AWS, you know Step Functions and SQS. **Complex AWS deployment** asks whether your IaC encodes the _boring_ steps the console wizard hid—and whether your pipeline enforces them on every merge.
 
 ## Anti-Patterns That Feel Like Progress
 
@@ -267,19 +272,19 @@ Build the failure log while the scars are fresh. Your next “simple” checkbox
 
 ## Series: AWS CDK on Complex Workloads
 
-**Yes—this should be a series.** Part 1 is the post-mortem narrative. Follow-ups go deeper on mechanics without repeating the war stories.
+Follow-ups go deeper on mechanics without repeating the war stories.
 
-| Part | Topic | Focus keyphrase angle |
-|------|--------|------------------------|
-| **[1](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)** | Post-mortem: when simple services break the stack | AWS CDK deployment |
-| **[2](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline)** | Layer cake IaC—Foundation, Services, Application, SSM contracts, pipeline-only discipline | CloudFormation stack layers |
-| **[3](https://ioni.solarz.me/blog/post.html?slug=bedrock-opensearch-guardduty-iac-checklist)** | Bedrock + OpenSearch Serverless + GuardDuty—checklists, custom resources, dependency graphs | Bedrock Knowledge Base IaC |
-| **[4](https://ioni.solarz.me/blog/post.html?slug=document-pipeline-event-driven-deploy)** | End-to-end ingestion wiring—Step Functions, EventBridge, UI completion events, port migrations | AWS pipeline deployment |
+| Part                                                                                           | Topic                                                                                          | Focus keyphrase angle       |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------- |
+| **[1](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)**      | Post-mortem: when simple services break the stack                                              | AWS CDK deployment          |
+| **[2](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline)**            | Layer cake IaC—Foundation, Services, Application, SSM contracts, pipeline-only discipline      | CloudFormation stack layers |
+| **[3](https://ioni.solarz.me/journal/post.html?slug=bedrock-opensearch-guardduty-iac-checklist)** | Bedrock + OpenSearch Serverless + GuardDuty—checklists, custom resources, dependency graphs    | Bedrock Knowledge Base IaC  |
+| **[4](https://ioni.solarz.me/journal/post.html?slug=document-pipeline-event-driven-deploy)**      | End-to-end ingestion wiring—Step Functions, EventBridge, UI completion events, port migrations | AWS pipeline deployment     |
 
-**Related FinOps track:** [AWS FinOps: Cost Observability for a Complex Document and AI Workload](https://ioni.solarz.me/blog/post.html?slug=aws-finops-cost-observability-complex-workload) (tags and dashboards for the same architecture shape).
+**Related FinOps track:** [AWS FinOps: Cost Observability for a Complex Document and AI Workload](https://ioni.solarz.me/journal/post.html?slug=aws-finops-cost-observability-complex-workload) (tags and dashboards for the same architecture shape).
 
-**Related:** [Why the AWS Console Is Not Enough](https://ioni.solarz.me/blog/post.html?slug=why-the-aws-console-is-not-enough), [Building on AWS to Learn AWS](https://ioni.solarz.me/blog/post.html?slug=building-on-aws-to-learn-aws).
+**Related:** [Why the AWS Console Is Not Enough](https://ioni.solarz.me/journal/post.html?slug=why-the-aws-console-is-not-enough), [Building on AWS to Learn AWS](https://ioni.solarz.me/journal/post.html?slug=building-on-aws-to-learn-aws).
 
 ---
 
-*Feel free to share your thoughts by emailing me or reaching out on social media.*
+_Feel free to share your thoughts by emailing me or reaching out on social media._

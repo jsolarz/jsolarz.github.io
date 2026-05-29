@@ -8,6 +8,11 @@ categories: aws azure devops security iam
 image: /img/blog/ado-aws-oidc-trust.jpg
 series: hybrid-cicd-ado-aws
 series_part: 2
+scene: |
+  Federated trust is a trap-filled corridor—OIDC from Azure DevOps into AWS roles, IAM policies tight enough, SCPs that can void your clever plan silently. One wrong thumbprint and the pipeline whispers success while nothing deploys.
+  
+  Read before you wire production keys; landmines are policy-shaped.
+
 ---
 
 # AWS OIDC Azure DevOps: Trust Policies, IAM Roles, and SCP Landmines
@@ -18,7 +23,7 @@ This post is the wiring diagram: what the trust policy actually checks, how narr
 
 ![OIDC trust flow from Azure DevOps service connection to IAM upload role](/img/blog/ado-aws-oidc-trust.png)
 
-**Previous:** [Azure DevOps AWS integration (Pattern A)](https://ioni.solarz.me/blog/post.html?slug=azure-devops-aws-hybrid-cicd)
+**Previous:** [Azure DevOps AWS integration (Pattern A)](https://ioni.solarz.me/journal/post.html?slug=azure-devops-aws-hybrid-cicd)
 
 ## In Brief
 
@@ -138,7 +143,7 @@ CloudTrail `AssumeRoleWithWebIdentity` events show the rejected `sub` when you h
      CodePipeline, upload role       ECS, or Aurora
 ```
 
-After bootstrap, **delete or disable** bootstrap credentials from routine pipelines. If ADO still has a path to `cdk deploy` Application on every commit, you have not finished the hybrid split—see [part 1](https://ioni.solarz.me/blog/post.html?slug=azure-devops-aws-hybrid-cicd).
+After bootstrap, **delete or disable** bootstrap credentials from routine pipelines. If ADO still has a path to `cdk deploy` Application on every commit, you have not finished the hybrid split—see [part 1](https://ioni.solarz.me/journal/post.html?slug=azure-devops-aws-hybrid-cicd).
 
 ---
 
@@ -214,9 +219,9 @@ CDK can gate EventBridge creation on `!config.adoOidcOrgId`. Treat that as infra
 
 Part 3 covers **parallel CI**, **merged Cobertura**, and **path filters**—the ADO side of hybrid delivery so PR signal stays fast without lying about coverage.
 
-**Series:** [Part 1 — Pattern A](https://ioni.solarz.me/blog/post.html?slug=azure-devops-aws-hybrid-cicd) · **Part 2** (this) · [Part 3 — Parallel CI](https://ioni.solarz.me/blog/post.html?slug=ado-aws-parallel-ci-coverage)
+**Series:** [Part 1 — Pattern A](https://ioni.solarz.me/journal/post.html?slug=azure-devops-aws-hybrid-cicd) · **Part 2** (this) · [Part 3 — Parallel CI](https://ioni.solarz.me/journal/post.html?slug=ado-aws-parallel-ci-coverage)
 
-**Related:** [CloudFormation stack layers](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-layered-stacks-pipeline) · [AWS CDK deployment post-mortem](https://ioni.solarz.me/blog/post.html?slug=aws-cdk-complex-deployment-postmortem)
+**Related:** [CloudFormation stack layers](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-layered-stacks-pipeline) · [AWS CDK deployment post-mortem](https://ioni.solarz.me/journal/post.html?slug=aws-cdk-complex-deployment-postmortem)
 
 ---
 

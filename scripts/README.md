@@ -1,17 +1,11 @@
-# Scripts Directory
+# Scripts
 
-Build scripts for the blog website.
+## generate-posts-index.js
 
-## Files
-
--   `generate-posts-index.js` - Generates posts index (metadata only) from `_posts/` directory
-
-## Usage
-
-Generate posts index:
+Builds `js/posts-index.json` and `_posts/manifest.json` from `_posts/*.md` (metadata only). Markdown is still rendered in the browser.
 
 ```bash
 npm run generate-index
 ```
 
-This creates `js/posts-index.json` with post metadata. No HTML conversion needed - markdown is rendered client-side.
+Run after adding or changing posts. The GitHub Action `.github/workflows/reindex-posts.yml` does the same on pushes to `master` or `main` when `_posts/**` changes.

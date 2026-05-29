@@ -6,6 +6,15 @@ author: Jonathan Solarz
 categories: future innovation ai
 image: /img/blog/future-intelligent-systems.jpg
 excerpt: A thoughtful exploration of where AI, cloud, and architecture are going—and how organizations can prepare for the next wave of intelligent systems.
+
+  The horizon quest is vague by design: agents, copilots, autonomous workflows. You are not here to predict the final boss—only to name the pressures that will reshape how systems are commissioned and governed.
+  
+  Read this as a field report on where investment, risk, and human oversight are likely to collide before the next patch notes arrive.
+scene: |
+  The horizon quest is vague by design: agents, copilots, autonomous workflows. You are not here to predict the final boss—only to name the pressures that will reshape how systems are commissioned and governed.
+  
+  Read this as a field report on where investment, risk, and human oversight are likely to collide before the next patch notes arrive.
+
 ---
 
 # The Future of Intelligent Systems: Where We're Headed and Why It Matters

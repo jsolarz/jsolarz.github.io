@@ -35,7 +35,7 @@
 
 4. **Template Literals** - ES2015
    ```javascript
-   `${this.#basePath}/blog/post.html?slug=${slug}`  // ✅ Readable
+   `${this.#basePath}/journal/post.html?slug=${slug}`  // ✅ Readable
    ```
 
 5. **Destructuring** - ES2015

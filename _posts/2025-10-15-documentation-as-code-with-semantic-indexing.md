@@ -1,4 +1,15 @@
-# Documentation as Code: Building a Semantic Knowledge Base
+---
+title: "Documentation as Code: Building a Semantic Knowledge Base"
+date: 2025-10-15
+slug: documentation-as-code-with-semantic-indexing
+author: Jonathan Solarz
+categories:
+excerpt: ""
+scene: |
+  Scrolls in git beat scrolls in silos when the party needs diffable truth. Semantic indexing is the scout that connects passages you forgot were related. You are wiring docs to the same rigor as application code—reviewable, searchable, and hard to lose in a reorg.
+  
+  The encounter difficulty spikes when embeddings lie confidently. Plan human verification into the loop.
+---
 
 ## Introduction
 
