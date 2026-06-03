@@ -1,5 +1,32 @@
 [
   {
+    "title": "The Work Changed Shape",
+    "date": "2026-08-18",
+    "slug": "the-work-changed-shape",
+    "filename": "2026-08-18-the-work-changed-shape.md",
+    "categories": [
+      "ai",
+      "development",
+      "architecture"
+    ],
+    "excerpt": "AI coding agents did not replace the developer. They replaced the parts of the job that were never the job. The thinking stayed. The overhead compressed. What changed is how much of your day you spend deciding versus executing.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Your CDK Deploy Succeeded. Your App Is Still Broken.",
+    "date": "2026-08-11",
+    "slug": "cdk-deploy-succeeded-app-still-broken",
+    "filename": "2026-08-11-cdk-deploy-succeeded-app-still-broken.md",
+    "categories": [
+      "aws",
+      "cdk",
+      "architecture",
+      "devops"
+    ],
+    "excerpt": "CloudFormation says CREATE_COMPLETE. The user sees a blank page. The gap between a green stack and a working feature is wider than you think—CORS on imported buckets, MIME types nginx forgot, presigned URLs that work in curl but die in the browser.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "Azure DevOps Pipeline AWS: Parallel CI, Coverage, and Deploy Guardrails",
     "date": "2026-08-04",
     "slug": "ado-aws-parallel-ci-coverage",
