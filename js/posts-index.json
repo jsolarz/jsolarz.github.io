@@ -1,5 +1,49 @@
 [
   {
+    "title": "Entra ID BFF Pattern: Mock Dev, Production Cookies, and Automation JWT",
+    "date": "2026-09-09",
+    "slug": "entra-aws-dual-auth-scripts-bff",
+    "filename": "2026-09-09-entra-aws-dual-auth-scripts-bff.md",
+    "categories": [
+      "aws",
+      "azure",
+      "security",
+      "architecture",
+      "dotnet"
+    ],
+    "excerpt": "Production runs Entra cookies; local dev runs mock JWT; bulk import still posts with Bearer. One Auth:Provider flag does not merge those worlds—you route, register endpoints, and test each path on purpose.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Microsoft Entra App Roles: Registration Checklist and Redirect URI Drift",
+    "date": "2026-09-02",
+    "slug": "entra-app-registration-roles-redirects",
+    "filename": "2026-09-02-entra-app-registration-roles-redirects.md",
+    "categories": [
+      "azure",
+      "security",
+      "architecture",
+      "dotnet"
+    ],
+    "excerpt": "App registration is five fields until CloudFront changes and AADSTS50011 comes back. Microsoft Entra app roles live in the token as roles—not role—and nobody assigns them until Access Denied after a perfect login.",
+    "author": "Jonathan Solarz"
+  },
+  {
+    "title": "Entra ID AWS Application: OIDC, BFF, and the Failures Nobody Warns You About",
+    "date": "2026-08-25",
+    "slug": "entra-id-aws-application-oidc",
+    "filename": "2026-08-25-entra-id-aws-application-oidc.md",
+    "categories": [
+      "aws",
+      "azure",
+      "security",
+      "architecture",
+      "dotnet"
+    ],
+    "excerpt": "Microsoft login works until the callback hits nginx, ALB never sees /signin-oidc, or Entra rejects a redirect URI that matched last week's stack. On Fargate, Entra is a BFF and routing problem dressed as identity.",
+    "author": "Jonathan Solarz"
+  },
+  {
     "title": "The Work Changed Shape",
     "date": "2026-08-18",
     "slug": "the-work-changed-shape",
