@@ -182,46 +182,6 @@
     "author": "Jonathan Solarz"
   },
   {
-    "title": "Mostly Organised, Part 1: Why I Built a Replacement for a Dead Add-on",
-    "date": "2026-06-17",
-    "slug": "mostly-organised-part-1-why-i-built-a-dead-addon",
-    "filename": "2026-06-17-mostly-organised-part-1-why-i-built-a-dead-addon.md",
-    "categories": [
-      "development",
-      "google-workspace",
-      "apps-script"
-    ],
-    "excerpt": "The Google Docs table of contents has been read-only scaffolding since approximately the time of Chaucer. The one add-on that fixed this was discontinued. So I built a replacement — and learned a great deal about the fine art of suffering.",
-    "author": "Jonathan Solarz"
-  },
-  {
-    "title": "Mostly Organised, Part 2: headingId Lifecycle, Index Arithmetic, and the Perils of batchUpdate",
-    "date": "2026-06-17",
-    "slug": "mostly-organised-part-2-the-implementation",
-    "filename": "2026-06-17-mostly-organised-part-2-the-implementation.md",
-    "categories": [
-      "development",
-      "google-workspace",
-      "apps-script"
-    ],
-    "excerpt": "Google assigns internal IDs to heading paragraphs. Google resets those IDs when you move sections. The Docs API processes mutations sequentially, and indices shift as you go. These things are related, and they would like a word.",
-    "author": "Jonathan Solarz"
-  },
-  {
-    "title": "Mostly Organised, Part 3: What I'd Tell Someone Starting an Apps Script Project",
-    "date": "2026-06-17",
-    "slug": "mostly-organised-part-3-lessons-from-apps-script",
-    "filename": "2026-06-17-mostly-organised-part-3-lessons-from-apps-script.md",
-    "categories": [
-      "development",
-      "google-workspace",
-      "apps-script",
-      "best-practices"
-    ],
-    "excerpt": "After building a full Google Docs Editor Add-on, I have opinions. Specifically: about manifests, Content Security Policy, undo history, the difference between Workspace Add-ons and Editor Add-ons, and why you must use a single batchUpdate call for everything.",
-    "author": "Jonathan Solarz"
-  },
-  {
     "title": "AWS Pipeline Deployment: Wiring Document Ingestion End to End",
     "date": "2026-06-16",
     "slug": "document-pipeline-event-driven-deploy",
